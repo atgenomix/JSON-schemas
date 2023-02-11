@@ -1,0 +1,353 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Phenopacket",
+    "description": "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses. This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "An identifier specific for this phenopacket."
+        },
+        "subject": {
+            "$ref": "#/definitions/Individual",
+            "additionalProperties": false,
+            "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient"
+        },
+        "meta_data": {
+            "$ref": "#/definitions/MetaData",
+            "additionalProperties": false,
+            "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "Individual": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id"
+                },
+                "alternate_ids": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track."
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "description": "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated.",
+                    "format": "date-time"
+                },
+                "time_at_last_encounter": {
+                    "$ref": "#/definitions/TimeElement",
+                    "additionalProperties": false,
+                    "description": "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes"
+                },
+                "vital_status": {
+                    "$ref": "#/definitions/VitalStatus",
+                    "additionalProperties": false,
+                    "description": "Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status"
+                },
+                "sex": {
+                    "enum": [
+                        "UNKNOWN_SEX",
+                        "FEMALE",
+                        "MALE",
+                        "OTHER_SEX"
+                    ],
+                    "type": "string",
+                    "title": "Sex",
+                    "description": "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
+                },
+                "karyotypic_sex": {
+                    "enum": [
+                        "UNKNOWN_KARYOTYPE",
+                        "XX",
+                        "XY",
+                        "XO",
+                        "XXY",
+                        "XXX",
+                        "XXYY",
+                        "XXXY",
+                        "XXXX",
+                        "XYY",
+                        "OTHER_KARYOTYPE"
+                    ],
+                    "type": "string",
+                    "title": "Karyotypic Sex",
+                    "description": "Karyotypic sex of the individual"
+                },
+                "gender": {
+                    "$ref": "#/definitions/OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Self-identified gender"
+                },
+                "taxonomy": {
+                    "$ref": "#/definitions/OntologyClass",
+                    "additionalProperties": false,
+                    "description": "NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Individual",
+            "description": "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html)."
+        },
+        "MetaData": {
+            "properties": {
+                "created": {
+                    "type": "string",
+                    "description": "ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"",
+                    "format": "date-time"
+                },
+                "created_by": {
+                    "type": "string",
+                    "description": "some kind of identifier for the contributor/ program ARGO sample_registration::program_id"
+                },
+                "submitted_by": {
+                    "type": "string",
+                    "description": "information about the person/organisation/network that has submitted this phenopacket"
+                },
+                "resources": {
+                    "items": {
+                        "$ref": "#/definitions/Resource"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "a listing of the ontologies and resources referenced in the phenopacket"
+                },
+                "updates": {
+                    "items": {
+                        "$ref": "#/definitions/Update"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "An OPTIONAL list of Updates to the phenopacket."
+                }
+            },
+            "required": ["created", "created_by", "submitted_by"],
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Meta Data"
+        },
+        "Age": {
+            "properties": {
+                "iso8601duration": {
+                    "type": "string",
+                    "description": "The :ref:`ISO 8601\u003cmetadata_date_time\u003e` age of this object as ISO8601 duration or time intervals. e.g. P40Y10M05D)"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Age",
+            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/"
+        },
+        "AgeRange": {
+            "properties": {
+                "start": {
+                    "$ref": "#/definitions/Age",
+                    "additionalProperties": false
+                },
+                "end": {
+                    "$ref": "#/definitions/Age",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Age Range"
+        },
+        "GestationalAge": {
+            "properties": {
+                "weeks": {
+                    "type": "integer"
+                },
+                "days": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Gestational Age"
+        },
+        "OntologyClass": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\""
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Ontology Class",
+            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept)   see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)"
+        },
+        "Resource": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "for OBO ontologies, this should be the versionIRI"
+                },
+                "namespace_prefix": {
+                    "type": "string",
+                    "description": "The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI"
+                },
+                "iri_prefix": {
+                    "type": "string",
+                    "description": "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe'    OntologyClass:        id: 'HP:0012828'        label: 'Severe'    Resource:        namespace_prefix: 'HP'        iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Resource",
+            "description": "Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)"
+        },
+        "TimeElement": {
+            "properties": {
+                "gestational_age": {
+                    "$ref": "#/definitions/GestationalAge",
+                    "additionalProperties": false
+                },
+                "age": {
+                    "$ref": "#/definitions/Age",
+                    "additionalProperties": false
+                },
+                "age_range": {
+                    "$ref": "#/definitions/AgeRange",
+                    "additionalProperties": false
+                },
+                "ontology_class": {
+                    "$ref": "#/definitions/OntologyClass",
+                    "additionalProperties": false
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "interval": {
+                    "$ref": "#/definitions/TimeInterval",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "gestational_age"
+                    ]
+                },
+                {
+                    "required": [
+                        "age"
+                    ]
+                },
+                {
+                    "required": [
+                        "age_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "ontology_class"
+                    ]
+                },
+                {
+                    "required": [
+                        "timestamp"
+                    ]
+                },
+                {
+                    "required": [
+                        "interval"
+                    ]
+                }
+            ],
+            "title": "Time Element"
+        },
+        "TimeInterval": {
+            "properties": {
+                "start": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "end": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Time Interval"
+        },
+        "Update": {
+            "properties": {
+                "timestamp": {
+                    "type": "string",
+                    "description": "ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED",
+                    "format": "date-time"
+                },
+                "updated_by": {
+                    "type": "string",
+                    "description": "Information about the person/organisation/network that has updated the phenopacket. OPTIONAL"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Update",
+            "description": "Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update"
+        },
+        "VitalStatus": {
+            "properties": {
+                "status": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        "ALIVE",
+                        "DECEASED"
+                    ],
+                    "type": "string",
+                    "title": "Status",
+                    "description": "Default = ALIVE i.e. the individual is alive."
+                },
+                "time_of_death": {
+                    "$ref": "#/definitions/TimeElement",
+                    "additionalProperties": false
+                },
+                "cause_of_death": {
+                    "$ref": "#/definitions/OntologyClass",
+                    "additionalProperties": false,
+                    "description": "ARGO mapping donor::cause_of_death"
+                },
+                "survival_time_in_days": {
+                    "type": "integer",
+                    "description": "ARGO mapping donor::survival_time"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Vital Status"
+        }
+    }
+}

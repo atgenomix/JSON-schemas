@@ -1,0 +1,2281 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$ref": "#/definitions/Family",
+    "definitions": {
+        "Family": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "An identifier specific for this family."
+                },
+                "proband": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.Phenopacket",
+                    "additionalProperties": false,
+                    "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient"
+                },
+                "relatives": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.Phenopacket"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Individuals related in some way to the patient. For instance, the individuals may be genetically related or may be members of a cohort. If this field is used, then  it is expected that a pedigree will be included for genetically related individuals for use cases such as genomic diagnostics. If a phenopacket is being used to describe one member of a cohort, then in general one phenopacket will be created for each of the individuals in the cohort."
+                },
+                "consanguinous_parents": {
+                    "type": "boolean",
+                    "description": "flag to indicate that the parents of the proband are consanguinous"
+                },
+                "pedigree": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Pedigree",
+                    "additionalProperties": false,
+                    "description": "The pedigree defining the relations between the proband and their relatives. Pedigree.individual_id should map to the PhenoPacket.Individual.id"
+                },
+                "files": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.File"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Pointer to the relevant file(s) for the family. These should be files relating to one or more of the family members e.g a multi-sample VCF. Files relating exclusively to individual phenopackets should be contained in the Phenopacket."
+                },
+                "meta_data": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.MetaData",
+                    "additionalProperties": false,
+                    "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Family",
+            "description": "Phenotype, sample and pedigree data required for a genomic diagnosis. Equivalent to the Genomics England InterpretationRequestRD https://github.com/genomicsengland/GelReportModels/blob/master/schemas/IDLs/org.gel.models.report.avro/5.0.0/InterpretationRequestRD.avdl"
+        },
+        "org.ga4gh.vrs.v1.Allele": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "curie": {
+                    "type": "string"
+                },
+                "chromosome_location": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.ChromosomeLocation",
+                    "additionalProperties": false
+                },
+                "sequence_location": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.SequenceLocation",
+                    "additionalProperties": false
+                },
+                "sequence_state": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.SequenceState",
+                    "additionalProperties": false
+                },
+                "literal_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.LiteralSequenceExpression",
+                    "additionalProperties": false
+                },
+                "derived_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DerivedSequenceExpression",
+                    "additionalProperties": false
+                },
+                "repeated_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.RepeatedSequenceExpression",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "curie"
+                    ]
+                },
+                {
+                    "required": [
+                        "chromosome_location"
+                    ]
+                },
+                {
+                    "required": [
+                        "sequence_location"
+                    ]
+                },
+                {
+                    "required": [
+                        "sequence_state"
+                    ]
+                },
+                {
+                    "required": [
+                        "literal_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "derived_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "repeated_sequence_expression"
+                    ]
+                }
+            ],
+            "title": "Allele"
+        },
+        "org.ga4gh.vrs.v1.ChromosomeLocation": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "species_id": {
+                    "type": "string"
+                },
+                "chr": {
+                    "type": "string"
+                },
+                "interval": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.CytobandInterval",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Chromosome Location"
+        },
+        "org.ga4gh.vrs.v1.CopyNumber": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "allele": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Allele",
+                    "additionalProperties": false
+                },
+                "haplotype": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Haplotype",
+                    "additionalProperties": false
+                },
+                "gene": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Gene",
+                    "additionalProperties": false
+                },
+                "literal_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.LiteralSequenceExpression",
+                    "additionalProperties": false
+                },
+                "derived_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DerivedSequenceExpression",
+                    "additionalProperties": false
+                },
+                "repeated_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.RepeatedSequenceExpression",
+                    "additionalProperties": false
+                },
+                "curie": {
+                    "type": "string"
+                },
+                "number": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Number",
+                    "additionalProperties": false
+                },
+                "indefinite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.IndefiniteRange",
+                    "additionalProperties": false
+                },
+                "definite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DefiniteRange",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "allele"
+                    ]
+                },
+                {
+                    "required": [
+                        "haplotype"
+                    ]
+                },
+                {
+                    "required": [
+                        "gene"
+                    ]
+                },
+                {
+                    "required": [
+                        "literal_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "derived_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "repeated_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "curie"
+                    ]
+                },
+                {
+                    "required": [
+                        "number"
+                    ]
+                },
+                {
+                    "required": [
+                        "indefinite_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "definite_range"
+                    ]
+                }
+            ],
+            "title": "Copy Number"
+        },
+        "org.ga4gh.vrs.v1.CytobandInterval": {
+            "properties": {
+                "start": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Cytoband Interval"
+        },
+        "org.ga4gh.vrs.v1.DefiniteRange": {
+            "properties": {
+                "min": {
+                    "type": "string"
+                },
+                "max": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Definite Range"
+        },
+        "org.ga4gh.vrs.v1.DerivedSequenceExpression": {
+            "properties": {
+                "location": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.SequenceLocation",
+                    "additionalProperties": false
+                },
+                "reverse_complement": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Derived Sequence Expression"
+        },
+        "org.ga4gh.vrs.v1.Gene": {
+            "properties": {
+                "gene_id": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Gene"
+        },
+        "org.ga4gh.vrs.v1.Haplotype": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "members": {
+                    "items": {
+                        "$ref": "#/definitions/org.ga4gh.vrs.v1.Haplotype.Member"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Haplotype"
+        },
+        "org.ga4gh.vrs.v1.Haplotype.Member": {
+            "properties": {
+                "allele": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Allele",
+                    "additionalProperties": false
+                },
+                "curie": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "allele"
+                    ]
+                },
+                {
+                    "required": [
+                        "curie"
+                    ]
+                }
+            ],
+            "title": "Member"
+        },
+        "org.ga4gh.vrs.v1.IndefiniteRange": {
+            "properties": {
+                "value": {
+                    "type": "string"
+                },
+                "comparator": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Indefinite Range"
+        },
+        "org.ga4gh.vrs.v1.LiteralSequenceExpression": {
+            "properties": {
+                "sequence": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Literal Sequence Expression"
+        },
+        "org.ga4gh.vrs.v1.Number": {
+            "properties": {
+                "value": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Number"
+        },
+        "org.ga4gh.vrs.v1.RepeatedSequenceExpression": {
+            "properties": {
+                "literal_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.LiteralSequenceExpression",
+                    "additionalProperties": false
+                },
+                "derived_sequence_expression": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DerivedSequenceExpression",
+                    "additionalProperties": false
+                },
+                "number": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Number",
+                    "additionalProperties": false
+                },
+                "indefinite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.IndefiniteRange",
+                    "additionalProperties": false
+                },
+                "definite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DefiniteRange",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "literal_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "derived_sequence_expression"
+                    ]
+                },
+                {
+                    "required": [
+                        "number"
+                    ]
+                },
+                {
+                    "required": [
+                        "indefinite_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "definite_range"
+                    ]
+                }
+            ],
+            "title": "Repeated Sequence Expression"
+        },
+        "org.ga4gh.vrs.v1.SequenceInterval": {
+            "properties": {
+                "start_number": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Number",
+                    "additionalProperties": false
+                },
+                "start_indefinite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.IndefiniteRange",
+                    "additionalProperties": false
+                },
+                "start_definite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DefiniteRange",
+                    "additionalProperties": false
+                },
+                "end_number": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Number",
+                    "additionalProperties": false
+                },
+                "end_indefinite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.IndefiniteRange",
+                    "additionalProperties": false
+                },
+                "end_definite_range": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.DefiniteRange",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "start_number"
+                    ]
+                },
+                {
+                    "required": [
+                        "start_indefinite_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "start_definite_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "end_number"
+                    ]
+                },
+                {
+                    "required": [
+                        "end_indefinite_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "end_definite_range"
+                    ]
+                }
+            ],
+            "title": "Sequence Interval"
+        },
+        "org.ga4gh.vrs.v1.SequenceLocation": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "sequence_id": {
+                    "type": "string"
+                },
+                "sequence_interval": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.SequenceInterval",
+                    "additionalProperties": false
+                },
+                "simple_interval": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.SimpleInterval",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "sequence_interval"
+                    ]
+                },
+                {
+                    "required": [
+                        "simple_interval"
+                    ]
+                }
+            ],
+            "title": "Sequence Location"
+        },
+        "org.ga4gh.vrs.v1.SequenceState": {
+            "properties": {
+                "sequence": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Sequence State"
+        },
+        "org.ga4gh.vrs.v1.SimpleInterval": {
+            "properties": {
+                "start": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Simple Interval"
+        },
+        "org.ga4gh.vrs.v1.Text": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "definition": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Text"
+        },
+        "org.ga4gh.vrs.v1.Variation": {
+            "properties": {
+                "allele": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Allele",
+                    "additionalProperties": false
+                },
+                "haplotype": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Haplotype",
+                    "additionalProperties": false
+                },
+                "copy_number": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.CopyNumber",
+                    "additionalProperties": false
+                },
+                "text": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Text",
+                    "additionalProperties": false
+                },
+                "variation_set": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.VariationSet",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "allele"
+                    ]
+                },
+                {
+                    "required": [
+                        "haplotype"
+                    ]
+                },
+                {
+                    "required": [
+                        "copy_number"
+                    ]
+                },
+                {
+                    "required": [
+                        "text"
+                    ]
+                },
+                {
+                    "required": [
+                        "variation_set"
+                    ]
+                }
+            ],
+            "title": "Variation"
+        },
+        "org.ga4gh.vrs.v1.VariationSet": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "members": {
+                    "items": {
+                        "$ref": "#/definitions/org.ga4gh.vrs.v1.VariationSet.Member"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Variation Set"
+        },
+        "org.ga4gh.vrs.v1.VariationSet.Member": {
+            "properties": {
+                "curie": {
+                    "type": "string"
+                },
+                "allele": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Allele",
+                    "additionalProperties": false
+                },
+                "haplotype": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Haplotype",
+                    "additionalProperties": false
+                },
+                "copy_number": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.CopyNumber",
+                    "additionalProperties": false
+                },
+                "text": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Text",
+                    "additionalProperties": false
+                },
+                "variation_set": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.VariationSet",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "curie"
+                    ]
+                },
+                {
+                    "required": [
+                        "allele"
+                    ]
+                },
+                {
+                    "required": [
+                        "haplotype"
+                    ]
+                },
+                {
+                    "required": [
+                        "copy_number"
+                    ]
+                },
+                {
+                    "required": [
+                        "text"
+                    ]
+                },
+                {
+                    "required": [
+                        "variation_set"
+                    ]
+                }
+            ],
+            "title": "Member"
+        },
+        "org.ga4gh.vrsatile.v1.Expression": {
+            "properties": {
+                "syntax": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Expression",
+            "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression"
+        },
+        "org.ga4gh.vrsatile.v1.Extension": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Extension",
+            "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension"
+        },
+        "org.ga4gh.vrsatile.v1.GeneDescriptor": {
+            "properties": {
+                "value_id": {
+                    "type": "string",
+                    "description": "The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071 This should be a CURIE linking the reference to a namespace where it can be retrieved. Mirrors the value_id field of a generic value object descriptor"
+                },
+                "symbol": {
+                    "type": "string",
+                    "description": "The primary gene symbol. Takes the place of the label field in a generic descriptor"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A free-text description of the value object"
+                },
+                "alternate_ids": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Alternate IDs (should be CURIE) for the same concept may be placed in alternate_ids"
+                },
+                "alternate_symbols": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Takes the place of alternate_labels field in a generic descriptor"
+                },
+                "xrefs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Gene Descriptor",
+            "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#gene-descriptor"
+        },
+        "org.ga4gh.vrsatile.v1.VariationDescriptor": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "variation": {
+                    "$ref": "#/definitions/org.ga4gh.vrs.v1.Variation",
+                    "additionalProperties": false
+                },
+                "label": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "gene_context": {
+                    "$ref": "#/definitions/org.ga4gh.vrsatile.v1.GeneDescriptor",
+                    "additionalProperties": false,
+                    "description": "A specific gene context that applies to this variant."
+                },
+                "expressions": {
+                    "items": {
+                        "$ref": "#/definitions/org.ga4gh.vrsatile.v1.Expression"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions"
+                },
+                "vcf_record": {
+                    "$ref": "#/definitions/org.ga4gh.vrsatile.v1.VcfRecord",
+                    "additionalProperties": false,
+                    "description": "A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the allelic_state"
+                },
+                "xrefs": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Allele registry, ClinVar, or other related IDs should be included as xrefs"
+                },
+                "alternate_labels": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "Common aliases for a variant, e.g. EGFR vIII, are alternate labels"
+                },
+                "extensions": {
+                    "items": {
+                        "$ref": "#/definitions/org.ga4gh.vrsatile.v1.Extension"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                },
+                "molecule_context": {
+                    "enum": [
+                        "unspecified_molecule_context",
+                        0,
+                        "genomic",
+                        1,
+                        "transcript",
+                        2,
+                        "protein",
+                        3
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Molecule Context"
+                },
+                "structural_type": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The structural variant type associated with this variant, such as a substitution, deletion, or fusion. We RECOMMEND using a descendent term of SO:0001537."
+                },
+                "vrs_ref_allele_seq": {
+                    "type": "string",
+                    "description": "A Sequence corresponding to a “ref allele”, describing the sequence expected at a SequenceLocation reference."
+                },
+                "allelic_state": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "We RECOMMEND that the allelic_state of variant be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept GENO:0000875."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Variation Descriptor"
+        },
+        "org.ga4gh.vrsatile.v1.VcfRecord": {
+            "properties": {
+                "genome_assembly": {
+                    "type": "string"
+                },
+                "chrom": {
+                    "type": "string"
+                },
+                "pos": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "ref": {
+                    "type": "string"
+                },
+                "alt": {
+                    "type": "string"
+                },
+                "qual": {
+                    "type": "string"
+                },
+                "filter": {
+                    "type": "string"
+                },
+                "info": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Vcf Record"
+        },
+        "org.phenopackets.schema.v2.Phenopacket": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "An identifier specific for this phenopacket."
+                },
+                "subject": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Individual",
+                    "additionalProperties": false,
+                    "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient"
+                },
+                "phenotypic_features": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.PhenotypicFeature"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Phenotypic features relating to the subject of the phenopacket"
+                },
+                "measurements": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Measurement"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Quantifiable measurements related to the individual"
+                },
+                "biosamples": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Biosample"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Biosample(s) derived from the patient or a collection of biosamples in isolation"
+                },
+                "interpretations": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Interpretation"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                },
+                "diseases": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Disease"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Field for disease identifiers - could be used for listing either diagnosed or suspected conditions. The resources using these fields should define what this represents in their context."
+                },
+                "medical_actions": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.MedicalAction"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                },
+                "files": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.File"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Pointer to the relevant file(s) for the individual"
+                },
+                "meta_data": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.MetaData",
+                    "additionalProperties": false,
+                    "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Phenopacket",
+            "description": "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses. This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields."
+        },
+        "org.phenopackets.schema.v2.core.Age": {
+            "properties": {
+                "iso8601duration": {
+                    "type": "string",
+                    "description": "The :ref:`ISO 8601\u003cmetadata_date_time\u003e` age of this object as ISO8601 duration or time intervals. e.g. P40Y10M05D)"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Age",
+            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/"
+        },
+        "org.phenopackets.schema.v2.core.AgeRange": {
+            "properties": {
+                "start": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Age",
+                    "additionalProperties": false
+                },
+                "end": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Age",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Age Range"
+        },
+        "org.phenopackets.schema.v2.core.Biosample": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id"
+                },
+                "individual_id": {
+                    "type": "string",
+                    "description": "The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id"
+                },
+                "derived_from_id": {
+                    "type": "string",
+                    "description": "The id of the parent biosample this biosample was derived from."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data."
+                },
+                "sampled_tissue": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source"
+                },
+                "sample_type": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type"
+                },
+                "phenotypic_features": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.PhenotypicFeature"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Phenotypic characteristics of the BioSample, for example histological findings of a biopsy."
+                },
+                "measurements": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Measurement"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                },
+                "taxonomy": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606"
+                },
+                "time_of_collection": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself.See http://build.fhir.org/datatypes"
+                },
+                "histological_diagnosis": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type"
+                },
+                "tumor_progression": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)"
+                },
+                "tumor_grade": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet"
+                },
+                "pathological_stage": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group"
+                },
+                "pathological_tnm_finding": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category"
+                },
+                "diagnostic_markers": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)"
+                },
+                "procedure": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Procedure",
+                    "additionalProperties": false,
+                    "description": "Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed"
+                },
+                "files": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.File"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Pointer to the relevant file(s) for the biosample. Files relating to the entire individual e.g. a germline exome/genome should be associated with the Phenopacket rather than the Biosample it was derived from."
+                },
+                "material_sample": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
+                },
+                "sample_processing": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing"
+                },
+                "sample_storage": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Field to represent how the sample was stored ARGO mapping specimen::specimen_storage"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Biosample",
+            "description": "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).  biosamples SAMN08666232 Human Cell Atlas"
+        },
+        "org.phenopackets.schema.v2.core.ComplexValue": {
+            "properties": {
+                "typed_quantities": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.TypedQuantity"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Complex Value"
+        },
+        "org.phenopackets.schema.v2.core.Diagnosis": {
+            "properties": {
+                "disease": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket."
+                },
+                "genomic_interpretations": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.GenomicInterpretation"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "genomic features containing the status of their contribution towards the diagnosis"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Diagnosis"
+        },
+        "org.phenopackets.schema.v2.core.Disease": {
+            "properties": {
+                "term": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id"
+                },
+                "excluded": {
+                    "type": "boolean",
+                    "description": "Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!"
+                },
+                "onset": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "The onset of the disease. The values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis"
+                },
+                "resolution": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false
+                },
+                "disease_stage": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group"
+                },
+                "clinical_tnm_finding": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Cancer findings in the TNM system that is relevant to the diagnosis of cancer. See https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C48232 (Cancer TNM Finding) ARGO mapping primary_diagnosis::clinical_t_category ARGO mapping primary_diagnosis::clinical_n_category ARGO mapping primary_diagnosis::clinical_m_category"
+                },
+                "primary_site": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general"
+                },
+                "laterality": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The term used to indicate laterality of diagnosis, if applicable. (Codelist reference: NCI CDE: 4122391)"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Disease",
+            "description": "Message to indicate a disease (diagnosis) and its recorded onset."
+        },
+        "org.phenopackets.schema.v2.core.DoseInterval": {
+            "properties": {
+                "quantity": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Quantity",
+                    "additionalProperties": false
+                },
+                "schedule_frequency": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false
+                },
+                "interval": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeInterval",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Dose Interval",
+            "description": "e.g. 50mg/ml 3 times daily for two weeks"
+        },
+        "org.phenopackets.schema.v2.core.Evidence": {
+            "properties": {
+                "evidence_code": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The encoded evidence type using, for example the Evidence \u0026 Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl) FHIR mapping: Condition.evidence.code"
+                },
+                "reference": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.ExternalReference",
+                    "additionalProperties": false,
+                    "description": "FHIR mapping: Condition.evidence.detail"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Evidence",
+            "description": "FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)"
+        },
+        "org.phenopackets.schema.v2.core.ExternalReference": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
+                },
+                "reference": {
+                    "type": "string",
+                    "description": "A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field FHIR mapping Reference.reference"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Human readable title or display string for the reference FHIR mapping: Reference.display"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "External Reference",
+            "description": "FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)"
+        },
+        "org.phenopackets.schema.v2.core.File": {
+            "properties": {
+                "uri": {
+                    "type": "string",
+                    "description": "URI for the file e.g. file://data/genomes/file1.vcf.gz or https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444"
+                },
+                "individual_to_file_identifiers": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object",
+                    "description": "A map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
+                },
+                "file_attributes": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object",
+                    "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "File"
+        },
+        "org.phenopackets.schema.v2.core.GenomicInterpretation": {
+            "properties": {
+                "subject_or_biosample_id": {
+                    "type": "string",
+                    "description": "identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket."
+                },
+                "interpretation_status": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        0,
+                        "REJECTED",
+                        1,
+                        "CANDIDATE",
+                        2,
+                        "CONTRIBUTORY",
+                        3,
+                        "CAUSATIVE",
+                        4
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Interpretation Status"
+                },
+                "gene": {
+                    "$ref": "#/definitions/org.ga4gh.vrsatile.v1.GeneDescriptor",
+                    "additionalProperties": false
+                },
+                "variant_interpretation": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.VariantInterpretation",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "gene"
+                    ]
+                },
+                {
+                    "required": [
+                        "variant_interpretation"
+                    ]
+                }
+            ],
+            "title": "Genomic Interpretation",
+            "description": "A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations."
+        },
+        "org.phenopackets.schema.v2.core.GestationalAge": {
+            "properties": {
+                "weeks": {
+                    "type": "integer"
+                },
+                "days": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Gestational Age"
+        },
+        "org.phenopackets.schema.v2.core.Individual": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id"
+                },
+                "alternate_ids": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array",
+                    "description": "An optional list of alternative identifiers for this individual. This field is providedfor the convenience of users who may have multiple mappings to an individual which they need to track."
+                },
+                "date_of_birth": {
+                    "type": "string",
+                    "description": "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated.",
+                    "format": "date-time"
+                },
+                "time_at_last_encounter": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes"
+                },
+                "vital_status": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.VitalStatus",
+                    "additionalProperties": false,
+                    "description": "Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status"
+                },
+                "sex": {
+                    "enum": [
+                        "UNKNOWN_SEX",
+                        0,
+                        "FEMALE",
+                        1,
+                        "MALE",
+                        2,
+                        "OTHER_SEX",
+                        3
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Sex",
+                    "description": "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
+                },
+                "karyotypic_sex": {
+                    "enum": [
+                        "UNKNOWN_KARYOTYPE",
+                        0,
+                        "XX",
+                        1,
+                        "XY",
+                        2,
+                        "XO",
+                        3,
+                        "XXY",
+                        4,
+                        "XXX",
+                        5,
+                        "XXYY",
+                        6,
+                        "XXXY",
+                        7,
+                        "XXXX",
+                        8,
+                        "XYY",
+                        9,
+                        "OTHER_KARYOTYPE",
+                        10
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Karyotypic Sex",
+                    "description": "Karyotypic sex of the individual"
+                },
+                "gender": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Self-identified gender"
+                },
+                "taxonomy": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Individual",
+            "description": "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html)."
+        },
+        "org.phenopackets.schema.v2.core.Interpretation": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "id of the interpretation"
+                },
+                "progress_status": {
+                    "enum": [
+                        "UNKNOWN_PROGRESS",
+                        0,
+                        "IN_PROGRESS",
+                        1,
+                        "COMPLETED",
+                        2,
+                        "SOLVED",
+                        3,
+                        "UNSOLVED",
+                        4
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Progress Status"
+                },
+                "diagnosis": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Diagnosis",
+                    "additionalProperties": false,
+                    "description": "The diagnosis made in this interpretation"
+                },
+                "summary": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Interpretation"
+        },
+        "org.phenopackets.schema.v2.core.Measurement": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose."
+                },
+                "assay": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
+                },
+                "value": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Value",
+                    "additionalProperties": false
+                },
+                "complex_value": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.ComplexValue",
+                    "additionalProperties": false
+                },
+                "time_observed": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "The time at which the measurement was made"
+                },
+                "procedure": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Procedure",
+                    "additionalProperties": false,
+                    "description": "Clinical procedure performed on the subject in order to produce the measurement."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "value"
+                    ]
+                },
+                {
+                    "required": [
+                        "complex_value"
+                    ]
+                }
+            ],
+            "title": "Measurement",
+            "description": "FHIR mapping: Observation (https://www.hl7.org/fhir/observation.html)"
+        },
+        "org.phenopackets.schema.v2.core.MedicalAction": {
+            "properties": {
+                "procedure": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Procedure",
+                    "additionalProperties": false
+                },
+                "treatment": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Treatment",
+                    "additionalProperties": false
+                },
+                "radiation_therapy": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.RadiationTherapy",
+                    "additionalProperties": false
+                },
+                "therapeutic_regimen": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TherapeuticRegimen",
+                    "additionalProperties": false
+                },
+                "treatment_target": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The condition or disease that this treatment was intended to address. FHIR mapping Procedure::reasonCode"
+                },
+                "treatment_intent": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent"
+                },
+                "response_to_treatment": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "ARGO mapping treatment::response_to_treatment"
+                },
+                "adverse_events": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "ARGO mapping treatment::adverse_events"
+                },
+                "treatment_termination_reason": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "ARGO mapping treatment::treatment_outcome"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "procedure"
+                    ]
+                },
+                {
+                    "required": [
+                        "treatment"
+                    ]
+                },
+                {
+                    "required": [
+                        "radiation_therapy"
+                    ]
+                },
+                {
+                    "required": [
+                        "therapeutic_regimen"
+                    ]
+                }
+            ],
+            "title": "Medical Action",
+            "description": "medication, procedure, other actions taken for clinical management"
+        },
+        "org.phenopackets.schema.v2.core.MetaData": {
+            "properties": {
+                "created": {
+                    "type": "string",
+                    "description": "ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"",
+                    "format": "date-time"
+                },
+                "created_by": {
+                    "type": "string",
+                    "description": "some kind of identifier for the contributor/ program ARGO sample_registration::program_id"
+                },
+                "submitted_by": {
+                    "type": "string",
+                    "description": "information about the person/organisation/network that has submitted this phenopacket"
+                },
+                "resources": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Resource"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "a listing of the ontologies and resources referenced in the phenopacket"
+                },
+                "updates": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Update"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "An OPTIONAL list of Updates to the phenopacket."
+                },
+                "phenopacket_schema_version": {
+                    "type": "string",
+                    "description": "phenopacket-schema-version used to create this phenopacket"
+                },
+                "external_references": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.ExternalReference"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Meta Data"
+        },
+        "org.phenopackets.schema.v2.core.OntologyClass": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\""
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Ontology Class",
+            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept)   see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)"
+        },
+        "org.phenopackets.schema.v2.core.Pedigree": {
+            "properties": {
+                "persons": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Pedigree.Person"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Pedigree",
+            "description": "https://software.broadinstitute.org/gatk/documentation/article?id=11016"
+        },
+        "org.phenopackets.schema.v2.core.Pedigree.Person": {
+            "properties": {
+                "family_id": {
+                    "type": "string"
+                },
+                "individual_id": {
+                    "type": "string"
+                },
+                "paternal_id": {
+                    "type": "string"
+                },
+                "maternal_id": {
+                    "type": "string"
+                },
+                "sex": {
+                    "enum": [
+                        "UNKNOWN_SEX",
+                        0,
+                        "FEMALE",
+                        1,
+                        "MALE",
+                        2,
+                        "OTHER_SEX",
+                        3
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Sex",
+                    "description": "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
+                },
+                "affected_status": {
+                    "enum": [
+                        "MISSING",
+                        0,
+                        "UNAFFECTED",
+                        1,
+                        "AFFECTED",
+                        2
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Affected Status"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Person"
+        },
+        "org.phenopackets.schema.v2.core.PhenotypicFeature": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose."
+                },
+                "type": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
+                },
+                "excluded": {
+                    "type": "boolean",
+                    "description": "Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!"
+                },
+                "severity": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity"
+                },
+                "modifiers": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity"
+                },
+                "onset": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset"
+                },
+                "resolution": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false
+                },
+                "evidence": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.Evidence"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "Evidences for how the phenotype was determined."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Phenotypic Feature",
+            "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)"
+        },
+        "org.phenopackets.schema.v2.core.Procedure": {
+            "properties": {
+                "code": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "FHIR mapping: Procedure.code"
+                },
+                "body_site": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "FHIR mapping: Procedure.bodySite"
+                },
+                "performed": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "When the procedure was performed."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Procedure",
+            "description": "A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)"
+        },
+        "org.phenopackets.schema.v2.core.Quantity": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo"
+                },
+                "value": {
+                    "type": "number",
+                    "description": "the  value of the quantity in the units  e.g. 2.0 mg"
+                },
+                "reference_range": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.ReferenceRange",
+                    "additionalProperties": false,
+                    "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Quantity"
+        },
+        "org.phenopackets.schema.v2.core.RadiationTherapy": {
+            "properties": {
+                "modality": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The modality of radiation therapy (e.g., electron, photon,…). REQUIRED. ARGO mapping radiation::radiation_therapy_modality"
+                },
+                "body_site": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "The anatomical site where radiation therapy was administered. REQUIRED. ARGO mapping radiation::anatomical_site_irradiated"
+                },
+                "dosage": {
+                    "type": "integer",
+                    "description": "The total dose given in units of Gray (Gy). REQUIRED. ARGO mapping radiation::radiation_therapy_dosage"
+                },
+                "fractions": {
+                    "type": "integer",
+                    "description": "The total number of fractions delivered as part of treatment. REQUIRED. ARGO mapping radiation::radiation_therapy_fractions"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Radiation Therapy",
+            "description": "RadiationTherapy"
+        },
+        "org.phenopackets.schema.v2.core.ReferenceRange": {
+            "properties": {
+                "unit": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false
+                },
+                "low": {
+                    "type": "number"
+                },
+                "high": {
+                    "type": "number"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Reference Range"
+        },
+        "org.phenopackets.schema.v2.core.Resource": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "for OBO ontologies, this should be the versionIRI"
+                },
+                "namespace_prefix": {
+                    "type": "string",
+                    "description": "The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI"
+                },
+                "iri_prefix": {
+                    "type": "string",
+                    "description": "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe'    OntologyClass:        id: 'HP:0012828'        label: 'Severe'    Resource:        namespace_prefix: 'HP'        iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Resource",
+            "description": "Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)"
+        },
+        "org.phenopackets.schema.v2.core.TherapeuticRegimen": {
+            "properties": {
+                "external_reference": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.ExternalReference",
+                    "additionalProperties": false
+                },
+                "ontology_class": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false
+                },
+                "start_time": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "possibly undefined;"
+                },
+                "end_time": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false,
+                    "description": "end time can be empty which would indicate ongoing"
+                },
+                "regimen_status": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        0,
+                        "STARTED",
+                        1,
+                        "COMPLETED",
+                        2,
+                        "DISCONTINUED",
+                        3
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Regimen Status"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "external_reference"
+                    ]
+                },
+                {
+                    "required": [
+                        "ontology_class"
+                    ]
+                }
+            ],
+            "title": "Therapeutic Regimen"
+        },
+        "org.phenopackets.schema.v2.core.TimeElement": {
+            "properties": {
+                "gestational_age": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.GestationalAge",
+                    "additionalProperties": false
+                },
+                "age": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Age",
+                    "additionalProperties": false
+                },
+                "age_range": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.AgeRange",
+                    "additionalProperties": false
+                },
+                "ontology_class": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "interval": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeInterval",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "gestational_age"
+                    ]
+                },
+                {
+                    "required": [
+                        "age"
+                    ]
+                },
+                {
+                    "required": [
+                        "age_range"
+                    ]
+                },
+                {
+                    "required": [
+                        "ontology_class"
+                    ]
+                },
+                {
+                    "required": [
+                        "timestamp"
+                    ]
+                },
+                {
+                    "required": [
+                        "interval"
+                    ]
+                }
+            ],
+            "title": "Time Element"
+        },
+        "org.phenopackets.schema.v2.core.TimeInterval": {
+            "properties": {
+                "start": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "end": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Time Interval"
+        },
+        "org.phenopackets.schema.v2.core.Treatment": {
+            "properties": {
+                "agent": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "for instance, DrugCentral, RxNorm Drugbank concept"
+                },
+                "route_of_administration": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "For instance, NCIT subhierarchy: Route of Administration (Code C38114)"
+                },
+                "dose_intervals": {
+                    "items": {
+                        "$ref": "#/definitions/org.phenopackets.schema.v2.core.DoseInterval"
+                    },
+                    "additionalProperties": false,
+                    "type": "array"
+                },
+                "drug_type": {
+                    "enum": [
+                        "UNKNOWN_DRUG_TYPE",
+                        0,
+                        "PRESCRIPTION",
+                        1,
+                        "EHR_MEDICATION_LIST",
+                        2,
+                        "ADMINISTRATION_RELATED_TO_PROCEDURE",
+                        3
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Drug Type",
+                    "description": "A simplified version of ODHSI-DRUG_EXPOSURE"
+                },
+                "cumulative_dose": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Quantity",
+                    "additionalProperties": false,
+                    "description": "ARGO mapping chemotherapy::cumulative_drug_dosage"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Treatment",
+            "description": "treatment with an agent, such as a drug"
+        },
+        "org.phenopackets.schema.v2.core.TypedQuantity": {
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "e.g. diastolic, systolic"
+                },
+                "quantity": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Quantity",
+                    "additionalProperties": false,
+                    "description": "e.g. mm Hg"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Typed Quantity",
+            "description": "For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement"
+        },
+        "org.phenopackets.schema.v2.core.Update": {
+            "properties": {
+                "timestamp": {
+                    "type": "string",
+                    "description": "ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED",
+                    "format": "date-time"
+                },
+                "updated_by": {
+                    "type": "string",
+                    "description": "Information about the person/organisation/network that has updated the phenopacket. OPTIONAL"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Update",
+            "description": "Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update"
+        },
+        "org.phenopackets.schema.v2.core.Value": {
+            "properties": {
+                "quantity": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.Quantity",
+                    "additionalProperties": false
+                },
+                "ontology_class": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "oneOf": [
+                {
+                    "required": [
+                        "quantity"
+                    ]
+                },
+                {
+                    "required": [
+                        "ontology_class"
+                    ]
+                }
+            ],
+            "title": "Value"
+        },
+        "org.phenopackets.schema.v2.core.VariantInterpretation": {
+            "properties": {
+                "acmg_pathogenicity_classification": {
+                    "enum": [
+                        "NOT_PROVIDED",
+                        0,
+                        "BENIGN",
+                        1,
+                        "LIKELY_BENIGN",
+                        2,
+                        "UNCERTAIN_SIGNIFICANCE",
+                        3,
+                        "LIKELY_PATHOGENIC",
+                        4,
+                        "PATHOGENIC",
+                        5
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Acmg Pathogenicity Classification"
+                },
+                "therapeutic_actionability": {
+                    "enum": [
+                        "UNKNOWN_ACTIONABILITY",
+                        0,
+                        "NOT_ACTIONABLE",
+                        1,
+                        "ACTIONABLE",
+                        2
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Therapeutic Actionability"
+                },
+                "variation_descriptor": {
+                    "$ref": "#/definitions/org.ga4gh.vrsatile.v1.VariationDescriptor",
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Variant Interpretation"
+        },
+        "org.phenopackets.schema.v2.core.VitalStatus": {
+            "properties": {
+                "status": {
+                    "enum": [
+                        "UNKNOWN_STATUS",
+                        0,
+                        "ALIVE",
+                        1,
+                        "DECEASED",
+                        2
+                    ],
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "title": "Status",
+                    "description": "Default = false i.e. the individual is alive. MUST be true if"
+                },
+                "time_of_death": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
+                    "additionalProperties": false
+                },
+                "cause_of_death": {
+                    "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
+                    "additionalProperties": false,
+                    "description": "ARGO mapping donor::cause_of_death"
+                },
+                "survival_time_in_days": {
+                    "type": "integer",
+                    "description": "ARGO mapping donor::survival_time"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Vital Status"
+        }
+    }
+}
