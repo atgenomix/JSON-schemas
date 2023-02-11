@@ -14,8 +14,87 @@
           "label": "Individual",
           "elements": [
             {
-              "type": "Control",
-              "scope": "#/properties/subject"
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/id"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/date_of_birth"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/alternate_ids"
+                    }
+                  ]
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/sex"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/karyotypic_sex"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/subject/properties/time_at_last_encounter"
+                },
+                {
+                  "type": "Group",
+                  "label": "Vital Status",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/vital_status/properties/status"
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/vital_status/properties/time_of_death",
+                      "rule": {
+                        "effect": "ENABLE",
+                        "condition": {
+                          "scope": "#/properties/subject/properties/vital_status/properties/status",
+                          "schema": { "enum": ["DECEASED"] }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/vital_status/properties/cause_of_death",
+                      "rule": {
+                        "effect": "ENABLE",
+                        "condition": {
+                          "scope": "#/properties/subject/properties/vital_status/properties/status",
+                          "schema": { "enum": ["DECEASED"] }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/subject/properties/vital_status/properties/survival_time_in_days"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/subject/properties/gender"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/subject/properties/taxonomy"
+                }
+              ]
             }
           ]
         },

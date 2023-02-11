@@ -14,7 +14,7 @@
         },
         {
           "type": "Control",
-          "scope": "alternate_ids"
+          "scope": "#/properties/alternate_ids"
         }
       ]
     },
@@ -36,8 +36,40 @@
       "scope": "#/properties/time_at_last_encounter"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/vital_status"
+      "type": "Group",
+      "label": "Vital Status",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/vital_status/properties/status"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/vital_status/properties/time_of_death",
+          "rule": {
+            "effect": "ENABLE",
+            "condition": {
+              "scope": "#/properties/vital_status/properties/status",
+              "schema": { "enum": ["DECEASED"] }
+            }
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/vital_status/properties/cause_of_death",
+          "rule": {
+            "effect": "ENABLE",
+            "condition": {
+              "scope": "#/properties/vital_status/properties/status",
+              "schema": { "enum": ["DECEASED"] }
+            }
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/vital_status/properties/survival_time_in_days"
+        }
+      ]
     },
     {
       "type": "Control",
