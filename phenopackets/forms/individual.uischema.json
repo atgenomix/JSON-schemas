@@ -1,0 +1,51 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/id"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/date_of_birth"
+        },
+        {
+          "type": "Control",
+          "scope": "alternate_ids"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/sex"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/karyotypic_sex"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/time_at_last_encounter"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/vital_status"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/gender"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/taxonomy"
+    }
+  ]
+}
