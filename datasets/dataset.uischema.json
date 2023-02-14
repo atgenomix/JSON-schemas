@@ -186,7 +186,7 @@
     },
     {
       "type": "Category",
-      "label": "Data protection applied to the dataset relevant for clinical data.",
+      "label": "Data protection applied to the dataset relevant for clinical data",
       "elements": [
         {
           "type": "Control",

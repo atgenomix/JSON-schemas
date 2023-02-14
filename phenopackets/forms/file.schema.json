@@ -18,7 +18,7 @@
                     "type": "string"
                 },
                 "type": "object",
-                "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key."
+                "description": "Map of attributes describing the file. For example, the File format or genome assembly would be defined here. For genomic data files, there MUST be a 'genomeAssembly' key."
             }
         },
         "additionalProperties": false,
