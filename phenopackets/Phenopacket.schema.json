@@ -928,7 +928,7 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Age",
-            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/"
+            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
         },
         "org.phenopackets.schema.v2.core.AgeRange": {
             "properties": {
@@ -991,12 +991,12 @@
                 "taxonomy": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606"
+                    "description": "NCBI taxonomic identifier (NCBITaxon) of the sample (e.g., NCBITaxon:9606)"
                 },
                 "time_of_collection": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
                     "additionalProperties": false,
-                    "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself.See http://build.fhir.org/datatypes"
+                    "description": "A TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes"
                 },
                 "histological_diagnosis": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
@@ -1050,7 +1050,7 @@
                 "material_sample": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
+                    "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend the use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
                 },
                 "sample_processing": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
@@ -1066,7 +1066,7 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Biosample",
-            "description": "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).  biosamples SAMN08666232 Human Cell Atlas"
+            "description": "A Biosample refers to a unit of biological material from which the substrate molecules (e.g., genomic DNA, RNA, proteins) for molecular analyses (e.g., sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g., technical replicates) or types of experiments (e.g., genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html). biosamples SAMN08666232 Human Cell Atlas"
         },
         "org.phenopackets.schema.v2.core.ComplexValue": {
             "properties": {
@@ -1076,7 +1076,7 @@
                     },
                     "additionalProperties": false,
                     "type": "array",
-                    "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities"
+                    "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities."
                 }
             },
             "additionalProperties": false,
@@ -1096,7 +1096,7 @@
                     },
                     "additionalProperties": false,
                     "type": "array",
-                    "description": "genomic features containing the status of their contribution towards the diagnosis"
+                    "description": "Genomic features containing the status of their contribution towards the diagnosis."
                 }
             },
             "additionalProperties": false,
@@ -1108,16 +1108,16 @@
                 "term": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "The identifier of this disease e.g. MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id"
+                    "description": "The identifier of this disease. For example, MONDO:0007043, OMIM:101600, Orphanet:710, DOID:14705 (note these are all equivalent) ARGO mapping primary_diagnosis::submitter_primary_diagnosis_id"
                 },
                 "excluded": {
                     "type": "boolean",
-                    "description": "Flag to indicate whether the disease was observed or not. Default is 'false', in other words the disease was observed. Therefore it is only required in cases to indicate that the disease was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease!"
+                    "description": "Flag to indicate whether the disease was observed or not. The default is 'false'. In other words, the disease was observed. Therefore, it is only required in cases to indicate that the disease was looked for, but was found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'term' field. *CAUTION* It is imperative to check this field for correct interpretation of the disease."
                 },
                 "onset": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
                     "additionalProperties": false,
-                    "description": "The onset of the disease. The values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis"
+                    "description": "The onset of the disease. The values of this will come from the HPO onset hierarchy (i.e, subclasses of HP:0003674). FHIR mapping: Condition.onset ARGO mapping primary_diagnosis::age_at_diagnosis"
                 },
                 "resolution": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
@@ -1129,7 +1129,7 @@
                     },
                     "additionalProperties": false,
                     "type": "array",
-                    "description": "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group"
+                    "description": "Disease staging, the extent to which a disease has developed. For cancers, see https://www.cancer.gov/about-cancer/diagnosis-staging/staging. Valid values include child terms of NCIT:C28108 (Disease Stage Qualifier) ARGO mapping primary_diagnosis::clinical_tumour_staging_system ARGO mapping primary_diagnosis::clinical_stage_group"
                 },
                 "clinical_tnm_finding": {
                     "items": {
@@ -1173,7 +1173,7 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Dose Interval",
-            "description": "e.g. 50mg/ml 3 times daily for two weeks"
+            "description": "For example, 50mg/ml 3 times daily for two weeks."
         },
         "org.phenopackets.schema.v2.core.Evidence": {
             "properties": {
@@ -1197,7 +1197,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "e.g. ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
+                    "description": "For example, ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
                 },
                 "reference": {
                     "type": "string",
@@ -1231,7 +1231,7 @@
                         "type": "string"
                     },
                     "type": "object",
-                    "description": "Map of attributes describing the file. For example the File format or genome assembly would be defied here. For genomic data files there MUST be a 'genomeAssembly' key."
+                    "description": "Map of attributes describing the file. For example, the File format or genome assembly would be defined here. For genomic data files, there MUST be a 'genomeAssembly' key."
                 }
             },
             "additionalProperties": false,
@@ -1321,18 +1321,18 @@
                 },
                 "date_of_birth": {
                     "type": "string",
-                    "description": "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute e.g. \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated.",
+                    "description": "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute (e.g., \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated).",
                     "format": "date-time"
                 },
                 "time_at_last_encounter": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
                     "additionalProperties": false,
-                    "description": "An TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as ISO8601 duration or time interval (preferred), or as ontology term object. See http://build.fhir.org/datatypes"
+                    "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
                 },
                 "vital_status": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.VitalStatus",
                     "additionalProperties": false,
-                    "description": "Vital status of the individual. If not present it is assumed that the individual is alive. If present it will default to 'false' i.e. the individual was alive when the data was collected. ARGO mapping donor::vital_status"
+                    "description": "Vital status of the individual. If not present, it is assumed that the individual is alive. If present, it will default to 'false' (i.e., the individual was alive when the data was collected). ARGO mapping donor::vital_status"
                 },
                 "sex": {
                     "enum": [
@@ -1354,7 +1354,7 @@
                         }
                     ],
                     "title": "Sex",
-                    "description": "Sex of an individual FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
+                    "description": "Sex of an individual. FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
                 },
                 "karyotypic_sex": {
                     "enum": [
@@ -1400,7 +1400,7 @@
                 "taxonomy": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "NCBI taxonomic identifier NCBITaxon e.g. NCBITaxon:9606 or NCBITaxon:1337 For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level"
+                    "description": "NCBI taxonomic identifier NCBITaxon (e.g., NCBITaxon:9606 or NCBITaxon:1337). For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level."
                 }
             },
             "additionalProperties": false,
@@ -1454,7 +1454,7 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose."
+                    "description": "Free-text description of the feature. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
                 },
                 "assay": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
@@ -1523,7 +1523,7 @@
                 "treatment_intent": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "Whether the intention of the treatment was curative, palliative, ARGO mapping treatment::treatment_intent"
+                    "description": "Whether the intention of the treatment was curative or palliative. ARGO mapping treatment::treatment_intent"
                 },
                 "response_to_treatment": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
@@ -1569,22 +1569,22 @@
                 }
             ],
             "title": "Medical Action",
-            "description": "medication, procedure, other actions taken for clinical management"
+            "description": "Medication, procedure, other actions taken for clinical management."
         },
         "org.phenopackets.schema.v2.core.MetaData": {
             "properties": {
                 "created": {
                     "type": "string",
-                    "description": "ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\"",
+                    "description": "The ISO8601 UTC timestamp for when this phenopacket was created in ISO \"2018-03-01T00:00:00Z\".",
                     "format": "date-time"
                 },
                 "created_by": {
                     "type": "string",
-                    "description": "some kind of identifier for the contributor/ program ARGO sample_registration::program_id"
+                    "description": "Some kind of identifier for the contributor/ program ARGO sample_registration::program_id"
                 },
                 "submitted_by": {
                     "type": "string",
-                    "description": "information about the person/organisation/network that has submitted this phenopacket"
+                    "description": "Information about the person/organisation/network that has submitted this phenopacket."
                 },
                 "resources": {
                     "items": {
@@ -1592,7 +1592,7 @@
                     },
                     "additionalProperties": false,
                     "type": "array",
-                    "description": "a listing of the ontologies and resources referenced in the phenopacket"
+                    "description": "A listing of the ontologies and resources referenced in the phenopacket."
                 },
                 "updates": {
                     "items": {
@@ -1604,7 +1604,7 @@
                 },
                 "phenopacket_schema_version": {
                     "type": "string",
-                    "description": "phenopacket-schema-version used to create this phenopacket"
+                    "description": "Phenopacket-schema-version used to create this phenopacket."
                 },
                 "external_references": {
                     "items": {
@@ -1612,7 +1612,7 @@
                     },
                     "additionalProperties": false,
                     "type": "array",
-                    "description": "External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example this might be a PubMed reference to a study in which the individuals are reported."
+                    "description": "External identifiers for this message. These are considered different representation of the same record, not records which are in some other relation with the record at hand. For example, this might be a PubMed reference to a study in which the individuals are reported."
                 }
             },
             "additionalProperties": false,
@@ -1633,27 +1633,27 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Ontology Class",
-            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept)   see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)"
+            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept). See also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)."
         },
         "org.phenopackets.schema.v2.core.PhenotypicFeature": {
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Free-text description of the phenotype. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose."
+                    "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
                 },
                 "type": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "The primary ontology class which describes the phenotype. For example \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
+                    "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
                 },
                 "excluded": {
                     "type": "boolean",
-                    "description": "Flag to indicate whether the phenotype was observed or not. Default is 'false', in other words the phenotype was observed. Therefore it is only required in cases to indicate that the phenotype was looked for, but found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for correct interpretation of the phenotype!"
+                    "description": "Flag to indicate whether the phenotype was observed or not. The default value is 'false'. In other words, the phenotype was observed. Therefore, it is only required in cases where you want to indicate that the phenotype was looked for, but was found to be absent. More formally, this modifier indicates the logical negation of the OntologyClass used in the 'type' field. *CAUTION* It is imperative to check this field for the correct interpretation of the phenotype."
                 },
                 "severity": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "Severity of the condition e.g. subclasses of HP:0012824-Severity or SNOMED:272141005-Severities FHIR mapping: Condition.severity"
+                    "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
                 },
                 "modifiers": {
                     "items": {
@@ -1661,12 +1661,12 @@
                     },
                     "additionalProperties": false,
                     "type": "array",
-                    "description": "subclasses of HP:0012823 ! Clinical modifier apart from Severity HP:0012824 - Severity"
+                    "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
                 },
                 "onset": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
                     "additionalProperties": false,
-                    "description": "the values of this will come from the HPO onset hierarchy i.e. subclasses of HP:0003674 FHIR mapping: Condition.onset"
+                    "description": "The values of this will come from the HPO onset hierarchy (i.e., subclasses of HP:0003674) FHIR mapping: Condition.onset"
                 },
                 "resolution": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
@@ -1684,7 +1684,7 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Phenotypic Feature",
-            "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)"
+            "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers, and frequency. FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)"
         },
         "org.phenopackets.schema.v2.core.Procedure": {
             "properties": {
@@ -1707,7 +1707,7 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Procedure",
-            "description": "A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)"
+            "description": "A clinical procedure performed on a subject. By preference, a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. For example, {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm. FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)"
         },
         "org.phenopackets.schema.v2.core.Quantity": {
             "properties": {
@@ -1718,12 +1718,12 @@
                 },
                 "value": {
                     "type": "number",
-                    "description": "the  value of the quantity in the units  e.g. 2.0 mg"
+                    "description": "The value of the quantity in the units (e.g., 2.0 mg)."
                 },
                 "reference_range": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.ReferenceRange",
                     "additionalProperties": false,
-                    "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
+                    "description": "Reference range for the quantity. For example, the normal range of platelets is 150,000 to 450,000 platelets/uL."
                 }
             },
             "additionalProperties": false,
@@ -1777,33 +1777,33 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "for OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo Consult http://obofoundry.org for a complete list For other ontologies (e.g. SNOMED), use the prefix in identifiers.org"
+                    "description": "For OBO Ontologies, the value of this string MUST always be the official OBO ID, which is always equivalent to the ID prefix in lower case. Examples: hp, go, mp, mondo. Consult http://obofoundry.org for a complete list For other ontologies (e.g., SNOMED), use the prefix in identifiers.org."
                 },
                 "name": {
                     "type": "string",
-                    "description": "e.g. The Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions"
+                    "description": "For example, the Human Phenotype Ontology for OBO Ontologies, the value of this string SHOULD be the same as the title field on http://obofoundry.org however, this field is purely for information purposes and software should not encode any assumptions."
                 },
                 "url": {
                     "type": "string",
-                    "description": "For OBO ontologies, this should always be the PURL, e.g. http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo"
+                    "description": "For OBO ontologies, this should always be the PURL (e.g., http://purl.obolibrary.org/obo/hp.owl, http://purl.obolibrary.org/obo/hp.obo)."
                 },
                 "version": {
                     "type": "string",
-                    "description": "for OBO ontologies, this should be the versionIRI"
+                    "description": "For OBO ontologies, this should be the versionIRI."
                 },
                 "namespace_prefix": {
                     "type": "string",
-                    "description": "The prefix used in the CURIE of an OntologyClass e.g. HP, MP, ECO For example an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI"
+                    "description": "The prefix used in the CURIE of an OntologyClass (e.g., HP, MP, ECO). For example, an HPO term will have a CURIE like this - HP:0012828 which should be used in combination with the iri_prefix to form a fully-resolvable IRI."
                 },
                 "iri_prefix": {
                     "type": "string",
-                    "description": "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. e.g. Using the HPO term encoding the concept of 'Severe'    OntologyClass:        id: 'HP:0012828'        label: 'Severe'    Resource:        namespace_prefix: 'HP'        iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828"
+                    "description": "Full IRI prefix which can be used with the namespace_prefix and the OntologyClass::id to resolve to an IRI for a term. Tools such as the curie-util (https://github.com/prefixcommons/curie-util) can utilise this to produce fully-resolvable IRIs for an OntologyClass. For example, using the HPO term encoding the concept of 'Severe'    OntologyClass:        id: 'HP:0012828'        label: 'Severe'    Resource:        namespace_prefix: 'HP'        iri_prefix: 'http://purl.obolibrary.org/obo/HP_' the term can be resolved to http://purl.obolibrary.org/obo/HP_0012828."
                 }
             },
             "additionalProperties": false,
             "type": "object",
             "title": "Resource",
-            "description": "Description of an external resource used for referencing an object. For example the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)"
+            "description": "Description of an external resource used for referencing an object. For example, the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)"
         },
         "org.phenopackets.schema.v2.core.TherapeuticRegimen": {
             "properties": {
@@ -1818,12 +1818,12 @@
                 "start_time": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
                     "additionalProperties": false,
-                    "description": "possibly undefined;"
+                    "description": "Possibly undefined"
                 },
                 "end_time": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
                     "additionalProperties": false,
-                    "description": "end time can be empty which would indicate ongoing"
+                    "description": "End time can be empty which would indicate an ongoing regimen."
                 },
                 "regimen_status": {
                     "enum": [
@@ -1991,46 +1991,46 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Treatment",
-            "description": "treatment with an agent, such as a drug"
+            "description": "Treatment with an agent, such as a drug."
         },
         "org.phenopackets.schema.v2.core.TypedQuantity": {
             "properties": {
                 "type": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "e.g. diastolic, systolic"
+                    "description": "For example, diastolic or systolic."
                 },
                 "quantity": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.Quantity",
                     "additionalProperties": false,
-                    "description": "e.g. mm Hg"
+                    "description": "For example, mm Hg."
                 }
             },
             "additionalProperties": false,
             "type": "object",
             "title": "Typed Quantity",
-            "description": "For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement"
+            "description": "For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement."
         },
         "org.phenopackets.schema.v2.core.Update": {
             "properties": {
                 "timestamp": {
                     "type": "string",
-                    "description": "ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ e.g. 2007-12-03T10:15:30.00Z REQUIRED",
+                    "description": "The ISO8601 UTC timestamps at which this record was updated, in the format YYYY-MM-DDTHH:MM:SS.SSSZ (e.g., 2007-12-03T10:15:30.00Z). REQUIRED.",
                     "format": "date-time"
                 },
                 "updated_by": {
                     "type": "string",
-                    "description": "Information about the person/organisation/network that has updated the phenopacket. OPTIONAL"
+                    "description": "Information about the person/organisation/network that has updated the phenopacket. OPTIONAL."
                 },
                 "comment": {
                     "type": "string",
-                    "description": "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL"
+                    "description": "Textual comment about the changes made to the content and/or reason for the update. OPTIONAL."
                 }
             },
             "additionalProperties": false,
             "type": "object",
             "title": "Update",
-            "description": "Information about when an update to a record occurred, who or what made the update and any pertinent information regarding the content and/or reason for the update"
+            "description": "Information about when an update to a record occurred, who or what made the update, and any pertinent information regarding the content and/or reason for the update."
         },
         "org.phenopackets.schema.v2.core.Value": {
             "properties": {
@@ -2041,7 +2041,7 @@
                 "ontology_class": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'"
+                    "description": "For use with things such as categories 'red', 'yellow', or 'absent'/'present'."
                 }
             },
             "additionalProperties": false,
@@ -2135,7 +2135,7 @@
                         }
                     ],
                     "title": "Status",
-                    "description": "Default = false i.e. the individual is alive. MUST be true if"
+                    "description": "Default = false (i.e., the individual is alive). MUST be true if"
                 },
                 "time_of_death": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.TimeElement",
