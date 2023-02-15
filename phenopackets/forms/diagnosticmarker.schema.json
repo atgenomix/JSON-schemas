@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Diagnostic Markers",
+    "description": "Clinically relevant bio markers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)",
+    "properties": {
+        "diagnostic_markers": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/OntologyClass"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "OntologyClass": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\""
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Ontology Class",
+            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept). See also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)."
+        }
+    }
+}

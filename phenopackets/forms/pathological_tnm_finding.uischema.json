@@ -1,0 +1,9 @@
+{
+    "type": "VerticalLayout",
+    "elements": [
+        {
+            "type": "Control",
+            "scope": "#/properties/pathological_tnm_finding"
+        }
+    ]
+}
