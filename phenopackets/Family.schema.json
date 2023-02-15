@@ -975,7 +975,7 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Age",
-            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_ In FHIR this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/"
+            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
         },
         "org.phenopackets.schema.v2.core.AgeRange": {
             "properties": {
