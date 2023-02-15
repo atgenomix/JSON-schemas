@@ -1,0 +1,100 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Unique Identifier",
+          "scope": "#/properties/id"
+        },
+        {
+          "type": "Control",
+          "label": "ID of the individual",
+          "scope": "#/properties/individual_id"
+        },
+        {
+          "type": "Control",
+          "label": "ID of the parent biosample",
+          "scope": "#/properties/derived_from_id"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/time_of_collection"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/description"
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "Sample Information",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/taxonomy"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sample_type"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sampled_tissue"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sample_processing"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/sample_storage"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/material_sample"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Indications",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/histological_diagnosis"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/tumor_progression"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/tumor_grade"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pathological_stage"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Procedure",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/procedure"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
