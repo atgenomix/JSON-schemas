@@ -1142,7 +1142,7 @@
                 "primary_site": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
                     "additionalProperties": false,
-                    "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general"
+                    "description": "The term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general"
                 },
                 "laterality": {
                     "$ref": "#/definitions/org.phenopackets.schema.v2.core.OntologyClass",
