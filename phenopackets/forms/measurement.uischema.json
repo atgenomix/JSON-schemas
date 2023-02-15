@@ -1,0 +1,34 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/assay"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/time_observed"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/description"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/value"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/complex_value"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/procedure"
+    }
+  ]
+}
