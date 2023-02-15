@@ -1,0 +1,21 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/id"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/progress_status"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/diagnosis"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/summary"
+    }
+  ]
+}
