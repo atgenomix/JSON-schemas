@@ -1,0 +1,42 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/description"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/type"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/severity"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/excluded"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/modifiers"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/evidence"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/onset"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/resolution"
+    }
+  ]
+}
