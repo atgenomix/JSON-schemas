@@ -1,0 +1,40 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/value_id"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/symbol"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/description"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/alternate_ids"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/alternate_symbols"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "References",
+      "scope": "#/properties/xrefs"
+    }
+  ]
+}
