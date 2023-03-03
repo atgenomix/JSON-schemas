@@ -90,11 +90,20 @@
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/procedure"
+              "scope": "#/properties/procedure/properties/code"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/procedure/properties/body_site"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/procedure/properties/performed"
             }
           ]
         }
-      ]
+      ],
+      "options": {}
     }
   ]
 }
