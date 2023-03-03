@@ -207,19 +207,24 @@
                     "title": "Body site ontology"
                 },
                 "performed": {
-                    "oneOf": [
-                        {
-                            "$ref": "#/definitions/Age",
+                    "properties": {
+                        "age": {
+                            "properties": {
+                                "iso8601duration": {
+                                    "type": "string",
+                                    "description": "The age of the individual when the procedure was performed. e.g. P40Y10M05D"
+                                }
+                            },
                             "title": "Age of the Individual",
                             "description": "The age of the individual this biosample was derived from at the time of collection"
                         },
-                        {
+                        "timestamp": {
                             "type": "string",
                             "format": "date-time",
                             "title": "Time of the procedure",
                             "description": "The time of this procedure was performed"
                         }
-                    ],
+                    },
                     "description": "When the procedure was performed."
                 }
             },
@@ -237,7 +242,6 @@
             },
             "additionalProperties": false,
             "type": "object",
-            "title": "Age",
             "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
         }
     }
