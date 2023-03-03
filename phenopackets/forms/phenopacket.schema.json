@@ -32,6 +32,7 @@
                         "type": "string"
                     },
                     "type": "array",
+                    "title": "Alternative identifiers for this individual",
                     "description": "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track."
                 },
                 "date_of_birth": {
@@ -40,13 +41,130 @@
                     "format": "date-time"
                 },
                 "time_at_last_encounter": {
-                    "$ref": "#/definitions/TimeElement",
-                    "additionalProperties": false,
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "gestational_age": {
+                                    "$ref": "#/definitions/GestationalAge"
+                                }
+                            },
+                            "title": "Gestational age"
+                        },
+                        {
+                            "properties": {
+                                "age": {
+                                   "$ref": "#/definitions/Age",
+                                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                                }
+                            },
+                            "title": "Age"
+                        },
+                        {
+                            "properties": {
+                                "age_range": {
+                                    "properties": {
+                                       "start": {
+                                            "properties": {
+                                                "iso8601duration": {
+                                                    "type": "string",
+                                                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                                                }
+                                            }
+                                        },
+                                        "end": {
+                                            "properties": {
+                                                "iso8601duration": {
+                                                    "type": "string",
+                                                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "title": "Age range"
+                        },
+                        {
+                            "properties": {
+                                "timestamp": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            },
+                            "title": "Timestamp"
+                        },
+                        {
+                            "properties": {
+                                "interval": {
+                                    "$ref": "#/definitions/TimeInterval"
+                                }
+                            },
+                            "title": "Time interval"
+                        }
+                    ],
                     "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
                 },
                 "vital_status": {
-                    "$ref": "#/definitions/VitalStatus",
-                    "additionalProperties": false,
+                    "properties": {
+                        "status": {
+                            "enum": [
+                                "UNKNOWN_STATUS",
+                                "ALIVE",
+                                "DECEASED"
+                            ],
+                            "type": "string",
+                            "title": "Status",
+                            "description": "Default = ALIVE (i.e., the individual is alive)."
+                        },
+                        "time_of_death": {
+                            "oneOf": [
+                                {
+                                    "properties": {
+                                        "age": {
+                                            "properties": {
+                                                "iso8601duration": {
+                                                    "type": "string",
+                                                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                                                }
+                                            },
+                                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                                        }
+                                    },
+                                    "title": "Age of death"
+                                },
+                                {
+                                    "properties": {
+                                        "timestamp": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "title": "Time of death"
+                                }
+                            ],
+                            "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+                        },
+                        "cause_of_death": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "description": "Class label, aka name (e.g., \"Abnormality of cardiovascular system\")"
+                                }
+                            },
+                            "description": "ARGO mapping donor::cause_of_death",
+                            "title": "Cause of death"
+                        },
+                        "survival_time_in_days": {
+                            "type": "integer",
+                            "description": "ARGO mapping donor::survival_time"
+                        }
+                    },
+                    "type": "object",
+                    "title": "Vital Status",
                     "description": "Vital status of the individual. If not present, it is assumed that the individual is alive. If present, it will default to 'false' (i.e., the individual was alive when the data was collected). ARGO mapping donor::vital_status"
                 },
                 "sex": {
@@ -79,14 +197,16 @@
                     "description": "Karyotypic sex of the individual"
                 },
                 "gender": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "Self-identified gender"
-                },
-                "taxonomy": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "NCBI taxonomic identifier NCBITaxon (e.g., NCBITaxon:9606 or NCBITaxon:1337). For resources where there may be more than one organism being studied it is advisable to indicate the taxonomic identifier of that organism, to its most specific level."
+                    "properties": {
+                       "id": {
+                           "type": "string",
+                           "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
+                       },
+                        "label": {
+                            "type": "string",
+                            "description": "Self-identified gender"
+                        }
+                    }
                 }
             },
             "required": ["id"],
@@ -110,14 +230,6 @@
                     "type": "string",
                     "description": "Information about the person/organisation/network that has submitted this phenopacket."
                 },
-                "resources": {
-                    "items": {
-                        "$ref": "#/definitions/Resource"
-                    },
-                    "additionalProperties": false,
-                    "type": "array",
-                    "description": "A listing of the ontologies and resources referenced in the phenopacket."
-                },
                 "updates": {
                     "items": {
                         "$ref": "#/definitions/Update"
@@ -125,6 +237,14 @@
                     "additionalProperties": false,
                     "type": "array",
                     "description": "An OPTIONAL list of updates to the phenopacket."
+                },
+                "resources": {
+                    "items": {
+                        "$ref": "#/definitions/Resource"
+                    },
+                    "additionalProperties": false,
+                    "type": "array",
+                    "description": "A listing of the ontologies and resources referenced in the phenopacket."
                 }
             },
             "required": ["created", "created_by", "submitted_by"],
@@ -136,28 +256,13 @@
             "properties": {
                 "iso8601duration": {
                     "type": "string",
-                    "description": "The :ref:`ISO 8601\u003cmetadata_date_time\u003e` age of this object as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                 }
             },
             "additionalProperties": false,
             "type": "object",
             "title": "Age",
             "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
-        },
-        "AgeRange": {
-            "properties": {
-                "start": {
-                    "$ref": "#/definitions/Age",
-                    "additionalProperties": false
-                },
-                "end": {
-                    "$ref": "#/definitions/Age",
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Age Range"
         },
         "GestationalAge": {
             "properties": {
@@ -171,22 +276,6 @@
             "additionalProperties": false,
             "type": "object",
             "title": "Gestational Age"
-        },
-        "OntologyClass": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
-                },
-                "label": {
-                    "type": "string",
-                    "description": "Class label, aka name (e.g., \"Abnormality of cardiovascular system\")"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Ontology Class",
-            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept). See also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)"
         },
         "Resource": {
             "properties": {
@@ -219,69 +308,6 @@
             "type": "object",
             "title": "Resource",
             "description": "Description of an external resource used for referencing an object. For example, the resource may be an ontology such as the HPO or SNOMED. FHIR mapping: CodeSystem (http://www.hl7.org/fhir/codesystem.html)"
-        },
-        "TimeElement": {
-            "properties": {
-                "gestational_age": {
-                    "$ref": "#/definitions/GestationalAge",
-                    "additionalProperties": false
-                },
-                "age": {
-                    "$ref": "#/definitions/Age",
-                    "additionalProperties": false
-                },
-                "age_range": {
-                    "$ref": "#/definitions/AgeRange",
-                    "additionalProperties": false
-                },
-                "ontology_class": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false
-                },
-                "timestamp": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "interval": {
-                    "$ref": "#/definitions/TimeInterval",
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "oneOf": [
-                {
-                    "required": [
-                        "gestational_age"
-                    ]
-                },
-                {
-                    "required": [
-                        "age"
-                    ]
-                },
-                {
-                    "required": [
-                        "age_range"
-                    ]
-                },
-                {
-                    "required": [
-                        "ontology_class"
-                    ]
-                },
-                {
-                    "required": [
-                        "timestamp"
-                    ]
-                },
-                {
-                    "required": [
-                        "interval"
-                    ]
-                }
-            ],
-            "title": "Time Element"
         },
         "TimeInterval": {
             "properties": {
@@ -318,36 +344,6 @@
             "type": "object",
             "title": "Update",
             "description": "Information about when an update to a record occurred, who or what made the update, and any pertinent information regarding the content and/or reason for the update."
-        },
-        "VitalStatus": {
-            "properties": {
-                "status": {
-                    "enum": [
-                        "UNKNOWN_STATUS",
-                        "ALIVE",
-                        "DECEASED"
-                    ],
-                    "type": "string",
-                    "title": "Status",
-                    "description": "Default = ALIVE (i.e., the individual is alive)."
-                },
-                "time_of_death": {
-                    "$ref": "#/definitions/TimeElement",
-                    "additionalProperties": false
-                },
-                "cause_of_death": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "ARGO mapping donor::cause_of_death"
-                },
-                "survival_time_in_days": {
-                    "type": "integer",
-                    "description": "ARGO mapping donor::survival_time"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Vital Status"
         }
     }
 }
