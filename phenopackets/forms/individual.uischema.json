@@ -14,15 +14,6 @@
         },
         {
           "type": "Control",
-          "scope": "#/properties/alternate_ids"
-        }
-      ]
-    },
-    {
-      "type": "HorizontalLayout",
-      "elements": [
-        {
-          "type": "Control",
           "scope": "#/properties/sex"
         },
         {
@@ -33,11 +24,21 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/time_at_last_encounter"
+      "scope": "#/properties/alternate_ids"
     },
     {
       "type": "Group",
-      "label": "Vital Status",
+      "label": "Time at last encounter",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/time_at_last_encounter"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Vital status",
       "elements": [
         {
           "type": "Control",
@@ -47,9 +48,9 @@
           "type": "Control",
           "scope": "#/properties/vital_status/properties/time_of_death",
           "rule": {
-            "effect": "ENABLE",
+            "effect": "SHOW",
             "condition": {
-              "scope": "#/properties/vital_status/properties/status",
+              "scope": "#/properties/subject/properties/vital_status/properties/status",
               "schema": { "enum": ["DECEASED"] }
             }
           }
@@ -58,7 +59,7 @@
           "type": "Control",
           "scope": "#/properties/vital_status/properties/cause_of_death",
           "rule": {
-            "effect": "ENABLE",
+            "effect": "SHOW",
             "condition": {
               "scope": "#/properties/vital_status/properties/status",
               "schema": { "enum": ["DECEASED"] }
@@ -74,10 +75,6 @@
     {
       "type": "Control",
       "scope": "#/properties/gender"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/taxonomy"
     }
   ]
 }
