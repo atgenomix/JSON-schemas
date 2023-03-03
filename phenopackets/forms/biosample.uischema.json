@@ -27,7 +27,10 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/description"
+      "scope": "#/properties/description",
+      "options": {
+        "multi": true
+      }
     },
     {
       "type": "Categorization",
