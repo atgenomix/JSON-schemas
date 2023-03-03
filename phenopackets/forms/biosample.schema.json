@@ -19,13 +19,21 @@
         "time_of_collection": {
             "oneOf": [
                 {
-                    "$ref": "#/definitions/Age",
+                    "properties": {
+                        "age": {
+                            "$ref": "#/definitions/Age"
+                        }
+                    },
                     "title": "Age of Collection",
                     "description": "The age of the individual this biosample was derived from at the time of collection"
                 },
                 {
-                    "type": "string",
-                    "format": "date-time",
+                    "properties": {
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
                     "title": "Time of Collection",
                     "description": "The time of this biosample was collected"
                 }
