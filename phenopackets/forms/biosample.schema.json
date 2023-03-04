@@ -56,7 +56,7 @@
                 }
             },
             "additionalProperties": false,
-            "title": "Sampled tissue ontology"
+            "title": "Sampled Tissue Ontology"
         },
         "sample_type": {
             "properties": {
@@ -70,7 +70,7 @@
                 }
             },
             "additionalProperties": false,
-            "title": "Sample type ontology"
+            "title": "Sample Type Ontology"
         },
         "sample_processing": {
             "properties": {
@@ -84,7 +84,7 @@
                 }
             },
             "additionalProperties": false,
-            "title": "Sample processing ontology"
+            "title": "Sample Processing Ontology"
         },
         "sample_storage": {
             "properties": {
@@ -97,7 +97,7 @@
                     "description": "Field to represent how the sample was stored ARGO mapping specimen::specimen_storage"
                 }
             },
-            "title": "Sample storage ontology"
+            "title": "Sample Storage Ontology"
         },
         "material_sample": {
             "properties": {
@@ -110,7 +110,7 @@
                     "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
                 }
             },
-            "title": "Material sample ontology"
+            "title": "Material Sample Ontology"
         },
         "taxonomy": {
             "properties": {
@@ -123,7 +123,7 @@
                     "description": "This element can be used to specify the taxonomy of the sample."
                 }
             },
-            "title": "Taxonomy ontology"
+            "title": "Taxonomy Ontology"
         },
         "histological_diagnosis": {
             "properties": {
@@ -136,7 +136,7 @@
                     "description": "This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type"
                 }
             },
-            "title": "Histological diagnosis ontology"
+            "title": "Histological Diagnosis Ontology"
         },
         "tumor_progression": {
             "properties": {
@@ -149,7 +149,7 @@
                     "description": "Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)"
                 }
             },
-            "title": "Tumor progression ontology"
+            "title": "Tumor Progression Ontology"
         },
         "tumor_grade": {
             "properties": {
@@ -162,7 +162,7 @@
                     "description": "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet"
                 }
             },
-            "title": "Tumor grade ontology"
+            "title": "Tumor Grade Ontology"
         },
         "pathological_stage": {
             "properties": {
@@ -175,7 +175,7 @@
                     "description": "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group"
                 }
             },
-            "title": "Pathological stage ontology"
+            "title": "Pathological Stage Ontology"
         },
         "procedure": {
             "properties": {
@@ -190,7 +190,7 @@
                             "description": "FHIR mapping: Procedure.code"
                         }
                     },
-                    "title": "Procedure code ontology"
+                    "title": "Procedure Code Ontology"
                 },
                 "body_site": {
                     "properties": {
@@ -203,7 +203,7 @@
                             "description": "FHIR mapping: Procedure.bodySite"
                         }
                     },
-                    "title": "Body site ontology"
+                    "title": "Body Site Ontology"
                 },
                 "performed": {
                     "properties": {

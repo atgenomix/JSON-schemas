@@ -28,7 +28,7 @@
     },
     {
       "type": "Group",
-      "label": "Time at last encounter",
+      "label": "Time at Last Encounter",
       "elements": [
         {
           "type": "Control",
@@ -38,7 +38,7 @@
     },
     {
       "type": "Group",
-      "label": "Vital status",
+      "label": "Vital Status",
       "elements": [
         {
           "type": "Control",

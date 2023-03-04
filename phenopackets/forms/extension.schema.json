@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "title": "Extension",
+    "properties": {
+        "extensions": {
+            "items": {
+                "$ref": "#/definitions/Extension"
+            },
+            "type": "array"
+        }
+    },
+    "definitions": {
+        "Extension": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "type": "object",
+            "title": "Extension",
+            "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#extension"
+        }
+    }
+}

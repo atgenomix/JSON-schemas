@@ -9,7 +9,7 @@
                 "type": "string"
             },
             "type": "array",
-            "title": "Alternative identifiers for this individual",
+            "title": "Alternative Identifiers for this Individual",
             "description": "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track."
         },
         "date_of_birth": {
@@ -25,7 +25,7 @@
                             "$ref": "#/definitions/GestationalAge"
                         }
                     },
-                    "title": "Gestational age"
+                    "title": "Gestational Age"
                 },
                 {
                     "properties": {
@@ -59,7 +59,7 @@
                             }
                         }
                     },
-                    "title": "Age range"
+                    "title": "Age Range"
                 },
                 {
                     "properties": {
@@ -76,7 +76,7 @@
                             "$ref": "#/definitions/TimeInterval"
                         }
                     },
-                    "title": "Time interval"
+                    "title": "Time Interval"
                 }
             ],
             "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
@@ -107,7 +107,7 @@
                                     "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                                 }
                             },
-                            "title": "Age of death"
+                            "title": "Age of Death"
                         },
                         {
                             "properties": {
@@ -116,7 +116,7 @@
                                     "format": "date-time"
                                 }
                             },
-                            "title": "Time of death"
+                            "title": "Time of Death"
                         }
                     ],
                     "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
@@ -133,7 +133,7 @@
                         }
                     },
                     "description": "ARGO mapping donor::cause_of_death",
-                    "title": "Cause of death"
+                    "title": "Cause of Death"
                 },
                 "survival_time_in_days": {
                     "type": "integer",

@@ -20,7 +20,7 @@
     },
     {
       "type": "Group",
-      "label": "Measurement value",
+      "label": "Measurement Value",
       "elements": [
         {
           "type": "Control",

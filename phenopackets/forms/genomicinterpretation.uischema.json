@@ -16,11 +16,7 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/gene"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/variant_interpretation"
+      "scope": "#/properties/call"
     }
   ]
 }

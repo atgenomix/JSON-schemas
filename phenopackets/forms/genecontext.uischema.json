@@ -15,8 +15,13 @@
       ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/description"
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/description"
+        }
+      ]
     },
     {
       "type": "HorizontalLayout",
@@ -28,13 +33,12 @@
         {
           "type": "Control",
           "scope": "#/properties/alternate_symbols"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/xrefs"
         }
       ]
-    },
-    {
-      "type": "Control",
-      "label": "References",
-      "scope": "#/properties/xrefs"
     }
   ]
 }

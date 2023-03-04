@@ -24,7 +24,7 @@
             },
             "required": ["id"],
             "type": "object",
-            "title": "Ontology Class",
+            "title": "Diagnostic Marker Ontology",
             "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept). See also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)."
         }
     }

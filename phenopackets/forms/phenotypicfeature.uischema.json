@@ -23,20 +23,37 @@
       ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/modifiers"
+      "type": "Group",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/modifiers"
+        }
+      ]
     },
     {
       "type": "Control",
       "scope": "#/properties/evidence"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/onset"
+      "type": "Group",
+      "label": "Onset",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/onset"
+        }
+      ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/resolution"
+      "type": "Group",
+      "label": "Resolution",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/resolution"
+        }
+      ]
     }
   ]
 }

@@ -1,11 +1,11 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "title": "Interpretation",
     "properties": {
         "id": {
             "type": "string",
-            "description": "id of the interpretation"
+            "description": "Unique identifier of the interpretation",
+            "title": "ID"
         },
         "progress_status": {
             "enum": [
@@ -18,13 +18,13 @@
             "type": "string",
             "title": "Progress Status"
         },
+        "summary": {
+            "type": "string"
+        },
         "diagnosis": {
             "$ref": "#/definitions/Diagnosis",
             "additionalProperties": false,
             "description": "The diagnosis made in this interpretation"
-        },
-        "summary": {
-            "type": "string"
         }
     },
     "additionalProperties": false,
@@ -32,30 +32,21 @@
         "Diagnosis": {
             "properties": {
                 "disease": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "The disease/condition assigned to the diagnosis.Details about this disease may be contained in the `diseases` field in the Phenopacket."
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "a CURIE-style identifier e.g. MONDO:0008903. The disease/condition assigned to the diagnosis of this interpretation."
+                        }, "label": {
+                            "type": "string",
+                            "description": "class label, aka name. E.g. \"A malignant neoplasm involving the lung\""
+                        }
+                    },
+                    "title": ""
                 }
             },
             "additionalProperties": false,
             "type": "object",
-            "title": "Diagnosis"
-        },
-        "OntologyClass": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-                },
-                "label": {
-                    "type": "string",
-                    "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\""
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Ontology Class",
-            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept). See also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)."
+            "title": "Disease Ontology"
         }
     }
 }

@@ -3,6 +3,7 @@
     "elements": [
         {
             "type": "Control",
+            "label": "Pathological TNM Finding Ontology",
             "scope": "#/properties/pathological_tnm_finding"
         }
     ]

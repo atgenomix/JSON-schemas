@@ -11,12 +11,12 @@
         },
         {
           "type": "Control",
-          "label": "ID of the individual",
+          "label": "ID of the Individual",
           "scope": "#/properties/individual_id"
         },
         {
           "type": "Control",
-          "label": "ID of the parent biosample",
+          "label": "ID of the Parent Biosample",
           "scope": "#/properties/derived_from_id"
         }
       ]
