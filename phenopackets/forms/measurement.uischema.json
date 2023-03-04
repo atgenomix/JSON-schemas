@@ -2,6 +2,10 @@
   "type": "VerticalLayout",
   "elements": [
     {
+      "type": "Control",
+      "scope": "#/properties/description"
+    },
+    {
       "type": "HorizontalLayout",
       "elements": [
         {
@@ -15,16 +19,17 @@
       ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/description"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/value"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/complex_value"
+      "type": "Group",
+      "label": "Measurement value",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/measurement_value",
+          "options": {
+           "autocomplete": true
+          }
+        }
+      ]
     },
     {
       "type": "Control",

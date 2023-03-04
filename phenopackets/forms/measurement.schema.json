@@ -5,161 +5,186 @@
     "properties": {
         "description": {
             "type": "string",
-            "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc... fields should be used for this purpose."
+            "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc. fields should be used for this purpose."
         },
         "assay": {
-            "$ref": "#/definitions/OntologyClass",
-            "additionalProperties": false,
-            "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
-        },
-        "value": {
-            "$ref": "#/definitions/Value",
-            "additionalProperties": false
-        },
-        "complex_value": {
-            "$ref": "#/definitions/ComplexValue",
-            "additionalProperties": false
-        },
-        "time_observed": {
-            "$ref": "#/definitions/TimeElement",
-            "additionalProperties": false,
-            "description": "The time at which the measurement was made"
-        },
-        "procedure": {
-            "$ref": "#/definitions/Procedure",
-            "additionalProperties": false,
-            "description": "Clinical procedure performed on the subject in order to produce the measurement."
-        }
-    },
-    "additionalProperties": false,
-    "oneOf": [
-        {
-            "required": ["value"]
-        },
-        {
-            "required": ["complex_value"]
-        }
-    ],
-    "definitions": {
-        "ComplexValue": {
-            "properties": {
-                "typed_quantities": {
-                    "items": {
-                        "$ref": "#/definitions/TypedQuantity"
-                    },
-                    "additionalProperties": false,
-                    "type": "array",
-                    "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Complex Value"
-        },
-        "OntologyClass": {
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+                    "description": "a CURIE-style identifier e.g. NCIT:C101294. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
                     "type": "string",
-                    "description": "class label, aka name. E.g. \"Abnormality of cardiovascular system\""
+                    "description": "class label, aka name. E.g. \"Whole Genome Sequencing\""
                 }
             },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Ontology Class",
-            "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept)   see also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)"
+            "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
         },
-        "Procedure": {
+        "measurement_value": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "quantity": {
+                            "properties": {
+                                "value": {
+                                    "type": "number",
+                                    "description": "Value of the quantity in the units, e.g. 10.0 nanogram."
+                                },
+                                "unit": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
+                                        },
+                                        "label": {
+                                            "type": "string",
+                                            "description": "class label, aka name. e.g. nanogram."
+                                        }
+                                    },
+                                    "required": ["id"],
+                                    "title": "Unit ontology"
+                                },
+                                "reference_range": {
+                                    "properties": {
+                                        "unit": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
+                                                },
+                                                "label": {
+                                                    "type": "string",
+                                                    "description": "class label, aka name. e.g. nanogram."
+                                                }
+                                            },
+                                            "required": ["id"],
+                                            "title": "Unit ontology"
+                                        },
+                                        "low": {
+                                            "type": "number"
+                                        },
+                                        "high": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "title": "Reference range",
+                                    "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
+                                }
+                            }
+                        }
+                    },
+                    "title": "Quantity"
+                },
+                {
+                    "properties": {
+                        "ontology_class": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "a CURIE-style identifier. This is the primary key for the ontology class REQUIRED!"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "description": "class label, aka name. For use with things such as categories 'red', 'yellow' or 'absent'/'present'"
+                                }
+                            },
+                            "required": ["id"],
+                            "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'"
+                        }
+                    },
+                    "title": "Ontology class"
+                },
+                {
+                    "properties": {
+                        "typed_quantities": {
+                            "items": {
+                                "$ref": "#/definitions/TypedQuantity"
+                            },
+                            "type": "array",
+                            "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities"
+                        }
+                    },
+                    "title": "Typed quantity"
+                }
+            ]
+        },
+        "time_observed": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    "title": "Time of the measurement"
+                },
+                {
+                    "properties": {
+                        "interval": {
+                            "$ref": "#/definitions/TimeInterval"
+                        }
+                    },
+                    "title": "Time interval of the measurement"
+                }
+            ],
+            "description": "The time at which the measurement was made"
+        },
+        "procedure": {
             "properties": {
                 "code": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "FHIR mapping: Procedure.code"
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+                        },
+                        "label": {
+                            "type": "string",
+                            "description": "FHIR mapping: Procedure.code"
+                        }
+                    },
+                    "title": "Procedure code ontology"
                 },
                 "body_site": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "FHIR mapping: Procedure.bodySite"
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+                        },
+                        "label": {
+                            "type": "string",
+                            "description": "FHIR mapping: Procedure.bodySite"
+                        }
+                    },
+                    "title": "Body site ontology"
                 },
                 "performed": {
-                    "$ref": "#/definitions/TimeElement",
-                    "additionalProperties": false,
+                    "oneOf": [
+                        {
+                            "properties": {
+                                "timestamp": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            },
+                            "title": "Time of the procedure"
+                        },
+                        {
+                            "properties": {
+                                "interval": {
+                                    "$ref": "#/definitions/TimeInterval"
+                                }
+                            },
+                            "title": "Time interval of the procedure"
+                        }
+                    ],
                     "description": "When the procedure was performed."
                 }
             },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Procedure",
-            "description": "A clinical procedure performed on a subject. By preference a single concept to indicate both the procedure and the body site should be used. In cases where this is not possible, the body site should be indicated using a separate ontology class. e.g. {\"code\":{\"NCIT:C51585\": \"Biopsy of Soft Palate\"}} {\"code\":{\"NCIT:C28743\": \"Punch Biopsy\"}, \"body_site\":{\"UBERON:0003403\": \"skin of forearm\"}} - a punch biopsy of the skin from the forearm FHIR mapping: Procedure (https://www.hl7.org/fhir/procedure.html)"
-        },
-        "Quantity": {
-            "properties": {
-                "unit": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "For instance, NCIT subhierarchy, Unit of Measure (Code C25709), https://www.ebi.ac.uk/ols/ontologies/uo"
-                },
-                "value": {
-                    "type": "number",
-                    "description": "the  value of the quantity in the units  e.g. 2.0 mg"
-                },
-                "reference_range": {
-                    "$ref": "#/definitions/ReferenceRange",
-                    "additionalProperties": false,
-                    "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Quantity"
-        },
-        "ReferenceRange": {
-            "properties": {
-                "unit": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false
-                },
-                "low": {
-                    "type": "number"
-                },
-                "high": {
-                    "type": "number"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Reference Range"
-        },
-        "TimeElement": {
-            "properties": {
-                "timestamp": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "interval": {
-                    "$ref": "#/definitions/TimeInterval",
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "oneOf": [
-                {
-                    "required": [
-                        "timestamp"
-                    ]
-                },
-                {
-                    "required": [
-                        "interval"
-                    ]
-                }
-            ],
-            "title": "Time Element"
-        },
+            "description": "Clinical procedure performed on the subject in order to produce the measurement."
+        }
+    },
+    "definitions": {
         "TimeInterval": {
             "properties": {
                 "start": {
@@ -178,48 +203,72 @@
         "TypedQuantity": {
             "properties": {
                 "type": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "a CURIE-style identifier. This is the primary key for the ontology class REQUIRED!"
+                        },
+                        "label": {
+                            "type": "string",
+                            "description": "class label, aka name. e.g. diastolic, systolic."
+                        }
+                    },
+                    "required": ["id"],
                     "description": "e.g. diastolic, systolic"
                 },
                 "quantity": {
-                    "$ref": "#/definitions/Quantity",
-                    "additionalProperties": false,
-                    "description": "e.g. mm Hg"
+                    "properties": {
+                        "value": {
+                            "type": "number",
+                            "description": "Value of the quantity in the units, e.g. 10.0 nanogram."
+                        },
+                        "unit": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "description": "class label, aka name. e.g. nanogram."
+                                }
+                            },
+                            "required": ["id"],
+                            "title": "Unit ontology"
+                        },
+                        "reference_range": {
+                            "properties": {
+                                "unit": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
+                                        },
+                                        "label": {
+                                            "type": "string",
+                                            "description": "class label, aka name. e.g. nanogram."
+                                        }
+                                    },
+                                    "required": ["id"],
+                                    "title": "Unit ontology"
+                                },
+                                "low": {
+                                    "type": "number"
+                                },
+                                "high": {
+                                    "type": "number"
+                                }
+                            },
+                            "title": "Reference range",
+                            "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
+                        }
+                    }
                 }
             },
             "additionalProperties": false,
             "type": "object",
             "title": "Typed Quantity",
             "description": "For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement"
-        },
-        "Value": {
-            "properties": {
-                "quantity": {
-                    "$ref": "#/definitions/Quantity",
-                    "additionalProperties": false
-                },
-                "ontology_class": {
-                    "$ref": "#/definitions/OntologyClass",
-                    "additionalProperties": false,
-                    "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "oneOf": [
-                {
-                    "required": [
-                        "quantity"
-                    ]
-                },
-                {
-                    "required": [
-                        "ontology_class"
-                    ]
-                }
-            ],
-            "title": "Value"
         }
     }
 }
