@@ -48,6 +48,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -62,6 +63,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -76,6 +78,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -90,6 +93,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -103,6 +107,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -116,6 +121,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606"
                 },
                 "label": {
@@ -129,6 +135,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -142,6 +149,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -155,6 +163,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -168,6 +177,7 @@
             "properties": {
                 "id": {
                     "type": "string",
+                    "pattern": "^\\w[^:]*:.+$",
                     "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                 },
                 "label": {
@@ -183,6 +193,7 @@
                     "properties": {
                         "id": {
                             "type": "string",
+                            "pattern": "^\\w[^:]*:.+$",
                             "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                         },
                         "label": {
@@ -196,6 +207,7 @@
                     "properties": {
                         "id": {
                             "type": "string",
+                            "pattern": "^\\w[^:]*:.+$",
                             "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
                         },
                         "label": {
