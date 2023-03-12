@@ -1,0 +1,2029 @@
+{
+  "type": "object",
+  "title": "Variation Set",
+  "properties": {
+    "variation_set": {
+      "properties": {
+        "_id": {
+          "type": "string",
+          "pattern": "^\\w[^:]*:.+$",
+          "title": "CURIE-style Identifier",
+          "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+        },
+        "members": {
+          "items": {
+            "oneOf": [
+              {
+                "properties": {
+                  "allele": {
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "pattern": "^\\w[^:]*:.+$",
+                        "title": "CURIE-style Identifier",
+                        "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                      },
+                      "location": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "chromosome_location": {
+                                "properties": {
+                                  "species_id": {
+                                    "type": "string",
+                                    "pattern": "^\\w[^:]*:.+$",
+                                    "default": "taxonomy:9606",
+                                    "title": "Species",
+                                    "description": "CURIE representing a species from the NCBI species taxonomy (https://registry.identifiers.org/registry/taxonomy)."
+                                  },
+                                  "chr": {
+                                    "type": "string",
+                                    "description": "The symbolic chromosome name. For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive).",
+                                    "title": "Chromosome Name"
+                                  },
+                                  "interval": {
+                                    "properties": {
+                                      "start": {
+                                        "type": "string",
+                                        "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                        "description": "Start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome p-arm than `end`."
+                                      },
+                                      "end": {
+                                        "type": "string",
+                                        "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                        "description": "End cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome q-arm than `start`."
+                                      }
+                                    },
+                                    "required": [
+                                      "start",
+                                      "end"
+                                    ],
+                                    "description": "A character string representing cytobands derived from the International System for Human Cytogenomic Nomenclature* (ISCN).",
+                                    "title": "Cytoband Interval"
+                                  }
+                                },
+                                "title": ""
+                              }
+                            },
+                            "title": "Chromosome Location"
+                          },
+                          {
+                            "properties": {
+                              "sequence_location": {
+                                "properties": {
+                                  "_id": {
+                                    "type": "string"
+                                  },
+                                  "sequence_id": {
+                                    "type": "string",
+                                    "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                    "description": "A VRS Computed Identifier for the reference Sequence.",
+                                    "title": "Sequence identifier"
+                                  },
+                                  "interval": {
+                                    "properties": {
+                                      "start": {
+                                        "oneOf": [
+                                          {
+                                            "properties": {
+                                              "start_number": {
+                                                "type": "number"
+                                              }
+                                            },
+                                            "title": "Start Number"
+                                          },
+                                          {
+                                            "properties": {
+                                              "start_indefinite_range": {
+                                                "properties": {
+                                                  "value": {
+                                                    "type": "number",
+                                                    "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                  },
+                                                  "comparator": {
+                                                    "enum": [
+                                                      "<=",
+                                                      ">="
+                                                    ],
+                                                    "type": "string",
+                                                    "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                  }
+                                                },
+                                                "title": ""
+                                              }
+                                            },
+                                            "title": "Start Indefinite Range"
+                                          },
+                                          {
+                                            "properties": {
+                                              "start_definite_range": {
+                                                "properties": {
+                                                  "min": {
+                                                    "type": "number",
+                                                    "description": "The minimum value; inclusive"
+                                                  },
+                                                  "max": {
+                                                    "type": "number",
+                                                    "description": "The maximum value; inclusive"
+                                                  }
+                                                },
+                                                "title": ""
+                                              }
+                                            },
+                                            "title": "Start Definite Range"
+                                          }
+                                        ]
+                                      },
+                                      "end": {
+                                        "oneOf": [
+                                          {
+                                            "properties": {
+                                              "end_number": {
+                                                "type": "number"
+                                              }
+                                            },
+                                            "title": "End Number"
+                                          },
+                                          {
+                                            "properties": {
+                                              "end_indefinite_range": {
+                                                "properties": {
+                                                  "value": {
+                                                    "type": "number",
+                                                    "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                  },
+                                                  "comparator": {
+                                                    "enum": [
+                                                      "<=",
+                                                      ">="
+                                                    ],
+                                                    "type": "string",
+                                                    "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                  }
+                                                },
+                                                "title": ""
+                                              }
+                                            },
+                                            "title": "End Indefinite Range"
+                                          },
+                                          {
+                                            "properties": {
+                                              "end_definite_range": {
+                                                "properties": {
+                                                  "min": {
+                                                    "type": "number",
+                                                    "description": "The minimum value; inclusive"
+                                                  },
+                                                  "max": {
+                                                    "type": "number",
+                                                    "description": "The maximum value; inclusive"
+                                                  }
+                                                },
+                                                "title": ""
+                                              }
+                                            },
+                                            "title": "End Definite Range"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "title": "Sequence Interval",
+                                    "description": "Reference sequence region defined by a SequenceInterval."
+                                  }
+                                },
+                                "required": [
+                                  "interval"
+                                ],
+                                "title": ""
+                              }
+                            },
+                            "title": "Sequence Location"
+                          }
+                        ]
+                      },
+                      "state": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "literal_sequence_expression": {
+                                "properties": {
+                                  "sequence": {
+                                    "type": "string",
+                                    "pattern": "[ATGCU]+",
+                                    "description": "An explicit expression of a Sequence"
+                                  }
+                                }
+                              },
+                              "count": {
+                                "oneOf": [
+                                  {
+                                    "properties": {
+                                      "number": {
+                                        "type": "number",
+                                        "description": "The count of repeated units of sequence expression."
+                                      }
+                                    },
+                                    "title": "Count"
+                                  },
+                                  {
+                                    "properties": {
+                                      "indefinite_range": {
+                                        "properties": {
+                                          "value": {
+                                            "type": "number",
+                                            "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                          },
+                                          "comparator": {
+                                            "enum": [
+                                              "<=",
+                                              ">="
+                                            ],
+                                            "type": "string",
+                                            "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                          }
+                                        },
+                                        "title": ""
+                                      }
+                                    },
+                                    "title": "Indefinite Range Count"
+                                  },
+                                  {
+                                    "properties": {
+                                      "definite_range": {
+                                        "properties": {
+                                          "min": {
+                                            "type": "number",
+                                            "description": "The minimum value; inclusive"
+                                          },
+                                          "max": {
+                                            "type": "number",
+                                            "description": "The maximum value; inclusive"
+                                          }
+                                        },
+                                        "title": ""
+                                      }
+                                    },
+                                    "title": "Definite Range Count"
+                                  }
+                                ]
+                              }
+                            },
+                            "title": "Literal Sequence Expression"
+                          },
+                          {
+                            "properties": {
+                              "derived_sequence_expression": {
+                                "properties": {
+                                  "reverse_complement": {
+                                    "type": "boolean"
+                                  },
+                                  "location": {
+                                    "properties": {
+                                      "sequence_location": {
+                                        "properties": {
+                                          "_id": {
+                                            "type": "string"
+                                          },
+                                          "sequence_id": {
+                                            "type": "string",
+                                            "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                            "description": "A VRS Computed Identifier for the reference Sequence.",
+                                            "title": "Sequence identifier"
+                                          },
+                                          "interval": {
+                                            "properties": {
+                                              "start": {
+                                                "oneOf": [
+                                                  {
+                                                    "properties": {
+                                                      "start_number": {
+                                                        "type": "number"
+                                                      }
+                                                    },
+                                                    "title": "Start Number"
+                                                  },
+                                                  {
+                                                    "properties": {
+                                                      "start_indefinite_range": {
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "number",
+                                                            "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                          },
+                                                          "comparator": {
+                                                            "enum": [
+                                                              "<=",
+                                                              ">="
+                                                            ],
+                                                            "type": "string",
+                                                            "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                          }
+                                                        },
+                                                        "title": ""
+                                                      }
+                                                    },
+                                                    "title": "Start Indefinite Range"
+                                                  },
+                                                  {
+                                                    "properties": {
+                                                      "start_definite_range": {
+                                                        "properties": {
+                                                          "min": {
+                                                            "type": "number",
+                                                            "description": "The minimum value; inclusive"
+                                                          },
+                                                          "max": {
+                                                            "type": "number",
+                                                            "description": "The maximum value; inclusive"
+                                                          }
+                                                        },
+                                                        "title": ""
+                                                      }
+                                                    },
+                                                    "title": "Start Definite Range"
+                                                  }
+                                                ]
+                                              },
+                                              "end": {
+                                                "oneOf": [
+                                                  {
+                                                    "properties": {
+                                                      "end_number": {
+                                                        "type": "number"
+                                                      }
+                                                    },
+                                                    "title": "End Number"
+                                                  },
+                                                  {
+                                                    "properties": {
+                                                      "end_indefinite_range": {
+                                                        "properties": {
+                                                          "value": {
+                                                            "type": "number",
+                                                            "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                          },
+                                                          "comparator": {
+                                                            "enum": [
+                                                              "<=",
+                                                              ">="
+                                                            ],
+                                                            "type": "string",
+                                                            "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                          }
+                                                        },
+                                                        "title": ""
+                                                      }
+                                                    },
+                                                    "title": "End Indefinite Range"
+                                                  },
+                                                  {
+                                                    "properties": {
+                                                      "end_definite_range": {
+                                                        "properties": {
+                                                          "min": {
+                                                            "type": "number",
+                                                            "description": "The minimum value; inclusive"
+                                                          },
+                                                          "max": {
+                                                            "type": "number",
+                                                            "description": "The maximum value; inclusive"
+                                                          }
+                                                        },
+                                                        "title": ""
+                                                      }
+                                                    },
+                                                    "title": "End Definite Range"
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "title": "Sequence Interval",
+                                            "description": "Reference sequence region defined by a SequenceInterval."
+                                          }
+                                        },
+                                        "required": [
+                                          "interval"
+                                        ],
+                                        "title": ""
+                                      }
+                                    },
+                                    "title": "Sequence Location"
+                                  }
+                                },
+                                "title": ""
+                              },
+                              "count": {
+                                "oneOf": [
+                                  {
+                                    "properties": {
+                                      "number": {
+                                        "type": "number",
+                                        "description": "The count of repeated units of sequence expression."
+                                      }
+                                    },
+                                    "title": "Count"
+                                  },
+                                  {
+                                    "properties": {
+                                      "indefinite_range": {
+                                        "properties": {
+                                          "value": {
+                                            "type": "number",
+                                            "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                          },
+                                          "comparator": {
+                                            "enum": [
+                                              "<=",
+                                              ">="
+                                            ],
+                                            "type": "string",
+                                            "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                          }
+                                        },
+                                        "title": ""
+                                      }
+                                    },
+                                    "title": "Indefinite Range Count"
+                                  },
+                                  {
+                                    "properties": {
+                                      "definite_range": {
+                                        "properties": {
+                                          "min": {
+                                            "type": "number",
+                                            "description": "The minimum value; inclusive"
+                                          },
+                                          "max": {
+                                            "type": "number",
+                                            "description": "The maximum value; inclusive"
+                                          }
+                                        },
+                                        "title": ""
+                                      }
+                                    },
+                                    "title": "Definite Range Count"
+                                  }
+                                ]
+                              }
+                            },
+                            "title": "Derived Sequence Expression"
+                          }
+                        ]
+                      }
+                    },
+                    "title": ""
+                  }
+                },
+                "title": "Allele"
+              },
+              {
+                "properties": {
+                  "haplotype": {
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "pattern": "^\\w[^:]*:.+$",
+                        "title": "CURIE-style Identifier",
+                        "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                      },
+                      "members": {
+                        "items": {
+                          "oneOf": [
+                            {
+                              "properties": {
+                                "allele": {
+                                  "properties": {
+                                    "_id": {
+                                      "type": "string",
+                                      "pattern": "^\\w[^:]*:.+$",
+                                      "title": "CURIE-style Identifier",
+                                      "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                                    },
+                                    "location": {
+                                      "oneOf": [
+                                        {
+                                          "properties": {
+                                            "chromosome_location": {
+                                              "properties": {
+                                                "species_id": {
+                                                  "type": "string",
+                                                  "pattern": "^\\w[^:]*:.+$",
+                                                  "default": "taxonomy:9606",
+                                                  "title": "Species",
+                                                  "description": "CURIE representing a species from the NCBI species taxonomy (https://registry.identifiers.org/registry/taxonomy)."
+                                                },
+                                                "chr": {
+                                                  "type": "string",
+                                                  "description": "The symbolic chromosome name. For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive).",
+                                                  "title": "Chromosome Name"
+                                                },
+                                                "interval": {
+                                                  "properties": {
+                                                    "start": {
+                                                      "type": "string",
+                                                      "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                                      "description": "Start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome p-arm than `end`."
+                                                    },
+                                                    "end": {
+                                                      "type": "string",
+                                                      "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                                      "description": "End cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome q-arm than `start`."
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "start",
+                                                    "end"
+                                                  ],
+                                                  "description": "A character string representing cytobands derived from the International System for Human Cytogenomic Nomenclature* (ISCN).",
+                                                  "title": "Cytoband Interval"
+                                                }
+                                              },
+                                              "title": ""
+                                            }
+                                          },
+                                          "title": "Chromosome Location"
+                                        },
+                                        {
+                                          "properties": {
+                                            "sequence_location": {
+                                              "properties": {
+                                                "_id": {
+                                                  "type": "string"
+                                                },
+                                                "sequence_id": {
+                                                  "type": "string",
+                                                  "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                                  "description": "A VRS Computed Identifier for the reference Sequence.",
+                                                  "title": "Sequence identifier"
+                                                },
+                                                "interval": {
+                                                  "properties": {
+                                                    "start": {
+                                                      "oneOf": [
+                                                        {
+                                                          "properties": {
+                                                            "start_number": {
+                                                              "type": "number"
+                                                            }
+                                                          },
+                                                          "title": "Start Number"
+                                                        },
+                                                        {
+                                                          "properties": {
+                                                            "start_indefinite_range": {
+                                                              "properties": {
+                                                                "value": {
+                                                                  "type": "number",
+                                                                  "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                },
+                                                                "comparator": {
+                                                                  "enum": [
+                                                                    "<=",
+                                                                    ">="
+                                                                  ],
+                                                                  "type": "string",
+                                                                  "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                }
+                                                              },
+                                                              "title": ""
+                                                            }
+                                                          },
+                                                          "title": "Start Indefinite Range"
+                                                        },
+                                                        {
+                                                          "properties": {
+                                                            "start_definite_range": {
+                                                              "properties": {
+                                                                "min": {
+                                                                  "type": "number",
+                                                                  "description": "The minimum value; inclusive"
+                                                                },
+                                                                "max": {
+                                                                  "type": "number",
+                                                                  "description": "The maximum value; inclusive"
+                                                                }
+                                                              },
+                                                              "title": ""
+                                                            }
+                                                          },
+                                                          "title": "Start Definite Range"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "end": {
+                                                      "oneOf": [
+                                                        {
+                                                          "properties": {
+                                                            "end_number": {
+                                                              "type": "number"
+                                                            }
+                                                          },
+                                                          "title": "End Number"
+                                                        },
+                                                        {
+                                                          "properties": {
+                                                            "end_indefinite_range": {
+                                                              "properties": {
+                                                                "value": {
+                                                                  "type": "number",
+                                                                  "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                },
+                                                                "comparator": {
+                                                                  "enum": [
+                                                                    "<=",
+                                                                    ">="
+                                                                  ],
+                                                                  "type": "string",
+                                                                  "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                }
+                                                              },
+                                                              "title": ""
+                                                            }
+                                                          },
+                                                          "title": "End Indefinite Range"
+                                                        },
+                                                        {
+                                                          "properties": {
+                                                            "end_definite_range": {
+                                                              "properties": {
+                                                                "min": {
+                                                                  "type": "number",
+                                                                  "description": "The minimum value; inclusive"
+                                                                },
+                                                                "max": {
+                                                                  "type": "number",
+                                                                  "description": "The maximum value; inclusive"
+                                                                }
+                                                              },
+                                                              "title": ""
+                                                            }
+                                                          },
+                                                          "title": "End Definite Range"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "title": "Sequence Interval",
+                                                  "description": "Reference sequence region defined by a SequenceInterval."
+                                                }
+                                              },
+                                              "required": [
+                                                "interval"
+                                              ],
+                                              "title": ""
+                                            }
+                                          },
+                                          "title": "Sequence Location"
+                                        }
+                                      ]
+                                    },
+                                    "state": {
+                                      "oneOf": [
+                                        {
+                                          "properties": {
+                                            "literal_sequence_expression": {
+                                              "properties": {
+                                                "sequence": {
+                                                  "type": "string",
+                                                  "pattern": "[ATGCU]+",
+                                                  "description": "An explicit expression of a Sequence"
+                                                }
+                                              }
+                                            },
+                                            "count": {
+                                              "oneOf": [
+                                                {
+                                                  "properties": {
+                                                    "number": {
+                                                      "type": "number",
+                                                      "description": "The count of repeated units of sequence expression."
+                                                    }
+                                                  },
+                                                  "title": "Count"
+                                                },
+                                                {
+                                                  "properties": {
+                                                    "indefinite_range": {
+                                                      "properties": {
+                                                        "value": {
+                                                          "type": "number",
+                                                          "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                        },
+                                                        "comparator": {
+                                                          "enum": [
+                                                            "<=",
+                                                            ">="
+                                                          ],
+                                                          "type": "string",
+                                                          "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                        }
+                                                      },
+                                                      "title": ""
+                                                    }
+                                                  },
+                                                  "title": "Indefinite Range Count"
+                                                },
+                                                {
+                                                  "properties": {
+                                                    "definite_range": {
+                                                      "properties": {
+                                                        "min": {
+                                                          "type": "number",
+                                                          "description": "The minimum value; inclusive"
+                                                        },
+                                                        "max": {
+                                                          "type": "number",
+                                                          "description": "The maximum value; inclusive"
+                                                        }
+                                                      },
+                                                      "title": ""
+                                                    }
+                                                  },
+                                                  "title": "Definite Range Count"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "title": "Literal Sequence Expression"
+                                        },
+                                        {
+                                          "properties": {
+                                            "derived_sequence_expression": {
+                                              "properties": {
+                                                "reverse_complement": {
+                                                  "type": "boolean"
+                                                },
+                                                "location": {
+                                                  "properties": {
+                                                    "sequence_location": {
+                                                      "properties": {
+                                                        "_id": {
+                                                          "type": "string"
+                                                        },
+                                                        "sequence_id": {
+                                                          "type": "string",
+                                                          "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                                          "description": "A VRS Computed Identifier for the reference Sequence.",
+                                                          "title": "Sequence identifier"
+                                                        },
+                                                        "interval": {
+                                                          "properties": {
+                                                            "start": {
+                                                              "oneOf": [
+                                                                {
+                                                                  "properties": {
+                                                                    "start_number": {
+                                                                      "type": "number"
+                                                                    }
+                                                                  },
+                                                                  "title": "Start Number"
+                                                                },
+                                                                {
+                                                                  "properties": {
+                                                                    "start_indefinite_range": {
+                                                                      "properties": {
+                                                                        "value": {
+                                                                          "type": "number",
+                                                                          "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                        },
+                                                                        "comparator": {
+                                                                          "enum": [
+                                                                            "<=",
+                                                                            ">="
+                                                                          ],
+                                                                          "type": "string",
+                                                                          "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                        }
+                                                                      },
+                                                                      "title": ""
+                                                                    }
+                                                                  },
+                                                                  "title": "Start Indefinite Range"
+                                                                },
+                                                                {
+                                                                  "properties": {
+                                                                    "start_definite_range": {
+                                                                      "properties": {
+                                                                        "min": {
+                                                                          "type": "number",
+                                                                          "description": "The minimum value; inclusive"
+                                                                        },
+                                                                        "max": {
+                                                                          "type": "number",
+                                                                          "description": "The maximum value; inclusive"
+                                                                        }
+                                                                      },
+                                                                      "title": ""
+                                                                    }
+                                                                  },
+                                                                  "title": "Start Definite Range"
+                                                                }
+                                                              ]
+                                                            },
+                                                            "end": {
+                                                              "oneOf": [
+                                                                {
+                                                                  "properties": {
+                                                                    "end_number": {
+                                                                      "type": "number"
+                                                                    }
+                                                                  },
+                                                                  "title": "End Number"
+                                                                },
+                                                                {
+                                                                  "properties": {
+                                                                    "end_indefinite_range": {
+                                                                      "properties": {
+                                                                        "value": {
+                                                                          "type": "number",
+                                                                          "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                        },
+                                                                        "comparator": {
+                                                                          "enum": [
+                                                                            "<=",
+                                                                            ">="
+                                                                          ],
+                                                                          "type": "string",
+                                                                          "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                        }
+                                                                      },
+                                                                      "title": ""
+                                                                    }
+                                                                  },
+                                                                  "title": "End Indefinite Range"
+                                                                },
+                                                                {
+                                                                  "properties": {
+                                                                    "end_definite_range": {
+                                                                      "properties": {
+                                                                        "min": {
+                                                                          "type": "number",
+                                                                          "description": "The minimum value; inclusive"
+                                                                        },
+                                                                        "max": {
+                                                                          "type": "number",
+                                                                          "description": "The maximum value; inclusive"
+                                                                        }
+                                                                      },
+                                                                      "title": ""
+                                                                    }
+                                                                  },
+                                                                  "title": "End Definite Range"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "title": "Sequence Interval",
+                                                          "description": "Reference sequence region defined by a SequenceInterval."
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "interval"
+                                                      ],
+                                                      "title": ""
+                                                    }
+                                                  },
+                                                  "title": "Sequence Location"
+                                                }
+                                              },
+                                              "title": ""
+                                            },
+                                            "count": {
+                                              "oneOf": [
+                                                {
+                                                  "properties": {
+                                                    "number": {
+                                                      "type": "number",
+                                                      "description": "The count of repeated units of sequence expression."
+                                                    }
+                                                  },
+                                                  "title": "Count"
+                                                },
+                                                {
+                                                  "properties": {
+                                                    "indefinite_range": {
+                                                      "properties": {
+                                                        "value": {
+                                                          "type": "number",
+                                                          "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                        },
+                                                        "comparator": {
+                                                          "enum": [
+                                                            "<=",
+                                                            ">="
+                                                          ],
+                                                          "type": "string",
+                                                          "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                        }
+                                                      },
+                                                      "title": ""
+                                                    }
+                                                  },
+                                                  "title": "Indefinite Range Count"
+                                                },
+                                                {
+                                                  "properties": {
+                                                    "definite_range": {
+                                                      "properties": {
+                                                        "min": {
+                                                          "type": "number",
+                                                          "description": "The minimum value; inclusive"
+                                                        },
+                                                        "max": {
+                                                          "type": "number",
+                                                          "description": "The maximum value; inclusive"
+                                                        }
+                                                      },
+                                                      "title": ""
+                                                    }
+                                                  },
+                                                  "title": "Definite Range Count"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "title": "Derived Sequence Expression"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "title": ""
+                                }
+                              },
+                              "title": "Allele"
+                            },
+                            {
+                              "properties": {
+                                "curie": {
+                                  "type": "string",
+                                  "pattern": "^\\w[^:]*:.+$",
+                                  "description": "References to Alleles that comprise this Haplotype."
+                                }
+                              },
+                              "title": "Reference"
+                            }
+                          ]
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "description": "List of Alleles, or references to Alleles, that comprise this Haplotype.",
+                    "title": ""
+                  }
+                },
+                "title": "Haplotype"
+              },
+              {
+                "properties": {
+                  "copy_number": {
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "pattern": "^\\w[^:]*:.+$",
+                        "title": "CURIE-style Identifier",
+                        "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                      },
+                      "copies": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "number": {
+                                "type": "number"
+                              }
+                            },
+                            "title": "Integral Number of Copies"
+                          },
+                          {
+                            "properties": {
+                              "indefinite_range": {
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                  },
+                                  "comparator": {
+                                    "enum": [
+                                      "<=",
+                                      ">="
+                                    ],
+                                    "type": "string",
+                                    "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                  }
+                                },
+                                "title": ""
+                              }
+                            },
+                            "title": "Indefinite Range of Copies"
+                          },
+                          {
+                            "properties": {
+                              "definite_range": {
+                                "properties": {
+                                  "min": {
+                                    "type": "number",
+                                    "description": "The minimum value; inclusive"
+                                  },
+                                  "max": {
+                                    "type": "number",
+                                    "description": "The maximum value; inclusive"
+                                  }
+                                },
+                                "title": ""
+                              }
+                            },
+                            "title": "Definite Range of Copies"
+                          }
+                        ]
+                      },
+                      "subject": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "allele": {
+                                "properties": {
+                                  "_id": {
+                                    "type": "string",
+                                    "pattern": "^\\w[^:]*:.+$",
+                                    "title": "CURIE-style Identifier",
+                                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                                  },
+                                  "location": {
+                                    "oneOf": [
+                                      {
+                                        "properties": {
+                                          "chromosome_location": {
+                                            "properties": {
+                                              "species_id": {
+                                                "type": "string",
+                                                "pattern": "^\\w[^:]*:.+$",
+                                                "default": "taxonomy:9606",
+                                                "title": "Species",
+                                                "description": "CURIE representing a species from the NCBI species taxonomy (https://registry.identifiers.org/registry/taxonomy)."
+                                              },
+                                              "chr": {
+                                                "type": "string",
+                                                "description": "The symbolic chromosome name. For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive).",
+                                                "title": "Chromosome Name"
+                                              },
+                                              "interval": {
+                                                "properties": {
+                                                  "start": {
+                                                    "type": "string",
+                                                    "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                                    "description": "Start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome p-arm than `end`."
+                                                  },
+                                                  "end": {
+                                                    "type": "string",
+                                                    "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                                    "description": "End cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome q-arm than `start`."
+                                                  }
+                                                },
+                                                "required": [
+                                                  "start",
+                                                  "end"
+                                                ],
+                                                "description": "A character string representing cytobands derived from the International System for Human Cytogenomic Nomenclature* (ISCN).",
+                                                "title": "Cytoband Interval"
+                                              }
+                                            },
+                                            "title": ""
+                                          }
+                                        },
+                                        "title": "Chromosome Location"
+                                      },
+                                      {
+                                        "properties": {
+                                          "sequence_location": {
+                                            "properties": {
+                                              "_id": {
+                                                "type": "string"
+                                              },
+                                              "sequence_id": {
+                                                "type": "string",
+                                                "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                                "description": "A VRS Computed Identifier for the reference Sequence.",
+                                                "title": "Sequence identifier"
+                                              },
+                                              "interval": {
+                                                "properties": {
+                                                  "start": {
+                                                    "oneOf": [
+                                                      {
+                                                        "properties": {
+                                                          "start_number": {
+                                                            "type": "number"
+                                                          }
+                                                        },
+                                                        "title": "Start Number"
+                                                      },
+                                                      {
+                                                        "properties": {
+                                                          "start_indefinite_range": {
+                                                            "properties": {
+                                                              "value": {
+                                                                "type": "number",
+                                                                "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                              },
+                                                              "comparator": {
+                                                                "enum": [
+                                                                  "<=",
+                                                                  ">="
+                                                                ],
+                                                                "type": "string",
+                                                                "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                              }
+                                                            },
+                                                            "title": ""
+                                                          }
+                                                        },
+                                                        "title": "Start Indefinite Range"
+                                                      },
+                                                      {
+                                                        "properties": {
+                                                          "start_definite_range": {
+                                                            "properties": {
+                                                              "min": {
+                                                                "type": "number",
+                                                                "description": "The minimum value; inclusive"
+                                                              },
+                                                              "max": {
+                                                                "type": "number",
+                                                                "description": "The maximum value; inclusive"
+                                                              }
+                                                            },
+                                                            "title": ""
+                                                          }
+                                                        },
+                                                        "title": "Start Definite Range"
+                                                      }
+                                                    ]
+                                                  },
+                                                  "end": {
+                                                    "oneOf": [
+                                                      {
+                                                        "properties": {
+                                                          "end_number": {
+                                                            "type": "number"
+                                                          }
+                                                        },
+                                                        "title": "End Number"
+                                                      },
+                                                      {
+                                                        "properties": {
+                                                          "end_indefinite_range": {
+                                                            "properties": {
+                                                              "value": {
+                                                                "type": "number",
+                                                                "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                              },
+                                                              "comparator": {
+                                                                "enum": [
+                                                                  "<=",
+                                                                  ">="
+                                                                ],
+                                                                "type": "string",
+                                                                "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                              }
+                                                            },
+                                                            "title": ""
+                                                          }
+                                                        },
+                                                        "title": "End Indefinite Range"
+                                                      },
+                                                      {
+                                                        "properties": {
+                                                          "end_definite_range": {
+                                                            "properties": {
+                                                              "min": {
+                                                                "type": "number",
+                                                                "description": "The minimum value; inclusive"
+                                                              },
+                                                              "max": {
+                                                                "type": "number",
+                                                                "description": "The maximum value; inclusive"
+                                                              }
+                                                            },
+                                                            "title": ""
+                                                          }
+                                                        },
+                                                        "title": "End Definite Range"
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                "title": "Sequence Interval",
+                                                "description": "Reference sequence region defined by a SequenceInterval."
+                                              }
+                                            },
+                                            "required": [
+                                              "interval"
+                                            ],
+                                            "title": ""
+                                          }
+                                        },
+                                        "title": "Sequence Location"
+                                      }
+                                    ]
+                                  },
+                                  "state": {
+                                    "oneOf": [
+                                      {
+                                        "properties": {
+                                          "literal_sequence_expression": {
+                                            "properties": {
+                                              "sequence": {
+                                                "type": "string",
+                                                "pattern": "[ATGCU]+",
+                                                "description": "An explicit expression of a Sequence"
+                                              }
+                                            }
+                                          },
+                                          "count": {
+                                            "oneOf": [
+                                              {
+                                                "properties": {
+                                                  "number": {
+                                                    "type": "number",
+                                                    "description": "The count of repeated units of sequence expression."
+                                                  }
+                                                },
+                                                "title": "Count"
+                                              },
+                                              {
+                                                "properties": {
+                                                  "indefinite_range": {
+                                                    "properties": {
+                                                      "value": {
+                                                        "type": "number",
+                                                        "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                      },
+                                                      "comparator": {
+                                                        "enum": [
+                                                          "<=",
+                                                          ">="
+                                                        ],
+                                                        "type": "string",
+                                                        "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                      }
+                                                    },
+                                                    "title": ""
+                                                  }
+                                                },
+                                                "title": "Indefinite Range Count"
+                                              },
+                                              {
+                                                "properties": {
+                                                  "definite_range": {
+                                                    "properties": {
+                                                      "min": {
+                                                        "type": "number",
+                                                        "description": "The minimum value; inclusive"
+                                                      },
+                                                      "max": {
+                                                        "type": "number",
+                                                        "description": "The maximum value; inclusive"
+                                                      }
+                                                    },
+                                                    "title": ""
+                                                  }
+                                                },
+                                                "title": "Definite Range Count"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "title": "Literal Sequence Expression"
+                                      },
+                                      {
+                                        "properties": {
+                                          "derived_sequence_expression": {
+                                            "properties": {
+                                              "reverse_complement": {
+                                                "type": "boolean"
+                                              },
+                                              "location": {
+                                                "properties": {
+                                                  "sequence_location": {
+                                                    "properties": {
+                                                      "_id": {
+                                                        "type": "string"
+                                                      },
+                                                      "sequence_id": {
+                                                        "type": "string",
+                                                        "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                                        "description": "A VRS Computed Identifier for the reference Sequence.",
+                                                        "title": "Sequence identifier"
+                                                      },
+                                                      "interval": {
+                                                        "properties": {
+                                                          "start": {
+                                                            "oneOf": [
+                                                              {
+                                                                "properties": {
+                                                                  "start_number": {
+                                                                    "type": "number"
+                                                                  }
+                                                                },
+                                                                "title": "Start Number"
+                                                              },
+                                                              {
+                                                                "properties": {
+                                                                  "start_indefinite_range": {
+                                                                    "properties": {
+                                                                      "value": {
+                                                                        "type": "number",
+                                                                        "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                      },
+                                                                      "comparator": {
+                                                                        "enum": [
+                                                                          "<=",
+                                                                          ">="
+                                                                        ],
+                                                                        "type": "string",
+                                                                        "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                      }
+                                                                    },
+                                                                    "title": ""
+                                                                  }
+                                                                },
+                                                                "title": "Start Indefinite Range"
+                                                              },
+                                                              {
+                                                                "properties": {
+                                                                  "start_definite_range": {
+                                                                    "properties": {
+                                                                      "min": {
+                                                                        "type": "number",
+                                                                        "description": "The minimum value; inclusive"
+                                                                      },
+                                                                      "max": {
+                                                                        "type": "number",
+                                                                        "description": "The maximum value; inclusive"
+                                                                      }
+                                                                    },
+                                                                    "title": ""
+                                                                  }
+                                                                },
+                                                                "title": "Start Definite Range"
+                                                              }
+                                                            ]
+                                                          },
+                                                          "end": {
+                                                            "oneOf": [
+                                                              {
+                                                                "properties": {
+                                                                  "end_number": {
+                                                                    "type": "number"
+                                                                  }
+                                                                },
+                                                                "title": "End Number"
+                                                              },
+                                                              {
+                                                                "properties": {
+                                                                  "end_indefinite_range": {
+                                                                    "properties": {
+                                                                      "value": {
+                                                                        "type": "number",
+                                                                        "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                      },
+                                                                      "comparator": {
+                                                                        "enum": [
+                                                                          "<=",
+                                                                          ">="
+                                                                        ],
+                                                                        "type": "string",
+                                                                        "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                      }
+                                                                    },
+                                                                    "title": ""
+                                                                  }
+                                                                },
+                                                                "title": "End Indefinite Range"
+                                                              },
+                                                              {
+                                                                "properties": {
+                                                                  "end_definite_range": {
+                                                                    "properties": {
+                                                                      "min": {
+                                                                        "type": "number",
+                                                                        "description": "The minimum value; inclusive"
+                                                                      },
+                                                                      "max": {
+                                                                        "type": "number",
+                                                                        "description": "The maximum value; inclusive"
+                                                                      }
+                                                                    },
+                                                                    "title": ""
+                                                                  }
+                                                                },
+                                                                "title": "End Definite Range"
+                                                              }
+                                                            ]
+                                                          }
+                                                        },
+                                                        "title": "Sequence Interval",
+                                                        "description": "Reference sequence region defined by a SequenceInterval."
+                                                      }
+                                                    },
+                                                    "required": [
+                                                      "interval"
+                                                    ],
+                                                    "title": ""
+                                                  }
+                                                },
+                                                "title": "Sequence Location"
+                                              }
+                                            },
+                                            "title": ""
+                                          },
+                                          "count": {
+                                            "oneOf": [
+                                              {
+                                                "properties": {
+                                                  "number": {
+                                                    "type": "number",
+                                                    "description": "The count of repeated units of sequence expression."
+                                                  }
+                                                },
+                                                "title": "Count"
+                                              },
+                                              {
+                                                "properties": {
+                                                  "indefinite_range": {
+                                                    "properties": {
+                                                      "value": {
+                                                        "type": "number",
+                                                        "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                      },
+                                                      "comparator": {
+                                                        "enum": [
+                                                          "<=",
+                                                          ">="
+                                                        ],
+                                                        "type": "string",
+                                                        "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                      }
+                                                    },
+                                                    "title": ""
+                                                  }
+                                                },
+                                                "title": "Indefinite Range Count"
+                                              },
+                                              {
+                                                "properties": {
+                                                  "definite_range": {
+                                                    "properties": {
+                                                      "min": {
+                                                        "type": "number",
+                                                        "description": "The minimum value; inclusive"
+                                                      },
+                                                      "max": {
+                                                        "type": "number",
+                                                        "description": "The maximum value; inclusive"
+                                                      }
+                                                    },
+                                                    "title": ""
+                                                  }
+                                                },
+                                                "title": "Definite Range Count"
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "title": "Derived Sequence Expression"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "title": ""
+                              }
+                            },
+                            "title": "Allele"
+                          },
+                          {
+                            "properties": {
+                              "haplotype": {
+                                "properties": {
+                                  "_id": {
+                                    "type": "string"
+                                  },
+                                  "members": {
+                                    "items": {
+                                      "oneOf": [
+                                        {
+                                          "properties": {
+                                            "allele": {
+                                              "properties": {
+                                                "_id": {
+                                                  "type": "string",
+                                                  "pattern": "^\\w[^:]*:.+$",
+                                                  "title": "CURIE-style Identifier",
+                                                  "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                                                },
+                                                "location": {
+                                                  "oneOf": [
+                                                    {
+                                                      "properties": {
+                                                        "chromosome_location": {
+                                                          "properties": {
+                                                            "species_id": {
+                                                              "type": "string",
+                                                              "pattern": "^\\w[^:]*:.+$",
+                                                              "default": "taxonomy:9606",
+                                                              "title": "Species",
+                                                              "description": "CURIE representing a species from the NCBI species taxonomy (https://registry.identifiers.org/registry/taxonomy)."
+                                                            },
+                                                            "chr": {
+                                                              "type": "string",
+                                                              "description": "The symbolic chromosome name. For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive).",
+                                                              "title": "Chromosome Name"
+                                                            },
+                                                            "interval": {
+                                                              "properties": {
+                                                                "start": {
+                                                                  "type": "string",
+                                                                  "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                                                  "description": "Start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome p-arm than `end`."
+                                                                },
+                                                                "end": {
+                                                                  "type": "string",
+                                                                  "pattern": "^cen|[pq](ter|([1-9][0-9]*(\\.[1-9][0-9]*)?))$",
+                                                                  "description": "End cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome q-arm than `start`."
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "start",
+                                                                "end"
+                                                              ],
+                                                              "description": "A character string representing cytobands derived from the International System for Human Cytogenomic Nomenclature* (ISCN).",
+                                                              "title": "Cytoband Interval"
+                                                            }
+                                                          },
+                                                          "title": ""
+                                                        }
+                                                      },
+                                                      "title": "Chromosome Location"
+                                                    },
+                                                    {
+                                                      "properties": {
+                                                        "sequence_location": {
+                                                          "properties": {
+                                                            "_id": {
+                                                              "type": "string"
+                                                            },
+                                                            "sequence_id": {
+                                                              "type": "string",
+                                                              "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                                              "description": "A VRS Computed Identifier for the reference Sequence.",
+                                                              "title": "Sequence identifier"
+                                                            },
+                                                            "interval": {
+                                                              "properties": {
+                                                                "start": {
+                                                                  "oneOf": [
+                                                                    {
+                                                                      "properties": {
+                                                                        "start_number": {
+                                                                          "type": "number"
+                                                                        }
+                                                                      },
+                                                                      "title": "Start Number"
+                                                                    },
+                                                                    {
+                                                                      "properties": {
+                                                                        "start_indefinite_range": {
+                                                                          "properties": {
+                                                                            "value": {
+                                                                              "type": "number",
+                                                                              "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                            },
+                                                                            "comparator": {
+                                                                              "enum": [
+                                                                                "<=",
+                                                                                ">="
+                                                                              ],
+                                                                              "type": "string",
+                                                                              "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                            }
+                                                                          },
+                                                                          "title": ""
+                                                                        }
+                                                                      },
+                                                                      "title": "Start Indefinite Range"
+                                                                    },
+                                                                    {
+                                                                      "properties": {
+                                                                        "start_definite_range": {
+                                                                          "properties": {
+                                                                            "min": {
+                                                                              "type": "number",
+                                                                              "description": "The minimum value; inclusive"
+                                                                            },
+                                                                            "max": {
+                                                                              "type": "number",
+                                                                              "description": "The maximum value; inclusive"
+                                                                            }
+                                                                          },
+                                                                          "title": ""
+                                                                        }
+                                                                      },
+                                                                      "title": "Start Definite Range"
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                "end": {
+                                                                  "oneOf": [
+                                                                    {
+                                                                      "properties": {
+                                                                        "end_number": {
+                                                                          "type": "number"
+                                                                        }
+                                                                      },
+                                                                      "title": "End Number"
+                                                                    },
+                                                                    {
+                                                                      "properties": {
+                                                                        "end_indefinite_range": {
+                                                                          "properties": {
+                                                                            "value": {
+                                                                              "type": "number",
+                                                                              "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                            },
+                                                                            "comparator": {
+                                                                              "enum": [
+                                                                                "<=",
+                                                                                ">="
+                                                                              ],
+                                                                              "type": "string",
+                                                                              "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                            }
+                                                                          },
+                                                                          "title": ""
+                                                                        }
+                                                                      },
+                                                                      "title": "End Indefinite Range"
+                                                                    },
+                                                                    {
+                                                                      "properties": {
+                                                                        "end_definite_range": {
+                                                                          "properties": {
+                                                                            "min": {
+                                                                              "type": "number",
+                                                                              "description": "The minimum value; inclusive"
+                                                                            },
+                                                                            "max": {
+                                                                              "type": "number",
+                                                                              "description": "The maximum value; inclusive"
+                                                                            }
+                                                                          },
+                                                                          "title": ""
+                                                                        }
+                                                                      },
+                                                                      "title": "End Definite Range"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              },
+                                                              "title": "Sequence Interval",
+                                                              "description": "Reference sequence region defined by a SequenceInterval."
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "interval"
+                                                          ],
+                                                          "title": ""
+                                                        }
+                                                      },
+                                                      "title": "Sequence Location"
+                                                    }
+                                                  ]
+                                                },
+                                                "state": {
+                                                  "oneOf": [
+                                                    {
+                                                      "properties": {
+                                                        "literal_sequence_expression": {
+                                                          "properties": {
+                                                            "sequence": {
+                                                              "type": "string",
+                                                              "pattern": "[ATGCU]+",
+                                                              "description": "An explicit expression of a Sequence"
+                                                            }
+                                                          }
+                                                        },
+                                                        "count": {
+                                                          "oneOf": [
+                                                            {
+                                                              "properties": {
+                                                                "number": {
+                                                                  "type": "number",
+                                                                  "description": "The count of repeated units of sequence expression."
+                                                                }
+                                                              },
+                                                              "title": "Count"
+                                                            },
+                                                            {
+                                                              "properties": {
+                                                                "indefinite_range": {
+                                                                  "properties": {
+                                                                    "value": {
+                                                                      "type": "number",
+                                                                      "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                    },
+                                                                    "comparator": {
+                                                                      "enum": [
+                                                                        "<=",
+                                                                        ">="
+                                                                      ],
+                                                                      "type": "string",
+                                                                      "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                    }
+                                                                  },
+                                                                  "title": ""
+                                                                }
+                                                              },
+                                                              "title": "Indefinite Range Count"
+                                                            },
+                                                            {
+                                                              "properties": {
+                                                                "definite_range": {
+                                                                  "properties": {
+                                                                    "min": {
+                                                                      "type": "number",
+                                                                      "description": "The minimum value; inclusive"
+                                                                    },
+                                                                    "max": {
+                                                                      "type": "number",
+                                                                      "description": "The maximum value; inclusive"
+                                                                    }
+                                                                  },
+                                                                  "title": ""
+                                                                }
+                                                              },
+                                                              "title": "Definite Range Count"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "title": "Literal Sequence Expression"
+                                                    },
+                                                    {
+                                                      "properties": {
+                                                        "derived_sequence_expression": {
+                                                          "properties": {
+                                                            "reverse_complement": {
+                                                              "type": "boolean"
+                                                            },
+                                                            "location": {
+                                                              "properties": {
+                                                                "sequence_location": {
+                                                                  "properties": {
+                                                                    "_id": {
+                                                                      "type": "string"
+                                                                    },
+                                                                    "sequence_id": {
+                                                                      "type": "string",
+                                                                      "pattern": "^\\w[^:]*:\\w[^.]*\\..+$",
+                                                                      "description": "A VRS Computed Identifier for the reference Sequence.",
+                                                                      "title": "Sequence identifier"
+                                                                    },
+                                                                    "interval": {
+                                                                      "properties": {
+                                                                        "start": {
+                                                                          "oneOf": [
+                                                                            {
+                                                                              "properties": {
+                                                                                "start_number": {
+                                                                                  "type": "number"
+                                                                                }
+                                                                              },
+                                                                              "title": "Start Number"
+                                                                            },
+                                                                            {
+                                                                              "properties": {
+                                                                                "start_indefinite_range": {
+                                                                                  "properties": {
+                                                                                    "value": {
+                                                                                      "type": "number",
+                                                                                      "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                                    },
+                                                                                    "comparator": {
+                                                                                      "enum": [
+                                                                                        "<=",
+                                                                                        ">="
+                                                                                      ],
+                                                                                      "type": "string",
+                                                                                      "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                                    }
+                                                                                  },
+                                                                                  "title": ""
+                                                                                }
+                                                                              },
+                                                                              "title": "Start Indefinite Range"
+                                                                            },
+                                                                            {
+                                                                              "properties": {
+                                                                                "start_definite_range": {
+                                                                                  "properties": {
+                                                                                    "min": {
+                                                                                      "type": "number",
+                                                                                      "description": "The minimum value; inclusive"
+                                                                                    },
+                                                                                    "max": {
+                                                                                      "type": "number",
+                                                                                      "description": "The maximum value; inclusive"
+                                                                                    }
+                                                                                  },
+                                                                                  "title": ""
+                                                                                }
+                                                                              },
+                                                                              "title": "Start Definite Range"
+                                                                            }
+                                                                          ]
+                                                                        },
+                                                                        "end": {
+                                                                          "oneOf": [
+                                                                            {
+                                                                              "properties": {
+                                                                                "end_number": {
+                                                                                  "type": "number"
+                                                                                }
+                                                                              },
+                                                                              "title": "End Number"
+                                                                            },
+                                                                            {
+                                                                              "properties": {
+                                                                                "end_indefinite_range": {
+                                                                                  "properties": {
+                                                                                    "value": {
+                                                                                      "type": "number",
+                                                                                      "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                                    },
+                                                                                    "comparator": {
+                                                                                      "enum": [
+                                                                                        "<=",
+                                                                                        ">="
+                                                                                      ],
+                                                                                      "type": "string",
+                                                                                      "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                                    }
+                                                                                  },
+                                                                                  "title": ""
+                                                                                }
+                                                                              },
+                                                                              "title": "End Indefinite Range"
+                                                                            },
+                                                                            {
+                                                                              "properties": {
+                                                                                "end_definite_range": {
+                                                                                  "properties": {
+                                                                                    "min": {
+                                                                                      "type": "number",
+                                                                                      "description": "The minimum value; inclusive"
+                                                                                    },
+                                                                                    "max": {
+                                                                                      "type": "number",
+                                                                                      "description": "The maximum value; inclusive"
+                                                                                    }
+                                                                                  },
+                                                                                  "title": ""
+                                                                                }
+                                                                              },
+                                                                              "title": "End Definite Range"
+                                                                            }
+                                                                          ]
+                                                                        }
+                                                                      },
+                                                                      "title": "Sequence Interval",
+                                                                      "description": "Reference sequence region defined by a SequenceInterval."
+                                                                    }
+                                                                  },
+                                                                  "required": [
+                                                                    "interval"
+                                                                  ],
+                                                                  "title": ""
+                                                                }
+                                                              },
+                                                              "title": "Sequence Location"
+                                                            }
+                                                          },
+                                                          "title": ""
+                                                        },
+                                                        "count": {
+                                                          "oneOf": [
+                                                            {
+                                                              "properties": {
+                                                                "number": {
+                                                                  "type": "number",
+                                                                  "description": "The count of repeated units of sequence expression."
+                                                                }
+                                                              },
+                                                              "title": "Count"
+                                                            },
+                                                            {
+                                                              "properties": {
+                                                                "indefinite_range": {
+                                                                  "properties": {
+                                                                    "value": {
+                                                                      "type": "number",
+                                                                      "description": "A half-bounded range of numbers represented as a bounded value and associated comparator. The bound operator is interpreted as follows: ''>='' are all numbers greater than and including `value`, ''<='' are all numbers less than and including `value`."
+                                                                    },
+                                                                    "comparator": {
+                                                                      "enum": [
+                                                                        "<=",
+                                                                        ">="
+                                                                      ],
+                                                                      "type": "string",
+                                                                      "description": "One of \"<=\" or \">=\", indicating which direction the range is indefinite."
+                                                                    }
+                                                                  },
+                                                                  "title": ""
+                                                                }
+                                                              },
+                                                              "title": "Indefinite Range Count"
+                                                            },
+                                                            {
+                                                              "properties": {
+                                                                "definite_range": {
+                                                                  "properties": {
+                                                                    "min": {
+                                                                      "type": "number",
+                                                                      "description": "The minimum value; inclusive"
+                                                                    },
+                                                                    "max": {
+                                                                      "type": "number",
+                                                                      "description": "The maximum value; inclusive"
+                                                                    }
+                                                                  },
+                                                                  "title": ""
+                                                                }
+                                                              },
+                                                              "title": "Definite Range Count"
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      "title": "Derived Sequence Expression"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "title": ""
+                                            }
+                                          },
+                                          "title": "Allele"
+                                        },
+                                        {
+                                          "properties": {
+                                            "curie": {
+                                              "type": "string",
+                                              "pattern": "^\\w[^:]*:.+$",
+                                              "description": "References to Alleles that comprise this Haplotype."
+                                            }
+                                          },
+                                          "title": "Reference"
+                                        }
+                                      ]
+                                    },
+                                    "type": "array"
+                                  }
+                                },
+                                "description": "List of Alleles, or references to Alleles, that comprise this Haplotype.",
+                                "title": ""
+                              }
+                            },
+                            "title": "Haplotype"
+                          },
+                          {
+                            "properties": {
+                              "gene": {
+                                "properties": {
+                                  "gene_id": {
+                                    "type": "string",
+                                    "pattern": "^\\w[^:]*:.+$",
+                                    "title": "Gene ID",
+                                    "description": "A CURIE reference to a Gene as defined by an authority (https://registry.identifiers.org/registry/hgnc)"
+                                  }
+                                },
+                                "title": ""
+                              }
+                            },
+                            "title": "Gene"
+                          }
+                        ]
+                      }
+                    },
+                    "title": ""
+                  }
+                },
+                "title": "Copy Number"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "title": "Variation Set"
+    }
+  }
+}
