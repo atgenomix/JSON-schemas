@@ -1,33 +1,38 @@
 {
-    "properties": {
-        "uri": {
-            "type": "string",
-            "description": "URI for the file e.g. https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444 or drs://seqslab.net/id",
-            "title": "URI"
-        },
-        "individual_to_file_identifiers": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "key": {
-                        "type": "string",
-                        "title": "Individual",
-                        "description": "The values must correspond to the Individual::ID for the individuals in the message."
-                    },
-                    "value": {
-                        "type": "string",
-                        "title": "File identifier",
-                        "description": "The values must map to the samples in the file."
-                    }
-                },
-                "required": ["key", "value"]
-            },
-            "description": "Map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
-        }
+  "properties": {
+    "uri": {
+      "type": "string",
+      "description": "URI for the file e.g. https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444 or drs://seqslab.net/id",
+      "title": "URI"
     },
-    "additionalProperties": false,
-    "type": "object",
-    "title": "File",
-    "required": ["uri"]
+    "individual_to_file_identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Individual",
+            "description": "The values must correspond to the Individual::ID for the individuals in the message."
+          },
+          "value": {
+            "type": "string",
+            "title": "File identifier",
+            "description": "The values must map to the samples in the file."
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ]
+      },
+      "description": "Map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "title": "File",
+  "required": [
+    "uri"
+  ]
 }

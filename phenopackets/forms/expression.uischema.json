@@ -1,9 +1,9 @@
 {
-    "type": "VerticalLayout",
-    "elements": [
-        {
-            "type": "Control",
-            "scope": "#/properties/expressions"
-        }
-    ]
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/expressions"
+    }
+  ]
 }

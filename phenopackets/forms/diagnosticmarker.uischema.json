@@ -1,9 +1,9 @@
 {
-    "type": "VerticalLayout",
-    "elements": [
-        {
-            "type": "Control",
-            "scope": "#/properties/diagnostic_markers"
-        }
-    ]
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/diagnostic_markers"
+    }
+  ]
 }

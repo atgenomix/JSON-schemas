@@ -1,33 +1,33 @@
 {
-    "type": "object",
-    "title": "Expression",
-    "properties": {
-        "expressions": {
-            "items": {
-                "$ref": "#/definitions/Expression"
-            },
-            "type": "array",
-            "description": "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions"
-        }
-    },
-    "definitions": {
-        "Expression": {
-            "properties": {
-                "syntax": {
-                    "type": "string",
-                    "description": "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions"
-                },
-                "value": {
-                    "type": "string"
-                },
-                "version": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Expression",
-            "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression"
-        }
+  "type": "object",
+  "title": "Expression",
+  "properties": {
+    "expressions": {
+      "items": {
+        "$ref": "#/definitions/Expression"
+      },
+      "type": "array",
+      "description": "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions"
     }
+  },
+  "definitions": {
+    "Expression": {
+      "properties": {
+        "syntax": {
+          "type": "string",
+          "description": "HGVS, SPDI, and gnomAD-style strings should be represented as Expressions"
+        },
+        "value": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Expression",
+      "description": "https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/vod_index.html#expression"
+    }
+  }
 }

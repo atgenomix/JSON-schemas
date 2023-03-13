@@ -1,276 +1,276 @@
 {
-    "type": "object",
-    "title": "Phenotypic Feature",
-    "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)",
-    "properties": {
-        "description": {
-            "type": "string",
-            "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
-        },
-        "type": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "a CURIE-style identifier e.g. HP:0100024."
-                },
-                "label": {
-                    "type": "string",
-                    "description": "Class label, aka name. For example, \"Abnormality of cardiovascular system\"."
-                }
-            },
-            "title": "Phenotype Ontology",
-            "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
-        },
-        "excluded": {
-            "type": "boolean",
-            "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
-        },
-        "severity": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "a CURIE-style identifier e.g. HP:0012826."
-                },
-                "label": {
-                    "type": "string",
-                    "description": "Class label e.g. \"Moderate\"."
-                }
-            },
-            "title": "Severity Ontology",
-            "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
-        },
-        "modifiers": {
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "A CURIE-style identifier of clinical modifier e.g. Subclasses of HP:0012823."
-                    },
-                    "label": {
-                        "type": "string",
-                        "description": "Clinical modifier label, aka name e.g. \"Variable expressivity\""
-                    }
-                }
-            },
-            "type": "array",
-            "title": "Clinical Modifiers",
-            "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
-        },
-        "onset": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "age": {
-                            "properties": {
-                                "iso8601duration": {
-                                    "type": "string",
-                                    "description": "The age of this object as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                }
-                            },
-                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                        }
-                    },
-                    "title": "Age"
-                },
-                {
-                    "properties": {
-                        "age_range": {
-                            "properties": {
-                                "start": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    }
-                                },
-                                "end": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "title": "Age Range"
-                },
-                {
-                    "properties": {
-                        "timestamp": {
-                            "type": "string",
-                            "format": "date-time"
-                        }
-                    },
-                    "title": "Timestamp"
-                },
-                {
-                    "properties": {
-                        "interval": {
-                            "$ref": "#/definitions/TimeInterval"
-                        }
-                    },
-                    "title": "Time Interval"
-                },
-                {
-                    "properties": {
-                        "ontology_class": {
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "The values of this will come from the HPO onset hierarchy (i.e., subclasses of HP:0003674)."
-                                },
-                                "label": {
-                                    "type": "string",
-                                    "description": "Onset label, aka name e.g. HP:0011462 \"Young adult onset\""
-                                }
-                            },
-                            "title": "Onset Ontology"
-                        }
-                    },
-                    "title": "Onset Ontology"
-                }
-            ],
-            "additionalProperties": false,
-            "description": "The values of this will come from the HPO onset hierarchy (i.e., subclasses of HP:0003674) FHIR mapping: Condition.onset"
-        },
-        "resolution": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "age": {
-                            "properties": {
-                                "iso8601duration": {
-                                    "type": "string",
-                                    "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                }
-                            }
-                        }
-                    },
-                    "title": "Age"
-                },
-                {
-                    "properties": {
-                        "age_range": {
-                            "properties": {
-                                "start": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    }
-                                },
-                                "end": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "title": "Age Range"
-                },
-                {
-                    "properties": {
-                        "timestamp": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Time at which the feature resolved or abated."
-                        }
-                    },
-                    "title": "Timestamp"
-                },
-                {
-                    "properties": {
-                        "interval": {
-                            "$ref": "#/definitions/TimeInterval",
-                            "description": "Time at which the feature resolved or abated."
-                        }
-                    },
-                    "title": "Time Interval"
-                }
-            ],
-            "additionalProperties": false,
-            "description": "Age or time at which the feature resolved or abated."
-        },
-        "evidence": {
-            "items": {
-                "$ref": "#/definitions/Evidence"
-            },
-            "additionalProperties": false,
-            "type": "array",
-            "description": "Evidences for how the phenotype was determined."
-        }
+  "type": "object",
+  "title": "Phenotypic Feature",
+  "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
     },
-    "additionalProperties": false,
-    "definitions": {
-        "Evidence": {
-            "properties": {
-                "evidence_code": {
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "description": "The encoded evidence type, ex: the Evidence Conclusion Ontology (https://bioportal.bioontology.org/ontologies/ECO)."
-                        },
-                        "label": {
-                            "type": "string",
-                            "description": "Evidence label, aka name e.g. ECO:0006060 \"high throughput cell biology evidence used in automatic assertion\""
-                        }
-                    },
-                    "title": "Evidence Ontology",
-                    "description": "The encoded evidence type using, for example, the Evidence Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl). FHIR mapping: Condition.evidence.code"
-                },
-                "reference": {
-                    "$ref": "#/definitions/ExternalReference",
-                    "description": "FHIR mapping: Condition.evidence.detail"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Evidence",
-            "description": "FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)"
+    "type": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "a CURIE-style identifier e.g. HP:0100024."
         },
-        "ExternalReference": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "For example, ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
-                },
-                "reference": {
-                    "type": "string",
-                    "description": "A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field. FHIR mapping: Reference.reference"
-                },
-                "description": {
-                    "type": "string",
-                    "description": "Human readable title or display string for the reference FHIR mapping: Reference.display"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "External Reference",
-            "description": "FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)"
+        "label": {
+          "type": "string",
+          "description": "Class label, aka name. For example, \"Abnormality of cardiovascular system\"."
+        }
+      },
+      "title": "Phenotype Ontology",
+      "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
+    },
+    "excluded": {
+      "type": "boolean",
+      "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
+    },
+    "severity": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "a CURIE-style identifier e.g. HP:0012826."
         },
-        "TimeInterval": {
-            "properties": {
+        "label": {
+          "type": "string",
+          "description": "Class label e.g. \"Moderate\"."
+        }
+      },
+      "title": "Severity Ontology",
+      "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
+    },
+    "modifiers": {
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A CURIE-style identifier of clinical modifier e.g. Subclasses of HP:0012823."
+          },
+          "label": {
+            "type": "string",
+            "description": "Clinical modifier label, aka name e.g. \"Variable expressivity\""
+          }
+        }
+      },
+      "type": "array",
+      "title": "Clinical Modifiers",
+      "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
+    },
+    "onset": {
+      "oneOf": [
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this object as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
                 "start": {
-                    "type": "string",
-                    "format": "date-time"
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
                 },
                 "end": {
-                    "type": "string",
-                    "format": "date-time"
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
                 }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Time Interval"
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "$ref": "#/definitions/TimeInterval"
+            }
+          },
+          "title": "Time Interval"
+        },
+        {
+          "properties": {
+            "ontology_class": {
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The values of this will come from the HPO onset hierarchy (i.e., subclasses of HP:0003674)."
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Onset label, aka name e.g. HP:0011462 \"Young adult onset\""
+                }
+              },
+              "title": "Onset Ontology"
+            }
+          },
+          "title": "Onset Ontology"
         }
+      ],
+      "additionalProperties": false,
+      "description": "The values of this will come from the HPO onset hierarchy (i.e., subclasses of HP:0003674) FHIR mapping: Condition.onset"
+    },
+    "resolution": {
+      "oneOf": [
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              }
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Time at which the feature resolved or abated."
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "$ref": "#/definitions/TimeInterval",
+              "description": "Time at which the feature resolved or abated."
+            }
+          },
+          "title": "Time Interval"
+        }
+      ],
+      "additionalProperties": false,
+      "description": "Age or time at which the feature resolved or abated."
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/definitions/Evidence"
+      },
+      "additionalProperties": false,
+      "type": "array",
+      "description": "Evidences for how the phenotype was determined."
     }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Evidence": {
+      "properties": {
+        "evidence_code": {
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The encoded evidence type, ex: the Evidence Conclusion Ontology (https://bioportal.bioontology.org/ontologies/ECO)."
+            },
+            "label": {
+              "type": "string",
+              "description": "Evidence label, aka name e.g. ECO:0006060 \"high throughput cell biology evidence used in automatic assertion\""
+            }
+          },
+          "title": "Evidence Ontology",
+          "description": "The encoded evidence type using, for example, the Evidence Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl). FHIR mapping: Condition.evidence.code"
+        },
+        "reference": {
+          "$ref": "#/definitions/ExternalReference",
+          "description": "FHIR mapping: Condition.evidence.detail"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Evidence",
+      "description": "FHIR mapping: Condition.evidence (https://www.hl7.org/fhir/condition-definitions.html#Condition.evidence)"
+    },
+    "ExternalReference": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "For example, ISBN, PMID:123456, DOI:..., FHIR mapping: Reference.identifier"
+        },
+        "reference": {
+          "type": "string",
+          "description": "A full or partial URL pointing to the external reference if no commonly resolvable identifier can be used in the `id` field. FHIR mapping: Reference.reference"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human readable title or display string for the reference FHIR mapping: Reference.display"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "External Reference",
+      "description": "FHIR mapping: Reference (https://www.hl7.org/fhir/references.html)"
+    },
+    "TimeInterval": {
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Time Interval"
+    }
+  }
 }

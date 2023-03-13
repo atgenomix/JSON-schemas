@@ -1,236 +1,238 @@
 {
-    "properties": {
-        "id": {
-            "type": "string",
-            "description": "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id"
-        },
-        "alternate_ids": {
-            "items": {
-                "type": "string"
-            },
-            "type": "array",
-            "title": "Alternative Identifiers for this Individual",
-            "description": "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track."
-        },
-        "date_of_birth": {
-            "type": "string",
-            "description": "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute (e.g., \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated).",
-            "format": "date-time"
-        },
-        "time_at_last_encounter": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "gestational_age": {
-                            "$ref": "#/definitions/GestationalAge"
-                        }
-                    },
-                    "title": "Gestational Age"
-                },
-                {
-                    "properties": {
-                        "age": {
-                            "$ref": "#/definitions/Age",
-                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                        }
-                    },
-                    "title": "Age"
-                },
-                {
-                    "properties": {
-                        "age_range": {
-                            "properties": {
-                                "start": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    }
-                                },
-                                "end": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "title": "Age Range"
-                },
-                {
-                    "properties": {
-                        "timestamp": {
-                            "type": "string",
-                            "format": "date-time"
-                        }
-                    },
-                    "title": "Timestamp"
-                },
-                {
-                    "properties": {
-                        "interval": {
-                            "$ref": "#/definitions/TimeInterval"
-                        }
-                    },
-                    "title": "Time Interval"
-                }
-            ],
-            "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
-        },
-        "vital_status": {
-            "properties": {
-                "status": {
-                    "enum": [
-                        "UNKNOWN_STATUS",
-                        "ALIVE",
-                        "DECEASED"
-                    ],
-                    "type": "string",
-                    "title": "Status",
-                    "description": "Default = ALIVE (i.e., the individual is alive)."
-                },
-                "time_of_death": {
-                    "oneOf": [
-                        {
-                            "properties": {
-                                "age": {
-                                    "properties": {
-                                        "iso8601duration": {
-                                            "type": "string",
-                                            "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                        }
-                                    },
-                                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                                }
-                            },
-                            "title": "Age of Death"
-                        },
-                        {
-                            "properties": {
-                                "timestamp": {
-                                    "type": "string",
-                                    "format": "date-time"
-                                }
-                            },
-                            "title": "Time of Death"
-                        }
-                    ],
-                    "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
-                },
-                "cause_of_death": {
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
-                        },
-                        "label": {
-                            "type": "string",
-                            "description": "Class label, aka name (e.g., \"Abnormality of cardiovascular system\")"
-                        }
-                    },
-                    "description": "ARGO mapping donor::cause_of_death",
-                    "title": "Cause of Death"
-                },
-                "survival_time_in_days": {
-                    "type": "integer",
-                    "description": "ARGO mapping donor::survival_time"
-                }
-            },
-            "type": "object",
-            "title": "Vital Status",
-            "description": "Vital status of the individual. If not present, it is assumed that the individual is alive. If present, it will default to 'false' (i.e., the individual was alive when the data was collected). ARGO mapping donor::vital_status"
-        },
-        "sex": {
-            "enum": [
-                "UNKNOWN_SEX",
-                "FEMALE",
-                "MALE",
-                "OTHER_SEX"
-            ],
-            "type": "string",
-            "title": "Sex",
-            "description": "Sex of an individual. FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
-        },
-        "karyotypic_sex": {
-            "enum": [
-                "UNKNOWN_KARYOTYPE",
-                "XX",
-                "XY",
-                "XO",
-                "XXY",
-                "XXX",
-                "XXYY",
-                "XXXY",
-                "XXXX",
-                "XYY",
-                "OTHER_KARYOTYPE"
-            ],
-            "type": "string",
-            "title": "Karyotypic Sex",
-            "description": "Karyotypic sex of the individual"
-        },
-        "gender": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
-                },
-                "label": {
-                    "type": "string",
-                    "description": "Self-identified gender"
-                }
-            }
-        }
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id"
     },
-    "required": ["id"],
-    "additionalProperties": false,
-    "type": "object",
-    "title": "Individual",
-    "description": "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html).",
-    "definitions": {
-        "Age": {
-            "properties": {
-                "iso8601duration": {
-                    "type": "string",
-                    "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Age",
-            "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+    "alternate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "Alternative Identifiers for this Individual",
+      "description": "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track."
+    },
+    "date_of_birth": {
+      "type": "string",
+      "description": "The date of birth of the individual as an ISO8601 UTC timestamp - rounded down to the closest known year/month/day/hour/minute (e.g., \"2018-03-01T00:00:00Z\" for someone born on an unknown day in March 2018 or \"2018-01-01T00:00:00Z\" for someone born on an unknown day in 2018 or empty if unknown/ not stated).",
+      "format": "date-time"
+    },
+    "time_at_last_encounter": {
+      "oneOf": [
+        {
+          "properties": {
+            "gestational_age": {
+              "$ref": "#/definitions/GestationalAge"
+            }
+          },
+          "title": "Gestational Age"
         },
-        "GestationalAge": {
-            "properties": {
-                "weeks": {
-                    "type": "integer"
-                },
-                "days": {
-                    "type": "integer"
-                }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Gestational Age"
+        {
+          "properties": {
+            "age": {
+              "$ref": "#/definitions/Age",
+              "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+            }
+          },
+          "title": "Age"
         },
-        "TimeInterval": {
-            "properties": {
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
                 "start": {
-                    "type": "string",
-                    "format": "date-time"
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
                 },
                 "end": {
-                    "type": "string",
-                    "format": "date-time"
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
                 }
-            },
-            "additionalProperties": false,
-            "type": "object",
-            "title": "Time Interval"
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "$ref": "#/definitions/TimeInterval"
+            }
+          },
+          "title": "Time Interval"
         }
+      ],
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+    },
+    "vital_status": {
+      "properties": {
+        "status": {
+          "enum": [
+            "UNKNOWN_STATUS",
+            "ALIVE",
+            "DECEASED"
+          ],
+          "type": "string",
+          "title": "Status",
+          "description": "Default = ALIVE (i.e., the individual is alive)."
+        },
+        "time_of_death": {
+          "oneOf": [
+            {
+              "properties": {
+                "age": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  },
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "title": "Age of Death"
+            },
+            {
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "title": "Time of Death"
+            }
+          ],
+          "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+        },
+        "cause_of_death": {
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
+            },
+            "label": {
+              "type": "string",
+              "description": "Class label, aka name (e.g., \"Abnormality of cardiovascular system\")"
+            }
+          },
+          "description": "ARGO mapping donor::cause_of_death",
+          "title": "Cause of Death"
+        },
+        "survival_time_in_days": {
+          "type": "integer",
+          "description": "ARGO mapping donor::survival_time"
+        }
+      },
+      "type": "object",
+      "title": "Vital Status",
+      "description": "Vital status of the individual. If not present, it is assumed that the individual is alive. If present, it will default to 'false' (i.e., the individual was alive when the data was collected). ARGO mapping donor::vital_status"
+    },
+    "sex": {
+      "enum": [
+        "UNKNOWN_SEX",
+        "FEMALE",
+        "MALE",
+        "OTHER_SEX"
+      ],
+      "type": "string",
+      "title": "Sex",
+      "description": "Sex of an individual. FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
+    },
+    "karyotypic_sex": {
+      "enum": [
+        "UNKNOWN_KARYOTYPE",
+        "XX",
+        "XY",
+        "XO",
+        "XXY",
+        "XXX",
+        "XXYY",
+        "XXXY",
+        "XXXX",
+        "XYY",
+        "OTHER_KARYOTYPE"
+      ],
+      "type": "string",
+      "title": "Karyotypic Sex",
+      "description": "Karyotypic sex of the individual"
+    },
+    "gender": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
+        },
+        "label": {
+          "type": "string",
+          "description": "Self-identified gender"
+        }
+      }
     }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false,
+  "type": "object",
+  "title": "Individual",
+  "description": "An individual (or subject) typically corresponds to an individual human or another organism. FHIR mapping: Patient (https://www.hl7.org/fhir/patient.html).",
+  "definitions": {
+    "Age": {
+      "properties": {
+        "iso8601duration": {
+          "type": "string",
+          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Age",
+      "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+    },
+    "GestationalAge": {
+      "properties": {
+        "weeks": {
+          "type": "integer"
+        },
+        "days": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Gestational Age"
+    },
+    "TimeInterval": {
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Time Interval"
+    }
+  }
 }

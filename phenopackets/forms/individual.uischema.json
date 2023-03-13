@@ -51,7 +51,11 @@
             "effect": "SHOW",
             "condition": {
               "scope": "#/properties/subject/properties/vital_status/properties/status",
-              "schema": { "enum": ["DECEASED"] }
+              "schema": {
+                "enum": [
+                  "DECEASED"
+                ]
+              }
             }
           }
         },
@@ -62,7 +66,11 @@
             "effect": "SHOW",
             "condition": {
               "scope": "#/properties/vital_status/properties/status",
-              "schema": { "enum": ["DECEASED"] }
+              "schema": {
+                "enum": [
+                  "DECEASED"
+                ]
+              }
             }
           }
         },
