@@ -16,10 +16,10 @@
           "type": "Control",
           "scope": "#/properties/birthDate"
         },
-    {
-      "type": "Control",
-      "scope": "#/properties/active"
-    }
+        {
+          "type": "Control",
+          "scope": "#/properties/active"
+        }
       ]
     },
     {
@@ -54,9 +54,16 @@
       "type": "Control",
       "scope": "#/properties/language"
     },
+
     {
-      "type": "Control",
+      "type": "Group",
+      "label": "Text summary of the resource, for human interpretation",
+      "elements": [
+        {
+          "type": "Control",
       "scope": "#/properties/text"
+        }
+      ]
     },
     {
       "type": "Control",
