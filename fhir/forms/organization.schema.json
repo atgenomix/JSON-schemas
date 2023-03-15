@@ -159,7 +159,7 @@
           "description": "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.",
           "element_property": true,
           "element_required": true,
-          "enum_values": [
+          "enum": [
             "generated",
             "extensions",
             "additional",
@@ -238,7 +238,7 @@
           "title": "usual | official | temp | nickname | anonymous | old | maiden",
           "description": "Identifies the purpose for this name.",
           "element_property": true,
-          "enum_values": [
+          "enum": [
             "usual",
             "official",
             "temp",
@@ -358,7 +358,7 @@
           "title": "usual | official | temp | secondary | old (If known)",
           "description": "The purpose of this identifier.",
           "element_property": true,
-          "enum_values": [
+          "enum": [
             "usual",
             "official",
             "temp",
@@ -489,7 +489,7 @@
           "title": "phone | fax | email | pager | url | sms | other",
           "description": "Telecommunications form for contact point - what communications system is required to make use of the contact.",
           "element_property": true,
-          "enum_values": [
+          "enum": [
             "phone",
             "fax",
             "email",
@@ -505,7 +505,7 @@
           "title": "home | work | temp | old | mobile - purpose of this contact point",
           "description": "Identifies the purpose for the contact point.",
           "element_property": true,
-          "enum_values": [
+          "enum": [
             "home",
             "work",
             "temp",
@@ -599,7 +599,7 @@
           "title": "postal | physical | both",
           "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.",
           "element_property": true,
-          "enum_values": [
+          "enum": [
             "postal",
             "physical",
             "both"
@@ -611,7 +611,7 @@
           "title": "home | work | temp | old | billing - purpose of this address",
           "description": "The purpose of this address.",
           "element_property": true,
-          "enum_values": [
+          "enum": [
             "home",
             "work",
             "temp",
