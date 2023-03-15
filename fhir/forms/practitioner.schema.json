@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "id": {
-      "title": "Logical id of this artifact",
+      "title": "Id",
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
       "element_property": true,
       "minLength": 1,
@@ -47,7 +47,7 @@
       "element_property": true,
       "type": "array",
       "items": {
-            "$ref": "#/definitions/Identifier"
+        "$ref": "#/definitions/Identifier"
       }
     },
     "active": {
@@ -116,7 +116,6 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/PractitionerQualification"
-
       }
     },
     "communication": {
@@ -135,32 +134,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nHuman-readable summary of the resource (essential clinical and business\ninformation).\nA human-readable summary of the resource conveying the essential clinical\nand business information for the resource.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Narrative",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "div": {
           "title": "Limited xhtml content",
@@ -191,32 +171,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nName of a human - parts and usage.\nA human's name with the ability to identify parts and usage.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "HumanName",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "family": {
           "title": "Family name (often called 'Surname')",
@@ -240,7 +201,6 @@
           "description": "Indicates the period of time when this name was valid for the named person.",
           "element_property": true,
           "$ref": "#/definitions/Period"
-
         },
         "prefix": {
           "title": "Parts that come before the name",
@@ -293,32 +253,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nTime range defined by start and end date/time.\nA time period defined by a start and end date and optionally time.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Period",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "end": {
           "title": "End time with inclusive boundary, if not ongoing",
@@ -342,34 +283,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nBase Resource.\nThis is the base resource type for everything.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Resource",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Logical id of this artifact",
-          "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-          "element_property": true,
-          "minLength": 1,
-          "maxLength": 64,
-          "pattern": "^[A-Za-z0-9\\-.]+$",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "implicitRules": {
           "title": "A set of rules under which this content was created",
@@ -393,32 +313,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn identifier intended for computation.\nAn identifier - identifies some entity uniquely and unambiguously.\nTypically this is used for business identifiers.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Identifier",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "assigner": {
           "title": "Organization that issued id (may be just text)",
@@ -477,32 +378,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "CodeableConcept",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "coding": {
           "title": "Code defined by a terminology system",
@@ -511,7 +393,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Coding"
-
           }
         },
         "text": {
@@ -529,32 +410,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Coding",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "code": {
           "title": "Symbol in syntax defined by the system",
@@ -598,32 +460,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDetails of a Technology mediated contact point (phone, fax, email, etc.).\nDetails for all kinds of technology mediated contact points for a person or\norganization, including telephone, email, etc.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "ContactPoint",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "period": {
           "title": "Time period when the contact point was/is in use",
@@ -682,32 +525,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).  This data type may be used to convey\naddresses for use in delivering mail as well as for visiting locations\nwhich might not be valid for mail delivery.  There are a variety of postal\naddress formats defined around the world.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Address",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "city": {
           "title": "Name of city, town etc.",
@@ -800,32 +624,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContent in a format defined elsewhere.\nFor referring to data content defined in other formats.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Attachment",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "contentType": {
           "title": "Mime type of the content, with charset etc.",
@@ -893,33 +698,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nCertification, licenses, or training pertaining to the provision of care.\nThe official certifications, training, and licenses that authorize or\notherwise pertain to the provision of care by the practitioner.  For\nexample, a medical license issued by a medical board authorizing the\npractitioner to practice medicine within a certian locality.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "PractitionerQualification",
-          "type": "string"
-        },
-
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "code": {
           "title": "Coded representation of the qualification",
@@ -959,32 +744,13 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
       "type": "object",
       "properties": {
-        "resource_type": {
-          "title": "Resource Type",
-          "const": "Reference",
-          "type": "string"
-        },
         "fhir_comments": {
           "title": "Fhir Comments",
           "element_property": false,
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "id": {
-          "title": "Unique id for inter-element referencing",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "display": {
           "title": "Text alternative for the resource",
