@@ -12,6 +12,10 @@
     },
     {
       "type": "Control",
+      "scope": "#/properties/identifier"
+    },
+    {
+      "type": "Control",
       "scope": "#/properties/basedOn"
     },
     {
@@ -48,10 +52,6 @@
           "scope": "#/properties/encounter"
         }
       ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/identifier"
     },
     {
       "type": "Control",
