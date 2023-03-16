@@ -1,0 +1,22 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/subject_or_biosample_id"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/interpretation_status"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/call"
+    }
+  ]
+}

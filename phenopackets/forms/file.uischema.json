@@ -1,17 +1,13 @@
 {
-    "type": "VerticalLayout",
-    "elements": [
-        {
-            "type": "Control",
-            "scope": "#/properties/uri"
-        },
-        {
-            "type": "Control",
-            "scope": "#/properties/individual_to_file_identifiers"
-        },
-        {
-            "type": "Control",
-            "scope": "#/properties/file_attributes"
-        }
-    ]
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/uri"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/individual_to_file_identifiers"
+    }
+  ]
 }

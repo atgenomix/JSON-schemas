@@ -3,20 +3,20 @@
   "elements": [
     {
       "type": "Category",
-      "label": "Alternate identifiers for the dataset",
+      "label": "Alternate Identifiers",
       "elements": [
         {
-          "type": "VerticalLayout",
+          "type": "ListWithDetail",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/alternateIdentifiers",
+              "scope": "#/properties/alternate_identifiers",
               "options": {
                 "details": {
                   "type": "HorizontalLayout",
                   "elements": [
                     {"type": "Control", "scope": "#/properties/identifier"},
-                    {"type": "Control", "scope": "#/properties/identifierSource"}
+                    {"type": "Control", "scope": "#/properties/identifier_source"}
                   ]
                 }
               }
@@ -27,7 +27,7 @@
     },
     {
       "type": "Category",
-      "label": "Relevant dates for the datasets",
+      "label": "Relevant Dates",
       "elements": [
         {
           "type": "VerticalLayout",
@@ -45,22 +45,7 @@
     },
     {
       "type": "Category",
-      "label": "The data repository hosting the dataset",
-      "elements": [
-        {
-          "type": "VerticalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/storedIn"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "A term identifying the dataset type or nature of the data",
+      "label": "Dataset Types",
       "elements": [
         {
           "type": "VerticalLayout",
@@ -86,14 +71,14 @@
     },
     {
       "type": "Category",
-      "label": "Primary publication(s) associated with the dataset",
+      "label": "Primary Publications",
       "elements": [
         {
           "type": "VerticalLayout",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/primaryPublications",
+              "scope": "#/properties/primary_publications",
               "options": {
                 "details": "GENERATED"
               }
@@ -104,14 +89,14 @@
     },
     {
       "type": "Category",
-      "label": "Person(s) or organization(s) which contributed to the creation of the dataset",
+      "label": "Contributors",
       "elements": [
         {
           "type": "VerticalLayout",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/creators",
+              "scope": "#/properties/contributors",
               "options": {
                 "details": "GENERATED"
               }
@@ -122,7 +107,7 @@
     },
     {
       "type": "Category",
-      "label": "The terms of use of the dataset",
+      "label": "Terms of Use",
       "elements": [
         {
           "type": "VerticalLayout",
@@ -135,64 +120,34 @@
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "Different entities associated with this dataset",
-      "elements": [
-        {
-          "type": "VerticalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/isAbout",
-              "options": {
-                "details": "GENERATED"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "Extra properties",
-      "elements": [
-        {
-          "type": "VerticalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/extraProperties",
-              "options": {
-                "details": "GENERATED"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "A release point for the dataset when applicable",
-      "elements": [
+        },
         {
           "type": "Control",
-          "scope": "#/properties/version"
-        }
-      ]
-    },
-    {
-      "type": "Category",
-      "label": "Data protection applied to the dataset relevant for clinical data",
-      "elements": [
-        {
-          "type": "Control",
+          "label": "Data Protection",
           "scope": "#/properties/privacy"
         }
       ]
+    },
+    {
+      "type": "Category",
+      "label": "Extra Properties",
+      "elements": [
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/extra_properties",
+              "options": {
+                "details": "GENERATED"
+              }
+            }
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "options": {
+    "variant": "stepper"
+  }
 }

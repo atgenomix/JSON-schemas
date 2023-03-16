@@ -11,12 +11,12 @@
         },
         {
           "type": "Control",
-          "label": "ID of the individual",
+          "label": "ID of the Individual",
           "scope": "#/properties/individual_id"
         },
         {
           "type": "Control",
-          "label": "ID of the parent biosample",
+          "label": "ID of the Parent Biosample",
           "scope": "#/properties/derived_from_id"
         }
       ]
@@ -27,7 +27,10 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/description"
+      "scope": "#/properties/description",
+      "options": {
+        "multi": true
+      }
     },
     {
       "type": "Categorization",
@@ -90,11 +93,20 @@
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/procedure"
+              "scope": "#/properties/procedure/properties/code"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/procedure/properties/body_site"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/procedure/properties/performed"
             }
           ]
         }
-      ]
+      ],
+      "options": {}
     }
   ]
 }

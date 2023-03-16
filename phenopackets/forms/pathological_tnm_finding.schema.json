@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "title": "Pathological TNM Finding",
+  "description": "ARGO mapping specimen::pathological_t_category ARGO mapping specimen::pathological_n_category ARGO mapping specimen::pathological_m_category",
+  "properties": {
+    "pathological_tnm_finding": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/OntologyClass"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "a CURIE-style identifier for TNM classification (http://purl.bioontology.org/ontology/SNOMEDCT/399588009)."
+        },
+        "label": {
+          "type": "string",
+          "description": "class label, aka name. E.g. \"pTNM stage grouping\""
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "title": "Ontology Class",
+      "description": "A class (aka term, concept) in an ontology. FHIR mapping: CodeableConcept (http://www.hl7.org/fhir/datatypes.html#CodeableConcept). See also Coding (http://www.hl7.org/fhir/datatypes.html#Coding)."
+    }
+  }
+}
