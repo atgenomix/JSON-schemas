@@ -20,12 +20,7 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/fhir_comments"
-    },
-
-    {
-      "type": "Control",
-      "scope": "#/properties/type"
+      "scope": "#/properties/identifier"
     },
     {
       "type": "Control",
@@ -33,9 +28,12 @@
     },
     {
       "type": "Control",
+      "scope": "#/properties/type"
+    },
+    {
+      "type": "Control",
       "scope": "#/properties/contact"
     },
-
 
     {
       "type": "Control",
@@ -45,35 +43,36 @@
       "type": "Control",
       "scope": "#/properties/telecom"
     },
-
     {
       "type": "Control",
+      "label": "endpoint",
       "scope": "#/properties/endpoint"
     },
-
     {
       "type": "Control",
+      "label": "partOf",
       "scope": "#/properties/partOf"
     },
-
-
-
-    {
-      "type": "Control",
-      "scope": "#/properties/implicitRules"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/language"
-    },
-
     {
       "type": "Group",
-      "label": "Text summary of the resource, for human interpretation",
+      "label": "Resource Descriptions",
       "elements": [
         {
           "type": "Control",
-      "scope": "#/properties/text"
+          "scope": "#/properties/implicitRules"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/language"
+        },
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/fhir_comments"
+            }
+          ]
         }
       ]
     },
@@ -82,8 +81,14 @@
       "scope": "#/properties/contained"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/identifier"
+      "type": "Group",
+      "label": "Text summary of the resource, for human interpretation",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/text"
+        }
+      ]
     }
   ]
 }

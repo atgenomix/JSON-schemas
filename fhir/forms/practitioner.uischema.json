@@ -10,6 +10,10 @@
         },
         {
           "type": "Control",
+          "scope": "#/properties/name"
+        },
+        {
+          "type": "Control",
           "scope": "#/properties/gender"
         },
         {
@@ -24,7 +28,7 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/name"
+      "scope": "#/properties/identifier"
     },
     {
       "type": "Control",
@@ -47,21 +51,25 @@
       "scope": "#/properties/qualification"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/implicitRules"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/language"
-    },
-
-    {
       "type": "Group",
-      "label": "Text summary of the resource, for human interpretation",
+      "label": "Resource Descriptions",
       "elements": [
         {
           "type": "Control",
-      "scope": "#/properties/text"
+          "scope": "#/properties/implicitRules"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/language"
+        },
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/fhir_comments"
+            }
+          ]
         }
       ]
     },
@@ -70,8 +78,14 @@
       "scope": "#/properties/contained"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/identifier"
+      "type": "Group",
+      "label": "Text summary of the resource, for human interpretation",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/text"
+        }
+      ]
     }
   ]
 }

@@ -12,34 +12,6 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/fhir_comments"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/implicitRules"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/language"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/contained"
-    },
-
-
-    {
-      "type": "Group",
-      "label": "Text summary of the resource, for human interpretation",
-      "elements": [
-        {
-          "type": "Control",
-      "scope": "#/properties/text"
-        }
-      ]
-    },
-    {
-      "type": "Control",
       "scope": "#/properties/baseOn"
     },
     {
@@ -117,6 +89,43 @@
     {
       "type": "Control",
       "scope": "#/properties/subject"
+    },
+    {
+      "type": "Group",
+      "label": "Resource Descriptions",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/implicitRules"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/language"
+        },
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/fhir_comments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/contained"
+    },
+    {
+      "type": "Group",
+      "label": "Text summary of the resource, for human interpretation",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/text"
+        }
+      ]
     }
   ]
 }
