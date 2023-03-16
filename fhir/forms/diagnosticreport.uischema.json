@@ -96,7 +96,7 @@
     },
     {
       "type": "Group",
-      "label": "Resource Descriptions",
+      "label": "Resource Description",
       "elements": [
         {
           "type": "Control",

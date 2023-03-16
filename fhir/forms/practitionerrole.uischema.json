@@ -10,11 +10,11 @@
         },
         {
           "type": "Control",
-          "scope": "#/properties/active"
+          "scope": "#/properties/availabilityExceptions"
         },
         {
           "type": "Control",
-          "scope": "#/properties/availabilityExceptions"
+          "scope": "#/properties/active"
         }
       ]
     },
@@ -77,7 +77,7 @@
     },
     {
       "type": "Group",
-      "label": "Resource Descriptions",
+      "label": "Resource Description",
       "elements": [
         {
           "type": "Control",

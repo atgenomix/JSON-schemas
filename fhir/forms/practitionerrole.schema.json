@@ -726,13 +726,6 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nTimes the Service Site is available.\nA collection of times the practitioner is available or performing this role\nat the location and/or healthcareservice.",
       "type": "object",
       "properties": {
-        "fhir_comments": {
-          "title": "Fhir Comments",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "allDay": {
           "title": "Always available? e.g. 24 hour service",
           "description": "Is this always available? (hence times are irrelevant) e.g. 24 hour service.",
@@ -753,19 +746,19 @@
         "daysOfWeek": {
           "title": "mon | tue | wed | thu | fri | sat | sun",
           "description": "Indicates which days of the week are available between the start and end Times.",
-          "enum": [
-            "mon",
-            "tue",
-            "wed",
-            "thu",
-            "fri",
-            "sat",
-            "sun"
-          ],
           "type": "array",
           "items": {
             "type": "string",
-            "pattern": "^[^\\s]+(\\s[^\\s]+)*$"
+            "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+            "enum": [
+              "mon",
+              "tue",
+              "wed",
+              "thu",
+              "fri",
+              "sat",
+              "sun"
+            ]
           }
         }
       },
