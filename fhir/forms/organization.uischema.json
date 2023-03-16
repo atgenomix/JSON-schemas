@@ -34,7 +34,6 @@
       "type": "Control",
       "scope": "#/properties/contact"
     },
-
     {
       "type": "Control",
       "scope": "#/properties/address"
@@ -49,7 +48,7 @@
     },
     {
       "type": "Control",
-      "label": "partOf",
+      "label": "The organization of which this organization forms a part",
       "scope": "#/properties/partOf"
     },
     {
@@ -80,14 +79,9 @@
       "scope": "#/properties/contained"
     },
     {
-      "type": "Group",
       "label": "Text summary of the resource, for human interpretation",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/text"
-        }
-      ]
+      "type": "Control",
+      "scope": "#/properties/text"
     }
   ]
 }

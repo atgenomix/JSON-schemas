@@ -78,14 +78,9 @@
       "scope": "#/properties/contained"
     },
     {
-      "type": "Group",
       "label": "Text summary of the resource, for human interpretation",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/text"
-        }
-      ]
+      "type": "Control",
+      "scope": "#/properties/text"
     }
   ]
 }

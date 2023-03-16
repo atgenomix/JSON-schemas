@@ -20,6 +20,7 @@
     },
     {
       "type": "Control",
+      "label": "Name/Code for this diagnostic report",
       "scope": "#/properties/code"
     },
     {
@@ -40,7 +41,7 @@
     },
     {
       "type": "Group",
-      "label": "Health care event",
+      "label": "Healthcare event",
       "elements": [
         {
           "type": "Control",
@@ -89,6 +90,7 @@
       "scope": "#/properties/status"
     },
     {
+      "label": "The subject of the report",
       "type": "Control",
       "scope": "#/properties/subject"
     },
@@ -120,14 +122,9 @@
       "scope": "#/properties/contained"
     },
     {
-      "type": "Group",
       "label": "Text summary of the resource, for human interpretation",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/text"
-        }
-      ]
+      "type": "Control",
+      "scope": "#/properties/text"
     }
   ]
 }
