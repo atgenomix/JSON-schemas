@@ -12,7 +12,7 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/baseOn"
+      "scope": "#/properties/basedOn"
     },
     {
       "type": "Control",
@@ -22,12 +22,10 @@
       "type": "Control",
       "scope": "#/properties/code"
     },
-
     {
       "type": "Control",
       "scope": "#/properties/conclusion"
     },
-
     {
       "type": "Control",
       "scope": "#/properties/conclusionCode"
@@ -41,14 +39,19 @@
       "scope": "#/properties/effectivePeriod"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/encounter"
+      "type": "Group",
+      "label": "Health care event",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/encounter"
+        }
+      ]
     },
     {
       "type": "Control",
       "scope": "#/properties/identifier"
     },
-
     {
       "type": "Control",
       "scope": "#/properties/imagingStudy"
@@ -69,7 +72,6 @@
       "type": "Control",
       "scope": "#/properties/presentedForm"
     },
-
     {
       "type": "Control",
       "scope": "#/properties/result"

@@ -44,7 +44,6 @@
       "$ref": "#/definitions/Narrative"
     },
     "basedOn": {
-      "title": "What was requested",
       "description": "Details concerning a service requested.",
       "enum_reference_types": [
         "CarePlan",
@@ -69,7 +68,23 @@
     "code": {
       "title": "Name/Code for this diagnostic report",
       "description": "A code or name that describes this diagnostic report.",
-      "$ref": "#/definitions/CodeableConcept"
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "conclusion": {
       "title": "Clinical conclusion (interpretation) of test results",
