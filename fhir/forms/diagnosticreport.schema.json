@@ -44,6 +44,7 @@
       "$ref": "#/definitions/Narrative"
     },
     "basedOn": {
+      "title": "Details concerning a service requested",
       "description": "Details concerning a service requested.",
       "enum_reference_types": [
         "CarePlan",
