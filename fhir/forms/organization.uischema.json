@@ -45,7 +45,6 @@
     },
     {
       "type": "Control",
-      "label": "endpoint",
       "scope": "#/properties/endpoint"
     },
     {
