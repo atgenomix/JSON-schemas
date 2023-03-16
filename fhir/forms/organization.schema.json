@@ -457,15 +457,6 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn identifier intended for computation.\nAn identifier - identifies some entity uniquely and unambiguously.\nTypically this is used for business identifiers.",
       "type": "object",
       "properties": {
-        "assigner": {
-          "title": "Organization that issued id (may be just text)",
-          "description": "Organization that issued/manages the identifier.",
-          "element_property": true,
-          "enum_reference_types": [
-            "Organization"
-          ],
-          "$ref": "#/definitions/Reference"
-        },
         "period": {
           "title": "Time period when id is/was valid for use",
           "description": "Time period during which identifier is/was valid for use.",
@@ -480,10 +471,28 @@
           "type": "string"
         },
         "type": {
-          "title": "Description of identifier",
+          "title": "A coded type for the identifier",
           "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
           "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
+          "properties": {
+            "coding": {
+              "title": "Code defined by a terminology system",
+              "description": "A reference to a code defined by a terminology system.",
+              "element_property": true,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Coding"
+              }
+            },
+            "text": {
+              "title": "Plain text representation of the concept",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+              "element_property": true,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "use": {
           "title": "usual | official | temp | secondary | old (If known)",
