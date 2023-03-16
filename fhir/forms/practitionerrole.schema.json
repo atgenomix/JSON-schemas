@@ -5,7 +5,6 @@
   "properties": {
     "fhir_comments": {
       "title": "Fhir Comments",
-      "element_property": false,
       "type": "array",
       "items": {
         "type": "string"
@@ -14,7 +13,6 @@
     "id": {
       "title": "Id",
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "element_property": true,
       "minLength": 1,
       "maxLength": 64,
       "pattern": "^[A-Za-z0-9\\-.]+$",
@@ -23,27 +21,23 @@
     "implicitRules": {
       "title": "A set of rules under which this content was created",
       "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
-      "element_property": true,
       "pattern": "\\S*",
       "type": "string"
     },
     "language": {
       "title": "Language of the resource content",
       "description": "The base language in which the resource is written.",
-      "element_property": true,
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
     "text": {
       "title": "Text summary of the resource, for human interpretation",
       "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
-      "element_property": true,
       "$ref": "#/definitions/Narrative"
     },
     "contained": {
       "title": "Contained, inline Resources",
       "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/Resource"
@@ -51,7 +45,6 @@
     },
     "identifier": {
       "title": "Business Identifiers that are specific to a role/location",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/Identifier"
@@ -59,20 +52,17 @@
     },
     "active": {
       "title": "Whether this practitioner role record is in active use",
-      "element_property": true,
       "type": "boolean"
     },
     "availabilityExceptions": {
       "title": "Description of availability exceptions",
       "description": "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.",
-      "element_property": true,
       "pattern": "[ \\r\\n\\t\\S]+",
       "type": "string"
     },
     "availableTime": {
       "title": "Times the Service Site is available",
       "description": "A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/PractitionerRoleAvailableTime"
@@ -81,7 +71,6 @@
     "code": {
       "title": "Roles which this practitioner may perform",
       "description": "Roles which this practitioner is authorized to perform for the organization.",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/CodeableConcept"
@@ -89,7 +78,6 @@
     },
     "endpoint": {
       "title": "Technical endpoints providing access to services operated for the practitioner with this role",
-      "element_property": true,
       "enum_reference_types": [
         "Endpoint"
       ],
@@ -100,7 +88,6 @@
     },
     "healthcareService": {
       "title": "The list of healthcare services that this worker provides for this role's Organization/Location(s)",
-      "element_property": true,
       "enum_reference_types": [
         "HealthcareService"
       ],
@@ -111,7 +98,6 @@
     },
     "location": {
       "title": "The location(s) at which this practitioner provides care",
-      "element_property": true,
       "enum_reference_types": [
         "Location"
       ],
@@ -123,7 +109,6 @@
     "notAvailable": {
       "title": "Not available during this time due to provided reason",
       "description": "The practitioner is not available or performing this role during this period of time due to the provided reason.",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/PractitionerRoleAvailableTime"
@@ -132,7 +117,6 @@
     "organization": {
       "title": "Organization where the roles are available",
       "description": "The organization where the Practitioner performs the roles associated.",
-      "element_property": true,
       "enum_reference_types": [
         "Organization"
       ],
@@ -141,12 +125,10 @@
     "period": {
       "title": "The period during which the practitioner is authorized to perform in these role(s)",
       "description": "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.",
-      "element_property": true,
       "$ref": "#/definitions/Period"
     },
     "practitioner": {
       "title": "Practitioner that is able to provide the defined services for the organization",
-      "element_property": true,
       "enum_reference_types": [
         "Practitioner"
       ],
@@ -154,7 +136,6 @@
     },
     "specialty": {
       "title": "Specific specialty of the practitioner",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/CodeableConcept"
@@ -162,7 +143,6 @@
     },
     "telecom": {
       "title": "Contact details that are specific to the role/location/service",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/ContactPoint"
@@ -179,14 +159,12 @@
         "div": {
           "title": "Limited xhtml content",
           "description": "The actual narrative content, a stripped down version of XHTML.",
-          "element_property": true,
           "element_required": true,
           "type": "string"
         },
         "status": {
           "title": "generated | extensions | additional | empty",
           "description": "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.",
-          "element_property": true,
           "element_required": true,
           "enum": [
             "generated",
@@ -208,14 +186,12 @@
         "family": {
           "title": "Family name (often called 'Surname')",
           "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "given": {
           "title": "Given names (not always 'first'). Includes middle names",
           "description": "Given name.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -225,13 +201,11 @@
         "period": {
           "title": "Time period when name was/is in use",
           "description": "Indicates the period of time when this name was valid for the named person.",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "prefix": {
           "title": "Parts that come before the name",
           "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -241,7 +215,6 @@
         "suffix": {
           "title": "Parts that come after the name",
           "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -251,14 +224,12 @@
         "text": {
           "title": "Text representation of the full name",
           "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "use": {
           "title": "usual | official | temp | nickname | anonymous | old | maiden",
           "description": "Identifies the purpose for this name.",
-          "element_property": true,
           "enum": [
             "usual",
             "official",
@@ -282,14 +253,12 @@
         "end": {
           "title": "End time with inclusive boundary, if not ongoing",
           "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
-          "element_property": true,
           "type": "string",
           "format": "date-time"
         },
         "start": {
           "title": "Starting time with inclusive boundary",
           "description": "The start of the period. The boundary is inclusive.",
-          "element_property": true,
           "type": "string",
           "format": "date-time"
         }
@@ -303,7 +272,6 @@
       "properties": {
         "resourceType": {
           "title": "Resource Type",
-          "element_property": true,
           "type": "string",
           "enum": [
             "Account",
@@ -456,7 +424,6 @@
         "id": {
           "title": "Id",
           "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-          "element_property": true,
           "minLength": 1,
           "maxLength": 64,
           "pattern": "^[A-Za-z0-9\\-.]+$",
@@ -464,7 +431,6 @@
         },
         "fhir_comments": {
           "title": "Fhir Comments",
-          "element_property": false,
           "type": "array",
           "items": {
             "type": "string"
@@ -473,14 +439,12 @@
         "implicitRules": {
           "title": "A set of rules under which this content was created",
           "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         },
         "language": {
           "title": "Language of the resource content",
           "description": "The base language in which the resource is written.",
-          "element_property": true,
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         }
@@ -497,25 +461,21 @@
         "period": {
           "title": "Time period when id is/was valid for use",
           "description": "Time period during which identifier is/was valid for use.",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "system": {
           "title": "The namespace for the identifier value",
           "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         },
         "type": {
           "title": "A coded type for the identifier",
           "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
-          "element_property": true,
           "properties": {
             "coding": {
               "title": "Code defined by a terminology system",
               "description": "A reference to a code defined by a terminology system.",
-              "element_property": true,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Coding"
@@ -524,7 +484,6 @@
             "text": {
               "title": "Plain text representation of the concept",
               "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-              "element_property": true,
               "pattern": "[ \\r\\n\\t\\S]+",
               "type": "string"
             }
@@ -534,7 +493,6 @@
         "use": {
           "title": "usual | official | temp | secondary | old (If known)",
           "description": "The purpose of this identifier.",
-          "element_property": true,
           "enum": [
             "usual",
             "official",
@@ -548,7 +506,6 @@
         "value": {
           "title": "The value that is unique",
           "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -563,7 +520,6 @@
         "coding": {
           "title": "Code defined by a terminology system",
           "description": "A reference to a code defined by a terminology system.",
-          "element_property": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/Coding"
@@ -572,7 +528,6 @@
         "text": {
           "title": "Plain text representation of the concept",
           "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -587,34 +542,29 @@
         "code": {
           "title": "Symbol in syntax defined by the system",
           "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
-          "element_property": true,
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         },
         "display": {
           "title": "Representation defined by the system",
           "description": "A representation of the meaning of the code in the system, following the rules of the system.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "system": {
           "title": "Identity of the terminology system",
           "description": "The identification of the code system that defines the meaning of the symbol in the code.",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         },
         "userSelected": {
           "title": "If this coding was chosen directly by the user",
           "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
-          "element_property": true,
           "type": "boolean"
         },
         "version": {
           "title": "Version of the system - if relevant",
           "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -628,20 +578,17 @@
       "properties": {
         "period": {
           "title": "Time period when the contact point was/is in use",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "rank": {
           "title": "Specify preferred order of use (1 = highest)",
           "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.",
-          "element_property": true,
           "exclusiveMinimum": 0,
           "type": "integer"
         },
         "system": {
           "title": "phone | fax | email | pager | url | sms | other",
           "description": "Telecommunications form for contact point - what communications system is required to make use of the contact.",
-          "element_property": true,
           "enum": [
             "phone",
             "fax",
@@ -657,7 +604,6 @@
         "use": {
           "title": "home | work | temp | old | mobile - purpose of this contact point",
           "description": "Identifies the purpose for the contact point.",
-          "element_property": true,
           "enum": [
             "home",
             "work",
@@ -671,7 +617,6 @@
         "value": {
           "title": "The actual contact point details",
           "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -686,27 +631,23 @@
         "display": {
           "title": "Text alternative for the resource",
           "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "identifier": {
           "title": "Logical reference, when literal reference is not known",
           "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
-          "element_property": true,
           "$ref": "#/definitions/Identifier"
         },
         "reference": {
           "title": "Literal reference, Relative, internal or absolute URL",
           "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "type": {
           "title": "Type the reference refers to (e.g. \"Patient\")",
           "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         }
@@ -720,36 +661,31 @@
       "properties": {
         "fhir_comments": {
           "title": "Fhir Comments",
-          "element_property": false,
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "allDay": {
           "title": "Always available? e.g. 24 hour service",
           "description": "Is this always available? (hence times are irrelevant) e.g. 24 hour service.",
-          "element_property": true,
           "type": "boolean"
         },
         "availableEndTime": {
           "title": "Closing time of day (ignored if allDay = true)",
           "description": "The closing time of day. Note: If the AllDay flag is set, then this time is ignored.",
-          "element_property": true,
           "type": "string",
           "format": "time"
         },
         "availableStartTime": {
           "title": "Opening time of day (ignored if allDay = true)",
           "description": "The opening time of day. Note: If the AllDay flag is set, then this time is ignored.",
-          "element_property": true,
           "type": "string",
           "format": "time"
         },
         "daysOfWeek": {
           "title": "mon | tue | wed | thu | fri | sat | sun",
           "description": "Indicates which days of the week are available between the start and end Times.",
-          "element_property": true,
           "enum": [
             "mon",
             "tue",

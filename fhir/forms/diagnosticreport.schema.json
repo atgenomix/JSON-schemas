@@ -5,7 +5,6 @@
   "properties": {
     "fhir_comments": {
       "title": "Fhir Comments",
-      "element_property": false,
       "type": "array",
       "items": {
         "type": "string"
@@ -14,7 +13,6 @@
     "id": {
       "title": "Logical id of this artifact",
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "element_property": true,
       "minLength": 1,
       "maxLength": 64,
       "pattern": "^[A-Za-z0-9\\-.]+$",
@@ -23,21 +21,18 @@
     "implicitRules": {
       "title": "A set of rules under which this content was created",
       "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
-      "element_property": true,
       "pattern": "\\S*",
       "type": "string"
     },
     "language": {
       "title": "Language of the resource content",
       "description": "The base language in which the resource is written.",
-      "element_property": true,
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
     "contained": {
       "title": "Contained, inline Resources",
       "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/Resource"
@@ -46,13 +41,11 @@
     "text": {
       "title": "Text summary of the resource, for human interpretation",
       "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
-      "element_property": true,
       "$ref": "#/definitions/Narrative"
     },
     "basedOn": {
       "title": "What was requested",
       "description": "Details concerning a service requested.",
-      "element_property": true,
       "enum_reference_types": [
         "CarePlan",
         "ImmunizationRecommendation",
@@ -62,44 +55,39 @@
       ],
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/Reference"
       }
     },
     "category": {
       "title": "Service category",
       "description": "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
-      "element_property": true,
       "type": "array",
       "items": {
-      "$ref": "#/definitions/CodeableConcept"
+        "$ref": "#/definitions/CodeableConcept"
       }
     },
     "code": {
       "title": "Name/Code for this diagnostic report",
       "description": "A code or name that describes this diagnostic report.",
-      "element_property": true,
       "$ref": "#/definitions/CodeableConcept"
     },
     "conclusion": {
       "title": "Clinical conclusion (interpretation) of test results",
       "description": "Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.",
-      "element_property": true,
       "pattern": "[ \\r\\n\\t\\S]+",
       "type": "string"
     },
     "conclusionCode": {
       "title": "Codes for the clinical conclusion of test results",
       "description": "One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.",
-      "element_property": true,
       "type": "array",
       "items": {
-      "$ref": "#/definitions/CodeableConcept"
+        "$ref": "#/definitions/CodeableConcept"
       }
     },
     "effectiveDateTime": {
       "title": "Clinically relevant time/time-period for report",
       "description": "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
-      "element_property": true,
       "one_of_many": "effective",
       "one_of_many_required": false,
       "type": "string",
@@ -108,7 +96,6 @@
     "effectivePeriod": {
       "title": "Clinically relevant time/time-period for report",
       "description": "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
-      "element_property": true,
       "one_of_many": "effective",
       "one_of_many_required": false,
       "$ref": "#/definitions/Period"
@@ -116,7 +103,6 @@
     "encounter": {
       "title": "Health care event when test ordered",
       "description": "The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.",
-      "element_property": true,
       "enum_reference_types": [
         "Encounter"
       ],
@@ -125,35 +111,31 @@
     "identifier": {
       "title": "Business identifier for report",
       "description": "Identifiers assigned to this report by the performer or other systems.",
-      "element_property": true,
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Identifier"
+        "$ref": "#/definitions/Identifier"
       }
     },
     "imagingStudy": {
       "title": "Reference to full details of imaging associated with the diagnostic report",
       "description": "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.",
-      "element_property": true,
       "enum_reference_types": [
         "ImagingStudy"
       ],
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/Reference"
       }
     },
     "issued": {
       "title": "DateTime this version was made",
       "description": "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.",
-      "element_property": true,
       "type": "string",
       "format": "date-time"
     },
     "media": {
       "title": "Key images associated with this report",
       "description": "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).",
-      "element_property": true,
       "type": "array",
       "items": {
         "$ref": "#/definitions/DiagnosticReportMedia"
@@ -162,7 +144,6 @@
     "performer": {
       "title": "Responsible Diagnostic Service",
       "description": "The diagnostic service that is responsible for issuing the report.",
-      "element_property": true,
       "enum_reference_types": [
         "Practitioner",
         "PractitionerRole",
@@ -171,34 +152,31 @@
       ],
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/Reference"
       }
     },
     "presentedForm": {
       "title": "Entire report as issued",
       "description": "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.",
-      "element_property": true,
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Attachment"
+        "$ref": "#/definitions/Attachment"
       }
     },
     "result": {
       "title": "Observations",
       "description": "[Observations](observation.html)  that are part of this diagnostic report.",
-      "element_property": true,
       "enum_reference_types": [
         "Observation"
       ],
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/Reference"
       }
     },
     "resultsInterpreter": {
       "title": "Primary result interpreter",
       "description": "The practitioner or organization that is responsible for the report's conclusions and interpretations.",
-      "element_property": true,
       "enum_reference_types": [
         "Practitioner",
         "PractitionerRole",
@@ -207,25 +185,23 @@
       ],
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/Reference"
       }
     },
     "specimen": {
       "title": "Specimens this report is based on",
       "description": "Details about the specimens on which this diagnostic report is based.",
-      "element_property": true,
       "enum_reference_types": [
         "Specimen"
       ],
       "type": "array",
       "items": {
-      "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/Reference"
       }
     },
     "status": {
       "title": "registered | partial | preliminary | final +",
       "description": "The status of the diagnostic report.",
-      "element_property": true,
       "element_required": true,
       "enum": [
         "registered",
@@ -240,7 +216,6 @@
     "subject": {
       "title": "The subject of the report - usually, but not always, the patient",
       "description": "The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.",
-      "element_property": true,
       "enum_reference_types": [
         "Patient",
         "Group",
@@ -263,14 +238,12 @@
         "div": {
           "title": "Limited xhtml content",
           "description": "The actual narrative content, a stripped down version of XHTML.",
-          "element_property": true,
           "element_required": true,
           "type": "string"
         },
         "status": {
           "title": "generated | extensions | additional | empty",
           "description": "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.",
-          "element_property": true,
           "element_required": true,
           "enum": [
             "generated",
@@ -292,14 +265,12 @@
         "family": {
           "title": "Family name (often called 'Surname')",
           "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "given": {
           "title": "Given names (not always 'first'). Includes middle names",
           "description": "Given name.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -309,13 +280,11 @@
         "period": {
           "title": "Time period when name was/is in use",
           "description": "Indicates the period of time when this name was valid for the named person.",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "prefix": {
           "title": "Parts that come before the name",
           "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -325,7 +294,6 @@
         "suffix": {
           "title": "Parts that come after the name",
           "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -335,14 +303,12 @@
         "text": {
           "title": "Text representation of the full name",
           "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "use": {
           "title": "usual | official | temp | nickname | anonymous | old | maiden",
           "description": "Identifies the purpose for this name.",
-          "element_property": true,
           "enum": [
             "usual",
             "official",
@@ -366,14 +332,12 @@
         "end": {
           "title": "End time with inclusive boundary, if not ongoing",
           "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
-          "element_property": true,
           "type": "string",
           "format": "date-time"
         },
         "start": {
           "title": "Starting time with inclusive boundary",
           "description": "The start of the period. The boundary is inclusive.",
-          "element_property": true,
           "type": "string",
           "format": "date-time"
         }
@@ -387,7 +351,6 @@
       "properties": {
         "resourceType": {
           "title": "Resource Type",
-          "element_property": true,
           "type": "string",
           "enum": [
             "Account",
@@ -540,7 +503,6 @@
         "id": {
           "title": "Id",
           "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-          "element_property": true,
           "minLength": 1,
           "maxLength": 64,
           "pattern": "^[A-Za-z0-9\\-.]+$",
@@ -548,7 +510,6 @@
         },
         "fhir_comments": {
           "title": "Fhir Comments",
-          "element_property": false,
           "type": "array",
           "items": {
             "type": "string"
@@ -557,14 +518,12 @@
         "implicitRules": {
           "title": "A set of rules under which this content was created",
           "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         },
         "language": {
           "title": "Language of the resource content",
           "description": "The base language in which the resource is written.",
-          "element_property": true,
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         }
@@ -581,25 +540,21 @@
         "period": {
           "title": "Time period when id is/was valid for use",
           "description": "Time period during which identifier is/was valid for use.",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "system": {
           "title": "The namespace for the identifier value",
           "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         },
         "type": {
           "title": "A coded type for the identifier",
           "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
-          "element_property": true,
           "properties": {
             "coding": {
               "title": "Code defined by a terminology system",
               "description": "A reference to a code defined by a terminology system.",
-              "element_property": true,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Coding"
@@ -608,7 +563,6 @@
             "text": {
               "title": "Plain text representation of the concept",
               "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-              "element_property": true,
               "pattern": "[ \\r\\n\\t\\S]+",
               "type": "string"
             }
@@ -618,7 +572,6 @@
         "use": {
           "title": "usual | official | temp | secondary | old (If known)",
           "description": "The purpose of this identifier.",
-          "element_property": true,
           "enum": [
             "usual",
             "official",
@@ -632,7 +585,6 @@
         "value": {
           "title": "The value that is unique",
           "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -647,7 +599,6 @@
         "coding": {
           "title": "Code defined by a terminology system",
           "description": "A reference to a code defined by a terminology system.",
-          "element_property": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/Coding"
@@ -656,7 +607,6 @@
         "text": {
           "title": "Plain text representation of the concept",
           "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -671,34 +621,29 @@
         "code": {
           "title": "Symbol in syntax defined by the system",
           "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
-          "element_property": true,
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         },
         "display": {
           "title": "Representation defined by the system",
           "description": "A representation of the meaning of the code in the system, following the rules of the system.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "system": {
           "title": "Identity of the terminology system",
           "description": "The identification of the code system that defines the meaning of the symbol in the code.",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         },
         "userSelected": {
           "title": "If this coding was chosen directly by the user",
           "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
-          "element_property": true,
           "type": "boolean"
         },
         "version": {
           "title": "Version of the system - if relevant",
           "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -712,20 +657,17 @@
       "properties": {
         "period": {
           "title": "Time period when the contact point was/is in use",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "rank": {
           "title": "Specify preferred order of use (1 = highest)",
           "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.",
-          "element_property": true,
           "exclusiveMinimum": 0,
           "type": "integer"
         },
         "system": {
           "title": "phone | fax | email | pager | url | sms | other",
           "description": "Telecommunications form for contact point - what communications system is required to make use of the contact.",
-          "element_property": true,
           "enum": [
             "phone",
             "fax",
@@ -741,7 +683,6 @@
         "use": {
           "title": "home | work | temp | old | mobile - purpose of this contact point",
           "description": "Identifies the purpose for the contact point.",
-          "element_property": true,
           "enum": [
             "home",
             "work",
@@ -755,7 +696,6 @@
         "value": {
           "title": "The actual contact point details",
           "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -770,28 +710,24 @@
         "city": {
           "title": "Name of city, town etc.",
           "description": "The name of the city, town, suburb, village or other community or delivery center.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "country": {
           "title": "Country (e.g. can be ISO 3166 2 or 3 letter code)",
           "description": "Country - a nation as commonly understood or generally accepted.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "district": {
           "title": "District name (aka county)",
           "description": "The name of the administrative area (county).",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "line": {
           "title": "Street name, number, direction & P.O. Box etc.",
           "description": "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.",
-          "element_property": true,
           "type": "array",
           "items": {
             "type": "string",
@@ -800,34 +736,29 @@
         },
         "period": {
           "title": "Time period when address was/is in use",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         },
         "postalCode": {
           "title": "Postal code for area",
           "description": "A postal code designating a region defined by the postal service.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "state": {
           "title": "Sub-unit of country (abbreviations ok)",
           "description": "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "text": {
           "title": "Text representation of the address",
           "description": "Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "type": {
           "title": "postal | physical | both",
           "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.",
-          "element_property": true,
           "enum": [
             "postal",
             "physical",
@@ -839,7 +770,6 @@
         "use": {
           "title": "home | work | temp | old | billing - purpose of this address",
           "description": "The purpose of this address.",
-          "element_property": true,
           "enum": [
             "home",
             "work",
@@ -861,56 +791,48 @@
         "contentType": {
           "title": "Mime type of the content, with charset etc.",
           "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.",
-          "element_property": true,
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         },
         "creation": {
           "title": "Date attachment was first created",
           "description": "The date that the attachment was first created.",
-          "element_property": true,
           "type": "string",
           "format": "date-time"
         },
         "data": {
           "title": "Data inline, base64ed",
           "description": "The actual data of the attachment - a sequence of bytes, base64 encoded.",
-          "element_property": true,
           "type": "string",
           "format": "binary"
         },
         "hash": {
           "title": "Hash of the data (sha-1, base64ed)",
           "description": "The calculated hash of the data using SHA-1. Represented using base64.",
-          "element_property": true,
           "type": "string",
           "format": "binary"
         },
         "language": {
           "title": "Human language of the content (BCP-47)",
           "description": "The human language of the content. The value can be any valid value according to BCP 47.",
-          "element_property": true,
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         },
         "size": {
           "title": "Number of bytes of content (if url provided)",
           "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done).",
-          "element_property": true,
           "minimum": 0,
           "type": "integer"
         },
         "title": {
           "title": "Label to display in place of the data",
           "description": "A label or set of text to display in place of the data.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "url": {
           "title": "Uri where the data can be found",
           "description": "A location where the data can be accessed.",
-          "element_property": true,
           "minLength": 1,
           "maxLength": 65536,
           "format": "uri",
@@ -926,13 +848,11 @@
       "properties": {
         "code": {
           "title": "Coded representation of the qualification",
-          "element_property": true,
           "$ref": "#/definitions/CodeableConcept"
         },
         "identifier": {
           "title": "An identifier for this qualification for the practitioner",
           "description": "An identifier that applies to this person's qualification in this role.",
-          "element_property": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/Identifier"
@@ -940,7 +860,6 @@
         },
         "issuer": {
           "title": "Organization that regulates and issues the qualification",
-          "element_property": true,
           "enum_reference_types": [
             "Organization"
           ],
@@ -948,7 +867,6 @@
         },
         "period": {
           "title": "Period during which the qualification is valid",
-          "element_property": true,
           "$ref": "#/definitions/Period"
         }
       },
@@ -965,27 +883,23 @@
         "display": {
           "title": "Text alternative for the resource",
           "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "identifier": {
           "title": "Logical reference, when literal reference is not known",
           "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
-          "element_property": true,
           "$ref": "#/definitions/Identifier"
         },
         "reference": {
           "title": "Literal reference, Relative, internal or absolute URL",
           "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "type": {
           "title": "Type the reference refers to (e.g. \"Patient\")",
           "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
-          "element_property": true,
           "pattern": "\\S*",
           "type": "string"
         }
@@ -1000,20 +914,17 @@
         "id": {
           "title": "Unique id for inter-element referencing",
           "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "comment": {
           "title": "Comment about the image (e.g. explanation)",
           "description": "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.",
-          "element_property": true,
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "link": {
           "title": "Reference to the image source",
-          "element_property": true,
           "enum_reference_types": [
             "Media"
           ],
