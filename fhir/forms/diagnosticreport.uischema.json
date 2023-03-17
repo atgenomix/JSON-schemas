@@ -1,0 +1,130 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/id"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/identifier"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/basedOn"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/category"
+    },
+    {
+      "type": "Control",
+      "label": "Name/Code for this diagnostic report",
+      "scope": "#/properties/code"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/conclusion"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/conclusionCode"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/effectiveDateTime"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/effectivePeriod"
+    },
+    {
+      "type": "Group",
+      "label": "Healthcare event",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/encounter"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/imagingStudy"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/issued"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/media"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/performer"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/presentedForm"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/result"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/resultsInterpreter"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/specimen"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/status"
+    },
+    {
+      "label": "The subject of the report",
+      "type": "Control",
+      "scope": "#/properties/subject"
+    },
+    {
+      "type": "Group",
+      "label": "Resource Description",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/implicitRules"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/language"
+        },
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/fhir_comments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/contained"
+    },
+    {
+      "label": "Text summary of the resource, for human interpretation",
+      "type": "Control",
+      "scope": "#/properties/text"
+    }
+  ]
+}
