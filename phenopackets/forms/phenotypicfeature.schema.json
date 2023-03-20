@@ -11,7 +11,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "a CURIE-style identifier e.g. HP:0100024."
+          "description": "A CURIE-style identifier (e.g., HP:0100024)."
         },
         "label": {
           "type": "string",
@@ -29,11 +29,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "a CURIE-style identifier e.g. HP:0012826."
+          "description": "A CURIE-style identifier (e.g., HP:0012826)."
         },
         "label": {
           "type": "string",
-          "description": "Class label e.g. \"Moderate\"."
+          "description": "Class label (e.g., \"Moderate\")."
         }
       },
       "title": "Severity Ontology",
@@ -45,11 +45,11 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "A CURIE-style identifier of clinical modifier e.g. Subclasses of HP:0012823."
+            "description": "A CURIE-style identifier of clinical modifier (e.g., Subclasses of HP:0012823)."
           },
           "label": {
             "type": "string",
-            "description": "Clinical modifier label, aka name e.g. \"Variable expressivity\""
+            "description": "Clinical modifier label, aka name (e.g., \"Variable expressivity\")."
           }
         }
       },
@@ -65,10 +65,10 @@
               "properties": {
                 "iso8601duration": {
                   "type": "string",
-                  "description": "The age of this object as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                  "description": "The age of this object as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                 }
               },
-              "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+              "description": "The age of this individual as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
             }
           },
           "title": "Age"
@@ -89,7 +89,7 @@
                   "properties": {
                     "iso8601duration": {
                       "type": "string",
-                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                      "description": "The age of this individual as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                     }
                   }
                 }
@@ -125,7 +125,7 @@
                 },
                 "label": {
                   "type": "string",
-                  "description": "Onset label, aka name e.g. HP:0011462 \"Young adult onset\""
+                  "description": "Onset label, aka name (e.g., HP:0011462 \"Young adult onset\")."
                 }
               },
               "title": "Onset Ontology"
@@ -145,7 +145,7 @@
               "properties": {
                 "iso8601duration": {
                   "type": "string",
-                  "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                  "description": "Age at which the feature resolved or abated as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                 }
               }
             }
@@ -160,7 +160,7 @@
                   "properties": {
                     "iso8601duration": {
                       "type": "string",
-                      "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                      "description": "Age at which the feature resolved or abated as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                     }
                   }
                 },
@@ -168,7 +168,7 @@
                   "properties": {
                     "iso8601duration": {
                       "type": "string",
-                      "description": "Age at which the feature resolved or abated as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                      "description": "Age at which the feature resolved or abated as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                     }
                   }
                 }
@@ -217,15 +217,15 @@
           "properties": {
             "id": {
               "type": "string",
-              "description": "The encoded evidence type, ex: the Evidence Conclusion Ontology (https://bioportal.bioontology.org/ontologies/ECO)."
+              "description": "The encoded evidence type. For example, the Evidence Conclusion Ontology (https://bioportal.bioontology.org/ontologies/ECO)."
             },
             "label": {
               "type": "string",
-              "description": "Evidence label, aka name e.g. ECO:0006060 \"high throughput cell biology evidence used in automatic assertion\""
+              "description": "Evidence label, aka name (e.g., ECO:0006060 \"high throughput cell biology evidence used in automatic assertion\")."
             }
           },
           "title": "Evidence Ontology",
-          "description": "The encoded evidence type using, for example, the Evidence Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl). FHIR mapping: Condition.evidence.code"
+          "description": "The encoded evidence type using. For example, the Evidence Conclusion Ontology (ECO - http://purl.obolibrary.org/obo/eco.owl). FHIR mapping: Condition.evidence.code"
         },
         "reference": {
           "$ref": "#/definitions/ExternalReference",

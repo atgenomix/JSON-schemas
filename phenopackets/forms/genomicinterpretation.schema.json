@@ -4,7 +4,7 @@
   "properties": {
     "subject_or_biosample_id": {
       "type": "string",
-      "description": "identifier for the subject of the interpretation. This MUST be the individual id or a biosample id of the enclosing phenopacket."
+      "description": "identifier for the subject of the interpretation. This MUST be the individual ID or a biosample ID of the enclosing phenopacket."
     },
     "interpretation_status": {
       "enum": [
@@ -81,7 +81,7 @@
                         },
                         "label": {
                           "type": "string",
-                          "description": "class label, aka name. E.g. \"Structural variant\""
+                          "description": "Class label, aka name (e.g., \"Structural variant\")."
                         }
                       },
                       "title": "Structural Type Ontology",
@@ -91,11 +91,11 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "description": "Recommend the allelic state of variant be described by terms from the Genotype Ontology e.g. GENO:0000136."
+                          "description": "Recommend the allelic state of variant be described by terms from the Genotype Ontology (e.g. GENO:0000136)."
                         },
                         "label": {
                           "type": "string",
-                          "description": "class label, aka name. E.g. \"homozygous\""
+                          "description": "Class label, aka name (e.g., \"homozygous\")."
                         }
                       },
                       "title": "Allelic State Ontology",
@@ -190,7 +190,7 @@
         "xrefs": {
           "items": {
             "type": "string",
-            "description": "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs."
+            "description": "Related concept IDs (e.g., gene ortholog IDs) may be placed in xrefs."
           },
           "type": "array",
           "title": "External References"

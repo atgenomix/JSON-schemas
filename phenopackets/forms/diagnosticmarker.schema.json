@@ -1,7 +1,7 @@
 {
   "type": "object",
   "title": "Diagnostic Markers",
-  "description": "Clinically relevant biomarkers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). e.g. NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)",
+  "description": "Clinically relevant biomarkers. Most of the assays such as IHC are covered by the NCIT under the sub-hierarchy NCIT:C25294 (Laboratory Procedure). For example, NCIT:C68748 (HER2/Neu Positive), NCIT:C131711 (Human Papillomavirus-18 Positive)",
   "properties": {
     "diagnostic_markers": {
       "type": "array",
@@ -15,11 +15,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "A CURIE-style identifier of clinically relevant biomarkers. E.g. NCIT:C68748."
+          "description": "A CURIE-style identifier of clinically relevant biomarkers (e.g., NCIT:C68748)."
         },
         "label": {
           "type": "string",
-          "description": "Biomarker label, aka name. E.g. \"HER2/Neu Positive\""
+          "description": "Biomarker label, aka name (e.g., \"HER2/Neu Positive\")."
         }
       },
       "required": [

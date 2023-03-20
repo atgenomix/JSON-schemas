@@ -10,12 +10,12 @@
     "subject": {
       "$ref": "#/definitions/Individual",
       "additionalProperties": false,
-      "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient"
+      "description": "The individual representing the focus of this packet - e.g., the proband in rare disease cases or cancer patient"
     },
     "meta_data": {
       "$ref": "#/definitions/MetaData",
       "additionalProperties": false,
-      "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+      "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED."
     }
   },
   "additionalProperties": false,
@@ -53,7 +53,7 @@
               "properties": {
                 "age": {
                   "$ref": "#/definitions/Age",
-                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                  "description": "The age of this individual as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                 }
               },
               "title": "Age"
@@ -66,7 +66,7 @@
                       "properties": {
                         "iso8601duration": {
                           "type": "string",
-                          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                          "description": "The age of this individual as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                         }
                       }
                     },
@@ -74,7 +74,7 @@
                       "properties": {
                         "iso8601duration": {
                           "type": "string",
-                          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                          "description": "The age of this individual as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                         }
                       }
                     }
@@ -261,7 +261,7 @@
       "properties": {
         "iso8601duration": {
           "type": "string",
-          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+          "description": "The age of this individual as an ISO8601 duration or time intervals (e.g., P40Y10M05D)."
         }
       },
       "additionalProperties": false,

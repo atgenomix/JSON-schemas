@@ -2,7 +2,7 @@
   "properties": {
     "uri": {
       "type": "string",
-      "description": "URI for the file e.g. https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444 or drs://seqslab.net/id",
+      "description": "URI for the file e.g., https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444 or drs://seqslab.net/id",
       "title": "URI"
     },
     "individual_to_file_identifiers": {
