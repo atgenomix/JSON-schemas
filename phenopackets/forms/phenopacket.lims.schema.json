@@ -1,0 +1,332 @@
+{
+  "title": "Phenopacket",
+  "description": "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses. This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.",
+  "type": "object",
+  "properties": {
+    "phenopacket.id": {
+      "type": "string"
+    },
+    "phenopacket.measurements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "assay.id": {
+            "oneOf": [
+              {
+                "const": "LDT0007:40",
+                "title": "非侵入性產前染色體檢測 NIPT1.0"
+              },
+              {
+                "const": "LDT0007:49",
+                "title": "非侵入性產前染色體檢測 NIPT2.0"
+              },
+              {
+                "const": "LDT0007:60",
+                "title": "非侵入性產前染色體檢測 NIPT3.0"
+              },
+              {
+                "const": "LDT0007:41",
+                "title": "胚胎著床前篩檢 Preimplantation Genetic Screening (PGS)"
+              },
+              {
+                "const": "LDT0007:38",
+                "title": "脊髓性肌肉萎縮症 Spinal Muscular Atrophy (SMA)"
+              },
+              {
+                "const": "LDT0007:39",
+                "title": "X染色體脆折症 Fragile X Syndrome"
+              },
+              {
+                "const": "LDT0007:47",
+                "title": "先天中樞性換氣不足症候群"
+              },
+              {
+                "const": "LDT0007:48",
+                "title": "感覺神經性聽損基因"
+              }
+            ],
+            "type": "string",
+            "title": ""
+          }
+        },
+        "required": [
+          "assay.id"
+        ]
+      },
+      "additionalProperties": false
+    },
+    "phenopacket.biosamples": {
+      "allOf": [
+        {
+          "properties": {
+            "0": {
+              "properties": {
+                "derived_from_id": {
+                  "type": "string",
+                  "title": "原檢體編號（重送檢必填）"
+                },
+                "sample_type": {
+                  "title": "檢體種類",
+                  "type": "string",
+                  "oneOf": [
+                    {
+                      "const": "NCIT:C79903",
+                      "title": "血片 (NCIT:C79903)"
+                    },
+                    {
+                      "const": "UBERON:0000178",
+                      "title": "血液 (UBERON:0000178)"
+                    },
+                    {
+                      "const": "NCIT:C28147",
+                      "title": "胚胎 (NCIT:C28147)"
+                    },
+                    {
+                      "const": "ERO:0000928",
+                      "title": "胚胎培養液 (ERO:0000928)"
+                    },
+                    {
+                      "const": "UBERON:0000173",
+                      "title": "羊水 (UBERON:0000173)"
+                    },
+                    {
+                      "const": "SNOMED:275854005",
+                      "title": "已培養羊水 (SNOMED:275854005)"
+                    },
+                    {
+                      "const": "NCIT:C706",
+                      "title": "核酸 (NCIT:C706)"
+                    }
+                  ]
+                },
+                "time_of_collection": {
+                  "type": "string",
+                  "format": "date-time",
+                  "title": "採樣檢體時間"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "備註資訊"
+                }
+              },
+              "title": ""
+            }
+          }
+        }
+      ]
+    },
+    "phenopacket.subject": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^\\w[^:]*:.+$",
+          "description": "An identifier for the individual. This must be unique within the record. ARGO mapping donor::submitter_donor_id"
+        },
+        "alternate_ids": {
+          "allOf": [
+            {
+              "properties": {
+                "0": {
+                  "type": "string",
+                  "title": "中文姓名"
+                }
+              }
+            },
+            {
+              "properties": {
+                "1": {
+                  "type": "string",
+                  "pattern": "[A-Za-z\\s]+",
+                  "title": "英文姓名（英文報告必填）"
+                }
+              }
+            },
+            {
+              "properties": {
+                "2": {
+                  "type": "string",
+                  "title": "身分證字號"
+                }
+              }
+            },
+            {
+              "properties": {
+                "3": {
+                  "type": "string",
+                  "title": "手機號碼"
+                }
+              }
+            },
+            {
+              "properties": {
+                "4": {
+                  "type": "string",
+                  "title": "病歷號碼"
+                }
+              }
+            }
+          ],
+          "title": "Alternative Identifiers for this Individual",
+          "description": "An optional list of alternative identifiers for this individual. This field is provided for the convenience of users who may have multiple mappings to an individual which they need to track."
+        },
+        "date_of_birth": {
+          "type": "string",
+          "description": "The date of birth of the individual as an ISO8601 UTC timestamp (e.g., \"2018-03-01\").",
+          "format": "date"
+        },
+        "time_at_last_encounter.gestational_age": {
+          "properties": {
+            "weeks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 40
+            },
+            "days": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 30
+            }
+          },
+          "additionalProperties": false,
+          "type": "object"
+        },
+        "time_at_last_encounter.timestamp": {
+          "type": "string",
+          "format": "date"
+        },
+        "sex": {
+          "oneOf": [
+            {
+              "const": "FEMALE",
+              "title": "女"
+            },
+            {
+              "const": "MALE",
+              "title": "男"
+            },
+            {
+              "const": "UNKNOWN_SEX",
+              "title": "未知"
+            }
+          ],
+          "type": "string",
+          "title": "Sex",
+          "description": "Sex of an individual. FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
+        }
+      },
+      "required": [
+        "id",
+        "sex"
+      ],
+      "additionalProperties": false,
+      "description": "The individual representing the focus of this packet - e.g. the proband in rare disease cases or cancer patient"
+    },
+    "phenopacket.phenotypic_features": {
+      "allOf": [
+        {
+          "properties": {
+            "0": {
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "enum": [
+                    "單胞胎",
+                    "異卵雙胞",
+                    "同卵雙胞",
+                    "多胞胎"
+                  ],
+                  "title": "胎數"
+                },
+                "type": {
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "SNOMEDCT:28487002",
+                      "default": "SNOMEDCT:28487002"
+                    },
+                    "label": {
+                      "type": "string",
+                      "const": "Finding of arrangement of fetus",
+                      "default": "Finding of arrangement of fetus"
+                    }
+                  }
+                }
+              },
+              "title": "胚胎表型特徵資訊"
+            }
+          }
+        }
+      ]
+    },
+    "phenopacket.meta_data.updates": {
+      "allOf": [
+        {
+          "properties": {
+            "0": {
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "updated_by": {
+                  "$ref": "#/properties/phenopacket.subject/properties/id"
+                },
+                "comment": {
+                  "type": "string",
+                  "oneOf": [
+                    {
+                      "const": "CONSENT",
+                      "title": "同意於本項檢測完成後，將剩餘檢體作為醫學研究分析之用"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "phenopacket.meta_data": {
+      "properties": {
+        "priority": {
+
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "",
+              "title": ""
+            }
+          ]
+        },
+        "submitted_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "created",
+        "created_by",
+        "submitted_by"
+      ],
+      "additionalProperties": false,
+      "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+    }
+  },
+  "required": [
+    "phenopacket.id",
+    "phenopacket.subject"
+  ],
+  "additionalProperties": false,
+  "errorMessage": {
+    "required": {
+      "phenopacket.measurements": "必須至少選擇一項檢測方案"
+    }
+  }
+}

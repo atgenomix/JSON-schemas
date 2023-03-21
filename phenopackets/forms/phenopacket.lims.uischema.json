@@ -1,0 +1,243 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Group",
+      "label": "檢測資料表",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "檢體編號",
+          "scope": "#/properties/phenopacket.id"
+        },
+        {
+          "type": "Control",
+          "label": "原檢體編號（重送檢必填）",
+          "scope": "#/properties/phenopacket.biosamples/properties/0/properties/derived_from_id"
+        },
+        {
+          "type": "Control",
+          "label": "檢體種類",
+          "scope": "#/properties/phenopacket.biosamples/properties/0/properties/sample_type"
+        },
+        {
+          "type": "Control",
+          "label": "採樣檢體時間",
+          "scope": "#/properties/phenopacket.biosamples/properties/0/properties/time_of_collection"
+        },
+        {
+          "type": "Control",
+          "label": "備註資訊",
+          "scope": "#/properties/phenopacket.biosamples/properties/0/properties/description",
+          "options": {
+            "multi": true
+          }
+        },
+        {
+          "type": "Control",
+          "label": "檢測方案",
+          "scope": "#/properties/phenopacket.measurements",
+          "options": {
+            "showSortButtons": true,
+            "autocomplete": true,
+            "detail": {
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "受檢者資料表",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Identifier",
+          "scope": "#/properties/phenopacket.subject/properties/id"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "",
+                  "scope": "#/properties/phenopacket.subject/properties/alternate_ids"
+                },
+                {
+                  "type": "Control",
+                  "label": "出生日期",
+                  "scope": "#/properties/phenopacket.subject/properties/date_of_birth"
+                },
+                {
+                  "type": "Control",
+                  "label": "性別",
+                  "scope": "#/properties/phenopacket.subject/properties/sex",
+                  "options": {
+                    "format": "radio"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "超音波妊娠週數",
+                  "elements": [
+                    {
+                      "type": "HorizontalLayout",
+                      "elements": [
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/phenopacket.subject/properties/time_at_last_encounter.gestational_age/properties/weeks",
+                          "rule": {
+                            "effect": "ENABLE",
+                            "condition": {
+                              "scope": "#/properties/phenopacket",
+                              "schema": {
+                                "properties": {
+                                  "measurements": {
+                                    "contains": {
+                                      "properties": {
+                                        "assay": {
+                                          "properties": {
+                                            "id": {
+                                              "enum": [
+                                                "LDT0007:38",
+                                                "LDT0007:39",
+                                                "LDT0007:40",
+                                                "LDT0007:49",
+                                                "LDT0007:60"
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "Control",
+                          "scope": "#/properties/phenopacket.subject/properties/time_at_last_encounter.gestational_age/properties/days",
+                          "rule": {
+                            "effect": "ENABLE",
+                            "condition": {
+                              "scope": "#/properties/phenopacket.subject/properties/time_at_last_encounter.gestational_age",
+                              "schema": {
+                                "required": [
+                                  "weeks"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "label": "預產期",
+                  "scope": "#/properties/phenopacket.subject/properties/time_at_last_encounter.timestamp",
+                  "rule": {
+                    "effect": "ENABLE",
+                    "condition": {
+                      "scope": "#/properties/phenopacket",
+                      "schema": {
+                        "properties": {
+                          "measurements": {
+                            "contains": {
+                              "properties": {
+                                "assay": {
+                                  "properties": {
+                                    "id": {
+                                      "enum": [
+                                        "LDT0007:38",
+                                        "LDT0007:39",
+                                        "LDT0007:40",
+                                        "LDT0007:49",
+                                        "LDT0007:60"
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Group",
+                  "label": "胚胎表型特徵資訊",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "資訊本體（Ontology ID）",
+                      "scope": "#/properties/phenopacket.phenotypic_features/properties/0/properties/type/properties/id",
+                      "options": {
+                        "autocomplete": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "資訊本體（Ontology Label）",
+                      "scope": "#/properties/phenopacket.phenotypic_features/properties/0/properties/type/properties/label",
+                      "options": {
+                        "autocomplete": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "胚胎胎數",
+                      "scope": "#/properties/phenopacket.phenotypic_features/properties/0/properties/description"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": false,
+              "scope": "#/properties/phenopacket.meta_data.updates/properties/0/properties/comment",
+              "options": {
+                "format": "radio"
+              }
+            },
+            {
+              "type": "Control",
+              "label": "同意日期",
+              "scope": "#/properties/phenopacket.meta_data.updates/properties/0/properties/timestamp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "送檢資料表",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "收件日期時間",
+          "scope": "#/properties/phenopacket.meta_data/properties/created"
+        }
+      ]
+    }
+  ]
+}
