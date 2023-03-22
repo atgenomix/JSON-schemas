@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "title": "External References",
+  "properties": {
+    "xrefs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "description": "Allele registry, ClinVar, or other related IDs should be included as xrefs"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "title": "Alternate Labels",
+  "properties": {
+    "alternate_labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "description": "Common aliases for a variant, e.g. EGFR vIII, are alternate labels"
+    }
+  }
+}
