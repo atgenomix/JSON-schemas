@@ -6,49 +6,53 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/id"
+          "scope": "#/properties/Practitioner.id"
         },
         {
           "type": "Control",
-          "scope": "#/properties/name"
+          "scope": "#/properties/Practitioner.name"
         },
         {
           "type": "Control",
-          "scope": "#/properties/gender"
+          "scope": "#/properties/Practitioner.gender"
         },
         {
           "type": "Control",
-          "scope": "#/properties/birthDate"
+          "scope": "#/properties/Practitioner.birthDate"
         },
         {
           "type": "Control",
-          "scope": "#/properties/active"
+          "scope": "#/properties/Practitioner.active"
         }
       ]
     },
     {
       "type": "Control",
-      "scope": "#/properties/identifier"
+      "scope": "#/properties/Practitioner.identifier"
     },
     {
       "type": "Control",
-      "scope": "#/properties/photo"
+      "scope": "#/properties/Practitioner.telecom"
     },
     {
       "type": "Control",
-      "scope": "#/properties/communication"
+      "scope": "#/properties/Practitioner.address"
     },
     {
+      "type": "Group",
+      "label": "Optional Fields",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.photo"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.communication"
+        },
+        {
       "type": "Control",
-      "scope": "#/properties/telecom"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/address"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/qualification"
+          "scope": "#/properties/Practitioner.qualification"
     },
     {
       "type": "Group",
@@ -56,31 +60,33 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/implicitRules"
+          "scope": "#/properties/Practitioner.implicitRules"
         },
         {
           "type": "Control",
-          "scope": "#/properties/language"
+          "scope": "#/properties/Practitioner.language"
         },
         {
           "type": "Group",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/fhir_comments"
+              "scope": "#/properties/Practitioner.fhir_comments"
             }
           ]
         }
       ]
     },
-    {
-      "type": "Control",
-      "scope": "#/properties/contained"
-    },
-    {
-      "label": "Text summary of the resource, for human interpretation",
-      "type": "Control",
-      "scope": "#/properties/text"
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.contained"
+        },
+        {
+          "label": "Text summary of the resource, for human interpretation",
+          "type": "Control",
+          "scope": "#/properties/Practitioner.text"
+        }
+      ]
     }
   ]
 }

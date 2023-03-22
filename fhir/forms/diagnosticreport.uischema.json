@@ -6,112 +6,83 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/id"
+          "scope": "#/properties/DiagnosticReport.id"
         }
       ]
     },
     {
       "type": "Control",
-      "scope": "#/properties/identifier"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/basedOn"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/category"
-    },
-    {
-      "type": "Control",
-      "label": "Name/Code for this diagnostic report",
-      "scope": "#/properties/code"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/conclusion"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/conclusionCode"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/effectiveDateTime"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/effectivePeriod"
-    },
-    {
-      "type": "Group",
-      "label": "Healthcare event",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/encounter"
-        }
-      ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/imagingStudy"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/issued"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/media"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/performer"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/presentedForm"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/result"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/resultsInterpreter"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/specimen"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/status"
+      "scope": "#/properties/DiagnosticReport.identifier"
     },
     {
       "label": "The subject of the report",
       "type": "Control",
-      "scope": "#/properties/subject"
+      "scope": "#/properties/DiagnosticReport.subject"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/DiagnosticReport.performer"
     },
     {
       "type": "Group",
-      "label": "Resource Description",
+      "label": "Result Status and Conclusion",
       "elements": [
         {
-          "type": "Control",
-          "scope": "#/properties/implicitRules"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/language"
-        },
-        {
-          "type": "Group",
+          "type": "HorizontalLayout",
           "elements": [
             {
-              "type": "Control",
-              "scope": "#/properties/fhir_comments"
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Status",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.status"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Conclusion",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.conclusion"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Issued",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.issued"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "EffectiveDateTime",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.effectiveDateTime"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/DiagnosticReport.effectivePeriod"
+                }
+              ]
             }
           ]
         }
@@ -119,12 +90,94 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/contained"
+      "label": "Result",
+      "scope": "#/properties/DiagnosticReport.result"
     },
     {
-      "label": "Text summary of the resource, for human interpretation",
       "type": "Control",
-      "scope": "#/properties/text"
+      "scope": "#/properties/DiagnosticReport.resultsInterpreter"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/DiagnosticReport.presentedForm"
+    },
+    {
+      "type": "Control",
+      "label": "ConclusionCode",
+      "scope": "#/properties/DiagnosticReport.conclusionCode"
+    },
+    {
+      "type": "Group",
+      "label": "Optional Fields",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.basedOn"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.category"
+        },
+        {
+          "type": "Control",
+          "label": "Name/Code for this diagnostic report",
+          "scope": "#/properties/DiagnosticReport.code"
+        },
+        {
+          "type": "Group",
+          "label": "Healthcare event",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.encounter"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.imagingStudy"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.media"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.specimen"
+        },
+        {
+          "type": "Group",
+          "label": "Resource Description",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.implicitRules"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.language"
+        },
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.fhir_comments"
+            }
+          ]
+        }
+          ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.contained"
+        },
+        {
+          "label": "Text summary of the resource, for human interpretation",
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.text"
+        }
+      ]
     }
   ]
 }

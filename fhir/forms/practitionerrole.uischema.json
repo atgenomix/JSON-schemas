@@ -6,46 +6,22 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/id"
+          "scope": "#/properties/PractitionerRole.id"
         },
         {
           "type": "Control",
-          "scope": "#/properties/availabilityExceptions"
+          "scope": "#/properties/PractitionerRole.availabilityExceptions"
         },
         {
           "type": "Control",
-          "scope": "#/properties/active"
+          "scope": "#/properties/PractitionerRole.active"
         }
       ]
     },
 
     {
       "type": "Control",
-      "scope": "#/properties/identifier"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/availableTime"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/code"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/endpoint"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/healthcareService"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/location"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/notAvailable"
+      "scope": "#/properties/PractitionerRole.identifier"
     },
     {
       "type": "Group",
@@ -53,13 +29,9 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/organization"
+          "scope": "#/properties/PractitionerRole.organization"
         }
       ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/period"
     },
     {
       "type": "Group",
@@ -67,45 +39,80 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/practitioner"
+          "scope": "#/properties/PractitionerRole.practitioner"
         }
       ]
     },
     {
       "type": "Control",
-      "scope": "#/properties/specialty"
+      "scope": "#/properties/PractitionerRole.specialty"
     },
+    {
+      "type": "Group",
+      "label": "Optional Fields",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.availableTime"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.code"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.endpoint"
+    },
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.healthcareService"
+        },
+    {
+      "type": "Control",
+      "scope": "#/properties/PractitionerRole.location"
+    },
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.notAvailable"
+        },
+    {
+      "type": "Control",
+      "scope": "#/properties/PractitionerRole.period"
+    },
+
     {
       "type": "Group",
       "label": "Resource Description",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/implicitRules"
+          "scope": "#/properties/PractitionerRole.implicitRules"
         },
         {
           "type": "Control",
-          "scope": "#/properties/language"
+          "scope": "#/properties/PractitionerRole.language"
         },
         {
           "type": "Group",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/fhir_comments"
+              "scope": "#/properties/PractitionerRole.fhir_comments"
             }
           ]
         }
       ]
     },
-    {
-      "type": "Control",
-      "scope": "#/properties/contained"
-    },
-    {
-      "label": "Text summary of the resource, for human interpretation",
-      "type": "Control",
-      "scope": "#/properties/text"
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.contained"
+        },
+        {
+          "label": "Text summary of the resource, for human interpretation",
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.text"
+        }
+      ]
     }
   ]
 }

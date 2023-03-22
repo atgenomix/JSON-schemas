@@ -3,7 +3,7 @@
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA person with a  formal responsibility in the provisioning of healthcare or\nrelated services.\nA person who is directly or indirectly involved in the provisioning of\nhealthcare.",
   "type": "object",
   "properties": {
-    "id": {
+    "Practitioner.id": {
       "title": "Id",
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
       "minLength": 1,
@@ -11,31 +11,31 @@
       "pattern": "^[A-Za-z0-9\\-.]+$",
       "type": "string"
     },
-    "fhir_comments": {
+    "Practitioner.fhir_comments": {
       "title": "Fhir Comments",
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "implicitRules": {
+    "Practitioner.implicitRules": {
       "title": "A set of rules under which this content was created",
       "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
       "pattern": "\\S*",
       "type": "string"
     },
-    "language": {
+    "Practitioner.language": {
       "title": "Language of the resource content",
       "description": "The base language in which the resource is written.",
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
-    "text": {
+    "Practitioner.text": {
       "title": "Text summary of the resource, for human interpretation",
       "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
       "$ref": "#/definitions/Narrative"
     },
-    "contained": {
+    "Practitioner.contained": {
       "title": "Contained, inline Resources",
       "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
       "type": "array",
@@ -43,7 +43,7 @@
         "$ref": "#/definitions/Resource"
       }
     },
-    "identifier": {
+    "Practitioner.identifier": {
       "title": "An identifier for the person as this agent",
       "description": "An identifier that applies to this person in this role.",
       "type": "array",
@@ -51,18 +51,18 @@
         "$ref": "#/definitions/Identifier"
       }
     },
-    "active": {
+    "Practitioner.active": {
       "title": "Whether this practitioner's record is in active use",
       "type": "boolean"
     },
-    "name": {
+    "Practitioner.name": {
       "title": "The name(s) associated with the practitioner",
       "type": "array",
       "items": {
         "$ref": "#/definitions/HumanName"
       }
     },
-    "telecom": {
+    "Practitioner.telecom": {
       "title": "A contact detail for the practitioner (that apply to all roles)",
       "description": "A contact detail for the practitioner, e.g. a telephone number or an email address.",
       "type": "array",
@@ -70,7 +70,7 @@
         "$ref": "#/definitions/ContactPoint"
       }
     },
-    "address": {
+    "Practitioner.address": {
       "title": "Address(es) of the practitioner that are not role specific (typically home address)",
       "description": "Address(es) of the practitioner that are not role specific (typically home address).  Work addresses are not typically entered in this property as they are usually role dependent.",
       "type": "array",
@@ -78,7 +78,7 @@
         "$ref": "#/definitions/Address"
       }
     },
-    "gender": {
+    "Practitioner.gender": {
       "title": "male | female | other | unknown",
       "description": "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.",
       "enum": [
@@ -90,20 +90,20 @@
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
-    "birthDate": {
+    "Practitioner.birthDate": {
       "title": "The date  on which the practitioner was born",
       "description": "The date of birth for the practitioner.",
       "type": "string",
       "format": "date"
     },
-    "photo": {
+    "Practitioner.photo": {
       "title": "Image of the person",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Attachment"
       }
     },
-    "qualification": {
+    "Practitioner.qualification": {
       "title": "Certification, licenses, or training pertaining to the provision of care",
       "description": "The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.",
       "type": "array",
@@ -111,7 +111,7 @@
         "$ref": "#/definitions/PractitionerQualification"
       }
     },
-    "communication": {
+    "Practitioner.communication": {
       "title": "A language the practitioner can use in patient communication",
       "type": "array",
       "items": {
@@ -419,6 +419,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "resourceType",
+        "id"
+      ],
       "additionalProperties": {
         "type": "object"
       }
@@ -777,6 +781,12 @@
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
+        "reference": {
+          "title": "Literal reference, Relative, internal or absolute URL",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
         "identifier": {
           "title": "Logical reference, when literal reference is not known",
           "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
@@ -848,12 +858,6 @@
             }
           },
           "additionalProperties": false
-        },
-        "reference": {
-          "title": "Literal reference, Relative, internal or absolute URL",
-          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
         },
         "type": {
           "title": "Type the reference refers to (e.g. \"Patient\")",

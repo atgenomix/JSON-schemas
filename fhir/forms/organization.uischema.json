@@ -6,82 +6,88 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/id"
+          "scope": "#/properties/Organization.id"
         },
         {
           "type": "Control",
-          "scope": "#/properties/name"
+          "scope": "#/properties/Organization.name"
         },
         {
           "type": "Control",
-          "scope": "#/properties/active"
+          "scope": "#/properties/Organization.active"
         }
       ]
     },
     {
       "type": "Control",
-      "scope": "#/properties/identifier"
+      "scope": "#/properties/Organization.identifier"
     },
     {
       "type": "Control",
-      "scope": "#/properties/alias"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/type"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/contact"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/address"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/telecom"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/endpoint"
-    },
-    {
-      "type": "Control",
-      "label": "The organization of which this organization forms a part",
-      "scope": "#/properties/partOf"
+      "scope": "#/properties/Organization.alias"
     },
     {
       "type": "Group",
-      "label": "Resource Description",
+      "label": "Optional Fields",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/implicitRules"
+          "scope": "#/properties/Organization.type"
         },
         {
           "type": "Control",
-          "scope": "#/properties/language"
+          "scope": "#/properties/Organization.contact"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Organization.address"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Organization.telecom"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Organization.endpoint"
+        },
+        {
+          "type": "Control",
+          "label": "The organization of which this organization forms a part",
+          "scope": "#/properties/Organization.partOf"
         },
         {
           "type": "Group",
+          "label": "Resource Description",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/fhir_comments"
+              "scope": "#/properties/Organization.implicitRules"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.language"
+            },
+            {
+              "type": "Group",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/Organization.fhir_comments"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Organization.contained"
+        },
+        {
+          "label": "Text summary of the resource, for human interpretation",
+          "type": "Control",
+          "scope": "#/properties/Organization.text"
         }
       ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/contained"
-    },
-    {
-      "label": "Text summary of the resource, for human interpretation",
-      "type": "Control",
-      "scope": "#/properties/text"
     }
   ]
 }

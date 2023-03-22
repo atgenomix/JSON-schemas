@@ -10,7 +10,7 @@
         "type": "string"
       }
     },
-    "id": {
+    "Organization.id": {
       "title": "Id",
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
       "minLength": 1,
@@ -18,19 +18,19 @@
       "pattern": "^[A-Za-z0-9\\-.]+$",
       "type": "string"
     },
-    "implicitRules": {
+    "Organization.implicitRules": {
       "title": "A set of rules under which this content was created",
       "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
       "pattern": "\\S*",
       "type": "string"
     },
-    "language": {
+    "Organization.language": {
       "title": "Language of the resource content",
       "description": "The base language in which the resource is written.",
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
-    "contained": {
+    "Organization.contained": {
       "title": "Contained, inline Resources",
       "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
       "type": "array",
@@ -38,23 +38,23 @@
         "$ref": "#/definitions/Resource"
       }
     },
-    "text": {
+    "Organization.text": {
       "title": "Text summary of the resource, for human interpretation",
       "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
       "$ref": "#/definitions/Narrative"
     },
-    "active": {
+    "Organization.active": {
       "title": "Whether the organization's record is still in active use",
       "type": "boolean"
     },
-    "address": {
+    "Organization.address": {
       "title": "An address for the organization",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Address"
       }
     },
-    "alias": {
+    "Organization.alias": {
       "title": "A list of alternate names that the organization is known as, or was known as in the past",
       "type": "array",
       "items": {
@@ -62,14 +62,14 @@
         "pattern": "[ \\r\\n\\t\\S]+"
       }
     },
-    "contact": {
+    "Organization.contact": {
       "title": "Contact for the organization for a certain purpose",
       "type": "array",
       "items": {
         "$ref": "#/definitions/OrganizationContact"
       }
     },
-    "endpoint": {
+    "Organization.endpoint": {
       "title": "Technical endpoints providing access to services operated for the organization",
       "enum_reference_types": [
         "Endpoint"
@@ -79,7 +79,7 @@
         "$ref": "#/definitions/Reference"
       }
     },
-    "identifier": {
+    "Organization.identifier": {
       "title": "Identifies this organization  across multiple systems",
       "description": "Identifier for the organization that is used to identify the organization across multiple disparate systems.",
       "type": "array",
@@ -87,27 +87,27 @@
         "$ref": "#/definitions/Identifier"
       }
     },
-    "name": {
+    "Organization.name": {
       "title": "Name used for the organization",
       "description": "A name associated with the organization.",
       "pattern": "[ \\r\\n\\t\\S]+",
       "type": "string"
     },
-    "partOf": {
+    "Organization.partOf": {
       "title": "The organization of which this organization forms a part",
       "enum_reference_types": [
         "Organization"
       ],
       "$ref": "#/definitions/Reference"
     },
-    "telecom": {
+    "Organization.telecom": {
       "title": "A contact detail for the organization",
       "type": "array",
       "items": {
         "$ref": "#/definitions/ContactPoint"
       }
     },
-    "type": {
+    "Organization.type": {
       "title": "Kind of organization",
       "description": "The kind(s) of organization that this is.",
       "type": "array",
@@ -395,6 +395,7 @@
           "maxLength": 64,
           "pattern": "^[A-Za-z0-9\\-.]+$",
           "type": "string"
+
         },
         "fhir_comments": {
           "title": "Fhir Comments",
@@ -416,6 +417,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "resourceType",
+        "id"
+      ],
       "additionalProperties": {
         "type": "object"
       }
@@ -774,6 +779,12 @@
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
+        "reference": {
+          "title": "Literal reference, Relative, internal or absolute URL",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
         "identifier": {
           "title": "Logical reference, when literal reference is not known",
           "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
@@ -845,12 +856,6 @@
             }
           },
           "additionalProperties": false
-        },
-        "reference": {
-          "title": "Literal reference, Relative, internal or absolute URL",
-          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
         },
         "type": {
           "title": "Type the reference refers to (e.g. \"Patient\")",
