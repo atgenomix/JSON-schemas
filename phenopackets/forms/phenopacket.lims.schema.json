@@ -291,7 +291,18 @@
     "phenopacket.meta_data": {
       "properties": {
         "priority": {
-
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "routine",
+              "title": "一般件"
+            },
+            {
+              "const": "urgent",
+              "title": "急件"
+            }
+          ],
+          "default": "routine"
         },
         "created": {
           "type": "string",

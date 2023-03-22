@@ -233,9 +233,22 @@
       "label": "送檢資料表",
       "elements": [
         {
-          "type": "Control",
-          "label": "收件日期時間",
-          "scope": "#/properties/phenopacket.meta_data/properties/created"
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "收件日期時間",
+              "scope": "#/properties/phenopacket.meta_data/properties/created"
+            },
+            {
+              "type": "Control",
+              "label": "送檢速別",
+              "scope": "#/properties/phenopacket.meta_data/properties/priority",
+              "options": {
+                "format": "radio"
+              }
+            }
+          ]
         }
       ]
     }
