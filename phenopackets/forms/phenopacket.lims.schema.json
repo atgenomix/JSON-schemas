@@ -212,6 +212,7 @@
             }
           ],
           "type": "string",
+          "default": "FEMALE",
           "title": "Sex",
           "description": "Sex of an individual. FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
         }
@@ -231,6 +232,7 @@
               "properties": {
                 "description": {
                   "type": "string",
+                  "default": "單胞胎",
                   "enum": [
                     "單胞胎",
                     "異卵雙胞",
