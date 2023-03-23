@@ -10,82 +10,155 @@
         },
         {
           "type": "Control",
+          "label": "name",
           "scope": "#/properties/Organization.name"
         },
         {
           "type": "Control",
+          "label": "active",
           "scope": "#/properties/Organization.active"
         }
       ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/Organization.identifier"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/Organization.alias"
-    },
-    {
-      "type": "Group",
-      "label": "Optional Fields",
+      "type": "Categorization",
       "elements": [
         {
-          "type": "Control",
-          "scope": "#/properties/Organization.type"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Organization.contact"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Organization.address"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Organization.telecom"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Organization.endpoint"
-        },
-        {
-          "type": "Control",
-          "label": "The organization of which this organization forms a part",
-          "scope": "#/properties/Organization.partOf"
-        },
-        {
-          "type": "Group",
-          "label": "Resource Description",
+          "type": "Category",
+          "label": "alias",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/Organization.implicitRules"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/Organization.language"
-            },
-            {
-              "type": "Group",
-              "elements": [
-                {
-                  "type": "Control",
-                  "scope": "#/properties/Organization.fhir_comments"
-                }
-              ]
+              "scope": "#/properties/Organization.alias"
             }
           ]
         },
         {
-          "type": "Control",
-          "scope": "#/properties/Organization.contained"
+          "type": "Category",
+          "label": "type",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.type"
+            }
+          ]
         },
         {
-          "label": "Text summary of the resource, for human interpretation",
-          "type": "Control",
-          "scope": "#/properties/Organization.text"
+          "type": "Category",
+          "label": "contact",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.contact"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "address",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.address"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "telecom",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.telecom"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "endpoint",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.endpoint"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "partOf",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "The organization of which this organization forms a part",
+              "scope": "#/properties/Organization.partOf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "fhir_comments",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.fhir_comments"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "label": "Text summary of the resource, for human interpretation",
+              "type": "Control",
+              "scope": "#/properties/Organization.text"
+            }
+          ]
         }
       ]
     }

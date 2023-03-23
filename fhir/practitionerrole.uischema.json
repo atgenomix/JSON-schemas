@@ -19,98 +19,180 @@
       ]
     },
 
-    {
-      "type": "Control",
-      "scope": "#/properties/PractitionerRole.identifier"
-    },
-    {
-      "type": "Group",
-      "label": "Organization where the roles are available",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.organization"
-        }
-      ]
-    },
-    {
-      "type": "Group",
-      "label": "Practitioner that is able to provide the defined services for the organization",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.practitioner"
-        }
-      ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/PractitionerRole.specialty"
-    },
-    {
-      "type": "Group",
-      "label": "Optional Fields",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.availableTime"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.code"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.endpoint"
-    },
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.healthcareService"
-        },
-    {
-      "type": "Control",
-      "scope": "#/properties/PractitionerRole.location"
-    },
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.notAvailable"
-        },
-    {
-      "type": "Control",
-      "scope": "#/properties/PractitionerRole.period"
-    },
 
     {
-      "type": "Group",
-      "label": "Resource Description",
+      "type": "Categorization",
       "elements": [
         {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.implicitRules"
+          "type": "Category",
+          "label": "organization",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.organization"
+            }
+          ]
         },
         {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.language"
+          "type": "Category",
+          "label": "practitioner",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.practitioner"
+            }
+          ]
         },
         {
-          "type": "Group",
+          "type": "Category",
+          "label": "specialty",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.specialty"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "availableTime",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.availableTime"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "code",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.code"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "endpoint",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.endpoint"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "healthcareService",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.healthcareService"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "location",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.location"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "notAvailable",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.notAvailable"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "period",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.period"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "fhir_comments",
           "elements": [
             {
               "type": "Control",
               "scope": "#/properties/PractitionerRole.fhir_comments"
             }
           ]
-        }
-      ]
-    },
-        {
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.contained"
         },
         {
-          "label": "Text summary of the resource, for human interpretation",
-          "type": "Control",
-          "scope": "#/properties/PractitionerRole.text"
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "label": "Text summary of the resource, for human interpretation",
+              "type": "Control",
+              "scope": "#/properties/PractitionerRole.text"
+            }
+          ]
         }
       ]
     }

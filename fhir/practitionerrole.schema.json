@@ -3,7 +3,7 @@
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nRoles/organizations the practitioner is associated with.\nA specific set of Roles/Locations/specialties/services that a practitioner\nmay perform at an organization for a period of time.",
   "type": "object",
   "properties": {
-    "fhir_comments": {
+    "PractitionerRole.fhir_comments": {
       "title": "Fhir Comments",
       "type": "array",
       "items": {

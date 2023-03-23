@@ -3,7 +3,7 @@
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA grouping of people or organizations with a common purpose.\nA formally or informally recognized grouping of people or organizations\nformed for the purpose of achieving some form of collective action.\nIncludes companies, institutions, corporations, departments, community\ngroups, healthcare practice groups, payer/insurer, etc.",
   "type": "object",
   "properties": {
-    "fhir_comments": {
+    "Organization.fhir_comments": {
       "title": "Fhir Comments",
       "type": "array",
       "items": {
@@ -871,12 +871,6 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContact for the organization for a certain purpose.",
       "type": "object",
       "properties": {
-        "id": {
-          "title": "Id",
-          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
         "address": {
           "title": "Visiting or postal addresses for the contact",
           "$ref": "#/definitions/Address"
