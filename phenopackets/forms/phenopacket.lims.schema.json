@@ -3,8 +3,69 @@
   "description": "An anonymous phenotypic description of an individual or biosample with potential genes of interest and/or diagnoses. This is a bundle of high-level concepts with no specifically defined relational concepts. It is expected that the resources sharing the phenopackets will define and enforce their own semantics and level of requirements for included fields.",
   "type": "object",
   "properties": {
-    "phenopacket.id": {
-      "type": "string"
+    "phenopacket": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "default": "12345678"
+        },
+        "meta_data": {
+          "properties": {
+            "priority": {
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "routine",
+                  "title": "一般件"
+                },
+                {
+                  "const": "urgent",
+                  "title": "急件"
+                }
+              ],
+              "default": "routine"
+            }
+          }
+        },
+        "phenotypic_features": {
+          "allOf": [
+            {
+              "properties": {
+                "0": {
+                  "properties": {
+                    "description": {
+                      "type": "string",
+                      "default": "單胞胎",
+                      "enum": [
+                        "單胞胎",
+                        "異卵雙胞",
+                        "同卵雙胞",
+                        "多胞胎"
+                      ],
+                      "title": "胎數"
+                    },
+                    "type": {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "const": "SNOMEDCT:28487002",
+                          "default": "SNOMEDCT:28487002"
+                        },
+                        "label": {
+                          "type": "string",
+                          "const": "Finding of arrangement of fetus",
+                          "default": "Finding of arrangement of fetus"
+                        }
+                      }
+                    }
+                  },
+                  "title": "胚胎表型特徵資訊"
+                }
+              }
+            }
+          ]
+        }
+      }
     },
     "phenopacket.measurements": {
       "type": "array",
@@ -212,7 +273,6 @@
             }
           ],
           "type": "string",
-          "default": "FEMALE",
           "title": "Sex",
           "description": "Sex of an individual. FHIR mapping: AdministrativeGender (https://www.hl7.org/fhir/codesystem-administrative-gender.html)"
         }
@@ -292,20 +352,6 @@
     },
     "phenopacket.meta_data": {
       "properties": {
-        "priority": {
-          "type": "string",
-          "oneOf": [
-            {
-              "const": "routine",
-              "title": "一般件"
-            },
-            {
-              "const": "urgent",
-              "title": "急件"
-            }
-          ],
-          "default": "routine"
-        },
         "created": {
           "type": "string",
           "format": "date-time"
