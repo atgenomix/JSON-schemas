@@ -6,8 +6,7 @@
     "phenopacket": {
       "properties": {
         "id": {
-          "type": "string",
-          "default": "12345678"
+          "type": "string"
         },
         "meta_data": {
           "properties": {
