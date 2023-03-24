@@ -5,7 +5,7 @@
     "value_id": {
       "type": "string",
       "title": "Gene Identifier",
-      "description": "The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071."
+      "description": "The official gene identifier as designated by the organism gene nomenclature committee (e.g., HGNC:3477 or MGI:2385071)."
     },
     "symbol": {
       "type": "string",
@@ -35,7 +35,7 @@
     "xrefs": {
       "items": {
         "type": "string",
-        "description": "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs."
+        "description": "Related concept IDs (e.g., gene ortholog IDs) may be placed in xrefs."
       },
       "type": "array",
       "title": "External References"

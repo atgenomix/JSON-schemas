@@ -16,11 +16,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "a CURIE-style identifier for TNM classification (http://purl.bioontology.org/ontology/SNOMEDCT/399588009)."
+          "description": "A CURIE-style identifier for TNM classification (http://purl.bioontology.org/ontology/SNOMEDCT/399588009)."
         },
         "label": {
           "type": "string",
-          "description": "class label, aka name. E.g. \"pTNM stage grouping\""
+          "description": "Class label, aka name (e.g., \"pTNM stage grouping\")."
         }
       },
       "additionalProperties": false,

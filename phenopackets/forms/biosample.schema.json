@@ -1,19 +1,19 @@
 {
   "type": "object",
   "title": "Biosample",
-  "description": "A Biosample refers to a unit of biological material from which the substrate molecules (e.g. genomic DNA, RNA, proteins) for molecular analyses (e.g. sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g. technical replicates) or types of experiments (e.g. genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).  biosamples SAMN08666232 Human Cell Atlas",
+  "description": "A Biosample refers to a unit of biological material from which the substrate molecules (e.g., genomic DNA, RNA, proteins) for molecular analyses (e.g., sequencing, array hybridisation, mass-spectrometry) are extracted. Examples would be a tissue biopsy, a single cell from a culture for single cell genome sequencing or a protein fraction from a gradient centrifugation. Several instances (e.g., technical replicates) or types of experiments (e.g., genomic array as well as RNA-seq experiments) may refer to the same Biosample. FHIR mapping: Specimen (http://www.hl7.org/fhir/specimen.html).  biosamples SAMN08666232 Human Cell Atlas",
   "properties": {
     "id": {
       "type": "string",
-      "description": "The Biosample id This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id"
+      "description": "The Biosample ID. This is unique in the context of the server instance. ARGO mapping specimen::submitter_specimen_id"
     },
     "individual_id": {
       "type": "string",
-      "description": "The id of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id"
+      "description": "The ID of the individual this biosample was derived from. ARGO mapping specimen::submitter_donor_id"
     },
     "derived_from_id": {
       "type": "string",
-      "description": "The id of the parent biosample this biosample was derived from."
+      "description": "The ID of the parent biosample this biosample was derived from."
     },
     "time_of_collection": {
       "oneOf": [
@@ -24,7 +24,7 @@
             }
           },
           "title": "Age of Collection",
-          "description": "The age of the individual this biosample was derived from at the time of collection"
+          "description": "The age of the individual this biosample was derived from at the time of collection."
         },
         {
           "properties": {
@@ -34,11 +34,11 @@
             }
           },
           "title": "Time of Collection",
-          "description": "The time of this biosample was collected"
+          "description": "The time of this biosample was collected."
         }
       ],
       "additionalProperties": false,
-      "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself.See http://build.fhir.org/datatypes"
+      "description": "A TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself. See http://build.fhir.org/datatypes"
     },
     "description": {
       "type": "string",
@@ -49,7 +49,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -64,11 +64,11 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
-          "description": "Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type"
+          "description": "Recommended use of EFO term to describe the sample. For example, Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type"
         }
       },
       "additionalProperties": false,
@@ -79,7 +79,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -94,7 +94,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -108,11 +108,11 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
-          "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
+          "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend the use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
         }
       },
       "title": "Material Sample Ontology"
@@ -122,7 +122,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606"
+          "description": "NCBI taxonomic identifier (NCBITaxon) of the sample (e.g., NCBITaxon:9606)"
         },
         "label": {
           "type": "string",
@@ -136,7 +136,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -150,7 +150,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -164,7 +164,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -178,7 +178,7 @@
         "id": {
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
         },
         "label": {
           "type": "string",
@@ -194,7 +194,7 @@
             "id": {
               "type": "string",
               "pattern": "^\\w[^:]*:.+$",
-              "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+              "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
             },
             "label": {
               "type": "string",
@@ -208,7 +208,7 @@
             "id": {
               "type": "string",
               "pattern": "^\\w[^:]*:.+$",
-              "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+              "description": "A CURIE-style identifier (e.g., HP:0100024, MP:0001284, UBERON:0001690). This is the primary key for the ontology class. REQUIRED."
             },
             "label": {
               "type": "string",
@@ -223,17 +223,17 @@
               "properties": {
                 "iso8601duration": {
                   "type": "string",
-                  "description": "The age of the individual when the procedure was performed. e.g. P40Y10M05D"
+                  "description": "The age of the individual when the procedure was performed (e.g., P40Y10M05D)."
                 }
               },
               "title": "Age of the Individual",
-              "description": "The age of the individual this biosample was derived from at the time of collection"
+              "description": "The age of the individual this biosample was derived from at the time of collection."
             },
             "timestamp": {
               "type": "string",
               "format": "date-time",
               "title": "Time of the procedure",
-              "description": "The time of this procedure was performed"
+              "description": "The time of this procedure was performed."
             }
           },
           "description": "When the procedure was performed."
@@ -248,7 +248,7 @@
       "properties": {
         "iso8601duration": {
           "type": "string",
-          "description": "The age of the individual as ISO8601 duration or time intervals. e.g. P40Y10M05D"
+          "description": "The age of the individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
         }
       },
       "additionalProperties": false,

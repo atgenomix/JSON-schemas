@@ -9,7 +9,7 @@
           "type": "string",
           "pattern": "^\\w[^:]*:.+$",
           "title": "CURIE-style Identifier",
-          "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+          "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
         },
         "members": {
           "items": {
@@ -20,7 +20,7 @@
                     "type": "string",
                     "pattern": "^\\w[^:]*:.+$",
                     "title": "CURIE-style Identifier",
-                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                   },
                   "type": {
                     "type": "string",
@@ -138,11 +138,11 @@
                                       },
                                       "min": {
                                         "type": "number",
-                                        "description": "The minimum value; inclusive"
+                                        "description": "The minimum value (inclusive)."
                                       },
                                       "max": {
                                         "type": "number",
-                                        "description": "The maximum value; inclusive"
+                                        "description": "The maximum value (inclusive)."
                                       }
                                     },
                                     "title": "Start Definite Range"
@@ -195,11 +195,11 @@
                                       },
                                       "min": {
                                         "type": "number",
-                                        "description": "The minimum value; inclusive"
+                                        "description": "The minimum value (inclusive)."
                                       },
                                       "max": {
                                         "type": "number",
-                                        "description": "The maximum value; inclusive"
+                                        "description": "The maximum value (inclusive)."
                                       }
                                     },
                                     "title": "End Definite Range"
@@ -231,7 +231,7 @@
                           "sequence": {
                             "type": "string",
                             "pattern": "[ATGCU]+",
-                            "description": "An explicit expression of a Sequence"
+                            "description": "An explicit expression of a Sequence."
                           },
                           "count": {
                             "oneOf": [
@@ -280,11 +280,11 @@
                                   },
                                   "min": {
                                     "type": "number",
-                                    "description": "The minimum value; inclusive"
+                                    "description": "The minimum value (inclusive)."
                                   },
                                   "max": {
                                     "type": "number",
-                                    "description": "The maximum value; inclusive"
+                                    "description": "The maximum value (inclusive)."
                                   }
                                 },
                                 "title": "Definite Range Count"
@@ -368,11 +368,11 @@
                                           },
                                           "min": {
                                             "type": "number",
-                                            "description": "The minimum value; inclusive"
+                                            "description": "The minimum value (inclusive)."
                                           },
                                           "max": {
                                             "type": "number",
-                                            "description": "The maximum value; inclusive"
+                                            "description": "The maximum value (inclusive)."
                                           }
                                         },
                                         "title": "Start Definite Range"
@@ -425,11 +425,11 @@
                                           },
                                           "min": {
                                             "type": "number",
-                                            "description": "The minimum value; inclusive"
+                                            "description": "The minimum value (inclusive)."
                                           },
                                           "max": {
                                             "type": "number",
-                                            "description": "The maximum value; inclusive"
+                                            "description": "The maximum value (inclusive)."
                                           }
                                         },
                                         "title": "End Definite Range"
@@ -493,11 +493,11 @@
                                   },
                                   "min": {
                                     "type": "number",
-                                    "description": "The minimum value; inclusive"
+                                    "description": "The minimum value (inclusive)."
                                   },
                                   "max": {
                                     "type": "number",
-                                    "description": "The maximum value; inclusive"
+                                    "description": "The maximum value (inclusive)."
                                   }
                                 },
                                 "title": "Definite Range Count"
@@ -521,7 +521,7 @@
                     "type": "string",
                     "pattern": "^\\w[^:]*:.+$",
                     "title": "CURIE-style Identifier",
-                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                   },
                   "type": {
                     "type": "string",
@@ -537,7 +537,7 @@
                               "type": "string",
                               "pattern": "^\\w[^:]*:.+$",
                               "title": "CURIE-style Identifier",
-                              "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                              "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                             },
                             "type": {
                               "type": "string",
@@ -655,11 +655,11 @@
                                                 },
                                                 "min": {
                                                   "type": "number",
-                                                  "description": "The minimum value; inclusive"
+                                                  "description": "The minimum value (inclusive)."
                                                 },
                                                 "max": {
                                                   "type": "number",
-                                                  "description": "The maximum value; inclusive"
+                                                  "description": "The maximum value (inclusive)."
                                                 }
                                               },
                                               "title": "Start Definite Range"
@@ -712,11 +712,11 @@
                                                 },
                                                 "min": {
                                                   "type": "number",
-                                                  "description": "The minimum value; inclusive"
+                                                  "description": "The minimum value (inclusive)."
                                                 },
                                                 "max": {
                                                   "type": "number",
-                                                  "description": "The maximum value; inclusive"
+                                                  "description": "The maximum value (inclusive)."
                                                 }
                                               },
                                               "title": "End Definite Range"
@@ -885,11 +885,11 @@
                                                     },
                                                     "min": {
                                                       "type": "number",
-                                                      "description": "The minimum value; inclusive"
+                                                      "description": "The minimum value (inclusive)."
                                                     },
                                                     "max": {
                                                       "type": "number",
-                                                      "description": "The maximum value; inclusive"
+                                                      "description": "The maximum value (inclusive)."
                                                     }
                                                   },
                                                   "title": "Start Definite Range"
@@ -942,11 +942,11 @@
                                                     },
                                                     "min": {
                                                       "type": "number",
-                                                      "description": "The minimum value; inclusive"
+                                                      "description": "The minimum value (inclusive)."
                                                     },
                                                     "max": {
                                                       "type": "number",
-                                                      "description": "The maximum value; inclusive"
+                                                      "description": "The maximum value (inclusive)."
                                                     }
                                                   },
                                                   "title": "End Definite Range"
@@ -1010,11 +1010,11 @@
                                             },
                                             "min": {
                                               "type": "number",
-                                              "description": "The minimum value; inclusive"
+                                              "description": "The minimum value (inclusive)."
                                             },
                                             "max": {
                                               "type": "number",
-                                              "description": "The maximum value; inclusive"
+                                              "description": "The maximum value (inclusive)."
                                             }
                                           },
                                           "title": "Definite Range Count"
@@ -1060,7 +1060,7 @@
                     "type": "string",
                     "pattern": "^\\w[^:]*:.+$",
                     "title": "CURIE-style Identifier",
-                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                    "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                   },
                   "type": {
                     "type": "string",
@@ -1113,11 +1113,11 @@
                           },
                           "min": {
                             "type": "number",
-                            "description": "The minimum value; inclusive"
+                            "description": "The minimum value (inclusive)."
                           },
                           "max": {
                             "type": "number",
-                            "description": "The maximum value; inclusive"
+                            "description": "The maximum value (inclusive)."
                           }
                         },
                         "title": "Definite Range of Copies"
@@ -1132,7 +1132,7 @@
                             "type": "string",
                             "pattern": "^\\w[^:]*:.+$",
                             "title": "CURIE-style Identifier",
-                            "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                            "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                           },
                           "type": {
                             "type": "string",
@@ -1250,11 +1250,11 @@
                                               },
                                               "min": {
                                                 "type": "number",
-                                                "description": "The minimum value; inclusive"
+                                                "description": "The minimum value (inclusive)."
                                               },
                                               "max": {
                                                 "type": "number",
-                                                "description": "The maximum value; inclusive"
+                                                "description": "The maximum value (inclusive)."
                                               }
                                             },
                                             "title": "Start Definite Range"
@@ -1307,11 +1307,11 @@
                                               },
                                               "min": {
                                                 "type": "number",
-                                                "description": "The minimum value; inclusive"
+                                                "description": "The minimum value (inclusive)."
                                               },
                                               "max": {
                                                 "type": "number",
-                                                "description": "The maximum value; inclusive"
+                                                "description": "The maximum value (inclusive)."
                                               }
                                             },
                                             "title": "End Definite Range"
@@ -1392,11 +1392,11 @@
                                           },
                                           "min": {
                                             "type": "number",
-                                            "description": "The minimum value; inclusive"
+                                            "description": "The minimum value (inclusive)."
                                           },
                                           "max": {
                                             "type": "number",
-                                            "description": "The maximum value; inclusive"
+                                            "description": "The maximum value (inclusive)."
                                           }
                                         },
                                         "title": "Definite Range Count"
@@ -1480,11 +1480,11 @@
                                                   },
                                                   "min": {
                                                     "type": "number",
-                                                    "description": "The minimum value; inclusive"
+                                                    "description": "The minimum value (inclusive)."
                                                   },
                                                   "max": {
                                                     "type": "number",
-                                                    "description": "The maximum value; inclusive"
+                                                    "description": "The maximum value (inclusive)."
                                                   }
                                                 },
                                                 "title": "Start Definite Range"
@@ -1537,11 +1537,11 @@
                                                   },
                                                   "min": {
                                                     "type": "number",
-                                                    "description": "The minimum value; inclusive"
+                                                    "description": "The minimum value (inclusive)."
                                                   },
                                                   "max": {
                                                     "type": "number",
-                                                    "description": "The maximum value; inclusive"
+                                                    "description": "The maximum value (inclusive)."
                                                   }
                                                 },
                                                 "title": "End Definite Range"
@@ -1605,11 +1605,11 @@
                                           },
                                           "min": {
                                             "type": "number",
-                                            "description": "The minimum value; inclusive"
+                                            "description": "The minimum value (inclusive)."
                                           },
                                           "max": {
                                             "type": "number",
-                                            "description": "The maximum value; inclusive"
+                                            "description": "The maximum value (inclusive)."
                                           }
                                         },
                                         "title": "Definite Range Count"
@@ -1633,7 +1633,7 @@
                             "type": "string",
                             "pattern": "^\\w[^:]*:.+$",
                             "title": "CURIE-style Identifier",
-                            "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                            "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                           },
                           "type": {
                             "type": "string",
@@ -1649,7 +1649,7 @@
                                       "type": "string",
                                       "pattern": "^\\w[^:]*:.+$",
                                       "title": "CURIE-style Identifier",
-                                      "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax, e.g. ensembl:ENSG00000139618"
+                                      "description": "A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax (e.g., ensembl:ENSG00000139618)."
                                     },
                                     "type": {
                                       "type": "string",
@@ -1767,11 +1767,11 @@
                                                         },
                                                         "min": {
                                                           "type": "number",
-                                                          "description": "The minimum value; inclusive"
+                                                          "description": "The minimum value (inclusive)."
                                                         },
                                                         "max": {
                                                           "type": "number",
-                                                          "description": "The maximum value; inclusive"
+                                                          "description": "The maximum value (inclusive)."
                                                         }
                                                       },
                                                       "title": "Start Definite Range"
@@ -1824,11 +1824,11 @@
                                                         },
                                                         "min": {
                                                           "type": "number",
-                                                          "description": "The minimum value; inclusive"
+                                                          "description": "The minimum value (inclusive)."
                                                         },
                                                         "max": {
                                                           "type": "number",
-                                                          "description": "The maximum value; inclusive"
+                                                          "description": "The maximum value (inclusive)."
                                                         }
                                                       },
                                                       "title": "End Definite Range"
@@ -1860,7 +1860,7 @@
                                             "sequence": {
                                               "type": "string",
                                               "pattern": "[ATGCU]+",
-                                              "description": "An explicit expression of a Sequence"
+                                              "description": "An explicit expression of a Sequence."
                                             },
                                             "count": {
                                               "oneOf": [
@@ -1909,11 +1909,11 @@
                                                     },
                                                     "min": {
                                                       "type": "number",
-                                                      "description": "The minimum value; inclusive"
+                                                      "description": "The minimum value (inclusive)."
                                                     },
                                                     "max": {
                                                       "type": "number",
-                                                      "description": "The maximum value; inclusive"
+                                                      "description": "The maximum value (inclusive)."
                                                     }
                                                   },
                                                   "title": "Definite Range Count"
@@ -1997,11 +1997,11 @@
                                                             },
                                                             "min": {
                                                               "type": "number",
-                                                              "description": "The minimum value; inclusive"
+                                                              "description": "The minimum value (inclusive)."
                                                             },
                                                             "max": {
                                                               "type": "number",
-                                                              "description": "The maximum value; inclusive"
+                                                              "description": "The maximum value (inclusive)."
                                                             }
                                                           },
                                                           "title": "Start Definite Range"
@@ -2054,11 +2054,11 @@
                                                             },
                                                             "min": {
                                                               "type": "number",
-                                                              "description": "The minimum value; inclusive"
+                                                              "description": "The minimum value (inclusive)."
                                                             },
                                                             "max": {
                                                               "type": "number",
-                                                              "description": "The maximum value; inclusive"
+                                                              "description": "The maximum value (inclusive)."
                                                             }
                                                           },
                                                           "title": "End Definite Range"
@@ -2122,11 +2122,11 @@
                                                     },
                                                     "min": {
                                                       "type": "number",
-                                                      "description": "The minimum value; inclusive"
+                                                      "description": "The minimum value (inclusive)."
                                                     },
                                                     "max": {
                                                       "type": "number",
-                                                      "description": "The maximum value; inclusive"
+                                                      "description": "The maximum value (inclusive)."
                                                     }
                                                   },
                                                   "title": "Definite Range Count"

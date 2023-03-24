@@ -1,11 +1,11 @@
 {
   "title": "Practitioner",
-  "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA person with a  formal responsibility in the provisioning of healthcare or\nrelated services.\nA person who is directly or indirectly involved in the provisioning of\nhealthcare.",
+  "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA person with a  formal responsibility in the provisioning of healthcare or\nrelated services.\nA person who is directly or indirectly involved in the provisioning of\nhealthcare.",
   "type": "object",
   "properties": {
     "id": {
       "title": "Id",
-      "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+      "description": "The logical ID of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
       "minLength": 1,
       "maxLength": 64,
       "pattern": "^[A-Za-z0-9\\-.]+$",
@@ -64,7 +64,7 @@
     },
     "telecom": {
       "title": "A contact detail for the practitioner (that apply to all roles)",
-      "description": "A contact detail for the practitioner, e.g. a telephone number or an email address.",
+      "description": "A contact detail for the practitioner (e.g., a telephone number or an email address).",
       "type": "array",
       "items": {
         "$ref": "#/definitions/ContactPoint"
@@ -72,7 +72,7 @@
     },
     "address": {
       "title": "Address(es) of the practitioner that are not role specific (typically home address)",
-      "description": "Address(es) of the practitioner that are not role specific (typically home address).  Work addresses are not typically entered in this property as they are usually role dependent.",
+      "description": "Address(es) of the practitioner that are not role specific (typically home address). Work addresses are not typically entered in this property as they are usually role dependent.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Address"
@@ -91,7 +91,7 @@
       "type": "string"
     },
     "birthDate": {
-      "title": "The date  on which the practitioner was born",
+      "title": "The date on which the practitioner was born",
       "description": "The date of birth for the practitioner.",
       "type": "string",
       "format": "date"
@@ -105,7 +105,7 @@
     },
     "qualification": {
       "title": "Certification, licenses, or training pertaining to the provision of care",
-      "description": "The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.",
+      "description": "The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner. For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/PractitionerQualification"
@@ -123,7 +123,7 @@
   "definitions": {
     "Narrative": {
       "title": "Narrative",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nHuman-readable summary of the resource (essential clinical and business\ninformation).\nA human-readable summary of the resource conveying the essential clinical\nand business information for the resource.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nHuman-readable summary of the resource (essential clinical and business\ninformation).\nA human-readable summary of the resource conveying the essential clinical\nand business information for the resource.",
       "type": "object",
       "properties": {
         "div": {
@@ -150,12 +150,12 @@
     },
     "HumanName": {
       "title": "HumanName",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nName of a human - parts and usage.\nA human's name with the ability to identify parts and usage.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nName of a human - parts and usage.\nA human's name with the ability to identify parts and usage.",
       "type": "object",
       "properties": {
         "family": {
           "title": "Family name (often called 'Surname')",
-          "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.",
+          "description": "The part of a name that links to the genealogy. In some cultures (e.g., Eritrea) the family name of a son is the first name of his father.",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
@@ -193,7 +193,7 @@
         },
         "text": {
           "title": "Text representation of the full name",
-          "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.",
+          "description": "Specifies the entire name as it should be displayed (e.g., on an application UI). This may be provided instead of or as well as the specific parts.",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
@@ -217,7 +217,7 @@
     },
     "Period": {
       "title": "Period",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nTime range defined by start and end date/time.\nA time period defined by a start and end date and optionally time.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nTime range defined by start and end date/time.\nA time period defined by a start and end date and optionally time.",
       "type": "object",
       "properties": {
         "end": {
@@ -237,7 +237,7 @@
     },
     "Resource": {
       "title": "Resource",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nBase Resource.\nThis is the base resource type for everything.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nBase Resource.\nThis is the base resource type for everything.",
       "type": "object",
       "properties": {
         "resourceType": {
@@ -393,7 +393,7 @@
         },
         "id": {
           "title": "Id",
-          "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+          "description": "The logical ID of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
           "minLength": 1,
           "maxLength": 64,
           "pattern": "^[A-Za-z0-9\\-.]+$",
@@ -425,7 +425,7 @@
     },
     "Identifier": {
       "title": "Identifier",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn identifier intended for computation.\nAn identifier - identifies some entity uniquely and unambiguously.\nTypically this is used for business identifiers.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn identifier intended for computation.\nAn identifier - identifies some entity uniquely and unambiguously.\nTypically this is used for business identifiers.",
       "type": "object",
       "properties": {
         "period": {
@@ -484,7 +484,7 @@
     },
     "CodeableConcept": {
       "title": "CodeableConcept",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
       "type": "object",
       "properties": {
         "coding": {
@@ -506,12 +506,12 @@
     },
     "Coding": {
       "title": "Coding",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
       "type": "object",
       "properties": {
         "code": {
           "title": "Symbol in syntax defined by the system",
-          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g., post-coordination).",
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string"
         },
@@ -529,7 +529,7 @@
         },
         "userSelected": {
           "title": "If this coding was chosen directly by the user",
-          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "description": "Indicates that this coding was chosen by a user directly - e.g., off a pick list of available items (codes or displays).",
           "type": "boolean"
         },
         "version": {
@@ -543,7 +543,7 @@
     },
     "ContactPoint": {
       "title": "ContactPoint",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDetails of a Technology mediated contact point (phone, fax, email, etc.).\nDetails for all kinds of technology mediated contact points for a person or\norganization, including telephone, email, etc.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDetails of a Technology mediated contact point (phone, fax, email, etc.).\nDetails for all kinds of technology mediated contact points for a person or\norganization, including telephone, email, etc.",
       "type": "object",
       "properties": {
         "period": {
@@ -586,7 +586,7 @@
         },
         "value": {
           "title": "The actual contact point details",
-          "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).",
+          "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e., phone number or email address).",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
@@ -595,12 +595,12 @@
     },
     "Address": {
       "title": "Address",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).  This data type may be used to convey\naddresses for use in delivering mail as well as for visiting locations\nwhich might not be valid for mail delivery.  There are a variety of postal\naddress formats defined around the world.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats). This data type may be used to convey\naddresses for use in delivering mail as well as for visiting locations\nwhich might not be valid for mail delivery. There are a variety of postal\naddress formats defined around the world.",
       "type": "object",
       "properties": {
         "city": {
           "title": "Name of city, town etc.",
-          "description": "The name of the city, town, suburb, village or other community or delivery center.",
+          "description": "The name of the city, town, suburb, village, or other community or delivery center.",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
@@ -637,19 +637,19 @@
         },
         "state": {
           "title": "Sub-unit of country (abbreviations ok)",
-          "description": "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).",
+          "description": "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g., US 2 letter state codes).",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "text": {
           "title": "Text representation of the address",
-          "description": "Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.",
+          "description": "Specifies the entire address as it should be displayed (e.g., on a postal label). This may be provided instead of or as well as the specific parts.",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
         "type": {
           "title": "postal | physical | both",
-          "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.",
+          "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g., PO Boxes and care-of addresses). Most addresses are both.",
           "enum": [
             "postal",
             "physical",
@@ -676,7 +676,7 @@
     },
     "Attachment": {
       "title": "Attachment",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContent in a format defined elsewhere.\nFor referring to data content defined in other formats.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContent in a format defined elsewhere.\nFor referring to data content defined in other formats.",
       "type": "object",
       "properties": {
         "contentType": {
@@ -734,7 +734,7 @@
     },
     "PractitionerQualification": {
       "title": "PractitionerQualification",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nCertification, licenses, or training pertaining to the provision of care.\nThe official certifications, training, and licenses that authorize or\notherwise pertain to the provision of care by the practitioner.  For\nexample, a medical license issued by a medical board authorizing the\npractitioner to practice medicine within a certian locality.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nCertification, licenses, or training pertaining to the provision of care.\nThe official certifications, training, and licenses that authorize or\notherwise pertain to the provision of care by the practitioner. For\nexample, a medical license issued by a medical board authorizing the\npractitioner to practice medicine within a certian locality.",
       "type": "object",
       "properties": {
         "code": {
@@ -768,7 +768,7 @@
     },
     "Reference": {
       "title": "Reference",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "description": "Disclaimer: Any field name ends with ``__ext`` isn't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
       "type": "object",
       "properties": {
         "display": {
@@ -856,8 +856,8 @@
           "type": "string"
         },
         "type": {
-          "title": "Type the reference refers to (e.g. \"Patient\")",
-          "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
+          "title": "Type the reference refers to (e.g., \"Patient\")",
+          "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g., \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
           "pattern": "\\S*",
           "type": "string"
         }
