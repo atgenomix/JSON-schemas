@@ -1,0 +1,51 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "/properties/genome_assembly"
+        },
+        {
+          "type": "Control",
+          "scope": "/properties/chrom"
+        },
+        {
+          "type": "Control",
+          "scope": "/properties/pos"
+        },
+        {
+          "type": "Control",
+          "scope": "/properties/id"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "/properties/ref"
+        },
+        {
+          "type": "Control",
+          "scope": "/properties/alt"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/qual"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/filter"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/info"
+    }
+  ]
+}

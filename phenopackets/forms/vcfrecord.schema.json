@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "genome_assembly": {
+      "type": "string",
+      "title": "Genome assembly",
+      "description": "Identifier for the genome assembly used to call the allele."
+    },
+    "chrom": {
+      "type": "string",
+      "description": "Chromosome or contig identifier."
+    },
+    "pos": {
+      "type": "string",
+      "title": "Reference position",
+      "description": "The reference position, with the 1st base having position 1."
+    },
+    "id": {
+      "type": "string",
+      "title": "Identifier(s)",
+      "description": "Semicolon-separated list of unique identifiers where available. If this is a dbSNP variant their number(s) should be used."
+    },
+    "ref": {
+      "type": "string",
+      "title": "Reference base",
+      "description": "Reference base."
+    },
+    "alt": {
+      "type": "string",
+      "title": "Alternate base",
+      "description": "Alternate base."
+    },
+    "qual": {
+      "type": "string",
+      "title": "Quality",
+      "description": "Phred-scaled quality score for the assertion made in ALT."
+    },
+    "filter": {
+      "type": "string",
+      "title": "Filter status",
+      "description": "PASS if this position has passed all filters."
+    },
+    "info": {
+      "type": "string",
+      "title": "Additional information",
+      "description": "Semicolon-separated series of additional information fields"
+    }
+  },
+  "required": [
+    "genome_assembly",
+    "chrom",
+    "pos",
+    "ref",
+    "alt"
+  ],
+  "type": "object",
+  "title": "VCF Record"
+}
