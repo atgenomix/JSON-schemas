@@ -32,12 +32,12 @@
         {
           "type": "Control",
           "scope": "/properties/alt"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/qual"
         }
       ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/qual"
     },
     {
       "type": "Control",
