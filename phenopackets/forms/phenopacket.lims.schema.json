@@ -344,6 +344,24 @@
                   ]
                 }
               }
+            },
+            "1": {
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "default": "1000/01/01 00:00:00"
+                },
+                "comment": {
+                  "type": "string",
+                  "oneOf": [
+                    {
+                      "const": "TEST",
+                      "title": "本項檢測為測試件"
+                    }
+                  ]
+                }
+              }
             }
           }
         }

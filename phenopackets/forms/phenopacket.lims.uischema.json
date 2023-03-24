@@ -321,16 +321,26 @@
                   }
                 }
              },
-               {
+                {
                 "type": "Control",
                 "label": "本項檢測收費與否",
                 "scope": "#/properties/chargeitem/properties/status",
+                 "options":
+                 {
+                   "format": "radio"
+                 }
+               },
+                {
+                "type": "Control",
+                  "label": "本項檢測是否為測試件",
+                "scope": "#/properties/phenopacket.meta_data.updates/properties/1/properties/comment",
                  "options": {
                     "format": "radio"
                 }
                }
               ]
              }
+
            ]
         }
       ]
