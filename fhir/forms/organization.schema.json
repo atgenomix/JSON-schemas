@@ -116,6 +116,9 @@
       }
     }
   },
+  "required": [
+    "Organization.name"
+  ],
   "additionalProperties": false,
   "definitions": {
     "Narrative": {

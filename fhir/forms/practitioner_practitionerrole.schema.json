@@ -713,30 +713,6 @@
           "type": "string",
           "format": "date-time"
         },
-        "data": {
-          "title": "Data inline, base64ed",
-          "description": "The actual data of the attachment - a sequence of bytes, base64 encoded.",
-          "type": "string",
-          "format": "binary"
-        },
-        "hash": {
-          "title": "Hash of the data (sha-1, base64ed)",
-          "description": "The calculated hash of the data using SHA-1. Represented using base64.",
-          "type": "string",
-          "format": "binary"
-        },
-        "language": {
-          "title": "Human language of the content (BCP-47)",
-          "description": "The human language of the content. The value can be any valid value according to BCP 47.",
-          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-          "type": "string"
-        },
-        "size": {
-          "title": "Number of bytes of content (if url provided)",
-          "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done).",
-          "minimum": 0,
-          "type": "integer"
-        },
         "title": {
           "title": "Label to display in place of the data",
           "description": "A label or set of text to display in place of the data.",
@@ -788,6 +764,7 @@
       ],
       "additionalProperties": false
     },
+
     "ResourceReference": {
       "title": "Reference",
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
@@ -795,7 +772,7 @@
       "properties": {
         "reference": {
           "title": "Literal reference, Relative, internal or absolute URL",
-          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         }
