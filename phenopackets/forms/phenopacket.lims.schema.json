@@ -359,13 +359,43 @@
           "type": "string",
           "oneOf": [
             {
-              "const": "",
-              "title": ""
+              "const": "Organization/anan",
+              "title": "anan"
+            },
+            {
+              "const": "Organization/insight",
+              "title": "insight"
+            },
+            {
+              "const": "Organization/ncku",
+              "title": "ncku"
+            },
+            {
+              "const": "Organization/phalanx",
+              "title": "phalanx"
             }
           ]
         },
         "submitted_by": {
-          "type": "string"
+          "type": "string",
+          "oneOf": [
+          {
+            "const": "Practitioner/12",
+            "title": "送檢單位"
+          },
+          {
+            "const": "Practitioner/35",
+            "title": "藍旻瑜"
+          },
+          {
+            "const": "Practitioner/50",
+            "title": "潘咸安"
+          },
+          {
+            "const": "Practitioner/57",
+            "title": "張令瑋"
+          }
+        ]
         }
       },
       "required": [
@@ -375,6 +405,41 @@
       ],
       "additionalProperties": false,
       "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+    },
+    "phenopacket.interpretations":{
+      "properties": {
+        "summary": {
+          "type": "string",
+          "default": "不同意",
+          "oneOf": [
+            {
+              "const": "icONE",
+              "title": "同意"
+            },
+            {
+              "const": "Normal",
+              "title": "不同意"
+            }
+          ]
+        }
+      }
+    },
+    "chargeitem": {
+      "properties": {
+        "status": {
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "billable",
+              "title": "同意"
+            },
+            {
+              "const": "not-billable ",
+              "title": "不同意"
+            }
+          ]
+        }
+      }
     }
   },
   "required": [
