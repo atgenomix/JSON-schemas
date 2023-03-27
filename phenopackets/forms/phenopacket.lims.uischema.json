@@ -277,6 +277,14 @@
                 },
                 {
                   "type": "Control",
+                  "label": "送檢院所",
+                  "scope": "#/properties/phenopacket.meta_data/properties/submitted_by_company",
+                  "options": {
+                    "autocomplete": true
+                  }
+                },
+                {
+                  "type": "Control",
                   "label": "送檢醫師",
                   "scope": "#/properties/phenopacket.meta_data/properties/submitted_by",
                   "options": {
