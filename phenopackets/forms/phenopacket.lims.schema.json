@@ -344,6 +344,24 @@
                   ]
                 }
               }
+            },
+            "1": {
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date",
+                  "default": "1000/01/01 00:00:00"
+                },
+                "comment": {
+                  "type": "string",
+                  "oneOf": [
+                    {
+                      "const": "TEST",
+                      "title": "本項檢測為測試件"
+                    }
+                  ]
+                }
+              }
             }
           }
         }
@@ -359,13 +377,60 @@
           "type": "string",
           "oneOf": [
             {
-              "const": "",
-              "title": ""
+              "const": "Organization/anan",
+              "title": "anan"
+            },
+            {
+              "const": "Organization/insight",
+              "title": "insight"
+            },
+            {
+              "const": "Organization/ncku",
+              "title": "ncku"
+            },
+            {
+              "const": "Organization/phalanx",
+              "title": "phalanx"
+            }
+          ]
+        },
+        "submitted_by_company":  {
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "Organization/1",
+              "title": "三軍總醫院"
+            },
+            {
+              "const": "Organization/10",
+              "title": "佑生婦產科診所"
+            },
+            {
+              "const": "Organization/100",
+              "title": "郭綜合醫院"
+            },
+            {
+              "const": "Organization/101",
+              "title": "顏明通婦產科診所"
             }
           ]
         },
         "submitted_by": {
-          "type": "string"
+          "type": "string",
+          "oneOf": [
+          {
+            "const": "Practitioner/35",
+            "title": "藍旻瑜"
+          },
+          {
+            "const": "Practitioner/50",
+            "title": "潘咸安"
+          },
+          {
+            "const": "Practitioner/57",
+            "title": "張令瑋"
+          }
+        ]
         }
       },
       "required": [
@@ -375,6 +440,41 @@
       ],
       "additionalProperties": false,
       "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+    },
+    "phenopacket.interpretations":{
+      "properties": {
+        "summary": {
+          "type": "string",
+          "default": "不同意",
+          "oneOf": [
+            {
+              "const": "icONE",
+              "title": "同意"
+            },
+            {
+              "const": "Normal",
+              "title": "不同意"
+            }
+          ]
+        }
+      }
+    },
+    "chargeitem": {
+      "properties": {
+        "status": {
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "billable",
+              "title": "同意"
+            },
+            {
+              "const": "not-billable ",
+              "title": "不同意"
+            }
+          ]
+        }
+      }
     }
   },
   "required": [
