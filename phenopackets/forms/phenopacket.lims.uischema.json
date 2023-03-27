@@ -50,8 +50,7 @@
           "options": {
             "showSortButtons": true,
             "autocomplete": true,
-            "detail": {
-            }
+            "detail": {}
           }
         }
       ]
@@ -262,8 +261,8 @@
         },
         {
           "type": "HorizontalLayout",
-           "elements": [
-             {
+          "elements": [
+            {
               "type": "Group",
               "label": "建檔單位",
               "elements": [
@@ -293,55 +292,20 @@
                 }
               ]
             },
-             {
-               "type": "Group",
+            {
+              "type": "Group",
               "elements": [
-               {
-                "type": "Control",
-                "label": "本項檢測完成後，將分析的結果資料作為醫學研究分析之用",
-                "scope": "#/properties/phenopacket.interpretations/properties/summary",
-                "options": {
+                {
+                  "type": "Control",
+                  "label": "本項檢測收費與否",
+                  "scope": "#/properties/chargeitem/properties/status",
+                  "options": {
                     "format": "radio"
-                },
-               "rule": {
-                  "effect": "ENABLE",
-                  "condition": {
-                    "scope": "#/properties/phenopacket",
-                    "schema": {
-                      "properties": {
-                        "measurements": {
-                          "contains": {
-                            "properties": {
-                              "assay": {
-                                "properties": {
-                                  "id": {
-                                    "enum": [
-                                      "LDT0007:41"
-                                    ]
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 }
-             },
-                {
-                "type": "Control",
-                "label": "本項檢測收費與否",
-                "scope": "#/properties/chargeitem/properties/status",
-                 "options":
-                 {
-                   "format": "radio"
-                 }
-               }
               ]
-             }
-
-           ]
+            }
+          ]
         }
       ]
     }

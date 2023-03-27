@@ -105,6 +105,10 @@
               {
                 "const": "LDT0007:48",
                 "title": "感覺神經性聽損基因"
+              },
+              {
+                "const": "icONE",
+                "title": "icONE"
               }
             ],
             "type": "string",
@@ -394,7 +398,7 @@
             }
           ]
         },
-        "submitted_by_company":  {
+        "submitted_by_company": {
           "type": "string",
           "oneOf": [
             {
@@ -418,19 +422,19 @@
         "submitted_by": {
           "type": "string",
           "oneOf": [
-          {
-            "const": "Practitioner/35",
-            "title": "藍旻瑜"
-          },
-          {
-            "const": "Practitioner/50",
-            "title": "潘咸安"
-          },
-          {
-            "const": "Practitioner/57",
-            "title": "張令瑋"
-          }
-        ]
+            {
+              "const": "Practitioner/35",
+              "title": "藍旻瑜"
+            },
+            {
+              "const": "Practitioner/50",
+              "title": "潘咸安"
+            },
+            {
+              "const": "Practitioner/57",
+              "title": "張令瑋"
+            }
+          ]
         }
       },
       "required": [
@@ -441,24 +445,6 @@
       "additionalProperties": false,
       "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
     },
-    "phenopacket.interpretations":{
-      "properties": {
-        "summary": {
-          "type": "string",
-          "default": "不同意",
-          "oneOf": [
-            {
-              "const": "icONE",
-              "title": "同意"
-            },
-            {
-              "const": "Normal",
-              "title": "不同意"
-            }
-          ]
-        }
-      }
-    },
     "chargeitem": {
       "properties": {
         "status": {
@@ -466,11 +452,11 @@
           "oneOf": [
             {
               "const": "billable",
-              "title": "同意"
+              "title": "是"
             },
             {
               "const": "not-billable ",
-              "title": "不同意"
+              "title": "否"
             }
           ]
         }
