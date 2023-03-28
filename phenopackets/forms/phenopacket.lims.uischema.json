@@ -26,12 +26,12 @@
             {
               "type": "Control",
               "label": "檢體種類",
-              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/sample_type"
+              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/sample_type/properties/id"
             },
             {
               "type": "Control",
               "label": "採樣檢體時間",
-              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/time_of_collection"
+              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/time_of_collection/properties/timestamp"
             }
           ]
         },
@@ -277,7 +277,7 @@
                 {
                   "type": "Control",
                   "label": "送檢院所",
-                  "scope": "#/properties/phenopacket.meta_data/properties/submitted_by_company",
+                  "scope": "#/properties/submitted_by_company",
                   "options": {
                     "autocomplete": true
                   }
