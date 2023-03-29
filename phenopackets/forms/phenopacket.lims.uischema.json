@@ -256,6 +256,13 @@
               "options": {
                 "format": "radio"
               }
+            },
+            {
+                  "type": "Control",
+                  "label": "本項檢測收費與否",
+                  "scope": "#/properties/chargeitem/properties/status",
+                  "options": {
+                    "format": "radio"}
             }
           ]
         },
@@ -291,23 +298,11 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "Group",
-              "elements": [
-                {
-                  "type": "Control",
-                  "label": "本項檢測收費與否",
-                  "scope": "#/properties/chargeitem/properties/status",
-                  "options": {
-                    "format": "radio"
-                  }
-                }
+            }
               ]
             }
           ]
         }
       ]
-    }
-  ]
+
 }
