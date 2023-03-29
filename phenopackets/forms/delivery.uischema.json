@@ -1,0 +1,90 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Group",
+      "label": "送檢資料表",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "採樣檢體時間",
+              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/time_of_collection/properties/timestamp"
+            },
+            {
+              "type": "Control",
+              "label": "收件日期時間",
+              "scope": "#/properties/phenopacket.meta_data/properties/created"
+            },
+            {
+              "type": "Control",
+              "label": "檢體編號",
+              "scope": "#/properties/phenopacket/properties/id"
+            },
+            {
+                  "type": "Control",
+                  "label": "送檢群組",
+                  "scope": "#/properties/phenopacket.meta_data/properties/created_by",
+                  "options": {
+                    "autocomplete": true
+                  }
+                },
+            {
+                "type": "Control",
+                "label": "送檢醫師",
+                "scope": "#/properties/phenopacket.meta_data/properties/submitted_by",
+                "options": {
+                  "autocomplete": true
+                }
+              },
+            {
+          "type": "Control",
+          "label": "備註資訊",
+          "scope": "#/properties/phenopacket.biosamples/properties/0/properties/description",
+          "options": {
+            "multi": true
+          }
+        },
+            {
+                "type": "Control",
+                "label": "送件項目",
+                "scope": "#/properties/phenopacket.measurements/items/properties/assay.id",
+                "options": {
+                  "autocomplete": true
+                }
+              },{
+                  "type": "Group",
+                  "label": "胚胎表型特徵資訊",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "胚胎胎數",
+                      "scope": "#/properties/phenopacket/properties/phenotypic_features/properties/0/properties/description"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "資訊本體（Ontology ID）",
+                      "scope": "#/properties/phenopacket/properties/phenotypic_features/properties/0/properties/type/properties/id",
+                      "options": {
+                        "autocomplete": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "資訊本體（Ontology Label）",
+                      "scope": "#/properties/phenopacket/properties/phenotypic_features/properties/0/properties/type/properties/label",
+                      "options": {
+                        "autocomplete": true
+                      }
+                    }
+                  ]
+                }
+          ]
+        }
+          ]
+        }
+      ]
+
+}
