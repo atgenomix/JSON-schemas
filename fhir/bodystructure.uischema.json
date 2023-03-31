@@ -1,0 +1,129 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/BodyStructure.id"
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.text"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "active",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.active"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "description",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.description"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "image",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.image"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "location",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.location"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "locationQualifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.locationQualifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "morphology",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.morphology"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "patient",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/BodyStructure.patient"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
