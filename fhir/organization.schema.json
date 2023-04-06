@@ -835,13 +835,95 @@
           "title": "Denominator value",
           "description": "The value of the denominator.",
           "element_property": true,
-          "$ref": "#/definitions/Quantity"
+          "properties": {
+            "code": {
+              "title": "Coded form of the unit",
+              "description": "A computer processable form of the unit in some unit representation system.",
+              "element_property": true,
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "comparator": {
+              "title": "< | <= | >= | > - how to understand the value",
+              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+              "element_property": true,
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "system": {
+              "title": "System that defines coded unit form",
+              "description": "The identification of the system that provides the coded form of the unit.",
+              "element_property": true,
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "unit": {
+              "title": "Unit representation",
+              "description": "A human-readable form of the unit.",
+              "element_property": true,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "value": {
+              "title": "Numerical value (with implicit precision)",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+              "element_property": true,
+              "type": "number"
+            }
+          }
         },
         "numerator": {
           "title": "Numerator value",
           "description": "The value of the numerator.",
           "element_property": true,
-          "$ref": "#/definitions/Quantity"
+          "properties": {
+            "code": {
+              "title": "Coded form of the unit",
+              "description": "A computer processable form of the unit in some unit representation system.",
+              "element_property": true,
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "comparator": {
+              "title": "< | <= | >= | > - how to understand the value",
+              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+              "element_property": true,
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "system": {
+              "title": "System that defines coded unit form",
+              "description": "The identification of the system that provides the coded form of the unit.",
+              "element_property": true,
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "unit": {
+              "title": "Unit representation",
+              "description": "A human-readable form of the unit.",
+              "element_property": true,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "value": {
+              "title": "Numerical value (with implicit precision)",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+              "element_property": true,
+              "type": "number"
+            }
+          }
         }
       },
       "additionalProperties": false
@@ -901,13 +983,95 @@
           "title": "High limit",
           "description": "The high limit. The boundary is inclusive.",
           "element_property": true,
-          "$ref": "#/definitions/Quantity"
+          "properties": {
+            "code": {
+              "title": "Coded form of the unit",
+              "description": "A computer processable form of the unit in some unit representation system.",
+              "element_property": true,
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "comparator": {
+              "title": "< | <= | >= | > - how to understand the value",
+              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+              "element_property": true,
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "system": {
+              "title": "System that defines coded unit form",
+              "description": "The identification of the system that provides the coded form of the unit.",
+              "element_property": true,
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "unit": {
+              "title": "Unit representation",
+              "description": "A human-readable form of the unit.",
+              "element_property": true,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "value": {
+              "title": "Numerical value (with implicit precision)",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+              "element_property": true,
+              "type": "number"
+            }
+          }
         },
         "low": {
           "title": "Low limit",
           "description": "The low limit. The boundary is inclusive.",
           "element_property": true,
-          "$ref": "#/definitions/Quantity"
+          "properties": {
+            "code": {
+              "title": "Coded form of the unit",
+              "description": "A computer processable form of the unit in some unit representation system.",
+              "element_property": true,
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "comparator": {
+              "title": "< | <= | >= | > - how to understand the value",
+              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+              "element_property": true,
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "system": {
+              "title": "System that defines coded unit form",
+              "description": "The identification of the system that provides the coded form of the unit.",
+              "element_property": true,
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "unit": {
+              "title": "Unit representation",
+              "description": "A human-readable form of the unit.",
+              "element_property": true,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "value": {
+              "title": "Numerical value (with implicit precision)",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+              "element_property": true,
+              "type": "number"
+            }
+          }
         }
       },
       "additionalProperties": false
@@ -2259,7 +2423,37 @@
           "title": "Type of context being specified",
           "description": "A code that identifies the type of context being specified by this usage context.",
           "element_property": true,
-          "$ref": "#/definitions/Coding"
+          "properties": {
+            "code": {
+              "title": "Symbol in syntax defined by the system",
+              "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "display": {
+              "title": "Representation defined by the system",
+              "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "system": {
+              "title": "Identity of the terminology system",
+              "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "userSelected": {
+              "title": "If this coding was chosen directly by the user",
+              "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+              "type": "boolean"
+            },
+            "version": {
+              "title": "Version of the system - if relevant",
+              "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          }
         },
         "valueCodeableConcept": {
           "title": "Value that defines the context",
@@ -2267,7 +2461,22 @@
           "element_property": true,
           "one_of_many": "value",
           "one_of_many_required": true,
-          "$ref": "#/definitions/CodeableConcept"
+          "properties": {
+            "coding": {
+              "title": "Code defined by a terminology system",
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Coding"
+              }
+            },
+            "text": {
+              "title": "Plain text representation of the concept",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          }
         },
         "valueQuantity": {
           "title": "Value that defines the context",
@@ -2275,7 +2484,48 @@
           "element_property": true,
           "one_of_many": "value",
           "one_of_many_required": true,
-          "$ref": "#/definitions/Quantity"
+          "properties": {
+            "code": {
+              "title": "Coded form of the unit",
+              "description": "A computer processable form of the unit in some unit representation system.",
+              "element_property": true,
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "comparator": {
+              "title": "< | <= | >= | > - how to understand the value",
+              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+              "element_property": true,
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "system": {
+              "title": "System that defines coded unit form",
+              "description": "The identification of the system that provides the coded form of the unit.",
+              "element_property": true,
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "unit": {
+              "title": "Unit representation",
+              "description": "A human-readable form of the unit.",
+              "element_property": true,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "value": {
+              "title": "Numerical value (with implicit precision)",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+              "element_property": true,
+              "type": "number"
+            }
+          }
         },
         "valueRange": {
           "title": "Value that defines the context",
@@ -2283,7 +2533,102 @@
           "element_property": true,
           "one_of_many": "value",
           "one_of_many_required": true,
-          "$ref": "#/definitions/Range"
+          "properties": {
+            "high": {
+              "title": "High limit",
+              "description": "The high limit. The boundary is inclusive.",
+              "element_property": true,
+              "properties": {
+                "code": {
+                  "title": "Coded form of the unit",
+                  "description": "A computer processable form of the unit in some unit representation system.",
+                  "element_property": true,
+                  "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                  "type": "string"
+                },
+                "comparator": {
+                  "title": "< | <= | >= | > - how to understand the value",
+                  "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                  "element_property": true,
+                  "enum": [
+                    "<",
+                    "<=",
+                    ">=",
+                    ">"
+                  ],
+                  "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                  "type": "string"
+                },
+                "system": {
+                  "title": "System that defines coded unit form",
+                  "description": "The identification of the system that provides the coded form of the unit.",
+                  "element_property": true,
+                  "pattern": "\\S*",
+                  "type": "string"
+                },
+                "unit": {
+                  "title": "Unit representation",
+                  "description": "A human-readable form of the unit.",
+                  "element_property": true,
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                },
+                "value": {
+                  "title": "Numerical value (with implicit precision)",
+                  "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                  "element_property": true,
+                  "type": "number"
+                }
+              }
+            },
+            "low": {
+              "title": "Low limit",
+              "description": "The low limit. The boundary is inclusive.",
+              "element_property": true,
+              "properties": {
+                "code": {
+                  "title": "Coded form of the unit",
+                  "description": "A computer processable form of the unit in some unit representation system.",
+                  "element_property": true,
+                  "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                  "type": "string"
+                },
+                "comparator": {
+                  "title": "< | <= | >= | > - how to understand the value",
+                  "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                  "element_property": true,
+                  "enum": [
+                    "<",
+                    "<=",
+                    ">=",
+                    ">"
+                  ],
+                  "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                  "type": "string"
+                },
+                "system": {
+                  "title": "System that defines coded unit form",
+                  "description": "The identification of the system that provides the coded form of the unit.",
+                  "element_property": true,
+                  "pattern": "\\S*",
+                  "type": "string"
+                },
+                "unit": {
+                  "title": "Unit representation",
+                  "description": "A human-readable form of the unit.",
+                  "element_property": true,
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                },
+                "value": {
+                  "title": "Numerical value (with implicit precision)",
+                  "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                  "element_property": true,
+                  "type": "number"
+                }
+              }
+            }
+          }
         },
         "valueReference": {
           "title": "Value that defines the context",
@@ -2300,7 +2645,98 @@
             "Location",
             "Organization"
           ],
-          "$ref": "#/definitions/Reference"
+          "properties": {
+            "display": {
+              "title": "Text alternative for the resource",
+              "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "reference": {
+              "title": "Literal reference, Relative, internal or absolute URL",
+              "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            },
+            "identifier": {
+              "title": "Logical reference, when literal reference is not known",
+              "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
+              "properties": {
+                "period": {
+                  "title": "Time period when id is/was valid for use",
+                  "description": "Time period during which identifier is/was valid for use.",
+                  "properties": {
+                    "end": {
+                      "title": "End time with inclusive boundary, if not ongoing",
+                      "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "start": {
+                      "title": "Starting time with inclusive boundary",
+                      "description": "The start of the period. The boundary is inclusive.",
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "system": {
+                  "title": "The namespace for the identifier value",
+                  "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
+                  "pattern": "\\S*",
+                  "type": "string"
+                },
+                "type": {
+                  "title": "A coded type for the identifier",
+                  "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+                  "properties": {
+                    "coding": {
+                      "title": "Code defined by a terminology system",
+                      "description": "A reference to a code defined by a terminology system.",
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/Coding"
+                      }
+                    },
+                    "text": {
+                      "title": "Plain text representation of the concept",
+                      "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "use": {
+                  "title": "usual | official | temp | secondary | old (If known)",
+                  "description": "The purpose of this identifier.",
+                  "enum": [
+                    "usual",
+                    "official",
+                    "temp",
+                    "secondary",
+                    "old"
+                  ],
+                  "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                  "type": "string"
+                },
+                "value": {
+                  "title": "The value that is unique",
+                  "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "type": {
+              "title": "Type the reference refers to (e.g. \"Patient\")",
+              "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
+              "pattern": "\\S*",
+              "type": "string"
+            }
+          }
         }
       },
       "required": [
