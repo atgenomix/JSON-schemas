@@ -71,7 +71,8 @@
     },
     "Practitioner.active": {
       "title": "Whether this practitioner's record is in active use",
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "Practitioner.name": {
       "title": "The name(s) associated with the practitioner",
@@ -849,5 +850,8 @@
       },
       "additionalProperties": false
     }
-  }
+  },
+  "required": [
+    "Practitioner.name"
+  ]
 }
