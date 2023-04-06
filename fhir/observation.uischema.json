@@ -15,6 +15,17 @@
       "elements": [
         {
           "type": "Category",
+          "label": "Observation",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Observation",
+              "scope": "#/properties/Observation"
+            }
+          ]
+        },
+        {
+          "type": "Category",
           "label": "implicitRules",
           "elements": [
             {
@@ -130,46 +141,6 @@
             {
               "type": "Control",
               "scope": "#/properties/Observation.device"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "effectiveDateTime",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.effectiveDateTime"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "effectiveInstant",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.effectiveInstant"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "effectivePeriod",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.effectivePeriod"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "effectiveTiming",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.effectiveTiming"
             }
           ]
         },
@@ -310,116 +281,6 @@
             {
               "type": "Control",
               "scope": "#/properties/Observation.subject"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueBoolean",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueBoolean"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueCodeableConcept",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueCodeableConcept"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueDateTime",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueDateTime"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueInteger",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueInteger"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valuePeriod",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valuePeriod"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueQuantity",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueQuantity"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueRange",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueRange"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueRatio",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueRatio"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueSampledData",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueSampledData"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueString",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueString"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "valueTime",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.valueTime"
             }
           ]
         }
