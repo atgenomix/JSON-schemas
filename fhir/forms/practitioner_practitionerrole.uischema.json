@@ -86,26 +86,6 @@
               "scope": "#/properties/Practitioner.photo"
             }
           ]
-        },
-        {
-          "type": "Category",
-          "label": "communication",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Practitioner.communication"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "qualification",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Practitioner.qualification"
-            }
-          ]
         }
       ]
     }
