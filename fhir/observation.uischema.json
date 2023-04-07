@@ -1,0 +1,310 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Observation.id"
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "Observation",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Observation",
+              "scope": "#/properties/Observation"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.text"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "basedOn",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.basedOn"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "bodySite",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.bodySite"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "category",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.category"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "code",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.code"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "component",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.component"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "dataAbsentReason",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.dataAbsentReason"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "derivedFrom",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.derivedFrom"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "device",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.device"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "encounter",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.encounter"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "focus",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.focus"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "hasMember",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.hasMember"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "interpretation",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.interpretation"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "issued",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.issued"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "method",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.method"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "note",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.note"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "partOf",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.partOf"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "performer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.performer"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "referenceRange",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.referenceRange"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "specimen",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.specimen"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "status",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.status"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "subject",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation.subject"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "Extension",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Observation.extension"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "modifierExtension",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Observation.modifierExtension"
+        }
+      ]
+    }
+  ]
+}

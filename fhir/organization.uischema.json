@@ -95,6 +95,72 @@
           ]
         }
       ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "fhir_comments",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.fhir_comments"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Organization.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "label": "Text summary of the resource, for human interpretation",
+              "type": "Control",
+              "scope": "#/properties/Organization.text"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

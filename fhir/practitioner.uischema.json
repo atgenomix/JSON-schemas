@@ -1,0 +1,169 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.id"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.active"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "name",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.name"
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "birthDate",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.birthDate"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "gender",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.gender"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "telecom",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.telecom"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "address",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.address"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "photo",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.photo"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "communication",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.communication"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "qualification",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.qualification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "fhir_comments",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.fhir_comments"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "label": "Text summary of the resource, for human interpretation",
+              "type": "Control",
+              "scope": "#/properties/Practitioner.text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

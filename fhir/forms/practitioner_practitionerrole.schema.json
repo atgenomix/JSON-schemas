@@ -1,16 +1,27 @@
 {
-  "title": "PractitionerRole",
-  "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nRoles/organizations the practitioner is associated with.\nA specific set of Roles/Locations/specialties/services that a practitioner\nmay perform at an organization for a period of time.",
+  "title": "Practitioner",
+  "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA person with a  formal responsibility in the provisioning of healthcare or\nrelated services.\nA person who is directly or indirectly involved in the provisioning of\nhealthcare.",
   "type": "object",
   "properties": {
-    "fhir_comments": {
-      "title": "Fhir Comments",
+    "PractitionerRole.organization": {
+      "title": "Organization where the roles are available",
+      "description": "The organization where the Practitioner performs the roles associated.",
+      "enum_reference_types": [
+        "Organization"
+      ],
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "#/definitions/OrganizationReference"
       }
     },
-    "id": {
+    "PractitionerRole.practitioner": {
+      "title": "Practitioner that is able to provide the defined services for the organization",
+      "enum_reference_types": [
+        "Practitioner"
+      ],
+      "$ref": "#/definitions/PractitionerReference"
+    },
+    "Practitioner.id": {
       "title": "Id",
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
       "minLength": 1,
@@ -18,24 +29,31 @@
       "pattern": "^[A-Za-z0-9\\-.]+$",
       "type": "string"
     },
-    "implicitRules": {
+    "Practitioner.fhir_comments": {
+      "title": "Fhir Comments",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Practitioner.implicitRules": {
       "title": "A set of rules under which this content was created",
       "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
       "pattern": "\\S*",
       "type": "string"
     },
-    "language": {
+    "Practitioner.language": {
       "title": "Language of the resource content",
       "description": "The base language in which the resource is written.",
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
-    "text": {
+    "Practitioner.text": {
       "title": "Text summary of the resource, for human interpretation",
       "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
       "$ref": "#/definitions/Narrative"
     },
-    "contained": {
+    "Practitioner.contained": {
       "title": "Contained, inline Resources",
       "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
       "type": "array",
@@ -43,109 +61,80 @@
         "$ref": "#/definitions/Resource"
       }
     },
-    "identifier": {
-      "title": "Business Identifiers that are specific to a role/location",
+    "Practitioner.identifier": {
+      "title": "An identifier for the person as this agent",
+      "description": "An identifier that applies to this person in this role.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Identifier"
       }
     },
-    "active": {
-      "title": "Whether this practitioner role record is in active use",
-      "type": "boolean"
+    "Practitioner.active": {
+      "title": "Whether this practitioner's record is in active use",
+      "type": "boolean",
+      "default": true
     },
-    "availabilityExceptions": {
-      "title": "Description of availability exceptions",
-      "description": "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.",
-      "pattern": "[ \\r\\n\\t\\S]+",
-      "type": "string"
-    },
-    "availableTime": {
-      "title": "Times the Service Site is available",
-      "description": "A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.",
+    "Practitioner.name": {
+      "title": "The name(s) associated with the practitioner",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/PractitionerRoleAvailableTime"
+        "$ref": "#/definitions/HumanName"
       }
     },
-    "code": {
-      "title": "Roles which this practitioner may perform",
-      "description": "Roles which this practitioner is authorized to perform for the organization.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/CodeableConcept"
-      }
-    },
-    "endpoint": {
-      "title": "Technical endpoints providing access to services operated for the practitioner with this role",
-      "enum_reference_types": [
-        "Endpoint"
-      ],
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Reference"
-      }
-    },
-    "healthcareService": {
-      "title": "The list of healthcare services that this worker provides for this role's Organization/Location(s)",
-      "enum_reference_types": [
-        "HealthcareService"
-      ],
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Reference"
-      }
-    },
-    "location": {
-      "title": "The location(s) at which this practitioner provides care",
-      "enum_reference_types": [
-        "Location"
-      ],
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Reference"
-      }
-    },
-    "notAvailable": {
-      "title": "Not available during this time due to provided reason",
-      "description": "The practitioner is not available or performing this role during this period of time due to the provided reason.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/PractitionerRoleAvailableTime"
-      }
-    },
-    "organization": {
-      "title": "Organization where the roles are available",
-      "description": "The organization where the Practitioner performs the roles associated.",
-      "enum_reference_types": [
-        "Organization"
-      ],
-      "$ref": "#/definitions/Reference"
-    },
-    "period": {
-      "title": "The period during which the practitioner is authorized to perform in these role(s)",
-      "description": "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.",
-      "$ref": "#/definitions/Period"
-    },
-    "practitioner": {
-      "title": "Practitioner that is able to provide the defined services for the organization",
-      "enum_reference_types": [
-        "Practitioner"
-      ],
-      "$ref": "#/definitions/Reference"
-    },
-    "specialty": {
-      "title": "Specific specialty of the practitioner",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/CodeableConcept"
-      }
-    },
-    "telecom": {
-      "title": "Contact details that are specific to the role/location/service",
+    "Practitioner.telecom": {
+      "title": "A contact detail for the practitioner (that apply to all roles)",
+      "description": "A contact detail for the practitioner, e.g. a telephone number or an email address.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/ContactPoint"
+      }
+    },
+    "Practitioner.address": {
+      "title": "Address(es) of the practitioner that are not role specific (typically home address)",
+      "description": "Address(es) of the practitioner that are not role specific (typically home address).  Work addresses are not typically entered in this property as they are usually role dependent.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Address"
+      }
+    },
+    "Practitioner.gender": {
+      "title": "male | female | other | unknown",
+      "description": "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.",
+      "enum": [
+        "male",
+        "female",
+        "other",
+        "unknown"
+      ],
+      "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+      "type": "string"
+    },
+    "Practitioner.birthDate": {
+      "title": "The date  on which the practitioner was born",
+      "description": "The date of birth for the practitioner.",
+      "type": "string",
+      "format": "date"
+    },
+    "Practitioner.photo": {
+      "title": "Image of the person",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Attachment"
+      }
+    },
+    "Practitioner.qualification": {
+      "title": "Certification, licenses, or training pertaining to the provision of care",
+      "description": "The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PractitionerQualification"
+      }
+    },
+    "Practitioner.communication": {
+      "title": "A language the practitioner can use in patient communication",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CodeableConcept"
       }
     }
   },
@@ -449,6 +438,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "resourceType",
+        "id"
+      ],
       "additionalProperties": {
         "type": "object"
       }
@@ -623,99 +616,192 @@
       },
       "additionalProperties": false
     },
+    "Address": {
+      "title": "Address",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).  This data type may be used to convey\naddresses for use in delivering mail as well as for visiting locations\nwhich might not be valid for mail delivery.  There are a variety of postal\naddress formats defined around the world.",
+      "type": "object",
+      "properties": {
+        "city": {
+          "title": "Name of city, town etc.",
+          "description": "The name of the city, town, suburb, village or other community or delivery center.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "country": {
+          "title": "Country (e.g. can be ISO 3166 2 or 3 letter code)",
+          "description": "Country - a nation as commonly understood or generally accepted.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "district": {
+          "title": "District name (aka county)",
+          "description": "The name of the administrative area (county).",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "line": {
+          "title": "Street name, number, direction & P.O. Box etc.",
+          "description": "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+"
+          }
+        },
+        "period": {
+          "title": "Time period when address was/is in use",
+          "$ref": "#/definitions/Period"
+        },
+        "postalCode": {
+          "title": "Postal code for area",
+          "description": "A postal code designating a region defined by the postal service.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "state": {
+          "title": "Sub-unit of country (abbreviations ok)",
+          "description": "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text representation of the address",
+          "description": "Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "type": {
+          "title": "postal | physical | both",
+          "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.",
+          "enum": [
+            "postal",
+            "physical",
+            "both"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "use": {
+          "title": "home | work | temp | old | billing - purpose of this address",
+          "description": "The purpose of this address.",
+          "enum": [
+            "home",
+            "work",
+            "temp",
+            "old",
+            "billing"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Attachment": {
+      "title": "Attachment",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContent in a format defined elsewhere.\nFor referring to data content defined in other formats.",
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "title": "Mime type of the content, with charset etc, e.g. image/png.",
+          "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "creation": {
+          "title": "Date attachment was first created",
+          "description": "The date that the attachment was first created.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "title": {
+          "title": "Label to display in place of the data",
+          "description": "A label or set of text to display in place of the data.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "url": {
+          "title": "Uri where the data can be found",
+          "description": "A location where the data can be accessed.",
+          "minLength": 1,
+          "maxLength": 65536,
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PractitionerQualification": {
+      "title": "PractitionerQualification",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nCertification, licenses, or training pertaining to the provision of care.\nThe official certifications, training, and licenses that authorize or\notherwise pertain to the provision of care by the practitioner.  For\nexample, a medical license issued by a medical board authorizing the\npractitioner to practice medicine within a certian locality.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Coded representation of the qualification",
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "identifier": {
+          "title": "An identifier for this qualification for the practitioner",
+          "description": "An identifier that applies to this person's qualification in this role.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          }
+        },
+        "issuer": {
+          "title": "Organization that regulates and issues the qualification",
+          "enum_reference_types": [
+            "Organization"
+          ],
+          "$ref": "#/definitions/OrganizationReference"
+        },
+        "period": {
+          "title": "Period during which the qualification is valid",
+          "$ref": "#/definitions/Period"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "OrganizationReference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "reference": {
+          "title": "Literal reference(Ex: Organization/1, Organization/2, etc.)",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PractitionerReference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "reference": {
+          "title": "Literal reference(Ex: Practitioner/1, Practitioner/2, etc.)",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "Reference": {
       "title": "Reference",
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
       "type": "object",
       "properties": {
-        "display": {
-          "title": "Text alternative for the resource",
-          "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
-        "identifier": {
-          "title": "Logical reference, when literal reference is not known",
-          "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
-          "properties": {
-            "period": {
-              "title": "Time period when id is/was valid for use",
-              "description": "Time period during which identifier is/was valid for use.",
-              "properties": {
-                "end": {
-                  "title": "End time with inclusive boundary, if not ongoing",
-                  "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "start": {
-                  "title": "Starting time with inclusive boundary",
-                  "description": "The start of the period. The boundary is inclusive.",
-                  "type": "string",
-                  "format": "date-time"
-                }
-              },
-              "additionalProperties": false
-            },
-            "system": {
-              "title": "The namespace for the identifier value",
-              "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
-              "pattern": "\\S*",
-              "type": "string"
-            },
-            "type": {
-              "title": "A coded type for the identifier",
-              "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
-              "properties": {
-                "coding": {
-                  "title": "Code defined by a terminology system",
-                  "description": "A reference to a code defined by a terminology system.",
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Coding"
-                  }
-                },
-                "text": {
-                  "title": "Plain text representation of the concept",
-                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-                  "pattern": "[ \\r\\n\\t\\S]+",
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            },
-            "use": {
-              "title": "usual | official | temp | secondary | old (If known)",
-              "description": "The purpose of this identifier.",
-              "enum": [
-                "usual",
-                "official",
-                "temp",
-                "secondary",
-                "old"
-              ],
-              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-              "type": "string"
-            },
-            "value": {
-              "title": "The value that is unique",
-              "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
-              "pattern": "[ \\r\\n\\t\\S]+",
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
         "reference": {
-          "title": "Literal reference, Relative, internal or absolute URL",
+          "title": "Literal reference(Ex: ResourceType/1, ResourceType/2, etc.)",
           "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
           "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type the reference refers to (e.g. \"Patient\")",
-          "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
-          "pattern": "\\S*",
           "type": "string"
         }
       },
@@ -764,5 +850,8 @@
       },
       "additionalProperties": false
     }
-  }
+  },
+  "required": [
+    "Practitioner.name"
+  ]
 }

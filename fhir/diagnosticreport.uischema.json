@@ -1,0 +1,284 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/DiagnosticReport.id"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Result Status and Conclusion",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "Status",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.status"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Conclusion",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.conclusion"
+                    }
+                  ]
+                },
+                {
+                  "type": "Group",
+                  "label": "Issued",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.issued"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "Group",
+                  "label": "EffectiveDateTime",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/DiagnosticReport.effectiveDateTime"
+                    }
+                  ]
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/DiagnosticReport.effectivePeriod"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "subject",
+          "elements": [
+            {
+              "label": "The subject of the report",
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.subject"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "performer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.performer"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "result",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Result",
+              "scope": "#/properties/DiagnosticReport.result"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "resultsInterpreter",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.resultsInterpreter"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "presentedForm",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.presentedForm"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "conclusionCode",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "ConclusionCode",
+              "scope": "#/properties/DiagnosticReport.conclusionCode"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "basedOn",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.basedOn"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "category",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.category"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "code",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Name/Code for this diagnostic report",
+              "scope": "#/properties/DiagnosticReport.code"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "encounter",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.encounter"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "imagingStudy",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.imagingStudy"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "media",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.media"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "specimen",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.specimen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "fhir_comments",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.fhir_comments"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "label": "Text summary of the resource, for human interpretation",
+              "type": "Control",
+              "scope": "#/properties/DiagnosticReport.text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

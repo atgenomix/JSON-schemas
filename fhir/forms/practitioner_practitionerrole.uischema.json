@@ -1,0 +1,93 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.id"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.active"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Name",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Practitioner.name"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Organization",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/PractitionerRole.organization"
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "birthDate",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.birthDate"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "gender",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.gender"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "telecom",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.telecom"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "address",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.address"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "photo",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Practitioner.photo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

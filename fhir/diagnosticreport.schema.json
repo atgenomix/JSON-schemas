@@ -1,41 +1,36 @@
 {
-  "title": "Practitioner",
-  "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA person with a  formal responsibility in the provisioning of healthcare or\nrelated services.\nA person who is directly or indirectly involved in the provisioning of\nhealthcare.",
+  "title": "DiagnosticReport",
+  "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA Diagnostic report - a combination of request information, atomic results,\nimages, interpretation, as well as formatted reports.\nThe findings and interpretation of diagnostic  tests performed on patients,\ngroups of patients, devices, and locations, and/or specimens derived from\nthese. The report includes clinical context such as requesting and provider\ninformation, and some mix of atomic results, images, textual and coded\ninterpretations, and formatted representation of diagnostic reports.",
   "type": "object",
   "properties": {
-    "id": {
-      "title": "Id",
-      "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "minLength": 1,
-      "maxLength": 64,
-      "pattern": "^[A-Za-z0-9\\-.]+$",
-      "type": "string"
-    },
-    "fhir_comments": {
+    "DiagnosticReport.fhir_comments": {
       "title": "Fhir Comments",
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "implicitRules": {
+    "DiagnosticReport.id": {
+      "title": "Logical id of this artifact",
+      "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9\\-.]+$",
+      "type": "string"
+    },
+    "DiagnosticReport.implicitRules": {
       "title": "A set of rules under which this content was created",
       "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
       "pattern": "\\S*",
       "type": "string"
     },
-    "language": {
+    "DiagnosticReport.language": {
       "title": "Language of the resource content",
       "description": "The base language in which the resource is written.",
       "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string"
     },
-    "text": {
-      "title": "Text summary of the resource, for human interpretation",
-      "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
-      "$ref": "#/definitions/Narrative"
-    },
-    "contained": {
+    "DiagnosticReport.contained": {
       "title": "Contained, inline Resources",
       "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
       "type": "array",
@@ -43,82 +38,212 @@
         "$ref": "#/definitions/Resource"
       }
     },
-    "identifier": {
-      "title": "An identifier for the person as this agent",
-      "description": "An identifier that applies to this person in this role.",
+    "DiagnosticReport.text": {
+      "title": "Text summary of the resource, for human interpretation",
+      "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+      "$ref": "#/definitions/Narrative"
+    },
+    "DiagnosticReport.basedOn": {
+      "title": "Details concerning a service requested",
+      "description": "Details concerning a service requested.",
+      "enum_reference_types": [
+        "CarePlan",
+        "ImmunizationRecommendation",
+        "MedicationRequest",
+        "NutritionOrder",
+        "ServiceRequest"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "DiagnosticReport.category": {
+      "title": "Service category",
+      "description": "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CodeableConcept"
+      }
+    },
+    "DiagnosticReport.code": {
+      "title": "Name/Code for this diagnostic report",
+      "description": "A code or name that describes this diagnostic report.",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DiagnosticReport.conclusion": {
+      "title": "Clinical conclusion (interpretation) of test results",
+      "description": "Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "type": "string"
+    },
+    "DiagnosticReport.conclusionCode": {
+      "title": "Codes for the clinical conclusion of test results",
+      "description": "One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CodeableConcept"
+      }
+    },
+    "DiagnosticReport.effectiveDateTime": {
+      "title": "Clinically relevant time/time-period for report",
+      "description": "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
+      "one_of_many": "effective",
+      "one_of_many_required": false,
+      "type": "string",
+      "format": "date-time"
+    },
+    "DiagnosticReport.effectivePeriod": {
+      "title": "Clinically relevant time/time-period for report",
+      "description": "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
+      "one_of_many": "effective",
+      "one_of_many_required": false,
+      "$ref": "#/definitions/Period"
+    },
+    "DiagnosticReport.encounter": {
+      "title": "Health care event when test ordered",
+      "description": "The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.",
+      "enum_reference_types": [
+        "Encounter"
+      ],
+      "$ref": "#/definitions/Reference"
+    },
+    "DiagnosticReport.identifier": {
+      "title": "Business identifier for report",
+      "description": "Identifiers assigned to this report by the performer or other systems.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Identifier"
       }
     },
-    "active": {
-      "title": "Whether this practitioner's record is in active use",
-      "type": "boolean"
-    },
-    "name": {
-      "title": "The name(s) associated with the practitioner",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/HumanName"
-      }
-    },
-    "telecom": {
-      "title": "A contact detail for the practitioner (that apply to all roles)",
-      "description": "A contact detail for the practitioner, e.g. a telephone number or an email address.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ContactPoint"
-      }
-    },
-    "address": {
-      "title": "Address(es) of the practitioner that are not role specific (typically home address)",
-      "description": "Address(es) of the practitioner that are not role specific (typically home address).  Work addresses are not typically entered in this property as they are usually role dependent.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Address"
-      }
-    },
-    "gender": {
-      "title": "male | female | other | unknown",
-      "description": "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.",
-      "enum": [
-        "male",
-        "female",
-        "other",
-        "unknown"
+    "DiagnosticReport.imagingStudy": {
+      "title": "Reference to full details of imaging associated with the diagnostic report",
+      "description": "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.",
+      "enum_reference_types": [
+        "ImagingStudy"
       ],
-      "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-      "type": "string"
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
     },
-    "birthDate": {
-      "title": "The date  on which the practitioner was born",
-      "description": "The date of birth for the practitioner.",
+    "DiagnosticReport.issued": {
+      "title": "DateTime this version was made",
+      "description": "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.",
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
-    "photo": {
-      "title": "Image of the person",
+    "DiagnosticReport.media": {
+      "title": "Key images associated with this report",
+      "description": "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/DiagnosticReportMedia"
+      }
+    },
+    "DiagnosticReport.performer": {
+      "title": "Responsible Diagnostic Service",
+      "description": "The diagnostic service that is responsible for issuing the report.",
+      "enum_reference_types": [
+        "Practitioner",
+        "PractitionerRole",
+        "Organization",
+        "CareTeam"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "DiagnosticReport.presentedForm": {
+      "title": "Entire report as issued",
+      "description": "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Attachment"
       }
     },
-    "qualification": {
-      "title": "Certification, licenses, or training pertaining to the provision of care",
-      "description": "The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.",
+    "DiagnosticReport.result": {
+      "title": "Observations",
+      "description": "[Observations](observation.html)  that are part of this diagnostic report.",
+      "enum_reference_types": [
+        "Observation"
+      ],
       "type": "array",
       "items": {
-        "$ref": "#/definitions/PractitionerQualification"
+        "$ref": "#/definitions/Reference"
       }
     },
-    "communication": {
-      "title": "A language the practitioner can use in patient communication",
+    "DiagnosticReport.resultsInterpreter": {
+      "title": "Primary result interpreter",
+      "description": "The practitioner or organization that is responsible for the report's conclusions and interpretations.",
+      "enum_reference_types": [
+        "Practitioner",
+        "PractitionerRole",
+        "Organization",
+        "CareTeam"
+      ],
       "type": "array",
       "items": {
-        "$ref": "#/definitions/CodeableConcept"
+        "$ref": "#/definitions/Reference"
       }
+    },
+    "DiagnosticReport.specimen": {
+      "title": "Specimens this report is based on",
+      "description": "Details about the specimens on which this diagnostic report is based.",
+      "enum_reference_types": [
+        "Specimen"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "DiagnosticReport.status": {
+      "title": "registered | partial | preliminary | final +",
+      "description": "The status of the diagnostic report.",
+      "element_required": true,
+      "enum": [
+        "registered",
+        "partial",
+        "preliminary",
+        "final",
+        "+"
+      ],
+      "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+      "type": "string"
+    },
+    "DiagnosticReport.subject": {
+      "title": "The subject of the report - usually, but not always, the patient",
+      "description": "The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.",
+      "enum_reference_types": [
+        "Patient",
+        "Group",
+        "Device",
+        "Location"
+      ],
+      "$ref": "#/definitions/Reference"
     }
   },
+  "required": [
+    "code"
+  ],
   "additionalProperties": false,
   "definitions": {
     "Narrative": {
@@ -419,6 +544,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "resourceType",
+        "id"
+      ],
       "additionalProperties": {
         "type": "object"
       }
@@ -777,6 +906,12 @@
           "pattern": "[ \\r\\n\\t\\S]+",
           "type": "string"
         },
+        "reference": {
+          "title": "Literal reference, Relative, internal or absolute URL",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
         "identifier": {
           "title": "Logical reference, when literal reference is not known",
           "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
@@ -849,12 +984,6 @@
           },
           "additionalProperties": false
         },
-        "reference": {
-          "title": "Literal reference, Relative, internal or absolute URL",
-          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
         "type": {
           "title": "Type the reference refers to (e.g. \"Patient\")",
           "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
@@ -862,6 +991,36 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "DiagnosticReportMedia": {
+      "title": "DiagnosticReportMedia",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nKey images associated with this report.\nA list of key images associated with this report. The images are generally\ncreated during the diagnostic process, and may be directly of the patient,\nor of treated specimens (i.e. slides of interest).",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Unique id for inter-element referencing",
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "comment": {
+          "title": "Comment about the image (e.g. explanation)",
+          "description": "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "link": {
+          "title": "Reference to the image source",
+          "enum_reference_types": [
+            "Media"
+          ],
+          "$ref": "#/definitions/Reference"
+        }
+      },
+      "required": [
+        "link"
+      ],
       "additionalProperties": false
     }
   }
