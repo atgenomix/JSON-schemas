@@ -5,9 +5,7 @@
   "properties": {
     "Observation": {
       "anyOf": [
-        {
-          "properties": {
-            "0": {
+       {
               "title": "value",
               "oneOf": [
                 {
@@ -168,21 +166,17 @@
                   }
                 }
               ]
-            }
-          }
-        },
+       },
         {
-          "properties": {
-            "1": {
-              "title": "effective",
-              "oneOf": [
-                {
-                  "type": "object",
-                  "title": "DateTime",
-                  "properties": {
-                    "effectiveDateTime": {
-                      "title": "Clinically relevant time/time-period for observation",
-                      "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+          "title": "effective",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "DateTime",
+              "properties": {
+                "effectiveDateTime": {
+                  "title": "Clinically relevant time/time-period for observation",
+                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
                       "element_property": true,
                       "one_of_many": "effective",
                       "one_of_many_required": false,
@@ -235,8 +229,6 @@
                   }
                 }
               ]
-            }
-          }
         }
       ]
     },
