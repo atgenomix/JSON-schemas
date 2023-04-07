@@ -15,12 +15,21 @@
       "elements": [
         {
           "type": "Category",
-          "label": "Observation",
+          "label": "Value",
           "elements": [
             {
               "type": "Control",
-              "label": "Observation",
-              "scope": "#/properties/Observation"
+              "scope": "#/properties/Observation/properties/0"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Effective",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Observation/properties/1"
             }
           ]
         },

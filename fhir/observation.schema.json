@@ -6,229 +6,237 @@
     "Observation": {
       "anyOf": [
         {
-          "title": "value",
-          "oneOf": [
-            {
-              "type": "object",
-              "title": "valueBoolean",
-              "properties": {
-                "valueBoolean": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "type": "boolean"
+          "properties": {
+            "0": {
+              "title": "value",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Boolean",
+                  "properties": {
+                    "valueBoolean": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "type": "boolean"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "CodeableConcept",
+                  "properties": {
+                    "valueCodeableConcept": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "DateTime",
+                  "properties": {
+                    "valueDateTime": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Integer",
+                  "properties": {
+                    "valueInteger": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "type": "integer"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Period",
+                  "properties": {
+                    "valuePeriod": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Period"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Quantity",
+                  "properties": {
+                    "valueQuantity": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Quantity"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Range",
+                  "properties": {
+                    "valueRange": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Range"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Ratio",
+                  "properties": {
+                    "valueRatio": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Ratio"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "SampledData",
+                  "properties": {
+                    "valueSampledData": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/SampledData"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "String",
+                  "properties": {
+                    "valueString": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Time",
+                  "properties": {
+                    "valueTime": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "type": "string",
+                      "format": "time"
+                    }
+                  }
                 }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueCodeableConcept",
-              "properties": {
-                "valueCodeableConcept": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueDateTime",
-              "properties": {
-                "valueDateTime": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueInteger",
-              "properties": {
-                "valueInteger": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "type": "integer"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valuePeriod",
-              "properties": {
-                "valuePeriod": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Period"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueQuantity",
-              "properties": {
-                "valueQuantity": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Quantity"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueRange",
-              "properties": {
-                "valueRange": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Range"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueRatio",
-              "properties": {
-                "valueRatio": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Ratio"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueSampledData",
-              "properties": {
-                "valueSampledData": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/SampledData"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueString",
-              "properties": {
-                "valueString": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "pattern": "[ \\r\\n\\t\\S]+",
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "valueTime",
-              "properties": {
-                "valueTime": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "type": "string",
-                  "format": "time"
-                }
-              }
+              ]
             }
-          ]
+          }
         },
         {
-          "title": "effective",
-          "oneOf": [
-            {
-              "type": "object",
-              "title": "effectiveDateTime",
-              "properties": {
-                "effectiveDateTime": {
-                  "title": "Clinically relevant time/time-period for observation",
-                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
-                  "element_property": true,
-                  "one_of_many": "effective",
-                  "one_of_many_required": false,
-                  "type": "string",
-                  "format": "date-time"
+          "properties": {
+            "1": {
+              "title": "effective",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "DateTime",
+                  "properties": {
+                    "effectiveDateTime": {
+                      "title": "Clinically relevant time/time-period for observation",
+                      "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                      "element_property": true,
+                      "one_of_many": "effective",
+                      "one_of_many_required": false,
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Instant",
+                  "properties": {
+                    "effectiveInstant": {
+                      "title": "Clinically relevant time/time-period for observation",
+                      "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                      "element_property": true,
+                      "one_of_many": "effective",
+                      "one_of_many_required": false,
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Period",
+                  "properties": {
+                    "effectivePeriod": {
+                      "title": "Clinically relevant time/time-period for observation",
+                      "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                      "element_property": true,
+                      "one_of_many": "effective",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Period"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Timing",
+                  "properties": {
+                    "effectiveTiming": {
+                      "title": "Clinically relevant time/time-period for observation",
+                      "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                      "element_property": true,
+                      "one_of_many": "effective",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Timing"
+                    }
+                  }
                 }
-              }
-            },
-            {
-              "type": "object",
-              "title": "effectiveInstant",
-              "properties": {
-                "effectiveInstant": {
-                  "title": "Clinically relevant time/time-period for observation",
-                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
-                  "element_property": true,
-                  "one_of_many": "effective",
-                  "one_of_many_required": false,
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "effectivePeriod",
-              "properties": {
-                "effectivePeriod": {
-                  "title": "Clinically relevant time/time-period for observation",
-                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
-                  "element_property": true,
-                  "one_of_many": "effective",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Period"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "effectiveTiming",
-              "properties": {
-                "effectiveTiming": {
-                  "title": "Clinically relevant time/time-period for observation",
-                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
-                  "element_property": true,
-                  "one_of_many": "effective",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Timing"
-                }
-              }
+              ]
             }
-          ]
+          }
         }
       ]
     },
@@ -375,7 +383,6 @@
       ],
       "$ref": "#/definitions/Reference"
     },
-
     "Observation.encounter": {
       "title": "Healthcare event during which this observation is made",
       "description": "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.",
@@ -622,7 +629,7 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "valueBoolean",
+          "title": "Boolean",
           "properties": {
             "valueBoolean": {
               "title": "Actual component result",
@@ -636,7 +643,7 @@
         },
         {
           "type": "object",
-          "title": "valueCodeableConcept",
+          "title": "CodeableConcept",
           "properties": {
             "valueCodeableConcept": {
               "title": "Actual component result",
@@ -650,7 +657,7 @@
         },
         {
           "type": "object",
-          "title": "valueDateTime",
+          "title": "DateTime",
           "properties": {
             "valueDateTime": {
               "title": "Actual component result",
@@ -665,7 +672,7 @@
         },
         {
           "type": "object",
-          "title": "valueInteger",
+          "title": "Integer",
           "properties": {
             "valueInteger": {
               "title": "Actual component result",
@@ -679,7 +686,7 @@
         },
         {
           "type": "object",
-          "title": "valuePeriod",
+          "title": "Period",
           "properties": {
             "valuePeriod": {
               "title": "Actual component result",
@@ -693,7 +700,7 @@
         },
         {
           "type": "object",
-          "title": "valueQuantity",
+          "title": "Quantity",
           "properties": {
             "valueQuantity": {
               "title": "Actual component result",
@@ -707,7 +714,7 @@
         },
         {
           "type": "object",
-          "title": "valueRange",
+          "title": "Range",
           "properties": {
             "valueRange": {
               "title": "Actual component result",
@@ -721,7 +728,7 @@
         },
         {
           "type": "object",
-          "title": "valueRatio",
+          "title": "Ratio",
           "properties": {
             "valueRatio": {
               "title": "Actual component result",
@@ -735,7 +742,7 @@
         },
         {
           "type": "object",
-          "title": "valueSampledData",
+          "title": "SampledData",
           "properties": {
             "valueSampledData": {
               "title": "Actual component result",
@@ -749,7 +756,7 @@
         },
         {
           "type": "object",
-          "title": "valueString",
+          "title": "String",
           "properties": {
             "valueString": {
               "title": "Actual component result",
@@ -764,6 +771,7 @@
         },
         {
           "type": "object",
+          "title": "Time",
           "properties": {
             "valueTime": {
               "title": "Actual component result",
