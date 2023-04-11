@@ -1527,7 +1527,7 @@
           "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string",
-          "default": "62374-4"
+          "const": "62374-4"
         },
         "display": {
           "title": "Representation defined by the system",
