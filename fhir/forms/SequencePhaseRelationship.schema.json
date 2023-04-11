@@ -1,5 +1,5 @@
 {
-  "title": "Observation",
+  "title": "SequencePhaseRelationship",
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\\nResource StructureDefinition, instead used to enable Extensibility feature\\nfor FHIR Primitive Data Types.\\n\\nMeasurements and simple assertions.\\nMeasurements and simple assertions made about a patient, device or other\\nsubject.",
   "type": "object",
   "properties": {
@@ -346,12 +346,12 @@
           {
             "title": "Variant",
             "type": "object",
-            "$ref": "#/definitions/Reference"
+            "$ref": "#/definitions/derivedFromReference"
           },
           {
             "title": "Haplotype",
             "type": "object",
-            "$ref": "#/definitions/Reference"
+            "$ref": "#/definitions/derivedFromReference"
           }
         ]
       }
@@ -522,6 +522,20 @@
     }
   },
   "definitions": {
+    "derivedFromReference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "reference": {
+          "title": "Literal reference(Ex: Observation/1, Observation/2, etc.)",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "BodyStructureReference": {
       "title": "Reference",
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",

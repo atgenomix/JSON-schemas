@@ -1,5 +1,5 @@
 {
-  "title": "Observation",
+  "title": "Variant",
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\\nResource StructureDefinition, instead used to enable Extensibility feature\\nfor FHIR Primitive Data Types.\\n\\nMeasurements and simple assertions.\\nMeasurements and simple assertions made about a patient, device or other\\nsubject.",
   "type": "object",
   "properties": {
@@ -685,7 +685,7 @@
       ],
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Reference"
+        "$ref": "#/definitions/derivedFromReference"
       }
     },
     "Observation.device": {
@@ -868,6 +868,20 @@
       },
       "additionalProperties": false
     },
+    "derivedFromReference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "reference": {
+          "title": "Literal reference(Ex: Observation/1, Observation/2, etc.)",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "ObservationReferenceRange": {
       "title": "ObservationReferenceRange",
       "description": "Disclaimer: Any field name ends with ``__ext`` does\\'t part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nProvides guide for interpretation.\nGuidance on how to interpret the value by comparison to a normal or\nrecommended range.  Multiple reference ranges are interpreted as an \"OR\".\nIn other words, to represent two distinct target populations, two\n`referenceRange` elements would be used.",
@@ -1019,530 +1033,554 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "Cytogenetic (Chromosome) Location",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Human Reference Sequence Assembly",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Genomic Reference Sequence",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/GenomicRefSeqObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Reference Transcript",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/TranscriptRefSeqObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Exact Start-End",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/ExactStartEndObservationComponentCodeableConceptCoding"
-                },
-                "valueRange": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
+              "title": "1",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Cytogenetic (Chromosome) Location",
                   "properties": {
-                    "high": {
-                      "title": "High limit",
-                      "description": "The high limit. The boundary is inclusive.",
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
                       "element_property": true,
+                      "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Human Reference Sequence Assembly",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "title": "2",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Genomic Reference Sequence",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/GenomicRefSeqObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Reference Transcript",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/TranscriptRefSeqObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Exact Start-End",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/ExactStartEndObservationComponentCodeableConceptCoding"
+                    },
+                    "valueRange": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
                       "properties": {
-                        "code": {
-                          "title": "Coded form of the unit",
-                          "description": "A computer processable form of the unit in some unit representation system.",
+                        "high": {
+                          "title": "High limit",
+                          "description": "The high limit. The boundary is inclusive.",
                           "element_property": true,
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
+                          "properties": {
+                            "code": {
+                              "title": "Coded form of the unit",
+                              "description": "A computer processable form of the unit in some unit representation system.",
+                              "element_property": true,
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "comparator": {
+                              "title": "< | <= | >= | > - how to understand the value",
+                              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                              "element_property": true,
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "system": {
+                              "title": "System that defines coded unit form",
+                              "description": "The identification of the system that provides the coded form of the unit.",
+                              "element_property": true,
+                              "pattern": "\\S*",
+                              "type": "string"
+                            },
+                            "unit": {
+                              "title": "Unit representation",
+                              "description": "A human-readable form of the unit.",
+                              "element_property": true,
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "type": "string"
+                            },
+                            "value": {
+                              "title": "Numerical value (with implicit precision)",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                              "element_property": true,
+                              "type": "number"
+                            }
+                          }
                         },
-                        "comparator": {
-                          "title": "< | <= | >= | > - how to understand the value",
-                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                        "low": {
+                          "title": "Low limit",
+                          "description": "The low limit. The boundary is inclusive.",
                           "element_property": true,
-                          "enum": [
-                            "<",
-                            "<=",
-                            ">=",
-                            ">"
-                          ],
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "system": {
-                          "title": "System that defines coded unit form",
-                          "description": "The identification of the system that provides the coded form of the unit.",
-                          "element_property": true,
-                          "pattern": "\\S*",
-                          "type": "string"
-                        },
-                        "unit": {
-                          "title": "Unit representation",
-                          "description": "A human-readable form of the unit.",
-                          "element_property": true,
-                          "pattern": "[ \\r\\n\\t\\S]+",
-                          "type": "string"
-                        },
-                        "value": {
-                          "title": "Numerical value (with implicit precision)",
-                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
-                          "element_property": true,
-                          "type": "number"
+                          "properties": {
+                            "code": {
+                              "title": "Coded form of the unit",
+                              "description": "A computer processable form of the unit in some unit representation system.",
+                              "element_property": true,
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "comparator": {
+                              "title": "< | <= | >= | > - how to understand the value",
+                              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                              "element_property": true,
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "system": {
+                              "title": "System that defines coded unit form",
+                              "description": "The identification of the system that provides the coded form of the unit.",
+                              "element_property": true,
+                              "pattern": "\\S*",
+                              "type": "string"
+                            },
+                            "unit": {
+                              "title": "Unit representation",
+                              "description": "A human-readable form of the unit.",
+                              "element_property": true,
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "type": "string"
+                            },
+                            "value": {
+                              "title": "Numerical value (with implicit precision)",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                              "element_property": true,
+                              "type": "number"
+                            }
+                          }
                         }
                       }
-                    },
-                    "low": {
-                      "title": "Low limit",
-                      "description": "The low limit. The boundary is inclusive.",
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Inner Start-End",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
                       "element_property": true,
+                      "$ref": "#/definitions/InnerStartEndObservationComponentCodeableConceptCoding"
+                    },
+                    "valueRange": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
                       "properties": {
-                        "code": {
-                          "title": "Coded form of the unit",
-                          "description": "A computer processable form of the unit in some unit representation system.",
+                        "high": {
+                          "title": "High limit",
+                          "description": "The high limit. The boundary is inclusive.",
                           "element_property": true,
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
+                          "properties": {
+                            "code": {
+                              "title": "Coded form of the unit",
+                              "description": "A computer processable form of the unit in some unit representation system.",
+                              "element_property": true,
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "comparator": {
+                              "title": "< | <= | >= | > - how to understand the value",
+                              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                              "element_property": true,
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "system": {
+                              "title": "System that defines coded unit form",
+                              "description": "The identification of the system that provides the coded form of the unit.",
+                              "element_property": true,
+                              "pattern": "\\S*",
+                              "type": "string"
+                            },
+                            "unit": {
+                              "title": "Unit representation",
+                              "description": "A human-readable form of the unit.",
+                              "element_property": true,
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "type": "string"
+                            },
+                            "value": {
+                              "title": "Numerical value (with implicit precision)",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                              "element_property": true,
+                              "type": "number"
+                            }
+                          }
                         },
-                        "comparator": {
-                          "title": "< | <= | >= | > - how to understand the value",
-                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                        "low": {
+                          "title": "Low limit",
+                          "description": "The low limit. The boundary is inclusive.",
                           "element_property": true,
-                          "enum": [
-                            "<",
-                            "<=",
-                            ">=",
-                            ">"
-                          ],
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "system": {
-                          "title": "System that defines coded unit form",
-                          "description": "The identification of the system that provides the coded form of the unit.",
-                          "element_property": true,
-                          "pattern": "\\S*",
-                          "type": "string"
-                        },
-                        "unit": {
-                          "title": "Unit representation",
-                          "description": "A human-readable form of the unit.",
-                          "element_property": true,
-                          "pattern": "[ \\r\\n\\t\\S]+",
-                          "type": "string"
-                        },
-                        "value": {
-                          "title": "Numerical value (with implicit precision)",
-                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
-                          "element_property": true,
-                          "type": "number"
+                          "properties": {
+                            "code": {
+                              "title": "Coded form of the unit",
+                              "description": "A computer processable form of the unit in some unit representation system.",
+                              "element_property": true,
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "comparator": {
+                              "title": "< | <= | >= | > - how to understand the value",
+                              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                              "element_property": true,
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "system": {
+                              "title": "System that defines coded unit form",
+                              "description": "The identification of the system that provides the coded form of the unit.",
+                              "element_property": true,
+                              "pattern": "\\S*",
+                              "type": "string"
+                            },
+                            "unit": {
+                              "title": "Unit representation",
+                              "description": "A human-readable form of the unit.",
+                              "element_property": true,
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "type": "string"
+                            },
+                            "value": {
+                              "title": "Numerical value (with implicit precision)",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                              "element_property": true,
+                              "type": "number"
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
-              }
+              ]
             },
             {
               "type": "object",
-              "title": "Inner Start-End",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/InnerStartEndObservationComponentCodeableConceptCoding"
-                },
-                "valueRange": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
+              "title": "3",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Outer Start-End",
                   "properties": {
-                    "high": {
-                      "title": "High limit",
-                      "description": "The high limit. The boundary is inclusive.",
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
                       "element_property": true,
-                      "properties": {
-                        "code": {
-                          "title": "Coded form of the unit",
-                          "description": "A computer processable form of the unit in some unit representation system.",
-                          "element_property": true,
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "comparator": {
-                          "title": "< | <= | >= | > - how to understand the value",
-                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
-                          "element_property": true,
-                          "enum": [
-                            "<",
-                            "<=",
-                            ">=",
-                            ">"
-                          ],
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "system": {
-                          "title": "System that defines coded unit form",
-                          "description": "The identification of the system that provides the coded form of the unit.",
-                          "element_property": true,
-                          "pattern": "\\S*",
-                          "type": "string"
-                        },
-                        "unit": {
-                          "title": "Unit representation",
-                          "description": "A human-readable form of the unit.",
-                          "element_property": true,
-                          "pattern": "[ \\r\\n\\t\\S]+",
-                          "type": "string"
-                        },
-                        "value": {
-                          "title": "Numerical value (with implicit precision)",
-                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
-                          "element_property": true,
-                          "type": "number"
-                        }
-                      }
+                      "$ref": "#/definitions/OuterStartEndObservationComponentCodeableConceptCoding"
                     },
-                    "low": {
-                      "title": "Low limit",
-                      "description": "The low limit. The boundary is inclusive.",
+                    "valueRange": {
+                      "title": "Actual result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
                       "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
                       "properties": {
-                        "code": {
-                          "title": "Coded form of the unit",
-                          "description": "A computer processable form of the unit in some unit representation system.",
+                        "high": {
+                          "title": "High limit",
+                          "description": "The high limit. The boundary is inclusive.",
                           "element_property": true,
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
+                          "properties": {
+                            "code": {
+                              "title": "Coded form of the unit",
+                              "description": "A computer processable form of the unit in some unit representation system.",
+                              "element_property": true,
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "comparator": {
+                              "title": "< | <= | >= | > - how to understand the value",
+                              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                              "element_property": true,
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "system": {
+                              "title": "System that defines coded unit form",
+                              "description": "The identification of the system that provides the coded form of the unit.",
+                              "element_property": true,
+                              "pattern": "\\S*",
+                              "type": "string"
+                            },
+                            "unit": {
+                              "title": "Unit representation",
+                              "description": "A human-readable form of the unit.",
+                              "element_property": true,
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "type": "string"
+                            },
+                            "value": {
+                              "title": "Numerical value (with implicit precision)",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                              "element_property": true,
+                              "type": "number"
+                            }
+                          }
                         },
-                        "comparator": {
-                          "title": "< | <= | >= | > - how to understand the value",
-                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                        "low": {
+                          "title": "Low limit",
+                          "description": "The low limit. The boundary is inclusive.",
                           "element_property": true,
-                          "enum": [
-                            "<",
-                            "<=",
-                            ">=",
-                            ">"
-                          ],
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "system": {
-                          "title": "System that defines coded unit form",
-                          "description": "The identification of the system that provides the coded form of the unit.",
-                          "element_property": true,
-                          "pattern": "\\S*",
-                          "type": "string"
-                        },
-                        "unit": {
-                          "title": "Unit representation",
-                          "description": "A human-readable form of the unit.",
-                          "element_property": true,
-                          "pattern": "[ \\r\\n\\t\\S]+",
-                          "type": "string"
-                        },
-                        "value": {
-                          "title": "Numerical value (with implicit precision)",
-                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
-                          "element_property": true,
-                          "type": "number"
+                          "properties": {
+                            "code": {
+                              "title": "Coded form of the unit",
+                              "description": "A computer processable form of the unit in some unit representation system.",
+                              "element_property": true,
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "comparator": {
+                              "title": "< | <= | >= | > - how to understand the value",
+                              "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                              "element_property": true,
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                              "type": "string"
+                            },
+                            "system": {
+                              "title": "System that defines coded unit form",
+                              "description": "The identification of the system that provides the coded form of the unit.",
+                              "element_property": true,
+                              "pattern": "\\S*",
+                              "type": "string"
+                            },
+                            "unit": {
+                              "title": "Unit representation",
+                              "description": "A human-readable form of the unit.",
+                              "element_property": true,
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "type": "string"
+                            },
+                            "value": {
+                              "title": "Numerical value (with implicit precision)",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                              "element_property": true,
+                              "type": "number"
+                            }
+                          }
                         }
                       }
                     }
                   }
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Outer Start-End",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/OuterStartEndObservationComponentCodeableConceptCoding"
                 },
-                "valueRange": {
-                  "title": "Actual result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
+                {
+                  "type": "object",
+                  "title": "Coordinate System",
                   "properties": {
-                    "high": {
-                      "title": "High limit",
-                      "description": "The high limit. The boundary is inclusive.",
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
                       "element_property": true,
-                      "properties": {
-                        "code": {
-                          "title": "Coded form of the unit",
-                          "description": "A computer processable form of the unit in some unit representation system.",
-                          "element_property": true,
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "comparator": {
-                          "title": "< | <= | >= | > - how to understand the value",
-                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
-                          "element_property": true,
-                          "enum": [
-                            "<",
-                            "<=",
-                            ">=",
-                            ">"
-                          ],
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "system": {
-                          "title": "System that defines coded unit form",
-                          "description": "The identification of the system that provides the coded form of the unit.",
-                          "element_property": true,
-                          "pattern": "\\S*",
-                          "type": "string"
-                        },
-                        "unit": {
-                          "title": "Unit representation",
-                          "description": "A human-readable form of the unit.",
-                          "element_property": true,
-                          "pattern": "[ \\r\\n\\t\\S]+",
-                          "type": "string"
-                        },
-                        "value": {
-                          "title": "Numerical value (with implicit precision)",
-                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
-                          "element_property": true,
-                          "type": "number"
-                        }
-                      }
+                      "$ref": "#/definitions/CoordinateSystemObservationComponentCodeableConceptCoding"
                     },
-                    "low": {
-                      "title": "Low limit",
-                      "description": "The low limit. The boundary is inclusive.",
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
                       "element_property": true,
-                      "properties": {
-                        "code": {
-                          "title": "Coded form of the unit",
-                          "description": "A computer processable form of the unit in some unit representation system.",
-                          "element_property": true,
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "comparator": {
-                          "title": "< | <= | >= | > - how to understand the value",
-                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
-                          "element_property": true,
-                          "enum": [
-                            "<",
-                            "<=",
-                            ">=",
-                            ">"
-                          ],
-                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-                          "type": "string"
-                        },
-                        "system": {
-                          "title": "System that defines coded unit form",
-                          "description": "The identification of the system that provides the coded form of the unit.",
-                          "element_property": true,
-                          "pattern": "\\S*",
-                          "type": "string"
-                        },
-                        "unit": {
-                          "title": "Unit representation",
-                          "description": "A human-readable form of the unit.",
-                          "element_property": true,
-                          "pattern": "[ \\r\\n\\t\\S]+",
-                          "type": "string"
-                        },
-                        "value": {
-                          "title": "Numerical value (with implicit precision)",
-                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
-                          "element_property": true,
-                          "type": "number"
-                        }
-                      }
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Genomic Ref Allele",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/RefAlleleObservationComponentCodeableConceptCoding"
+                    },
+                    "valueString": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "type": "string"
                     }
                   }
                 }
-              }
+              ]
             },
             {
               "type": "object",
-              "title": "Coordinate System",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/CoordinateSystemObservationComponentCodeableConceptCoding"
+              "title": "4",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Genomic Alt Allele",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/AltAlleleObservationComponentCodeableConceptCoding"
+                    },
+                    "valueString": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "type": "string"
+                    }
+                  }
                 },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Genomic Ref Allele",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/RefAlleleObservationComponentCodeableConceptCoding"
+                {
+                  "type": "object",
+                  "title": "Chromosome Identifier",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/ChromosomeIdentifierObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueString": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "pattern": "[ \\r\\n\\t\\S]+",
-                  "type": "string"
+                {
+                  "type": "object",
+                  "title": "Genomic Structural Variant Copy Number",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/CopyNumberObservationComponentCodeableConceptCoding"
+                    },
+                    "valueQuantity": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Quantity"
+                    }
+                  }
                 }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Genomic Alt Allele",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/AltAlleleObservationComponentCodeableConceptCoding"
-                },
-                "valueString": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "pattern": "[ \\r\\n\\t\\S]+",
-                  "type": "string"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Chromosome Identifier",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/ChromosomeIdentifierObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Genomic Structural Variant Copy Number",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/CopyNumberObservationComponentCodeableConceptCoding"
-                },
-                "valueQuantity": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Quantity"
-                }
-              }
+              ]
             }
           ]
         },
@@ -1552,83 +1590,95 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "Coding (cDNA) Change - cHGVS",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/CodingHgvsObservationComponentCodeableConceptCoding"
+              "title": "1",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Coding (cDNA) Change - cHGVS",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/CodingHgvsObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
+                {
+                  "type": "object",
+                  "title": "Genomic (gDNA) Change - gHGVS",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/GenomicHgvsObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 }
-              }
+              ]
             },
             {
               "type": "object",
-              "title": "Genomic (gDNA) Change - gHGVS",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/GenomicHgvsObservationComponentCodeableConceptCoding"
+              "title": "2",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Cytogenomic Nomenclature (ISCN)",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/CytogenomicNomenclatureObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
+                {
+                  "type": "object",
+                  "title": "Protein (Amino Acid) Change - pHGVS",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/ProteinHgvsObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Cytogenomic Nomenclature (ISCN)",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/CytogenomicNomenclatureObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Protein (Amino Acid) Change - pHGVS",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/ProteinHgvsObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
+              ]
             }
           ]
         },
@@ -1638,203 +1688,221 @@
           "oneOf": [
             {
               "type": "object",
-              "title": "Coding DNA Change Type",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/CodingChangeTypeObservationComponentCodeableConceptCoding"
+              "title": "1",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Coding DNA Change Type",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/CodingChangeTypeObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
+                {
+                  "type": "object",
+                  "title": "Genomic Source Class",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/GenomicSourceClassObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Sample Allelic Frequency",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/SampleAllelicFrequencyObservationComponentCodeableConceptCoding"
+                    },
+                    "valueQuantity": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Quantity"
+                    }
+                  }
                 }
-              }
+              ]
             },
             {
               "type": "object",
-              "title": "Genomic Source Class",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/GenomicSourceClassObservationComponentCodeableConceptCoding"
+              "title": "2",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Allelic Read Depth",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/AllelicReadDepthObservationComponentCodeableConceptCoding"
+                    },
+                    "valueQuantity": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/Quantity"
+                    }
+                  }
                 },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
+                {
+                  "type": "object",
+                  "title": "Allelic State",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/AllelicStateObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Variant Inheritance",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/VariantInheritanceObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 }
-              }
+              ]
             },
             {
               "type": "object",
-              "title": "Sample Allelic Frequency",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/SampleAllelicFrequencyObservationComponentCodeableConceptCoding"
+              "title": "3",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Variation Code",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/VariationCodeObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueQuantity": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Quantity"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Allelic Read Depth",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/AllelicReadDepthObservationComponentCodeableConceptCoding"
+                {
+                  "type": "object",
+                  "title": "Amino Acid Change Type",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/AminoAcidChangeTypeObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueQuantity": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/Quantity"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Allelic State",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/AllelicStateObservationComponentCodeableConceptCoding"
+                {
+                  "type": "object",
+                  "title": "Molecular Consequence",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/MolecularConsequenceObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
+                {
+                  "type": "object",
+                  "title": "Variant Confidence Status",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/VariantConfidenceStatusObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Variant Inheritance",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/VariantInheritanceObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Variation Code",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/VariationCodeObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Amino Acid Change Type",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/AminoAcidChangeTypeObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Molecular Consequence",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/MolecularConsequenceObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "title": "Variant Confidence Status",
-              "properties": {
-                "code": {
-                  "title": "Type of component observation (code / type)",
-                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                  "element_property": true,
-                  "$ref": "#/definitions/VariantConfidenceStatusObservationComponentCodeableConceptCoding"
-                },
-                "valueCodeableConcept": {
-                  "title": "Actual component result",
-                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                  "element_property": true,
-                  "one_of_many": "value",
-                  "one_of_many_required": false,
-                  "$ref": "#/definitions/CodeableConcept"
-                }
-              }
+              ]
             }
           ]
         }
