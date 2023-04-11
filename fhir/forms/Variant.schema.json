@@ -3,16 +3,360 @@
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\\nResource StructureDefinition, instead used to enable Extensibility feature\\nfor FHIR Primitive Data Types.\\n\\nMeasurements and simple assertions.\\nMeasurements and simple assertions made about a patient, device or other\\nsubject.",
   "type": "object",
   "properties": {
-    "Observation.valueCodeableConcept": {
-      "title": "Actual result",
-      "description": "The information determined as a result of making the observation, if the information has a simple value.",
-      "element_property": true,
-      "one_of_many": "value",
-      "one_of_many_required": false,
-      "$ref": "#/definitions/CodeableConcept"
-    },
     "Observation": {
       "anyOf": [
+        {
+          "title": "value",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Boolean",
+              "properties": {
+                "valueBoolean": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "CodeableConcept",
+              "properties": {
+                "valueCodeableConcept": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "DateTime",
+              "properties": {
+                "valueDateTime": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Integer",
+              "properties": {
+                "valueInteger": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "type": "integer"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Period",
+              "properties": {
+                "valuePeriod": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Period"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Quantity",
+              "properties": {
+                "valueQuantity": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Quantity"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Range",
+              "properties": {
+                "valueRange": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "properties": {
+                    "high": {
+                      "title": "High limit",
+                      "description": "The high limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "low": {
+                      "title": "Low limit",
+                      "description": "The low limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Ratio",
+              "properties": {
+                "valueRatio": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "properties": {
+                    "denominator": {
+                      "title": "Denominator value",
+                      "description": "The value of the denominator.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "numerator": {
+                      "title": "Numerator value",
+                      "description": "The value of the numerator.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "SampledData",
+              "properties": {
+                "valueSampledData": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/SampledData"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "String",
+              "properties": {
+                "valueString": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Time",
+              "properties": {
+                "valueTime": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "type": "string",
+                  "format": "time"
+                }
+              }
+            }
+          ]
+        },
         {
           "title": "effective",
           "oneOf": [
@@ -341,19 +685,7 @@
       ],
       "type": "array",
       "items": {
-        "type": "object",
-        "oneOf": [
-          {
-            "title": "Variant",
-            "type": "object",
-            "$ref": "#/definitions/Reference"
-          },
-          {
-            "title": "Haplotype",
-            "type": "object",
-            "$ref": "#/definitions/Reference"
-          }
-        ]
+        "$ref": "#/definitions/Reference"
       }
     },
     "Observation.device": {
@@ -584,64 +916,6 @@
       },
       "additionalProperties": false
     },
-    "ConclusionObservationComponent": {
-      "title": "Conclusion-String",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
-      "type": "object",
-      "properties": {
-        "code": {
-          "title": "Type of component observation (code / type)",
-          "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-          "element_property": true,
-          "$ref": "#/definitions/ConclusionObservationComponentCodeableConcept"
-        },
-        "dataAbsentReason": {
-          "title": "Why the component result is missing",
-          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
-          "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "interpretation": {
-          "title": "High, low, normal, etc.",
-          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CodeableConcept"
-          }
-        },
-        "referenceRange": {
-          "title": "Provides guide for interpretation of component result",
-          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ObservationReferenceRange"
-          }
-        }
-      },
-      "required": [
-        "code"
-      ],
-      "oneOf": [
-        {
-          "type": "object",
-          "title": "String",
-          "properties": {
-            "valueString": {
-              "title": "Actual component result",
-              "description": "The information determined as a result of making the observation, if the information has a simple value.",
-              "element_property": true,
-              "one_of_many": "value",
-              "one_of_many_required": false,
-              "pattern": "[ \\r\\n\\t\\S]+",
-              "type": "string"
-            }
-          }
-        }
-      ],
-      "additionalProperties": false
-    },
     "GeneStudiedObservationComponent": {
       "title": "Gene Studied",
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
@@ -707,7 +981,6 @@
       "additionalProperties": false
     },
     "GenomicsFindingObservationComponent": {
-      "title": "Cytogenetic (Chromosome) Location",
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
       "type": "object",
       "properties": {
@@ -734,14 +1007,6 @@
           "items": {
             "$ref": "#/definitions/ObservationReferenceRange"
           }
-        },
-        "valueCodeableConcept": {
-          "title": "Actual component result",
-          "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-          "element_property": true,
-          "one_of_many": "value",
-          "one_of_many_required": false,
-          "$ref": "#/definitions/CodeableConcept"
         }
       },
       "required": [
@@ -750,29 +1015,2373 @@
       "oneOf": [
         {
           "type": "object",
-          "title": "Cytogenetic (Chromosome) Location",
-          "properties": {
-            "code": {
-              "title": "Type of component observation (code / type)",
-              "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-              "element_property": true,
-              "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConcept"
+          "title": "Coordinate",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Cytogenetic (Chromosome) Location",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Human Reference Sequence Assembly",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Genomic Reference Sequence",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/GenomicRefSeqObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Reference Transcript",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/TranscriptRefSeqObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Exact Start-End",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/ExactStartEndObservationComponentCodeableConceptCoding"
+                },
+                "valueRange": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "properties": {
+                    "high": {
+                      "title": "High limit",
+                      "description": "The high limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "low": {
+                      "title": "Low limit",
+                      "description": "The low limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Inner Start-End",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/InnerStartEndObservationComponentCodeableConceptCoding"
+                },
+                "valueRange": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "properties": {
+                    "high": {
+                      "title": "High limit",
+                      "description": "The high limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "low": {
+                      "title": "Low limit",
+                      "description": "The low limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Outer Start-End",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/OuterStartEndObservationComponentCodeableConceptCoding"
+                },
+                "valueRange": {
+                  "title": "Actual result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "properties": {
+                    "high": {
+                      "title": "High limit",
+                      "description": "The high limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "low": {
+                      "title": "Low limit",
+                      "description": "The low limit. The boundary is inclusive.",
+                      "element_property": true,
+                      "properties": {
+                        "code": {
+                          "title": "Coded form of the unit",
+                          "description": "A computer processable form of the unit in some unit representation system.",
+                          "element_property": true,
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "comparator": {
+                          "title": "< | <= | >= | > - how to understand the value",
+                          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                          "element_property": true,
+                          "enum": [
+                            "<",
+                            "<=",
+                            ">=",
+                            ">"
+                          ],
+                          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                          "type": "string"
+                        },
+                        "system": {
+                          "title": "System that defines coded unit form",
+                          "description": "The identification of the system that provides the coded form of the unit.",
+                          "element_property": true,
+                          "pattern": "\\S*",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "title": "Unit representation",
+                          "description": "A human-readable form of the unit.",
+                          "element_property": true,
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "type": "string"
+                        },
+                        "value": {
+                          "title": "Numerical value (with implicit precision)",
+                          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                          "element_property": true,
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Coordinate System",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/CoordinateSystemObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Genomic Ref Allele",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/RefAlleleObservationComponentCodeableConceptCoding"
+                },
+                "valueString": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Genomic Alt Allele",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/AltAlleleObservationComponentCodeableConceptCoding"
+                },
+                "valueString": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Chromosome Identifier",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/ChromosomeIdentifierObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Genomic Structural Variant Copy Number",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/CopyNumberObservationComponentCodeableConceptCoding"
+                },
+                "valueQuantity": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Quantity"
+                }
+              }
             }
-          }
+          ]
         },
         {
           "type": "object",
-          "title": "Human Reference Sequence Assembly",
+          "title": "Nomenclature",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Coding (cDNA) Change - cHGVS",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/CodingHgvsObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Genomic (gDNA) Change - gHGVS",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/GenomicHgvsObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Cytogenomic Nomenclature (ISCN)",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/CytogenomicNomenclatureObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Protein (Amino Acid) Change - pHGVS",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/ProteinHgvsObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "title": "annotation",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "Coding DNA Change Type",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/CodingChangeTypeObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Genomic Source Class",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/GenomicSourceClassObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Sample Allelic Frequency",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/SampleAllelicFrequencyObservationComponentCodeableConceptCoding"
+                },
+                "valueQuantity": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Quantity"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Allelic Read Depth",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/AllelicReadDepthObservationComponentCodeableConceptCoding"
+                },
+                "valueQuantity": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Quantity"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Allelic State",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/AllelicStateObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Variant Inheritance",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/VariantInheritanceObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Variation Code",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/VariationCodeObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Amino Acid Change Type",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/AminoAcidChangeTypeObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Molecular Consequence",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/MolecularConsequenceObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Variant Confidence Status",
+              "properties": {
+                "code": {
+                  "title": "Type of component observation (code / type)",
+                  "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                  "element_property": true,
+                  "$ref": "#/definitions/VariantConfidenceStatusObservationComponentCodeableConceptCoding"
+                },
+                "valueCodeableConcept": {
+                  "title": "Actual component result",
+                  "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "ConclusionObservationComponent": {
+      "title": "Conclusion-String",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Type of component observation (code / type)",
+          "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+          "element_property": true,
+          "$ref": "#/definitions/ConclusionObservationComponentCodeableConcept"
+        },
+        "dataAbsentReason": {
+          "title": "Why the component result is missing",
+          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "interpretation": {
+          "title": "High, low, normal, etc.",
+          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeableConcept"
+          }
+        },
+        "referenceRange": {
+          "title": "Provides guide for interpretation of component result",
+          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ObservationReferenceRange"
+          }
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "String",
           "properties": {
-            "code": {
-              "title": "Type of component observation (code / type)",
-              "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+            "valueString": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
               "element_property": true,
-              "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConcept"
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
             }
           }
         }
       ],
+      "additionalProperties": false
+    },
+    "GeneStudiedObservationComponentCodeableConceptCoding": {
+      "title": "Cytogenetic (Chromosome) Location",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48018-6"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CytogeneticLocationObservationComponentCodeableConceptCoding": {
+      "title": "Cytogenetic (Chromosome) Location",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48001-2"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding": {
+      "title": "Human Reference Sequence Assembly",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "62374-4"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CodingHgvsObservationComponentCodeableConceptCoding": {
+      "title": "Coding (cDNA) Change - cHGVS",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48004-6"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GenomicHgvsObservationComponentCodeableConceptCoding": {
+      "title": "Genomic (gDNA) Change - gHGVS",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81290-9"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CytogenomicNomenclatureObservationComponentCodeableConceptCoding": {
+      "title": "Cytogenomic Nomenclature (ISCN)",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81291-7"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GenomicRefSeqObservationComponentCodeableConceptCoding": {
+      "title": "Genomic Reference Sequence",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48013-7"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TranscriptRefSeqObservationComponentCodeableConceptCoding": {
+      "title": "Reference Transcript",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "51958-7"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExactStartEndObservationComponentCodeableConceptCoding": {
+      "title": "Exact Start-End",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81254-5"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "InnerStartEndObservationComponentCodeableConceptCoding": {
+      "title": "Inner Start-End",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81302-2"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "OuterStartEndObservationComponentCodeableConceptCoding": {
+      "title": "Outer Start-End",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81301-4"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CoordinateSystemObservationComponentCodeableConceptCoding": {
+      "title": "Coordinate System",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "92822-6"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RefAlleleObservationComponentCodeableConceptCoding": {
+      "title": "Genomic Ref Allele",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "69547-8"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AltAlleleObservationComponentCodeableConceptCoding": {
+      "title": "Genomic Alt Allele",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "69551-0"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CodingChangeTypeObservationComponentCodeableConceptCoding": {
+      "title": "Coding DNA Change Type",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48019-4"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GenomicSourceClassObservationComponentCodeableConceptCoding": {
+      "title": "Genomic Source Class",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48002-0"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SampleAllelicFrequencyObservationComponentCodeableConceptCoding": {
+      "title": "Sample Allelic Frequency",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81258-6"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AllelicReadDepthObservationComponentCodeableConceptCoding": {
+      "title": "Allelic Read Depth",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "82121-5"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AllelicStateObservationComponentCodeableConceptCoding": {
+      "title": "Allelic State",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "53034-5"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "VariantInheritanceObservationComponentCodeableConceptCoding": {
+      "title": "Variant Inheritance",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "variant-inheritance"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "VariationCodeObservationComponentCodeableConceptCoding": {
+      "title": "Variation Code",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "81252-9"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ChromosomeIdentifierObservationComponentCodeableConceptCoding": {
+      "title": "Chromosome Identifier",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48000-4"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProteinHgvsObservationComponentCodeableConceptCoding": {
+      "title": "Protein (Amino Acid) Change - pHGVS",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48005-3"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AminoAcidChangeTypeObservationComponentCodeableConceptCoding": {
+      "title": "Amino Acid Change Type",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "48006-1"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "MolecularConsequenceObservationComponentCodeableConceptCoding": {
+      "title": "Molecular Consequence",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "molecular-consequence"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CopyNumberObservationComponentCodeableConceptCoding": {
+      "title": "Genomic Structural Variant Copy Number",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "82155-3"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://loinc.org"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "VariantConfidenceStatusObservationComponentCodeableConceptCoding": {
+      "title": "Variant Confidence Status",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "title": "Symbol in syntax defined by the system",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                "type": "string",
+                "const": "variant-confidence-status"
+              },
+              "display": {
+                "title": "Representation defined by the system",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              },
+              "system": {
+                "title": "Identity of the terminology system",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                "pattern": "\\S*",
+                "type": "string",
+                "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+              },
+              "userSelected": {
+                "title": "If this coding was chosen directly by the user",
+                "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                "type": "boolean"
+              },
+              "version": {
+                "title": "Version of the system - if relevant",
+                "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
       "additionalProperties": false
     },
     "ObservationComponent": {
@@ -1425,123 +4034,6 @@
       },
       "additionalProperties": false
     },
-    "GeneStudiedObservationComponentCodeableConceptCoding": {
-      "title": "Coding",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
-      "type": "object",
-      "properties": {
-        "code": {
-          "title": "Symbol in syntax defined by the system",
-          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
-          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-          "type": "string",
-          "const": "48018-6"
-        },
-        "display": {
-          "title": "Representation defined by the system",
-          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
-        "system": {
-          "title": "Identity of the terminology system",
-          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
-          "pattern": "\\S*",
-          "type": "string",
-          "const": "http://loinc.org"
-        },
-        "userSelected": {
-          "title": "If this coding was chosen directly by the user",
-          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
-          "type": "boolean"
-        },
-        "version": {
-          "title": "Version of the system - if relevant",
-          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "CytogeneticLocationObservationComponentCodeableConceptCoding": {
-      "title": "Coding",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
-      "type": "object",
-      "properties": {
-        "code": {
-          "title": "Symbol in syntax defined by the system",
-          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
-          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-          "type": "string",
-          "const": "48001-2"
-        },
-        "display": {
-          "title": "Representation defined by the system",
-          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
-        "system": {
-          "title": "Identity of the terminology system",
-          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
-          "pattern": "\\S*",
-          "type": "string",
-          "const": "http://loinc.org"
-        },
-        "userSelected": {
-          "title": "If this coding was chosen directly by the user",
-          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
-          "type": "boolean"
-        },
-        "version": {
-          "title": "Version of the system - if relevant",
-          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding": {
-      "title": "Coding",
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
-      "type": "object",
-      "properties": {
-        "code": {
-          "title": "Symbol in syntax defined by the system",
-          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
-          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
-          "type": "string",
-          "default": "62374-4"
-        },
-        "display": {
-          "title": "Representation defined by the system",
-          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
-        "system": {
-          "title": "Identity of the terminology system",
-          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
-          "pattern": "\\S*",
-          "type": "string",
-          "const": "http://loinc.org"
-        },
-        "userSelected": {
-          "title": "If this coding was chosen directly by the user",
-          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
-          "type": "boolean"
-        },
-        "version": {
-          "title": "Version of the system - if relevant",
-          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
     "LaboratoryCodeableConcept": {
       "title": "CodeableConcept",
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
@@ -1586,48 +4078,6 @@
           "maxItems": 1,
           "items": {
             "$ref": "#/definitions/ConclusionStringObservationComponentCodeableConceptCoding"
-          }
-        },
-        "text": {
-          "title": "Plain text representation of the concept",
-          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "CytogeneticLocationObservationComponentCodeableConcept": {
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
-      "type": "object",
-      "properties": {
-        "coding": {
-          "title": "Code defined by a terminology system",
-          "description": "A reference to a code defined by a terminology system.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConceptCoding"
-          }
-        },
-        "text": {
-          "title": "Plain text representation of the concept",
-          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "ReferenceSequenceAssemblyObservationComponentCodeableConcept": {
-      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
-      "type": "object",
-      "properties": {
-        "coding": {
-          "title": "Code defined by a terminology system",
-          "description": "A reference to a code defined by a terminology system.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding"
           }
         },
         "text": {
@@ -1693,7 +4143,7 @@
           "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
           "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
           "type": "string",
-          "const": "84414-2"
+          "const": "69548-6"
         },
         "display": {
           "title": "Representation defined by the system",
