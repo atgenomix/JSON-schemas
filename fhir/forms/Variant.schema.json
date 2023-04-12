@@ -1089,46 +1089,7 @@
               "type": "object",
               "title": "2",
               "oneOf": [
-                {
-                  "type": "object",
-                  "title": "Genomic Reference Sequence",
-                  "properties": {
-                    "code": {
-                      "title": "Type of component observation (code / type)",
-                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                      "element_property": true,
-                      "$ref": "#/definitions/GenomicRefSeqObservationComponentCodeableConceptCoding"
-                    },
-                    "valueCodeableConcept": {
-                      "title": "Actual component result",
-                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                      "element_property": true,
-                      "one_of_many": "value",
-                      "one_of_many_required": false,
-                      "$ref": "#/definitions/CodeableConcept"
-                    }
-                  }
-                },
-                {
-                  "type": "object",
-                  "title": "Reference Transcript",
-                  "properties": {
-                    "code": {
-                      "title": "Type of component observation (code / type)",
-                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
-                      "element_property": true,
-                      "$ref": "#/definitions/TranscriptRefSeqObservationComponentCodeableConceptCoding"
-                    },
-                    "valueCodeableConcept": {
-                      "title": "Actual component result",
-                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
-                      "element_property": true,
-                      "one_of_many": "value",
-                      "one_of_many_required": false,
-                      "$ref": "#/definitions/CodeableConcept"
-                    }
-                  }
-                },
+
                 {
                   "type": "object",
                   "title": "Exact Start-End",
@@ -1358,13 +1319,7 @@
                       }
                     }
                   }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "title": "3",
-              "oneOf": [
+                },
                 {
                   "type": "object",
                   "title": "Outer Start-End",
@@ -1479,6 +1434,32 @@
                       }
                     }
                   }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "title": "3",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "title": "Chromosome Identifier",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/ChromosomeIdentifierObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
                 },
                 {
                   "type": "object",
@@ -1520,13 +1501,7 @@
                       "type": "string"
                     }
                   }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "title": "4",
-              "oneOf": [
+                },
                 {
                   "type": "object",
                   "title": "Genomic Alt Allele",
@@ -1547,16 +1522,42 @@
                       "type": "string"
                     }
                   }
-                },
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "title": "4",
+              "oneOf": [
                 {
                   "type": "object",
-                  "title": "Chromosome Identifier",
+                  "title": "Genomic Reference Sequence",
                   "properties": {
                     "code": {
                       "title": "Type of component observation (code / type)",
                       "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
                       "element_property": true,
-                      "$ref": "#/definitions/ChromosomeIdentifierObservationComponentCodeableConceptCoding"
+                      "$ref": "#/definitions/GenomicRefSeqObservationComponentCodeableConceptCoding"
+                    },
+                    "valueCodeableConcept": {
+                      "title": "Actual component result",
+                      "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+                      "element_property": true,
+                      "one_of_many": "value",
+                      "one_of_many_required": false,
+                      "$ref": "#/definitions/CodeableConcept"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "title": "Reference Transcript",
+                  "properties": {
+                    "code": {
+                      "title": "Type of component observation (code / type)",
+                      "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                      "element_property": true,
+                      "$ref": "#/definitions/TranscriptRefSeqObservationComponentCodeableConceptCoding"
                     },
                     "valueCodeableConcept": {
                       "title": "Actual component result",
@@ -1823,13 +1824,7 @@
                       "$ref": "#/definitions/CodeableConcept"
                     }
                   }
-                }
-              ]
-            },
-            {
-              "type": "object",
-              "title": "3",
-              "oneOf": [
+                },
                 {
                   "type": "object",
                   "title": "Variation Code",
@@ -1849,7 +1844,13 @@
                       "$ref": "#/definitions/CodeableConcept"
                     }
                   }
-                },
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "title": "3",
+              "oneOf": [
                 {
                   "type": "object",
                   "title": "Amino Acid Change Type",
