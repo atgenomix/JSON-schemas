@@ -23,7 +23,7 @@
     },
     {
       "type": "Group",
-      "label": "Category",
+      "label": "A code that classifies the general type of observation being made.",
       "elements": [
         {
           "type": "Control",
@@ -39,7 +39,7 @@
     },
     {
       "type": "Group",
-      "label": "Component",
+      "label": "Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.",
       "elements": [
         {
           "type": "Control",
@@ -50,8 +50,13 @@
     },
     {
       "type": "Control",
-      "label": "Code",
+      "label": "Describes what was observed. Sometimes this is called the observation \"name\".",
       "scope": "#/properties/Observation.code"
+    },
+    {
+      "type": "Control",
+      "label": "The information determined as a result of making the observation",
+      "scope": "#/properties/Observation.valueCodeableConcept"
     },
     {
       "type": "Group",
@@ -76,238 +81,6 @@
           "type": "Control",
           "label": "implicitRules",
           "scope": "#/properties/Observation.implicitRules"
-        }
-      ]
-    },
-    {
-      "type": "Control",
-      "label": "Observation",
-      "scope": "#/properties/Observation"
-    },
-    {
-      "type": "Categorization",
-      "elements": [
-        {
-          "type": "Category",
-          "label": "language",
-          "elements": [
-            {
-              "type": "Control",
-              "label": "language",
-              "scope": "#/properties/Observation.language"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "contained",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.contained"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "text",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.text"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "basedOn",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.basedOn"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "BodySite",
-          "elements": [
-            {
-              "type": "Control",
-              "label": "BodySite",
-              "scope": "#/properties/Observation.bodySite"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "dataAbsentReason",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.dataAbsentReason"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "derivedFrom",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.derivedFrom"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "device",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.device"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "encounter",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.encounter"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "focus",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.focus"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "hasMember",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.hasMember"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "identifier",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.identifier"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "interpretation",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.interpretation"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "issued",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.issued"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "method",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.method"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "partOf",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.partOf"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "performer",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.performer"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "referenceRange",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.referenceRange"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "specimen",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.specimen"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "subject",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.subject"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "Extension",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.extension/properties/2/"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "modifierExtension",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.modifierExtension"
-            }
-          ]
         }
       ]
     }

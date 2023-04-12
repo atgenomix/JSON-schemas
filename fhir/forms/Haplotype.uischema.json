@@ -23,7 +23,7 @@
     },
     {
       "type": "Group",
-      "label": "Category",
+      "label": "A code that classifies the general type of observation being made.",
       "elements": [
         {
           "type": "Control",
@@ -39,7 +39,7 @@
     },
     {
       "type": "Group",
-      "label": "Component",
+      "label": "Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.",
       "elements": [
         {
           "type": "Control",
@@ -50,12 +50,12 @@
     },
     {
       "type": "Control",
-      "label": "Code",
+      "label": "Describes what was observed. Sometimes this is called the observation \"name\".",
       "scope": "#/properties/Observation.code"
     },
     {
       "type": "Control",
-      "label": "value",
+      "label": "The information determined as a result of making the observation",
       "scope": "#/properties/Observation.valueCodeableConcept"
     },
     {

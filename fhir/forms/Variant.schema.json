@@ -3,6 +3,14 @@
   "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\\nResource StructureDefinition, instead used to enable Extensibility feature\\nfor FHIR Primitive Data Types.\\n\\nMeasurements and simple assertions.\\nMeasurements and simple assertions made about a patient, device or other\\nsubject.",
   "type": "object",
   "properties": {
+    "Observation.valueCodeableConcept": {
+      "title": "Actual result",
+      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+      "element_property": true,
+      "one_of_many": "value",
+      "one_of_many_required": false,
+      "$ref": "#/definitions/CodeableConcept"
+    },
     "Observation": {
       "anyOf": [
         {
