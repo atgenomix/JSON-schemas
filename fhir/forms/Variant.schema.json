@@ -649,6 +649,32 @@
       "type": "array",
       "items": {
         "type": "object",
+        "properties": {
+          "dataAbsentReason": {
+            "title": "Why the component result is missing",
+            "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
+            "element_property": true,
+            "$ref": "#/definitions/CodeableConcept"
+          },
+          "interpretation": {
+            "title": "High, low, normal, etc.",
+            "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
+            "element_property": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CodeableConcept"
+            }
+          },
+          "referenceRange": {
+            "title": "Provides guide for interpretation of component result",
+            "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
+            "element_property": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ObservationReferenceRange"
+            }
+          }
+        },
         "oneOf": [
           {
             "title": "Conclusion",
@@ -943,30 +969,6 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
       "type": "object",
       "properties": {
-        "dataAbsentReason": {
-          "title": "Why the component result is missing",
-          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
-          "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "interpretation": {
-          "title": "High, low, normal, etc.",
-          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CodeableConcept"
-          }
-        },
-        "referenceRange": {
-          "title": "Provides guide for interpretation of component result",
-          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ObservationReferenceRange"
-          }
-        },
         "valueCodeableConcept": {
           "title": "Actual component result",
           "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
@@ -1005,35 +1007,6 @@
     "GenomicsFindingObservationComponent": {
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
       "type": "object",
-      "properties": {
-        "dataAbsentReason": {
-          "title": "Why the component result is missing",
-          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
-          "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "interpretation": {
-          "title": "High, low, normal, etc.",
-          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CodeableConcept"
-          }
-        },
-        "referenceRange": {
-          "title": "Provides guide for interpretation of component result",
-          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ObservationReferenceRange"
-          }
-        }
-      },
-      "required": [
-        "code"
-      ],
       "oneOf": [
         {
           "type": "object",
@@ -1089,7 +1062,6 @@
               "type": "object",
               "title": "2",
               "oneOf": [
-
                 {
                   "type": "object",
                   "title": "Exact Start-End",
@@ -1929,50 +1901,18 @@
           "element_property": true,
           "$ref": "#/definitions/ConclusionObservationComponentCodeableConcept"
         },
-        "dataAbsentReason": {
-          "title": "Why the component result is missing",
-          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
+        "valueString": {
+          "title": "Actual component result",
+          "description": "The information determined as a result of making the observation, if the information has a simple value.",
           "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "interpretation": {
-          "title": "High, low, normal, etc.",
-          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CodeableConcept"
-          }
-        },
-        "referenceRange": {
-          "title": "Provides guide for interpretation of component result",
-          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ObservationReferenceRange"
-          }
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
         }
       },
       "required": [
         "code"
-      ],
-      "oneOf": [
-        {
-          "type": "object",
-          "title": "String",
-          "properties": {
-            "valueString": {
-              "title": "Actual component result",
-              "description": "The information determined as a result of making the observation, if the information has a simple value.",
-              "element_property": true,
-              "one_of_many": "value",
-              "one_of_many_required": false,
-              "pattern": "[ \\r\\n\\t\\S]+",
-              "type": "string"
-            }
-          }
-        }
       ],
       "additionalProperties": false
     },
@@ -3470,36 +3410,24 @@
           "title": "Type of component observation (code / type)",
           "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
           "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "dataAbsentReason": {
-          "title": "Why the component result is missing",
-          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
-          "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "interpretation": {
-          "title": "High, low, normal, etc.",
-          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CodeableConcept"
-          }
-        },
-        "referenceRange": {
-          "title": "Provides guide for interpretation of component result",
-          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ObservationReferenceRange"
+          "properties": {
+            "coding": {
+              "title": "Code defined by a terminology system",
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Coding"
+              }
+            },
+            "text": {
+              "title": "Plain text representation of the concept",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
           }
         }
       },
-      "required": [
-        "code"
-      ],
       "oneOf": [
         {
           "type": "object",
