@@ -569,72 +569,50 @@
       "title": "Classification of  type of observation",
       "description": "A code that classifies the general type of observation being made.",
       "element_property": true,
-      "anyOf": [
-        {
-          "title": "labCategory",
-          "properties": {
-            "0": {
-              "title": "labCategory",
-              "properties": {
-                "coding": {
-                  "title": "Code defined by a terminology system",
-                  "description": "A reference to a laboratory coding.",
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/definitions/LaboratoryCodeableConceptCoding",
-                        "title": "labCategory"
-                      },
-                      {
-                        "$ref": "#/definitions/Coding",
-                        "title": "other"
-                      }
-                    ]
-                  }
-                },
-                "text": {
-                  "title": "Plain text representation of the concept",
-                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-                  "pattern": "[ \\r\\n\\t\\S]+",
-                  "type": "string"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "title": "labCategory",
+            "properties": {
+              "coding": {
+                "title": "Code defined by a terminology system",
+                "description": "A reference to a laboratory coding.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/LaboratoryCodeableConceptCoding"
                 }
               },
-              "required": [
-                "coding"
-              ]
+              "text": {
+                "title": "Plain text representation of the concept",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
             }
           },
-          "required": [
-            "0"
-          ]
-        },
-        {
-          "title": "Other",
-          "properties": {
-            "1": {
-              "title": "Other",
-              "properties": {
-                "coding": {
-                  "title": "Code defined by a terminology system",
-                  "description": "A reference to a laboratory coding.",
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Coding"
-                  }
-                },
-                "text": {
-                  "title": "Plain text representation of the concept",
-                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
-                  "pattern": "[ \\r\\n\\t\\S]+",
-                  "type": "string"
+          {
+            "title": "other",
+            "properties": {
+              "coding": {
+                "title": "Code defined by a terminology system",
+                "description": "A reference to a laboratory coding.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Coding"
                 }
+              },
+              "text": {
+                "title": "Plain text representation of the concept",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
               }
             }
           }
-        }
-      ]
+        ]
+      }
     },
     "Observation.code": {
       "title": "Type of observation (code / type)",
