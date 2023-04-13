@@ -1,0 +1,239 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/MolecularSequence.id"
+        }
+      ]
+    },
+    {
+      "type": "Categorization",
+      "elements": [
+        {
+          "type": "Category",
+          "label": "implicitRules",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.implicitRules"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "language",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.language"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "contained",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.contained"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "text",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.text"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "coordinateSystem",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.coordinateSystem"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "device",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.device"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "observedSeq",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.observedSeq"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "patient",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.patient"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "performer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.performer"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "pointer",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.pointer"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "quality",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.quality"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "quantity",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.quantity"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "readCoverage",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.readCoverage"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "referenceSeq",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.referenceSeq"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "repository",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.repository"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "identifier",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.identifier"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "specimen",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.specimen"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "structureVariant",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.structureVariant"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "type",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.type"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "variant",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MolecularSequence.variant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "Extension",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/MolecularSequence.extension"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "modifierExtension",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/MolecularSequence.modifierExtension"
+        }
+      ]
+    }
+  ]
+}
