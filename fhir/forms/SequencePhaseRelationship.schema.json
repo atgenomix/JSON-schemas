@@ -1,0 +1,4023 @@
+{
+  "title": "SequencePhaseRelationship",
+  "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\\nResource StructureDefinition, instead used to enable Extensibility feature\\nfor FHIR Primitive Data Types.\\n\\nMeasurements and simple assertions.\\nMeasurements and simple assertions made about a patient, device or other\\nsubject.",
+  "type": "object",
+  "properties": {
+    "Observation.valueCodeableConcept": {
+      "title": "Actual result",
+      "description": "The information determined as a result of making the observation, if the information has a simple value.",
+      "element_property": true,
+      "one_of_many": "value",
+      "one_of_many_required": false,
+      "$ref": "#/definitions/valueCodeableConcept"
+    },
+    "Observation": {
+      "anyOf": [
+        {
+          "title": "effective",
+          "oneOf": [
+            {
+              "type": "object",
+              "title": "DateTime",
+              "properties": {
+                "effectiveDateTime": {
+                  "title": "Clinically relevant time/time-period for observation",
+                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                  "element_property": true,
+                  "one_of_many": "effective",
+                  "one_of_many_required": false,
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Instant",
+              "properties": {
+                "effectiveInstant": {
+                  "title": "Clinically relevant time/time-period for observation",
+                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                  "element_property": true,
+                  "one_of_many": "effective",
+                  "one_of_many_required": false,
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Period",
+              "properties": {
+                "effectivePeriod": {
+                  "title": "Clinically relevant time/time-period for observation",
+                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                  "element_property": true,
+                  "one_of_many": "effective",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Period"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "title": "Timing",
+              "properties": {
+                "effectiveTiming": {
+                  "title": "Clinically relevant time/time-period for observation",
+                  "description": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+                  "element_property": true,
+                  "one_of_many": "effective",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/Timing"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Observation.fhir_comments": {
+      "title": "Fhir Comments",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Observation.modifierExtension": {
+      "title": "Extensions that cannot be ignored",
+      "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Extension"
+      }
+    },
+    "Observation.extension": {
+      "title": "Additional content defined by implementations",
+      "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+      "element_property": true,
+      "anyOf": [
+        {
+          "title": "secondary-finding",
+          "properties": {
+            "0": {
+              "properties": {
+                "valueCodeableConcept": {
+                  "title": "Value of CodeableConcept",
+                  "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": false,
+                  "$ref": "#/definitions/CodeableConcept"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "body-structure",
+          "properties": {
+            "1": {
+              "properties": {
+                "valueReference": {
+                  "title": "Value that defines the context",
+                  "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                  "element_property": true,
+                  "one_of_many": "value",
+                  "one_of_many_required": true,
+                  "enum_reference_types": [
+                    "PlanDefinition",
+                    "ResearchStudy",
+                    "InsurancePlan",
+                    "HealthcareService",
+                    "Group",
+                    "Location",
+                    "Organization"
+                  ],
+                  "$ref": "#/definitions/BodyStructureReference"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "other",
+          "properties": {
+            "2": {
+              "$ref": "#/definitions/Extension"
+            }
+          }
+        }
+      ]
+    },
+    "Observation.id": {
+      "title": "Logical id of this artifact",
+      "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+      "element_property": true,
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9\\-.]+$",
+      "type": "string"
+    },
+    "Observation.implicitRules": {
+      "title": "A set of rules under which this content was created",
+      "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+      "element_property": true,
+      "pattern": "\\S*",
+      "type": "string"
+    },
+    "Observation.language": {
+      "title": "Language of the resource content",
+      "description": "The base language in which the resource is written.",
+      "element_property": true,
+      "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+      "type": "string"
+    },
+    "Observation.contained": {
+      "title": "Contained, inline Resources",
+      "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Resource"
+      }
+    },
+    "Observation.text": {
+      "title": "Text summary of the resource, for human interpretation",
+      "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+      "element_property": true,
+      "$ref": "#/definitions/Narrative"
+    },
+    "Observation.basedOn": {
+      "title": "Fulfills plan, proposal or order",
+      "description": "A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed.",
+      "element_property": true,
+      "enum_reference_types": [
+        "CarePlan",
+        "DeviceRequest",
+        "ImmunizationRecommendation",
+        "MedicationRequest",
+        "NutritionOrder",
+        "ServiceRequest"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "Observation.bodySite": {
+      "title": "Observed body part",
+      "description": "Indicates the site on the subject's body where the observation was made (i.e. the target site).",
+      "element_property": true,
+      "$ref": "#/definitions/CodeableConcept"
+    },
+    "Observation.category": {
+      "title": "Classification of  type of observation",
+      "description": "A code that classifies the general type of observation being made.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "title": "labCategory",
+            "properties": {
+              "coding": {
+                "title": "Code defined by a terminology system",
+                "description": "A reference to a laboratory coding.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/LaboratoryCodeableConceptCoding"
+                }
+              },
+              "text": {
+                "title": "Plain text representation of the concept",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          },
+          {
+            "title": "other",
+            "properties": {
+              "coding": {
+                "title": "Code defined by a terminology system",
+                "description": "A reference to a laboratory coding.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Coding"
+                }
+              },
+              "text": {
+                "title": "Plain text representation of the concept",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "Observation.code": {
+      "title": "Type of observation (code / type)",
+      "description": "Describes what was observed. Sometimes this is called the observation \"name\".",
+      "element_property": true,
+      "$ref": "#/definitions/codeCodeableConcept"
+    },
+    "Observation.component": {
+      "title": "Component results",
+      "description": "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dataAbsentReason": {
+            "title": "Why the component result is missing",
+            "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
+            "element_property": true,
+            "$ref": "#/definitions/CodeableConcept"
+          },
+          "interpretation": {
+            "title": "High, low, normal, etc.",
+            "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
+            "element_property": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CodeableConcept"
+            }
+          },
+          "referenceRange": {
+            "title": "Provides guide for interpretation of component result",
+            "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
+            "element_property": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ObservationReferenceRange"
+            }
+          }
+        },
+        "oneOf": [
+          {
+            "title": "Conclusion",
+            "type": "object",
+            "$ref": "#/definitions/ConclusionObservationComponent"
+          },
+          {
+            "title": "Genomics Studied",
+            "type": "object",
+            "$ref": "#/definitions/GeneStudiedObservationComponent"
+          },
+          {
+            "title": "Genomics Finding",
+            "type": "object",
+            "$ref": "#/definitions/GenomicsFindingObservationComponent"
+          },
+          {
+            "title": "Other",
+            "type": "object",
+            "$ref": "#/definitions/ObservationComponent"
+          }
+        ]
+      }
+    },
+    "Observation.dataAbsentReason": {
+      "title": "Why the result is missing",
+      "description": "Provides a reason why the expected value in the element Observation.value[x] is missing.",
+      "element_property": true,
+      "$ref": "#/definitions/CodeableConcept"
+    },
+    "Observation.derivedFrom": {
+      "title": "Related measurements the observation is made from",
+      "description": "The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.",
+      "element_property": true,
+      "enum_reference_types": [
+        "DocumentReference",
+        "ImagingStudy",
+        "Media",
+        "QuestionnaireResponse",
+        "Observation",
+        "MolecularSequence"
+      ],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "title": "Variant",
+            "type": "object",
+            "$ref": "#/definitions/derivedFromReference"
+          },
+          {
+            "title": "Haplotype",
+            "type": "object",
+            "$ref": "#/definitions/derivedFromReference"
+          }
+        ]
+      }
+    },
+    "Observation.device": {
+      "title": "(Measurement) Device",
+      "description": "The device used to generate the observation data.",
+      "element_property": true,
+      "enum_reference_types": [
+        "Device",
+        "DeviceMetric"
+      ],
+      "$ref": "#/definitions/Reference"
+    },
+    "Observation.encounter": {
+      "title": "Healthcare event during which this observation is made",
+      "description": "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.",
+      "element_property": true,
+      "enum_reference_types": [
+        "Encounter"
+      ],
+      "$ref": "#/definitions/Reference"
+    },
+    "Observation.focus": {
+      "title": "What the observation is about, when it is not about the subject of record",
+      "description": "The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.",
+      "element_property": true,
+      "enum_reference_types": [
+        "Resource"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "Observation.hasMember": {
+      "title": "Related resource that belongs to the Observation group",
+      "description": "This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.",
+      "element_property": true,
+      "enum_reference_types": [
+        "Observation",
+        "QuestionnaireResponse",
+        "MolecularSequence"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "Observation.identifier": {
+      "title": "Business Identifier for observation",
+      "description": "A unique identifier assigned to this observation.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Identifier"
+      }
+    },
+    "Observation.interpretation": {
+      "title": "High, low, normal, etc.",
+      "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CodeableConcept"
+      }
+    },
+    "Observation.issued": {
+      "title": "Date/Time this version was made available",
+      "description": "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.",
+      "element_property": true,
+      "type": "string",
+      "format": "date-time"
+    },
+    "Observation.method": {
+      "title": "How it was done",
+      "description": "Indicates the mechanism used to perform the observation.",
+      "element_property": true,
+      "$ref": "#/definitions/CodeableConcept"
+    },
+    "Observation.note": {
+      "title": "Comments about the observation",
+      "description": "Comments about the observation or the results.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Annotation"
+      }
+    },
+    "Observation.partOf": {
+      "title": "Part of referenced event",
+      "description": "A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure.",
+      "element_property": true,
+      "enum_reference_types": [
+        "MedicationAdministration",
+        "MedicationDispense",
+        "MedicationStatement",
+        "Procedure",
+        "Immunization",
+        "ImagingStudy"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "Observation.performer": {
+      "title": "Who is responsible for the observation",
+      "description": "Who was responsible for asserting the observed value as \"true\".",
+      "element_property": true,
+      "enum_reference_types": [
+        "Practitioner",
+        "PractitionerRole",
+        "Organization",
+        "CareTeam",
+        "Patient",
+        "RelatedPerson"
+      ],
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Reference"
+      }
+    },
+    "Observation.referenceRange": {
+      "title": "Provides guide for interpretation",
+      "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an \"OR\".   In other words, to represent two distinct target populations, two `referenceRange` elements would be used.",
+      "element_property": true,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ObservationReferenceRange"
+      }
+    },
+    "Observation.specimen": {
+      "title": "Specimen used for this observation",
+      "description": "The specimen that was used when this observation was made.",
+      "element_property": true,
+      "enum_reference_types": [
+        "Specimen"
+      ],
+      "$ref": "#/definitions/Reference"
+    },
+    "Observation.status": {
+      "title": "registered | preliminary | final | amended +",
+      "description": "The status of the result value.",
+      "element_property": true,
+      "element_required": true,
+      "enum": [
+        "registered",
+        "preliminary",
+        "final",
+        "amended",
+        "+"
+      ],
+      "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+      "type": "string"
+    },
+    "Observation.subject": {
+      "title": "Who and/or what the observation is about",
+      "description": "The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.",
+      "element_property": true,
+      "enum_reference_types": [
+        "Patient",
+        "Group",
+        "Device",
+        "Location"
+      ],
+      "$ref": "#/definitions/Reference"
+    }
+  },
+  "definitions": {
+    "derivedFromReference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "reference": {
+          "title": "Literal reference(Ex: Observation/1, Observation/2, etc.)",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BodyStructureReference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "reference": {
+          "title": "Literal reference(Ex: BodyStructure/1, BodyStructure/2, etc.)",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference(`ResourceType\\id`), in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ObservationReferenceRange": {
+      "title": "ObservationReferenceRange",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does\\'t part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nProvides guide for interpretation.\nGuidance on how to interpret the value by comparison to a normal or\nrecommended range.  Multiple reference ranges are interpreted as an \"OR\".\nIn other words, to represent two distinct target populations, two\n`referenceRange` elements would be used.",
+      "type": "object",
+      "properties": {
+        "age": {
+          "title": "Applicable age range, if relevant",
+          "description": "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.",
+          "element_property": true,
+          "$ref": "#/definitions/Range"
+        },
+        "appliesTo": {
+          "title": "Reference range population",
+          "description": "Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.  Multiple `appliesTo`  are interpreted as an \"AND\" of the target populations.  For example, to represent a target population of African American females, both a code of female and a code for African American would be used.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeableConcept"
+          }
+        },
+        "high": {
+          "title": "High Range, if relevant",
+          "description": "The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "low": {
+          "title": "Low Range, if relevant",
+          "description": "The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "text": {
+          "title": "Text based reference range in an observation",
+          "description": "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \"normals\".",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "type": {
+          "title": "Reference range qualifier",
+          "description": "Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConclusionObservationComponent": {
+      "title": "Conclusion-String",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Type of component observation (code / type)",
+          "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+          "element_property": true,
+          "$ref": "#/definitions/ConclusionObservationComponentCodeableConcept"
+        },
+        "valueString": {
+          "title": "Actual component result",
+          "description": "The information determined as a result of making the observation, if the information has a simple value.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "GeneStudiedObservationComponent": {
+      "title": "Gene Studied",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "valueCodeableConcept": {
+          "title": "Actual component result",
+          "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "code": {
+          "title": "Type of component observation (code / type)",
+          "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+          "element_property": true,
+          "properties": {
+            "coding": {
+              "title": "Code defined by a terminology system",
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GeneStudiedObservationComponentCodeableConceptCoding"
+              }
+            },
+            "text": {
+              "title": "Plain text representation of the concept",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "GenomicsFindingObservationComponent": {
+      "title": "Cytogenetic (Chromosome) Location",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+      },
+      "required": [
+        "code"
+      ],
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "Cytogenetic (Chromosome) Location",
+          "properties": {
+            "code": {
+              "title": "Type of component observation (code / type)",
+              "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+              "element_property": true,
+              "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConcept"
+            },
+            "valueCodeableConcept": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "$ref": "#/definitions/CodeableConcept"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Human Reference Sequence Assembly",
+          "properties": {
+            "code": {
+              "title": "Type of component observation (code / type)",
+              "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+              "element_property": true,
+              "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConcept"
+            },
+            "valueCodeableConcept": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value. Please referer to `http://build.fhir.org/ig/HL7/genomics-reporting/ValueSet-evidence-level-example-vs.html` to see detailed CodeableConcept",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "$ref": "#/definitions/CodeableConcept"
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "ObservationComponent": {
+      "title": "ObservationComponent",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nComponent results.\nSome observations have multiple component observations.  These component\nobservations are expressed as separate code value pairs that share the same\nattributes.  Examples include systolic and diastolic component observations\nfor blood pressure measurement and multiple component observations for\ngenetics observations.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Type of component observation (code / type)",
+          "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+          "element_property": true,
+          "properties": {
+            "coding": {
+              "title": "Code defined by a terminology system",
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Coding"
+              }
+            },
+            "text": {
+              "title": "Plain text representation of the concept",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "Boolean",
+          "properties": {
+            "valueBoolean": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "CodeableConcept",
+          "properties": {
+            "valueCodeableConcept": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "$ref": "#/definitions/CodeableConcept"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "DateTime",
+          "properties": {
+            "valueDateTime": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Integer",
+          "properties": {
+            "valueInteger": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Period",
+          "properties": {
+            "valuePeriod": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "$ref": "#/definitions/Period"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Quantity",
+          "properties": {
+            "valueQuantity": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "$ref": "#/definitions/Quantity"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Range",
+          "properties": {
+            "high": {
+              "title": "High limit",
+              "description": "The high limit. The boundary is inclusive.",
+              "element_property": true,
+              "$ref": "#/definitions/Quantity"
+            },
+            "low": {
+              "title": "Low limit",
+              "description": "The low limit. The boundary is inclusive.",
+              "element_property": true,
+              "$ref": "#/definitions/Quantity"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "Ratio",
+          "properties": {
+            "denominator": {
+              "title": "Denominator value",
+              "description": "The value of the denominator.",
+              "element_property": true,
+              "$ref": "#/definitions/Quantity"
+            },
+            "numerator": {
+              "title": "Numerator value",
+              "description": "The value of the numerator.",
+              "element_property": true,
+              "$ref": "#/definitions/Quantity"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "SampledData",
+          "properties": {
+            "valueSampledData": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "$ref": "#/definitions/SampledData"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "String",
+          "properties": {
+            "valueString": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "valueTime": {
+              "title": "Actual component result",
+              "description": "The information determined as a result of making the observation, if the information has a simple value.",
+              "element_property": true,
+              "one_of_many": "value",
+              "one_of_many_required": false,
+              "type": "string",
+              "format": "time"
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "Narrative": {
+      "title": "Narrative",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nHuman-readable summary of the resource (essential clinical and business\ninformation).\nA human-readable summary of the resource conveying the essential clinical\nand business information for the resource.",
+      "type": "object",
+      "properties": {
+        "div": {
+          "title": "Limited xhtml content",
+          "description": "The actual narrative content, a stripped down version of XHTML.",
+          "element_required": true,
+          "type": "string"
+        },
+        "status": {
+          "title": "generated | extensions | additional | empty",
+          "description": "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.",
+          "element_required": true,
+          "enum": [
+            "generated",
+            "extensions",
+            "additional",
+            "empty"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "HumanName": {
+      "title": "HumanName",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nName of a human - parts and usage.\nA human's name with the ability to identify parts and usage.",
+      "type": "object",
+      "properties": {
+        "family": {
+          "title": "Family name (often called 'Surname')",
+          "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "given": {
+          "title": "Given names (not always 'first'). Includes middle names",
+          "description": "Given name.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+"
+          }
+        },
+        "period": {
+          "title": "Time period when name was/is in use",
+          "description": "Indicates the period of time when this name was valid for the named person.",
+          "$ref": "#/definitions/Period"
+        },
+        "prefix": {
+          "title": "Parts that come before the name",
+          "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+"
+          }
+        },
+        "suffix": {
+          "title": "Parts that come after the name",
+          "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+"
+          }
+        },
+        "text": {
+          "title": "Text representation of the full name",
+          "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "use": {
+          "title": "usual | official | temp | nickname | anonymous | old | maiden",
+          "description": "Identifies the purpose for this name.",
+          "enum": [
+            "usual",
+            "official",
+            "temp",
+            "nickname",
+            "anonymous",
+            "old",
+            "maiden"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Period": {
+      "title": "Period",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nTime range defined by start and end date/time.\nA time period defined by a start and end date and optionally time.",
+      "type": "object",
+      "properties": {
+        "end": {
+          "title": "End time with inclusive boundary, if not ongoing",
+          "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "start": {
+          "title": "Starting time with inclusive boundary",
+          "description": "The start of the period. The boundary is inclusive.",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Resource": {
+      "title": "Resource",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nBase Resource.\nThis is the base resource type for everything.",
+      "type": "object",
+      "properties": {
+        "resourceType": {
+          "title": "Resource Type",
+          "type": "string",
+          "enum": [
+            "Account",
+            "ActivityDefinition",
+            "AdverseEvent",
+            "AllergyIntolerance",
+            "Appointment",
+            "AppointmentResponse",
+            "AuditEvent",
+            "Basic",
+            "Binary",
+            "BiologicallyDerivedProduct",
+            "BodyStructure",
+            "Bundle",
+            "CapabilityStatement",
+            "CarePlan",
+            "CareTeam",
+            "CatalogEntry",
+            "ChargeItem",
+            "ChargeItemDefinition",
+            "Claim",
+            "ClaimResponse",
+            "ClinicalImpression",
+            "CodeSystem",
+            "Communication",
+            "CommunicationRequest",
+            "CompartmentDefinition",
+            "Composition",
+            "ConceptMap",
+            "Condition",
+            "Consent",
+            "Contract",
+            "Coverage",
+            "CoverageEligibilityRequest",
+            "CoverageEligibilityResponse",
+            "DetectedIssue",
+            "Device",
+            "DeviceDefinition",
+            "DeviceMetric",
+            "DeviceRequest",
+            "DeviceUseStatement",
+            "DiagnosticReport",
+            "DocumentManifest",
+            "DocumentReference",
+            "EffectEvidenceSynthesis",
+            "Encounter",
+            "Endpoint",
+            "EnrollmentRequest",
+            "EnrollmentResponse",
+            "EpisodeOfCare",
+            "EventDefinition",
+            "Evidence",
+            "EvidenceVariable",
+            "ExampleScenario",
+            "ExplanationOfBenefit",
+            "FamilyMemberHistory",
+            "Flag",
+            "Goal",
+            "GraphDefinition",
+            "Group",
+            "GuidanceResponse",
+            "HealthcareService",
+            "ImagingStudy",
+            "Immunization",
+            "ImmunizationEvaluation",
+            "ImmunizationRecommendation",
+            "ImplementationGuide",
+            "InsurancePlan",
+            "Invoice",
+            "Library",
+            "Linkage",
+            "List",
+            "Location",
+            "Measure",
+            "MeasureReport",
+            "Media",
+            "Medication",
+            "MedicationAdministration",
+            "MedicationDispense",
+            "MedicationKnowledge",
+            "MedicationRequest",
+            "MedicationStatement",
+            "MedicinalProduct",
+            "MedicinalProductAuthorization",
+            "MedicinalProductContraindication",
+            "MedicinalProductIndication",
+            "MedicinalProductIngredient",
+            "MedicinalProductInteraction",
+            "MedicinalProductManufactured",
+            "MedicinalProductPackaged",
+            "MedicinalProductPharmaceutical",
+            "MedicinalProductUndesirableEffect",
+            "MessageDefinition",
+            "MessageHeader",
+            "MolecularSequence",
+            "NamingSystem",
+            "NutritionOrder",
+            "Observation",
+            "ObservationDefinition",
+            "OperationDefinition",
+            "OperationOutcome",
+            "Organization",
+            "OrganizationAffiliation",
+            "Patient",
+            "PaymentNotice",
+            "PaymentReconciliation",
+            "Person",
+            "PlanDefinition",
+            "Practitioner",
+            "PractitionerRole",
+            "Procedure",
+            "Provenance",
+            "Questionnaire",
+            "QuestionnaireResponse",
+            "RelatedPerson",
+            "RequestGroup",
+            "ResearchDefinition",
+            "ResearchElementDefinition",
+            "ResearchStudy",
+            "ResearchSubject",
+            "RiskAssessment",
+            "RiskEvidenceSynthesis",
+            "Schedule",
+            "SearchParameter",
+            "ServiceRequest",
+            "Slot",
+            "Specimen",
+            "SpecimenDefinition",
+            "StructureDefinition",
+            "StructureMap",
+            "Subscription",
+            "Substance",
+            "SubstanceNucleicAcid",
+            "SubstancePolymer",
+            "SubstanceProtein",
+            "SubstanceReferenceInformation",
+            "SubstanceSourceMaterial",
+            "SubstanceSpecification",
+            "SupplyDelivery",
+            "SupplyRequest",
+            "Task",
+            "TerminologyCapabilities",
+            "TestReport",
+            "TestScript",
+            "ValueSet",
+            "VerificationResult",
+            "VisionPrescription"
+          ]
+        },
+        "id": {
+          "title": "Id",
+          "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9\\-.]+$",
+          "type": "string"
+        },
+        "fhir_comments": {
+          "title": "Fhir Comments",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "implicitRules": {
+          "title": "A set of rules under which this content was created",
+          "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "language": {
+          "title": "Language of the resource content",
+          "description": "The base language in which the resource is written.",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceType",
+        "id"
+      ],
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn identifier intended for computation.\nAn identifier - identifies some entity uniquely and unambiguously.\nTypically this is used for business identifiers.",
+      "type": "object",
+      "properties": {
+        "period": {
+          "title": "Time period when id is/was valid for use",
+          "description": "Time period during which identifier is/was valid for use.",
+          "$ref": "#/definitions/Period"
+        },
+        "system": {
+          "title": "The namespace for the identifier value",
+          "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "type": {
+          "title": "A coded type for the identifier",
+          "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+          "properties": {
+            "coding": {
+              "title": "Code defined by a terminology system",
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Coding"
+              }
+            },
+            "text": {
+              "title": "Plain text representation of the concept",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "use": {
+          "title": "usual | official | temp | secondary | old (If known)",
+          "description": "The purpose of this identifier.",
+          "enum": [
+            "usual",
+            "official",
+            "temp",
+            "secondary",
+            "old"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "value": {
+          "title": "The value that is unique",
+          "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "LaboratoryCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "laboratory"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://terminology.hl7.org/CodeSystem/observation-category"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConclusionStringObservationComponentCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "conclusion-string"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/tbd-codes-cs"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GeneStudiedObservationComponentCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "48018-6"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://loinc.org"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CytogeneticLocationObservationComponentCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "48001-2"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://loinc.org"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "62374-4"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://loinc.org"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "LaboratoryCodeableConcept": {
+      "title": "CodeableConcept",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a laboratory coding.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/LaboratoryCodeableConceptCoding",
+                "title": "labCategory",
+                "minItems": 1
+              },
+              {
+                "$ref": "#/definitions/Coding",
+                "title": "other"
+              }
+            ]
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConclusionObservationComponentCodeableConcept": {
+      "title": "CodeableConcept",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "$ref": "#/definitions/ConclusionStringObservationComponentCodeableConceptCoding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CytogeneticLocationObservationComponentCodeableConcept": {
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CytogeneticLocationObservationComponentCodeableConceptCoding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenceSequenceAssemblyObservationComponentCodeableConcept": {
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReferenceSequenceAssemblyObservationComponentCodeableConceptCoding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "codeCodeableConcept": {
+      "title": "CodeableConcept",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/codeCoding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "valueCodeableConcept": {
+      "title": "CodeableConcept",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "title": "Cis",
+                "type": "object",
+                "$ref": "#/definitions/CisValueCodeableConceptCoding"
+              },
+              {
+                "title": "Trans",
+                "type": "object",
+                "$ref": "#/definitions/TransValueCodeableConceptCoding"
+              },
+              {
+                "title": "Indeterminate",
+                "type": "object",
+                "$ref": "#/definitions/IndeterminateValueCodeableConceptCoding"
+              },
+              {
+                "title": "Unknown",
+                "type": "object",
+                "$ref": "#/definitions/UnknownValueCodeableConceptCoding"
+              }
+            ]
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CodeableConcept": {
+      "title": "CodeableConcept",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nConcept - reference to a terminology or just  text.\nA concept that may be defined by a formal reference to a terminology or\nontology or may be provided by text.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "title": "Code defined by a terminology system",
+          "description": "A reference to a code defined by a terminology system.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "text": {
+          "title": "Plain text representation of the concept",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "codeCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "82120-7"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://loinc.org"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CisValueCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "Cis"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string",
+          "const": "Cis"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/sequence-phase-relationship-cs\t"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TransValueCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "Trans"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string",
+          "const": "Trans"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/sequence-phase-relationship-cs\t"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "IndeterminateValueCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "Indeterminate"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string",
+          "const": "Indeterminate"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/sequence-phase-relationship-cs\t"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UnknownValueCodeableConceptCoding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string",
+          "const": "Unknown"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string",
+          "const": "Unknown"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string",
+          "const": "http://hl7.org/fhir/uv/genomics-reporting/CodeSystem/sequence-phase-relationship-cs\t"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Coding": {
+      "title": "Coding",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference to a code defined by a terminology system.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Symbol in syntax defined by the system",
+          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "display": {
+          "title": "Representation defined by the system",
+          "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "system": {
+          "title": "Identity of the terminology system",
+          "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "userSelected": {
+          "title": "If this coding was chosen directly by the user",
+          "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+          "type": "boolean"
+        },
+        "version": {
+          "title": "Version of the system - if relevant",
+          "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Reference": {
+      "title": "Reference",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA reference from one resource to another.",
+      "type": "object",
+      "properties": {
+        "display": {
+          "title": "Text alternative for the resource",
+          "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "reference": {
+          "title": "Literal reference, Relative, internal or absolute URL",
+          "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "identifier": {
+          "title": "Logical reference, when literal reference is not known",
+          "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
+          "properties": {
+            "period": {
+              "title": "Time period when id is/was valid for use",
+              "description": "Time period during which identifier is/was valid for use.",
+              "properties": {
+                "end": {
+                  "title": "End time with inclusive boundary, if not ongoing",
+                  "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "start": {
+                  "title": "Starting time with inclusive boundary",
+                  "description": "The start of the period. The boundary is inclusive.",
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false
+            },
+            "system": {
+              "title": "The namespace for the identifier value",
+              "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
+              "pattern": "\\S*",
+              "type": "string"
+            },
+            "type": {
+              "title": "A coded type for the identifier",
+              "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+              "properties": {
+                "coding": {
+                  "title": "Code defined by a terminology system",
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Coding"
+                  }
+                },
+                "text": {
+                  "title": "Plain text representation of the concept",
+                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "use": {
+              "title": "usual | official | temp | secondary | old (If known)",
+              "description": "The purpose of this identifier.",
+              "enum": [
+                "usual",
+                "official",
+                "temp",
+                "secondary",
+                "old"
+              ],
+              "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+              "type": "string"
+            },
+            "value": {
+              "title": "The value that is unique",
+              "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "type": {
+          "title": "Type the reference refers to (e.g. \"Patient\")",
+          "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.  The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
+          "pattern": "\\S*",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SampledData": {
+      "title": "SampledData",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA series of measurements taken by a device.\nA series of measurements taken by a device, with upper and lower limits.\nThere may be more than one dimension in the data.",
+      "type": "object",
+      "properties": {
+        "data": {
+          "title": "Decimal values with spaces, or \"E\" | \"U\" | \"L\"",
+          "description": "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "dimensions": {
+          "title": "Number of sample points at each time point",
+          "description": "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.",
+          "element_property": true,
+          "element_required": true,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "factor": {
+          "title": "Multiply data by this before adding to origin",
+          "description": "A correction factor that is applied to the sampled data points before they are added to the origin.",
+          "element_property": true,
+          "type": "number"
+        },
+        "lowerLimit": {
+          "title": "Lower limit of detection",
+          "description": "The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit).",
+          "element_property": true,
+          "type": "number"
+        },
+        "origin": {
+          "title": "Zero value and units",
+          "description": "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "period": {
+          "title": "Number of milliseconds between samples",
+          "description": "The length of time between sampling times, measured in milliseconds.",
+          "element_property": true,
+          "element_required": true,
+          "type": "number"
+        },
+        "upperLimit": {
+          "title": "Upper limit of detection",
+          "description": "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit).",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "required": [
+        "origin"
+      ],
+      "additionalProperties": false
+    },
+    "Quantity": {
+      "title": "Quantity",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA measured or measurable amount.\nA measured amount (or an amount that can potentially be measured). Note\nthat measured amounts include amounts that are not precisely quantified,\nincluding amounts involving arbitrary units and floating currencies.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Coded form of the unit",
+          "description": "A computer processable form of the unit in some unit representation system.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "comparator": {
+          "title": "< | <= | >= | > - how to understand the value",
+          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+          "element_property": true,
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "system": {
+          "title": "System that defines coded unit form",
+          "description": "The identification of the system that provides the coded form of the unit.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit representation",
+          "description": "A human-readable form of the unit.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "value": {
+          "title": "Numerical value (with implicit precision)",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Ratio": {
+      "title": "Ratio",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA ratio of two Quantity values - a numerator and a denominator.\nA relationship of two Quantity values - expressed as a numerator and a\ndenominator.",
+      "type": "object",
+      "properties": {
+        "denominator": {
+          "title": "Denominator value",
+          "description": "The value of the denominator.",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "numerator": {
+          "title": "Numerator value",
+          "description": "The value of the numerator.",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Annotation": {
+      "title": "Annotation",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nText node with attribution.\nA  text note which also  contains information about who made the statement\nand when.",
+      "type": "object",
+      "properties": {
+        "authorReference": {
+          "title": "Individual responsible for the annotation",
+          "description": "The individual responsible for making the annotation.",
+          "element_property": true,
+          "one_of_many": "author",
+          "one_of_many_required": false,
+          "enum_reference_types": [
+            "Practitioner",
+            "Patient",
+            "RelatedPerson",
+            "Organization"
+          ],
+          "$ref": "#/definitions/Reference"
+        },
+        "authorString": {
+          "title": "Individual responsible for the annotation",
+          "description": "The individual responsible for making the annotation.",
+          "element_property": true,
+          "one_of_many": "author",
+          "one_of_many_required": false,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "text": {
+          "title": "The annotation  - text content (as markdown)",
+          "description": "The text of the annotation in markdown format.",
+          "element_property": true,
+          "element_required": true,
+          "pattern": "\\s*(\\S|\\s)*",
+          "type": "string"
+        },
+        "time": {
+          "title": "When the annotation was made",
+          "description": "Indicates when this particular annotation was made.",
+          "element_property": true,
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Range": {
+      "title": "Range",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nSet of values bounded by low and high.\nA set of ordered Quantities defined by a low and high limit.",
+      "type": "object",
+      "properties": {
+        "high": {
+          "title": "High limit",
+          "description": "The high limit. The boundary is inclusive.",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "low": {
+          "title": "Low limit",
+          "description": "The low limit. The boundary is inclusive.",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Timing": {
+      "title": "Timing",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does\\'t part of\\nResource StructureDefinition, instead used to enable Extensibility feature\\nfor FHIR Primitive Data Types.\\n\\nA timing schedule that specifies an event that may occur multiple times.\\nSpecifies an event that may occur multiple times. Timing schedules are used\\nto record when things are planned, expected or requested to occur. The most\\ncommon usage is in dosage instructions for medications. They are also used\\nwhen planning care of various kinds, and may be used for reporting the\\nschedule to which past regular activities were carried out.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "BID | TID | QID | AM | PM | QD | QOD | +",
+          "description": "A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "event": {
+          "title": "When the event occurs",
+          "description": "Identifies specific times when the event occurs.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "repeat": {
+          "title": "When the event is to occur",
+          "description": "A set of rules that describe when the event is scheduled.",
+          "element_property": true,
+          "$ref": "#/definitions/TimingRepeat"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Duration": {
+      "title": "Duration",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA length of time.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Coded form of the unit",
+          "description": "A computer processable form of the unit in some unit representation system.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "comparator": {
+          "title": "< | <= | >= | > - how to understand the value",
+          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+          "element_property": true,
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "system": {
+          "title": "System that defines coded unit form",
+          "description": "The identification of the system that provides the coded form of the unit.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit representation",
+          "description": "A human-readable form of the unit.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "value": {
+          "title": "Numerical value (with implicit precision)",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TimingRepeat": {
+      "title": "TimingRepeat",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nWhen the event is to occur.\nA set of rules that describe when the event is scheduled.",
+      "type": "object",
+      "properties": {
+        "boundsDuration": {
+          "title": "Length/Range of lengths, or (Start and/or end) limits",
+          "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+          "element_property": true,
+          "one_of_many": "bounds",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Duration"
+        },
+        "boundsPeriod": {
+          "title": "Length/Range of lengths, or (Start and/or end) limits",
+          "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+          "element_property": true,
+          "one_of_many": "bounds",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Period"
+        },
+        "boundsRange": {
+          "title": "Length/Range of lengths, or (Start and/or end) limits",
+          "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+          "element_property": true,
+          "one_of_many": "bounds",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Range"
+        },
+        "count": {
+          "title": "Number of times to repeat",
+          "description": "A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values.",
+          "element_property": true,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "countMax": {
+          "title": "Maximum number of times to repeat",
+          "description": "If present, indicates that the count is a range - so to perform the action between [count] and [countMax] times.",
+          "element_property": true,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "dayOfWeek": {
+          "title": "mon | tue | wed | thu | fri | sat | sun",
+          "description": "If one or more days of week is provided, then the action happens only on the specified day(s).",
+          "element_property": true,
+          "enum": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[^\\s]+(\\s[^\\s]+)*$"
+          }
+        },
+        "duration": {
+          "title": "How long when it happens",
+          "description": "How long this thing happens for when it happens. If durationMax is present, this element indicates the lower bound of the allowed range of the duration.",
+          "element_property": true,
+          "type": "number"
+        },
+        "durationMax": {
+          "title": "How long when it happens (Max)",
+          "description": "If present, indicates that the duration is a range - so to perform the action between [duration] and [durationMax] time length.",
+          "element_property": true,
+          "type": "number"
+        },
+        "durationUnit": {
+          "title": "s | min | h | d | wk | mo | a - unit of time (UCUM)",
+          "description": "The units of time for the duration, in UCUM units.",
+          "element_property": true,
+          "enum": [
+            "s",
+            "min",
+            "h",
+            "d",
+            "wk",
+            "mo",
+            "a"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "frequency": {
+          "title": "Event occurs frequency times per period",
+          "description": "The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency.",
+          "element_property": true,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "frequencyMax": {
+          "title": "Event occurs up to frequencyMax times per period",
+          "description": "If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.",
+          "element_property": true,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "offset": {
+          "title": "Minutes from event (before or after)",
+          "description": "The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.",
+          "element_property": true,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "period": {
+          "title": "Event occurs frequency times per period",
+          "description": "Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period. If periodMax is present, this element indicates the lower bound of the allowed range of the period length.",
+          "element_property": true,
+          "type": "number"
+        },
+        "periodMax": {
+          "title": "Upper limit of period (3-4 hours)",
+          "description": "If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3-5 days.",
+          "element_property": true,
+          "type": "number"
+        },
+        "periodUnit": {
+          "title": "s | min | h | d | wk | mo | a - unit of time (UCUM)",
+          "description": "The units of time for the period in UCUM units.",
+          "element_property": true,
+          "enum": [
+            "s",
+            "min",
+            "h",
+            "d",
+            "wk",
+            "mo",
+            "a"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "timeOfDay": {
+          "title": "Time of day for action",
+          "description": "Specified time of day for action to take place.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "time"
+          }
+        },
+        "when": {
+          "title": "Code for time period of occurrence",
+          "description": "An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[^\\s]+(\\s[^\\s]+)*$"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Address": {
+      "title": "Address",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).\nAn address expressed using postal conventions (as opposed to GPS or other\nlocation definition formats).  This data type may be used to convey\naddresses for use in delivering mail as well as for visiting locations\nwhich might not be valid for mail delivery.  There are a variety of postal\naddress formats defined around the world.",
+      "type": "object",
+      "properties": {
+        "city": {
+          "title": "Name of city, town etc.",
+          "description": "The name of the city, town, suburb, village or other community or delivery center.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "country": {
+          "title": "Country (e.g. can be ISO 3166 2 or 3 letter code)",
+          "description": "Country - a nation as commonly understood or generally accepted.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "district": {
+          "title": "District name (aka county)",
+          "description": "The name of the administrative area (county).",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "line": {
+          "title": "Street name, number, direction & P.O. Box etc.",
+          "description": "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+"
+          }
+        },
+        "period": {
+          "title": "Time period when address was/is in use",
+          "$ref": "#/definitions/Period"
+        },
+        "postalCode": {
+          "title": "Postal code for area",
+          "description": "A postal code designating a region defined by the postal service.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "state": {
+          "title": "Sub-unit of country (abbreviations ok)",
+          "description": "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes).",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text representation of the address",
+          "description": "Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "type": {
+          "title": "postal | physical | both",
+          "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.",
+          "enum": [
+            "postal",
+            "physical",
+            "both"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "use": {
+          "title": "home | work | temp | old | billing - purpose of this address",
+          "description": "The purpose of this address.",
+          "enum": [
+            "home",
+            "work",
+            "temp",
+            "old",
+            "billing"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Age": {
+      "title": "Age",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA duration of time during which an organism (or a process) has existed.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Coded form of the unit",
+          "description": "A computer processable form of the unit in some unit representation system.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "comparator": {
+          "title": "< | <= | >= | > - how to understand the value",
+          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+          "element_property": true,
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "system": {
+          "title": "System that defines coded unit form",
+          "description": "The identification of the system that provides the coded form of the unit.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit representation",
+          "description": "A human-readable form of the unit.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "value": {
+          "title": "Numerical value (with implicit precision)",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Attachment": {
+      "title": "Attachment",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContent in a format defined elsewhere.\nFor referring to data content defined in other formats.",
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "title": "Mime type of the content, with charset etc.",
+          "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "creation": {
+          "title": "Date attachment was first created",
+          "description": "The date that the attachment was first created.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "title": {
+          "title": "Label to display in place of the data",
+          "description": "A label or set of text to display in place of the data.",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "url": {
+          "title": "Uri where the data can be found",
+          "description": "A location where the data can be accessed.",
+          "minLength": 1,
+          "maxLength": 65536,
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContactPoint": {
+      "title": "ContactPoint",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDetails of a Technology mediated contact point (phone, fax, email, etc.).\nDetails for all kinds of technology mediated contact points for a person or\norganization, including telephone, email, etc.",
+      "type": "object",
+      "properties": {
+        "period": {
+          "title": "Time period when the contact point was/is in use",
+          "$ref": "#/definitions/Period"
+        },
+        "rank": {
+          "title": "Specify preferred order of use (1 = highest)",
+          "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.",
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "system": {
+          "title": "phone | fax | email | pager | url | sms | other",
+          "description": "Telecommunications form for contact point - what communications system is required to make use of the contact.",
+          "enum": [
+            "phone",
+            "fax",
+            "email",
+            "pager",
+            "url",
+            "sms",
+            "other"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "use": {
+          "title": "home | work | temp | old | mobile - purpose of this contact point",
+          "description": "Identifies the purpose for the contact point.",
+          "enum": [
+            "home",
+            "work",
+            "temp",
+            "old",
+            "mobile"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "value": {
+          "title": "The actual contact point details",
+          "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContactDetail": {
+      "title": "ContactDetail",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContact information.\nSpecifies contact information for a person or organization.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name of an individual to contact",
+          "description": "The name of an individual to contact.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "telecom": {
+          "title": "Contact details for individual or organization",
+          "description": "The contact details for the individual (if a name was provided) or the organization.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contributor": {
+      "title": "Contributor",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nContributor information.\nA contributor to the content of a knowledge asset, including authors,\neditors, reviewers, and endorsers.",
+      "type": "object",
+      "properties": {
+        "contact": {
+          "title": "Contact details of the contributor",
+          "description": "Contact details to assist a user in finding and communicating with the contributor.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactDetail"
+          }
+        },
+        "name": {
+          "title": "Who contributed the content",
+          "description": "The name of the individual or organization responsible for the contribution.",
+          "element_property": true,
+          "element_required": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "type": {
+          "title": "author | editor | reviewer | endorser",
+          "description": "The type of contributor.",
+          "element_property": true,
+          "element_required": true,
+          "enum": [
+            "author",
+            "editor",
+            "reviewer",
+            "endorser"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Count": {
+      "title": "Count",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA measured or measurable amount.\nA measured amount (or an amount that can potentially be measured). Note\nthat measured amounts include amounts that are not precisely quantified,\nincluding amounts involving arbitrary units and floating currencies.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Coded form of the unit",
+          "description": "A computer processable form of the unit in some unit representation system.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "comparator": {
+          "title": "< | <= | >= | > - how to understand the value",
+          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+          "element_property": true,
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "system": {
+          "title": "System that defines coded unit form",
+          "description": "The identification of the system that provides the coded form of the unit.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit representation",
+          "description": "A human-readable form of the unit.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "value": {
+          "title": "Numerical value (with implicit precision)",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DataRequirementSort": {
+      "title": "DataRequirementSort",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nOrder of the results.\nSpecifies the order of the results to be returned.",
+      "type": "object",
+      "properties": {
+        "direction": {
+          "title": "ascending | descending",
+          "description": "The direction of the sort, ascending or descending.",
+          "element_property": true,
+          "element_required": true,
+          "enum": [
+            "ascending",
+            "descending"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "path": {
+          "title": "The name of the attribute to perform the sort",
+          "description": "The attribute of the sort. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant.",
+          "element_property": true,
+          "element_required": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DataRequirementCodeFilter": {
+      "title": "DataRequirementCodeFilter",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nWhat codes are expected.\nCode filters specify additional constraints on the data, specifying the\nvalue set of interest for a particular element of the data. Each code\nfilter defines an additional constraint on the data, i.e. code filters are\nAND'ed, not OR'ed.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "What code is expected",
+          "description": "The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "path": {
+          "title": "A code-valued attribute to filter on",
+          "description": "The code-valued attribute of the filter. The specified path SHALL be a FHIRPath resolveable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "searchParam": {
+          "title": "A coded (token) parameter to search on",
+          "description": "A token parameter that refers to a search parameter defined on the specified type of the DataRequirement, and which searches on elements of type code, Coding, or CodeableConcept.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "valueSet": {
+          "title": "Valueset for the filter",
+          "description": "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.",
+          "element_property": true,
+          "enum_reference_types": [
+            "ValueSet"
+          ],
+          "pattern": "\\S*",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DataRequirementDateFilter": {
+      "title": "DataRequirementDateFilter",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nWhat dates/date ranges are expected.\nDate filters specify additional constraints on the data in terms of the\napplicable date range for specific elements. Each date filter specifies an\nadditional constraint on the data, i.e. date filters are AND'ed, not OR'ed.",
+      "type": "object",
+      "properties": {
+        "path": {
+          "title": "A date-valued attribute to filter on",
+          "description": "The date-valued attribute of the filter. The specified path SHALL be a FHIRPath resolveable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of type date, dateTime, Period, Schedule, or Timing.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "searchParam": {
+          "title": "A date valued parameter to search on",
+          "description": "A date parameter that refers to a search parameter defined on the specified type of the DataRequirement, and which searches on elements of type date, dateTime, Period, Schedule, or Timing.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "valueDateTime": {
+          "title": "The value of the filter, as a Period, DateTime, or Duration value",
+          "description": "The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "date-time"
+        },
+        "valueDuration": {
+          "title": "The value of the filter, as a Period, DateTime, or Duration value",
+          "description": "The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Duration"
+        },
+        "valuePeriod": {
+          "title": "The value of the filter, as a Period, DateTime, or Duration value",
+          "description": "The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Period"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DataRequirement": {
+      "title": "DataRequirement",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDescribes a required data item.\nDescribes a required data item for evaluation in terms of the type of data,\nand optional code or date-based filters of the data.",
+      "type": "object",
+      "properties": {
+        "codeFilter": {
+          "title": "What codes are expected",
+          "description": "Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataRequirementCodeFilter"
+          }
+        },
+        "dateFilter": {
+          "title": "What dates/date ranges are expected",
+          "description": "Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataRequirementDateFilter"
+          }
+        },
+        "limit": {
+          "title": "Number of results",
+          "description": "Specifies a maximum number of results that are required (uses the _count search parameter).",
+          "element_property": true,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "mustSupport": {
+          "title": "Indicates specific structure elements that are referenced by the knowledge module",
+          "description": "Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.   The value of mustSupport SHALL be a FHIRPath resolveable on the type of the DataRequirement. The path SHALL consist only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details).",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+"
+          }
+        },
+        "profile": {
+          "title": "The profile of the required data",
+          "description": "The profile of the required data, specified as the uri of the profile definition.",
+          "element_property": true,
+          "enum_reference_types": [
+            "StructureDefinition"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S*"
+          }
+        },
+        "sort": {
+          "title": "Order of the results",
+          "description": "Specifies the order of the results to be returned.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataRequirementSort"
+          }
+        },
+        "subjectCodeableConcept": {
+          "title": "E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device",
+          "description": "The intended subjects of the data requirement. If this element is not provided, a Patient subject is assumed.",
+          "element_property": true,
+          "one_of_many": "subject",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "subjectReference": {
+          "title": "E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device",
+          "description": "The intended subjects of the data requirement. If this element is not provided, a Patient subject is assumed.",
+          "element_property": true,
+          "one_of_many": "subject",
+          "one_of_many_required": false,
+          "enum_reference_types": [
+            "Group"
+          ],
+          "$ref": "#/definitions/Reference"
+        },
+        "type": {
+          "title": "The type of the required data",
+          "description": "The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.",
+          "element_property": true,
+          "element_required": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Distance": {
+      "title": "Distance",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA length - a value with a unit that is a physical distance.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Coded form of the unit",
+          "description": "A computer processable form of the unit in some unit representation system.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "comparator": {
+          "title": "< | <= | >= | > - how to understand the value",
+          "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+          "element_property": true,
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "system": {
+          "title": "System that defines coded unit form",
+          "description": "The identification of the system that provides the coded form of the unit.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit representation",
+          "description": "A human-readable form of the unit.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "value": {
+          "title": "Numerical value (with implicit precision)",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DosageDoseAndRate": {
+      "title": "DosageDoseAndRate",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAmount of medication administered.\nThe amount of medication administered.",
+      "type": "object",
+      "properties": {
+        "doseQuantity": {
+          "title": "Amount of medication per dose",
+          "element_property": true,
+          "one_of_many": "dose",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Quantity"
+        },
+        "doseRange": {
+          "title": "Amount of medication per dose",
+          "element_property": true,
+          "one_of_many": "dose",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Range"
+        },
+        "rateQuantity": {
+          "title": "Amount of medication per unit of time",
+          "element_property": true,
+          "one_of_many": "rate",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Quantity"
+        },
+        "rateRange": {
+          "title": "Amount of medication per unit of time",
+          "element_property": true,
+          "one_of_many": "rate",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Range"
+        },
+        "rateRatio": {
+          "title": "Amount of medication per unit of time",
+          "element_property": true,
+          "one_of_many": "rate",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Ratio"
+        },
+        "type": {
+          "title": "The kind of dose or rate specified",
+          "description": "The kind of dose or rate specified, for example, ordered or calculated.",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Dosage": {
+      "title": "Dosage",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nHow the medication is/was taken or should be taken.\nIndicates how the medication is/was taken or should be taken by the\npatient.",
+      "type": "object",
+      "properties": {
+        "additionalInstruction": {
+          "title": "Supplemental instruction or warnings to the patient - e.g. \"with meals\", \"may cause drowsiness\"",
+          "description": "Supplemental instructions to the patient on how to take the medication  (e.g. \"with meals\" or\"take half to one hour before food\") or warnings for the patient about the medication (e.g. \"may cause drowsiness\" or \"avoid exposure of skin to direct sunlight or sunlamps\").",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeableConcept"
+          }
+        },
+        "asNeededBoolean": {
+          "title": "Take \"as needed\" (for x)",
+          "description": "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).",
+          "element_property": true,
+          "one_of_many": "asNeeded",
+          "one_of_many_required": false,
+          "type": "boolean"
+        },
+        "asNeededCodeableConcept": {
+          "title": "Take \"as needed\" (for x)",
+          "description": "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).",
+          "element_property": true,
+          "one_of_many": "asNeeded",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "doseAndRate": {
+          "title": "Amount of medication administered",
+          "description": "The amount of medication administered.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DosageDoseAndRate"
+          }
+        },
+        "maxDosePerAdministration": {
+          "title": "Upper limit on medication per administration",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "maxDosePerLifetime": {
+          "title": "Upper limit on medication per lifetime of the patient",
+          "element_property": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "maxDosePerPeriod": {
+          "title": "Upper limit on medication per unit of time",
+          "element_property": true,
+          "$ref": "#/definitions/Ratio"
+        },
+        "method": {
+          "title": "Technique for administering medication",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "patientInstruction": {
+          "title": "Patient or consumer oriented instructions",
+          "description": "Instructions in terms that are understood by the patient or consumer.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "route": {
+          "title": "How drug should enter body",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "sequence": {
+          "title": "The order of the dosage instructions",
+          "description": "Indicates the order in which the dosage instructions should be applied or interpreted.",
+          "element_property": true,
+          "type": "integer"
+        },
+        "site": {
+          "title": "Body site to administer to",
+          "element_property": true,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "text": {
+          "title": "Free text dosage instructions e.g. SIG",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "timing": {
+          "title": "When medication should be administered",
+          "element_property": true,
+          "$ref": "#/definitions/Timing"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Expression": {
+      "title": "Expression",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn expression that can be used to generate a value.\nA expression that is evaluated in a specified context and returns a value.\nThe context of use of the expression must specify the context in which the\nexpression is evaluated, and how the result of the expression is used.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "Natural language description of the condition",
+          "description": "A brief, natural language description of the condition that effectively communicates the intended semantics.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "expression": {
+          "title": "Expression in specified language",
+          "description": "An expression in the specified language that returns a value.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "language": {
+          "title": "text/cql | text/fhirpath | application/x-fhir-query | etc.",
+          "description": "The media type of the language for the expression.",
+          "element_property": true,
+          "element_required": true,
+          "enum": [
+            "text/cql",
+            "text/fhirpath",
+            "application/x-fhir-query",
+            "etc."
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "name": {
+          "title": "Short name assigned to expression for reuse",
+          "description": "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.",
+          "element_property": true,
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9\\-.]+$",
+          "type": "string"
+        },
+        "reference": {
+          "title": "Where the expression is found",
+          "description": "A URI that defines where the expression is found.",
+          "element_property": true,
+          "pattern": "\\S*",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Money": {
+      "title": "Money",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nAn amount of economic utility in some recognized currency.",
+      "type": "object",
+      "properties": {
+        "currency": {
+          "title": "ISO 4217 Currency Code",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "value": {
+          "title": "Numerical value (with implicit precision)",
+          "element_property": true,
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ParameterDefinition": {
+      "title": "ParameterDefinition",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDefinition of a parameter to a module.\nThe parameters to the module. This collection specifies both the input and\noutput parameters. Input parameters are provided by the caller as part of\nthe $evaluate operation. Output parameters are included in the\nGuidanceResponse.",
+      "type": "object",
+      "properties": {
+        "documentation": {
+          "title": "A brief description of the parameter",
+          "description": "A brief discussion of what the parameter is for and how it is used by the module.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "max": {
+          "title": "Maximum cardinality (a number of *)",
+          "description": "The maximum number of times this element is permitted to appear in the request or response.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "min": {
+          "title": "Minimum cardinality",
+          "description": "The minimum number of times this parameter SHALL appear in the request or response.",
+          "element_property": true,
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name used to access the parameter value",
+          "description": "The name of the parameter used to allow access to the value of the parameter in evaluation contexts.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "profile": {
+          "title": "What profile the value is expected to be",
+          "description": "If specified, this indicates a profile that the input data must conform to, or that the output data will conform to.",
+          "element_property": true,
+          "enum_reference_types": [
+            "StructureDefinition"
+          ],
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "type": {
+          "title": "What type of value",
+          "description": "The type of the parameter.",
+          "element_property": true,
+          "element_required": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "use": {
+          "title": "in | out",
+          "description": "Whether the parameter is input or output for the module.",
+          "element_property": true,
+          "element_required": true,
+          "enum": [
+            "in",
+            "out"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RelatedArtifact": {
+      "title": "RelatedArtifact",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nRelated artifacts for a knowledge resource.\nRelated artifacts such as additional documentation, justification, or\nbibliographic references.",
+      "type": "object",
+      "properties": {
+        "citation": {
+          "title": "Bibliographic citation for the artifact",
+          "description": "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.",
+          "element_property": true,
+          "pattern": "\\s*(\\S|\\s)*",
+          "type": "string"
+        },
+        "display": {
+          "title": "Brief description of the related artifact",
+          "description": "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "document": {
+          "title": "What document is being referenced",
+          "description": "The document being referenced, represented as an attachment. This is exclusive with the resource element.",
+          "element_property": true,
+          "$ref": "#/definitions/Attachment"
+        },
+        "label": {
+          "title": "Short label",
+          "description": "A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "resource": {
+          "title": "What resource is being referenced",
+          "description": "The related resource, such as a library, value set, profile, or other knowledge resource.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Resource"
+          ],
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "type": {
+          "title": "documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of",
+          "description": "The type of relationship to the related artifact.",
+          "element_property": true,
+          "element_required": true,
+          "enum": [
+            "documentation",
+            "justification",
+            "citation",
+            "predecessor",
+            "successor",
+            "derived-from",
+            "depends-on",
+            "composed-of"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "url": {
+          "title": "Where the artifact can be accessed",
+          "description": "A url for the artifact that can be followed to access the actual content.",
+          "element_property": true,
+          "minLength": 1,
+          "maxLength": 65536,
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Signature": {
+      "title": "Signature",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nA Signature - XML DigSig, JWS, Graphical image of signature, etc..\nA signature along with supporting context. The signature may be a digital\nsignature that is cryptographic in nature, or some other signature\nacceptable to the domain. This other signature may be as simple as a\ngraphical image representing a hand-written signature, or a signature\nceremony Different signature approaches have different utilities.",
+      "type": "object",
+      "properties": {
+        "data": {
+          "title": "The actual signature content (XML DigSig. JWS, picture, etc.)",
+          "description": "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.",
+          "element_property": true,
+          "type": "string",
+          "format": "binary"
+        },
+        "onBehalfOf": {
+          "title": "The party represented",
+          "description": "A reference to an application-usable description of the identity that is represented by the signature.",
+          "element_property": true,
+          "enum_reference_types": [
+            "Practitioner",
+            "PractitionerRole",
+            "RelatedPerson",
+            "Patient",
+            "Device",
+            "Organization"
+          ],
+          "$ref": "#/definitions/Reference"
+        },
+        "sigFormat": {
+          "title": "The technical format of the signature",
+          "description": "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "targetFormat": {
+          "title": "The technical format of the signed resources",
+          "description": "A mime type that indicates the technical format of the target resources signed by the signature.",
+          "element_property": true,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "type": {
+          "title": "Indication of the reason the entity signed the object(s)",
+          "description": "An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "when": {
+          "title": "When the signature was created",
+          "description": "When the digital signature was signed.",
+          "element_property": true,
+          "element_required": true,
+          "type": "string",
+          "format": "date-time"
+        },
+        "who": {
+          "title": "Who signed",
+          "description": "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).",
+          "element_property": true,
+          "enum_reference_types": [
+            "Practitioner",
+            "PractitionerRole",
+            "RelatedPerson",
+            "Patient",
+            "Device",
+            "Organization"
+          ],
+          "$ref": "#/definitions/Reference"
+        }
+      },
+      "required": [
+        "type",
+        "who"
+      ],
+      "additionalProperties": false
+    },
+    "TriggerDefinition": {
+      "title": "TriggerDefinition",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDefines an expected trigger for a module.\nA description of a triggering event. Triggering events can be named events,\ndata events, or periodic, as determined by the type element.",
+      "type": "object",
+      "properties": {
+        "condition": {
+          "title": "Whether the event triggers (boolean expression)",
+          "description": "A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.",
+          "element_property": true,
+          "$ref": "#/definitions/Expression"
+        },
+        "data": {
+          "title": "Triggering data of the event (multiple = 'and')",
+          "description": "The triggering data of the event (if this is a data trigger). If more than one data is requirement is specified, then all the data requirements must be true.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataRequirement"
+          }
+        },
+        "name": {
+          "title": "Name or URI that identifies the event",
+          "description": "A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.",
+          "element_property": true,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "timingDate": {
+          "title": "Timing of the event",
+          "description": "The timing of the event (if this is a periodic trigger).",
+          "element_property": true,
+          "one_of_many": "timing",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "date"
+        },
+        "timingDateTime": {
+          "title": "Timing of the event",
+          "description": "The timing of the event (if this is a periodic trigger).",
+          "element_property": true,
+          "one_of_many": "timing",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "date-time"
+        },
+        "timingReference": {
+          "title": "Timing of the event",
+          "description": "The timing of the event (if this is a periodic trigger).",
+          "element_property": true,
+          "one_of_many": "timing",
+          "one_of_many_required": false,
+          "enum_reference_types": [
+            "Schedule"
+          ],
+          "$ref": "#/definitions/Reference"
+        },
+        "timingTiming": {
+          "title": "Timing of the event",
+          "description": "The timing of the event (if this is a periodic trigger).",
+          "element_property": true,
+          "one_of_many": "timing",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Timing"
+        },
+        "type": {
+          "title": "named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended",
+          "description": "The type of triggering event.",
+          "element_property": true,
+          "element_required": true,
+          "enum": [
+            "named-event",
+            "periodic",
+            "data-changed",
+            "data-added",
+            "data-modified",
+            "data-removed",
+            "data-accessed",
+            "data-access-ended"
+          ],
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UsageContext": {
+      "title": "UsageContext",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nDescribes the context of use for a conformance or knowledge resource.\nSpecifies clinical/business/etc. metadata that can be used to retrieve,\nindex and/or categorize an artifact. This metadata can either be specific\nto the applicable population (e.g., age category, DRG) or the specific\ncontext of care (e.g., venue, care setting, provider of care).",
+      "type": "object",
+      "properties": {
+        "code": {
+          "title": "Type of context being specified",
+          "description": "A code that identifies the type of context being specified by this usage context.",
+          "element_property": true,
+          "$ref": "#/definitions/Coding"
+        },
+        "valueCodeableConcept": {
+          "title": "Value that defines the context",
+          "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": true,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "valueQuantity": {
+          "title": "Value that defines the context",
+          "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": true,
+          "$ref": "#/definitions/Quantity"
+        },
+        "valueRange": {
+          "title": "Value that defines the context",
+          "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": true,
+          "$ref": "#/definitions/Range"
+        },
+        "valueReference": {
+          "title": "Value that defines the context",
+          "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": true,
+          "enum_reference_types": [
+            "PlanDefinition",
+            "ResearchStudy",
+            "InsurancePlan",
+            "HealthcareService",
+            "Group",
+            "Location",
+            "Organization"
+          ],
+          "$ref": "#/definitions/Reference"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "Extension": {
+      "title": "Extension",
+      "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nOptional Extensions Element.\nOptional Extension Element - found in all resources.",
+      "type": "object",
+      "properties": {
+        "extension": {
+          "title": "Additional content defined by implementations",
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "element_property": true,
+          "type": "array",
+          "items": {
+            "$ref": "#"
+          }
+        },
+        "url": {
+          "title": "identifies the meaning of the extension",
+          "description": "Source of the definition for the extension code - a logical name or a URL.",
+          "element_property": true,
+          "element_required": true,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "valueAddress": {
+          "title": "Value of Address",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Address"
+        },
+        "valueAge": {
+          "title": "Value of Age",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Age"
+        },
+        "valueAnnotation": {
+          "title": "Value of Annotation",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Annotation"
+        },
+        "valueAttachment": {
+          "title": "Value of Attachment",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Attachment"
+        },
+        "valueBase64Binary": {
+          "title": "Value of Base64Binary",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "binary"
+        },
+        "valueBoolean": {
+          "title": "Value of Boolean",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "boolean"
+        },
+        "valueCanonical": {
+          "title": "Value of Canonical",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "valueCode": {
+          "title": "Value of Code",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "valueCodeableConcept": {
+          "title": "Value of CodeableConcept",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "valueCoding": {
+          "title": "Value of Coding",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Coding"
+        },
+        "valueContactDetail": {
+          "title": "Value of ContactDetail",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/ContactDetail"
+        },
+        "valueContactPoint": {
+          "title": "Value of ContactPoint",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/ContactPoint"
+        },
+        "valueContributor": {
+          "title": "Value of Contributor",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Contributor"
+        },
+        "valueCount": {
+          "title": "Value of Count",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Count"
+        },
+        "valueDataRequirement": {
+          "title": "Value of DataRequirement",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/DataRequirement"
+        },
+        "valueDate": {
+          "title": "Value of Date",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "date"
+        },
+        "valueDateTime": {
+          "title": "Value of DateTime",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "date-time"
+        },
+        "valueDecimal": {
+          "title": "Value of Decimal",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "number"
+        },
+        "valueDistance": {
+          "title": "Value of Distance",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Distance"
+        },
+        "valueDosage": {
+          "title": "Value of Dosage",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Dosage"
+        },
+        "valueDuration": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Duration"
+        },
+        "valueExpression": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Expression"
+        },
+        "valueHumanName": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/HumanName"
+        },
+        "valueId": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9\\-.]+$",
+          "type": "string"
+        },
+        "valueIdentifier": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Identifier"
+        },
+        "valueInstant": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "date-time"
+        },
+        "valueInteger": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "integer"
+        },
+        "valueMarkdown": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "\\s*(\\S|\\s)*",
+          "type": "string"
+        },
+        "valueMoney": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Money"
+        },
+        "valueOid": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "^urn:oid:[0-2](\\.(0|[1-9][0-9]*))+$",
+          "type": "string"
+        },
+        "valueParameterDefinition": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/ParameterDefinition"
+        },
+        "valuePeriod": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Period"
+        },
+        "valuePositiveInt": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        "valueQuantity": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Quantity"
+        },
+        "valueRange": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Range"
+        },
+        "valueRatio": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Ratio"
+        },
+        "valueReference": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Reference"
+        },
+        "valueRelatedArtifact": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/RelatedArtifact"
+        },
+        "valueSampledData": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/SampledData"
+        },
+        "valueSignature": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Signature"
+        },
+        "valueString": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "type": "string"
+        },
+        "valueTime": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "time"
+        },
+        "valueTiming": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/Timing"
+        },
+        "valueTriggerDefinition": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/TriggerDefinition"
+        },
+        "valueUnsignedInt": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "valueUri": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "pattern": "\\S*",
+          "type": "string"
+        },
+        "valueUrl": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "minLength": 1,
+          "maxLength": 65536,
+          "format": "uri",
+          "type": "string"
+        },
+        "valueUsageContext": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "$ref": "#/definitions/UsageContext"
+        },
+        "valueUuid": {
+          "title": "Value of extension",
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "element_property": true,
+          "one_of_many": "value",
+          "one_of_many_required": false,
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
