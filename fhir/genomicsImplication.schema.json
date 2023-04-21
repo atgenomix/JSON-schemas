@@ -1824,29 +1824,6 @@
       "description": "Disclaimer: Any field name ends with ``__ext`` does't part of\nResource StructureDefinition, instead used to enable Extensibility feature\nfor FHIR Primitive Data Types.\n\nText node with attribution.\nA  text note which also  contains information about who made the statement\nand when.",
       "type": "object",
       "properties": {
-        "authorReference": {
-          "title": "Individual responsible for the annotation",
-          "description": "The individual responsible for making the annotation.",
-          "element_property": true,
-          "one_of_many": "author",
-          "one_of_many_required": false,
-          "enum_reference_types": [
-            "Practitioner",
-            "Patient",
-            "RelatedPerson",
-            "Organization"
-          ],
-          "$ref": "#/definitions/Reference"
-        },
-        "authorString": {
-          "title": "Individual responsible for the annotation",
-          "description": "The individual responsible for making the annotation.",
-          "element_property": true,
-          "one_of_many": "author",
-          "one_of_many_required": false,
-          "pattern": "[ \\r\\n\\t\\S]+",
-          "type": "string"
-        },
         "text": {
           "title": "The annotation  - text content (as markdown)",
           "description": "The text of the annotation in markdown format.",
@@ -1863,6 +1840,43 @@
           "format": "date-time"
         }
       },
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "Reference",
+          "properties": {
+            "authorReference": {
+              "title": "Individual responsible for the annotation",
+              "description": "The individual responsible for making the annotation.",
+              "element_property": true,
+              "one_of_many": "author",
+              "one_of_many_required": false,
+              "enum_reference_types": [
+                "Practitioner",
+                "Patient",
+                "RelatedPerson",
+                "Organization"
+              ],
+              "$ref": "#/definitions/Reference"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "title": "String",
+          "properties": {
+            "authorString": {
+              "title": "Individual responsible for the annotation",
+              "description": "The individual responsible for making the annotation.",
+              "element_property": true,
+              "one_of_many": "author",
+              "one_of_many_required": false,
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "type": "string"
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "Range": {
