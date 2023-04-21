@@ -12,6 +12,16 @@
     },
     {
       "type": "Group",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Subject",
+          "scope": "#/properties/Observation.subject"
+        }
+      ]
+    },
+    {
+      "type": "Group",
       "label": "Status",
       "elements": [
         {
@@ -275,16 +285,6 @@
             {
               "type": "Control",
               "scope": "#/properties/Observation.specimen"
-            }
-          ]
-        },
-        {
-          "type": "Category",
-          "label": "subject",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/Observation.subject"
             }
           ]
         },
