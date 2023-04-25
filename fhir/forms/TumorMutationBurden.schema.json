@@ -270,34 +270,8 @@
     },
     "Observation.component": {
       "title": "Component results",
-      "description": "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.",
+      "description": "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes. ",
       "element_property": true,
-      "properties": {
-        "dataAbsentReason": {
-          "title": "Why the component result is missing",
-          "description": "Provides a reason why the expected value in the element Observation.component.value[x] is missing.",
-          "element_property": true,
-          "$ref": "#/definitions/CodeableConcept"
-        },
-        "interpretation": {
-          "title": "High, low, normal, etc.",
-          "description": "A categorical assessment of an observation value.  For example, high, low, normal.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CodeableConcept"
-          }
-        },
-        "referenceRange": {
-          "title": "Provides guide for interpretation of component result",
-          "description": "Guidance on how to interpret the value by comparison to a normal or recommended range.",
-          "element_property": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ObservationReferenceRange"
-          }
-        }
-      },
       "oneOf": [
         {
           "title": "Conclusion",
