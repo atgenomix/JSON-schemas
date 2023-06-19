@@ -1,0 +1,11 @@
+query($id__contains:String!){
+  OntologyClassList(id__contains:$id__contains){
+    id
+    label
+  }
+}
+
+
+{
+  "id__contains": "Ampliseq"
+}

@@ -1,0 +1,10 @@
+query($ontologyclass_id:String!){
+  OntologyClass(id:$ontologyclass_id){
+    id
+    label
+  }
+}
+
+{
+  "ontologyclass_id": "application:Ampliseq"
+}

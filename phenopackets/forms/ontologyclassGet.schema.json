@@ -1,0 +1,20 @@
+{
+  "title": "OntologyClass",
+  "description": "OntologyClass Component.",
+  "type": "object",
+  "properties": {
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "errorMessage": {}
+}

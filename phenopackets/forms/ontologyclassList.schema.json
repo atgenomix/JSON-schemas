@@ -1,0 +1,25 @@
+{
+  "title": "OntologyClass",
+  "description": "OntologyClass Component.",
+  "type": "object",
+  "properties": {
+    "OntologyClassList": {
+      "readOnly": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "errorMessage": {}
+}
