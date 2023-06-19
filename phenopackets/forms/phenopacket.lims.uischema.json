@@ -26,12 +26,12 @@
             {
               "type": "Control",
               "label": "檢體種類",
-              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/sample_type"
+              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/sample_type/properties/id"
             },
             {
               "type": "Control",
               "label": "採樣檢體時間",
-              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/time_of_collection"
+              "scope": "#/properties/phenopacket.biosamples/properties/0/properties/time_of_collection/properties/timestamp"
             }
           ]
         },
@@ -50,8 +50,7 @@
           "options": {
             "showSortButtons": true,
             "autocomplete": true,
-            "detail": {
-            }
+            "detail": {}
           }
         }
       ]
@@ -257,13 +256,20 @@
               "options": {
                 "format": "radio"
               }
+            },
+            {
+                  "type": "Control",
+                  "label": "本項檢測收費與否",
+                  "scope": "#/properties/chargeitem/properties/status",
+                  "options": {
+                    "format": "radio"}
             }
           ]
         },
         {
           "type": "HorizontalLayout",
-           "elements": [
-             {
+          "elements": [
+            {
               "type": "Group",
               "label": "建檔單位",
               "elements": [
@@ -278,7 +284,7 @@
                 {
                   "type": "Control",
                   "label": "送檢院所",
-                  "scope": "#/properties/phenopacket.meta_data/properties/submitted_by_company",
+                  "scope": "#/properties/submitted_by_company",
                   "options": {
                     "autocomplete": true
                   }
@@ -292,58 +298,11 @@
                   }
                 }
               ]
-            },
-             {
-               "type": "Group",
-              "elements": [
-               {
-                "type": "Control",
-                "label": "本項檢測完成後，將分析的結果資料作為醫學研究分析之用",
-                "scope": "#/properties/phenopacket.interpretations/properties/summary",
-                "options": {
-                    "format": "radio"
-                },
-               "rule": {
-                  "effect": "ENABLE",
-                  "condition": {
-                    "scope": "#/properties/phenopacket",
-                    "schema": {
-                      "properties": {
-                        "measurements": {
-                          "contains": {
-                            "properties": {
-                              "assay": {
-                                "properties": {
-                                  "id": {
-                                    "enum": [
-                                      "LDT0007:41"
-                                    ]
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-             },
-                {
-                "type": "Control",
-                "label": "本項檢測收費與否",
-                "scope": "#/properties/chargeitem/properties/status",
-                 "options":
-                 {
-                   "format": "radio"
-                 }
-               }
+            }
               ]
-             }
-
-           ]
+            }
+          ]
         }
       ]
-    }
-  ]
+
 }

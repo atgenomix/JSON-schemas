@@ -105,6 +105,10 @@
               {
                 "const": "LDT0007:48",
                 "title": "感覺神經性聽損基因"
+              },
+              {
+                "const": "icONE",
+                "title": "icONE"
               }
             ],
             "type": "string",
@@ -128,9 +132,11 @@
                   "title": "原檢體編號（重送檢必填）"
                 },
                 "sample_type": {
-                  "title": "檢體種類",
-                  "type": "string",
-                  "oneOf": [
+                  "properties": {
+                    "id": {
+                      "title": "檢體種類",
+                      "type": "string",
+                      "oneOf": [
                     {
                       "const": "NCIT:C79903",
                       "title": "血片 (NCIT:C79903)"
@@ -159,12 +165,17 @@
                       "const": "NCIT:C706",
                       "title": "核酸 (NCIT:C706)"
                     }
-                  ]
+                  ]}
+                  }
                 },
                 "time_of_collection": {
-                  "type": "string",
-                  "format": "date-time",
-                  "title": "採樣檢體時間"
+                  "properties": {
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "title": "採樣檢體時間"
+                    }
+                  }
                 },
                 "description": {
                   "type": "string",
@@ -254,7 +265,7 @@
         },
         "time_at_last_encounter.timestamp": {
           "type": "string",
-          "format": "date"
+          "format": "date-time"
         },
         "sex": {
           "oneOf": [
@@ -394,7 +405,50 @@
             }
           ]
         },
-        "submitted_by_company":  {
+        "submitted_by": {
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "Practitioner/35",
+              "title": "藍旻瑜"
+            },
+            {
+              "const": "Practitioner/50",
+              "title": "潘咸安"
+            },
+            {
+              "const": "Practitioner/57",
+              "title": "張令瑋"
+            }
+          ]
+        }
+      },
+      "required": [
+        "created",
+        "created_by",
+        "submitted_by"
+      ],
+      "additionalProperties": false,
+      "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
+    },
+    "chargeitem": {
+      "properties": {
+        "status": {
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "billable",
+              "title": "是"
+            },
+            {
+              "const": "not-billable ",
+              "title": "否"
+            }
+          ]
+        }
+      }
+    },
+    "submitted_by_company": {
           "type": "string",
           "oneOf": [
             {
@@ -414,68 +468,7 @@
               "title": "顏明通婦產科診所"
             }
           ]
-        },
-        "submitted_by": {
-          "type": "string",
-          "oneOf": [
-          {
-            "const": "Practitioner/35",
-            "title": "藍旻瑜"
-          },
-          {
-            "const": "Practitioner/50",
-            "title": "潘咸安"
-          },
-          {
-            "const": "Practitioner/57",
-            "title": "張令瑋"
-          }
-        ]
         }
-      },
-      "required": [
-        "created",
-        "created_by",
-        "submitted_by"
-      ],
-      "additionalProperties": false,
-      "description": "Structured definitions of the resources and ontologies used within the phenopacket. REQUIRED"
-    },
-    "phenopacket.interpretations":{
-      "properties": {
-        "summary": {
-          "type": "string",
-          "default": "不同意",
-          "oneOf": [
-            {
-              "const": "icONE",
-              "title": "同意"
-            },
-            {
-              "const": "Normal",
-              "title": "不同意"
-            }
-          ]
-        }
-      }
-    },
-    "chargeitem": {
-      "properties": {
-        "status": {
-          "type": "string",
-          "oneOf": [
-            {
-              "const": "billable",
-              "title": "同意"
-            },
-            {
-              "const": "not-billable ",
-              "title": "不同意"
-            }
-          ]
-        }
-      }
-    }
   },
   "required": [
     "phenopacket.id",
