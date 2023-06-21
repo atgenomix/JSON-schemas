@@ -1,4 +1,6 @@
 {
+  "title": "File",
+  "type": "object",
   "properties": {
     "uri": {
       "type": "string",
@@ -27,11 +29,27 @@
         ]
       },
       "description": "Map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
+    },
+    "file_attribute": {
+      "type": "array",
+      "description": "A map of attributes pertaining to the file or its contents.",
+      "items": {
+        "type": "object",
+        "properties": {
+        "genomeAssembly": {
+          "type": "string"
+        },
+        "fileFormat": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+      }
     }
   },
   "additionalProperties": false,
-  "type": "object",
-  "title": "File",
   "required": [
     "uri"
   ]

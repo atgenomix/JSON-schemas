@@ -8,6 +8,10 @@
     {
       "type": "Control",
       "scope": "#/properties/individual_to_file_identifiers"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/file_attribute"
     }
   ]
 }
