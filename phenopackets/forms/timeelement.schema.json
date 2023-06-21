@@ -1,6 +1,6 @@
 {
-  "title": "OntologyClass",
-  "description": "OntologyClass Component.",
+  "title": "TimeElement",
+  "description": "TimeElement Component.",
   "type": "object",
   "properties": {
     "time_element": {
