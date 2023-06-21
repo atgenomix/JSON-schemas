@@ -1,0 +1,17 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/code"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/body_site"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/performed"
+    }
+  ]
+}
