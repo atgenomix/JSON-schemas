@@ -1,5 +1,6 @@
 {
   "title": "Procedure",
+  "description": "Procedure Component",
   "type": "object",
   "properties": {
     "code": {

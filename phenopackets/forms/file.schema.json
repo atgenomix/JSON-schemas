@@ -1,5 +1,6 @@
 {
   "title": "File",
+  "description": "File component",
   "type": "object",
   "properties": {
     "uri": {
