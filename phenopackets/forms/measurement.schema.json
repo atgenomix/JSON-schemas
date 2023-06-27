@@ -161,21 +161,6 @@
         }
       ]
     },
-    "TimeInterval": {
-      "properties": {
-        "start": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "end": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "title": "Time Interval"
-    },
     "TimeElement": {
       "oneOf": [
         {

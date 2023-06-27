@@ -1,0 +1,48 @@
+{
+  "title": "Evidence",
+  "description": "Evidence Component.",
+  "type": "object",
+  "properties": {
+    "evidence_code": {
+      "type": "object",
+      "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+    },
+    "reference": {
+      "$ref": "#/definitions/ExternalRefarence"
+    }
+  },
+  "definitions": {
+    "ExternalRefarence": {
+      "properties": {
+    "reference": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+    },
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "evidence_code"
+  ],
+  "additionalProperties": false,
+  "errorMessage": {}
+}

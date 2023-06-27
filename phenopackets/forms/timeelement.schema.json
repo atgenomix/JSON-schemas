@@ -4,11 +4,21 @@
   "type": "object",
   "properties": {
     "time_element": {
-        "oneOf": [
+      "oneOf": [
         {
           "properties": {
             "gestational_age": {
-              "$ref": "#/definitions/GestationalAge"
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
             }
           },
           "title": "Gestational Age"
@@ -16,8 +26,16 @@
         {
           "properties": {
             "age": {
-              "$ref": "#/definitions/Age",
-              "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
             }
           },
           "title": "Age"
@@ -59,58 +77,28 @@
         {
           "properties": {
             "interval": {
-              "$ref": "#/definitions/TimeInterval"
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
             }
           },
           "title": "Time Interval"
         }
       ],
-        "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
-      }
-  },
-  "required": [],
-   "definitions": {
-    "Age": {
-      "properties": {
-        "iso8601duration": {
-          "type": "string",
-          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "title": "Age",
-      "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
-    },
-    "GestationalAge": {
-      "properties": {
-        "weeks": {
-          "type": "integer"
-        },
-        "days": {
-          "type": "integer"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "title": "Gestational Age"
-    },
-    "TimeInterval": {
-      "properties": {
-        "start": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "end": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "title": "Time Interval"
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
     }
   },
+  "required": [],
   "additionalProperties": false,
   "errorMessage": {}
 }
