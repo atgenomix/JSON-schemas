@@ -24,7 +24,14 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/measurement_value",
+          "scope": "#/properties/value",
+          "options": {
+            "autocomplete": true
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/complex_value",
           "options": {
             "autocomplete": true
           }
