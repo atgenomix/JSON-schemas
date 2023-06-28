@@ -1,0 +1,41 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": "Submitted_by",
+      "scope": "#/properties/submitted_by"
+   },
+    {
+      "type": "Control",
+      "label": "external_references",
+      "scope": "#/properties/external_references"
+   },
+    {
+      "type": "Control",
+      "label": "resources",
+      "scope": "#/properties/resources"
+   },
+    {
+      "type": "Control",
+      "label": "updates",
+      "scope": "#/properties/updates"
+   },
+    {
+      "type": "Control",
+      "label": "phenopacket_schema_version",
+      "scope": "#/properties/phenopacket_schema_version"
+   },
+    {
+      "type": "Control",
+      "label": "created",
+      "scope": "#/properties/created"
+   },
+    {
+      "type": "Control",
+      "label": "created_by",
+      "scope": "#/properties/created_by"
+   }
+
+  ]
+ }
