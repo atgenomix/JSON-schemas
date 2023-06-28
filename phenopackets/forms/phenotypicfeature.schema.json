@@ -8,16 +8,16 @@
       "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
     },
     "type": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "a CURIE-style identifier e.g. HP:0100024."
-        },
-        "label": {
-          "type": "string",
-          "description": "Class label, aka name. For example, \"Abnormality of cardiovascular system\"."
-        }
-      },
+      "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ],
       "title": "Phenotype Ontology",
       "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
     },
@@ -26,32 +26,32 @@
       "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
     },
     "severity": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "a CURIE-style identifier e.g. HP:0012826."
-        },
-        "label": {
-          "type": "string",
-          "description": "Class label e.g. \"Moderate\"."
-        }
-      },
+      "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ],
       "title": "Severity Ontology",
       "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
     },
     "modifiers": {
       "items": {
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A CURIE-style identifier of clinical modifier e.g. Subclasses of HP:0012823."
-          },
-          "label": {
-            "type": "string",
-            "description": "Clinical modifier label, aka name e.g. \"Variable expressivity\""
-          }
-        }
+        "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
       },
       "type": "array",
       "title": "Clinical Modifiers",

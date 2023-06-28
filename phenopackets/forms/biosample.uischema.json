@@ -84,6 +84,14 @@
             {
               "type": "Control",
               "scope": "#/properties/pathological_stage"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/pathological_tnm_finding"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/diagnostic_markers"
             }
           ]
         },
@@ -93,15 +101,37 @@
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/procedure/properties/code"
-            },
+              "scope": "#/properties/procedure"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "File",
+          "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/procedure/properties/body_site"
-            },
+              "scope": "#/properties/files"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Measurement",
+          "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/procedure/properties/performed"
+              "scope": "#/properties/measurements"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "PhenotypicFeature",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/phenotypic_features"
             }
           ]
         }
