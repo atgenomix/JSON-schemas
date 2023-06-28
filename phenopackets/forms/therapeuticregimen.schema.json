@@ -1,0 +1,171 @@
+{
+  "title": "TherapeuticRegimen",
+  "type": "object",
+  "description": "TherapeuticRegimen Component",
+  "oneOf": [
+    {
+      "properties": {
+          "ontology_class": {
+            "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
+          }
+      }
+    },
+    {
+      "properties": {
+        "external_reference": {
+      "$ref": "#/definitions/ExternalRefarence"
+    }
+      }
+    }
+  ],
+  "properties": {
+    "start_time": {
+      "$ref": "#/definitions/TimeElement"
+    },
+    "end_time": {
+      "$ref": "#/definitions/TimeElement"
+    },
+    "regimen_status": {
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "UNKNOWN_STATUS",
+          "title": "UNKNOWN_STATUS"
+        },{
+          "const": "STARTED",
+          "title": "STARTED"
+        },{
+          "const": "COMPLETED",
+          "title": "COMPLETED"
+        },{
+          "const": "DISCONTINUED",
+          "title": "DISCONTINUED"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "ExternalRefarence": {
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "OntologyClass": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "TimeElement": {
+      "oneOf": [
+        {
+          "properties": {
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
+            }
+          },
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
+        }
+      ],
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+    }
+  }
+}
