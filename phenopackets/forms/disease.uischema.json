@@ -1,0 +1,37 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/term"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/excluded"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/onset"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/resolution"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/disease_stage"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/clinical_tnm_finding"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/primary_site"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/laterality"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "title": "Disease",
+  "description": "Disease Component.",
+  "type": "object",
+  "properties": {
+    "term": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ],
+      "description": "An ontology class that represents the disease. REQUIRED."
+    },
+    "excluded": {
+      "type": "boolean"
+    },
+    "onset": {
+      "$ref": "#/definitions/TimeElement",
+      "description": "an element representing the age of onset of the disease"
+    },
+    "resolution": {
+      "$ref": "#/definitions/TimeElement",
+      "description": "an element representing the age of resolution (abatement) of the disease"
+    },
+    "disease_stage": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+      }
+    },
+    "clinical_tnm_finding": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+      }
+    },
+    "primary_site": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ],
+      "description": "the primary site of disease."
+    },
+    "laterality": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ],
+      "description": "laterality (left or right) of the primary site of sites if applicable"
+    }
+  },
+  "definitions": {
+    "TimeElement": {
+      "oneOf": [
+        {
+          "properties": {
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
+            }
+          },
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
+        }
+      ],
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+    },
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "term"
+  ],
+  "additionalProperties": false,
+  "errorMessage": {}
+}
