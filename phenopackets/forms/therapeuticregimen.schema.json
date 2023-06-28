@@ -35,19 +35,19 @@
       "$ref": "#/definitions/TimeElement"
     },
     "regimen_status": {
-      "type": "string",
+      "type": "integer",
       "oneOf": [
         {
-          "const": "UNKNOWN_STATUS",
+          "const": 0,
           "title": "UNKNOWN_STATUS"
         },{
-          "const": "STARTED",
+          "const": 1,
           "title": "STARTED"
         },{
-          "const": "COMPLETED",
+          "const": 2,
           "title": "COMPLETED"
         },{
-          "const": "DISCONTINUED",
+          "const": 3,
           "title": "DISCONTINUED"
         }
       ]

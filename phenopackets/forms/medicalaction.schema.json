@@ -1,0 +1,500 @@
+{
+  "title": "MedicalAction",
+  "type": "object",
+  "description": "MedicalAction Component",
+  "oneOf": [
+    {
+      "properties": {
+        "procedure": {
+          "$ref": "#/definitions/Procedure"
+        }
+      }
+    },
+    {
+      "properties": {
+        "radiation_therapy": {
+          "$ref": "#/definitions/Treatment"
+        }
+      }
+    },
+    {
+      "properties": {
+        "treatment": {
+          "$ref": "#/definitions/RadiationTherapy"
+        }
+      }
+    },
+    {
+      "properties": {
+        "therapeutic_regimen": {
+          "$ref": "#/definitions/TherapeuticRegimen"
+        }
+      }
+    }
+  ],
+  "properties": {
+    "treatment_target": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+    },
+    "treatment_intent": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+    },
+    "response_to_treatment": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+    },
+    "adverse_events": {
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/OntologyClass",
+            "title": "choice1"
+          },
+          {
+            "$ref": "#/definitions/OntologyClass",
+            "title": "choice2"
+          }
+        ]
+      }
+    },
+    "treatment_termination_reason": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice1"
+        },
+        {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "choice2"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "OntologyClass": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "TimeElement": {
+      "oneOf": [
+        {
+          "properties": {
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
+            }
+          },
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
+        }
+      ],
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+    },
+    "Procedure": {
+      "properties": {
+        "code": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
+        },
+        "body_site": {
+          "type": "array",
+          "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/OntologyClass/properties/id"
+              }
+            }
+          }
+        },
+        "performed": {
+          "type": "array",
+          "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
+          "items": {
+            "$ref": "#/definitions/TimeElement"
+          }
+        }
+      }
+    },
+    "Treatment": {
+      "properties": {
+        "agent": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
+        },
+        "route_of_administration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
+        },
+        "dose_intervals": {
+          "properties": {
+            "quantity": {
+              "properties": {
+                "reference_range": {
+                  "properties": {
+                    "unit": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/definitions/OntologyClass",
+                          "title": "choice1"
+                        },
+                        {
+                          "$ref": "#/definitions/OntologyClass",
+                          "title": "choice2"
+                        }
+                      ]
+                    },
+                    "low": {
+                      "type": "integer"
+                    },
+                    "high": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/OntologyClass",
+                      "title": "choice1"
+                    },
+                    {
+                      "$ref": "#/definitions/OntologyClass",
+                      "title": "choice2"
+                    }
+                  ]
+                }
+              }
+            },
+            "schedule_frequency": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OntologyClass",
+                  "title": "choice1"
+                },
+                {
+                  "$ref": "#/definitions/OntologyClass",
+                  "title": "choice2"
+                }
+              ]
+            },
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        },
+        "drug_type": {
+          "type": "integer",
+          "oneOf": [
+            {
+              "const": 0,
+              "title": "UNKNOWN_DRUG_TYPE"
+            },
+            {
+              "const": 1,
+              "title": "PRESCRIPTION"
+            },
+            {
+              "const": 2,
+              "title": "EHR_MEDICATION_LIST"
+            },
+            {
+              "const": 3,
+              "title": "ADMINISTRATION_RELATED_TO_PROCEDURE"
+            }
+          ]
+        },
+        "cumulative_dose": {
+          "properties": {
+            "reference_range": {
+              "properties": {
+                "unit": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/OntologyClass",
+                      "title": "choice1"
+                    },
+                    {
+                      "$ref": "#/definitions/OntologyClass",
+                      "title": "choice2"
+                    }
+                  ]
+                },
+                "low": {
+                  "type": "integer"
+                },
+                "high": {
+                  "type": "integer"
+                }
+              }
+            },
+            "value": {
+              "type": "integer"
+            },
+            "unit": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OntologyClass",
+                  "title": "choice1"
+                },
+                {
+                  "$ref": "#/definitions/OntologyClass",
+                  "title": "choice2"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "RadiationTherapy": {
+      "properties": {
+        "modality": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
+        },
+        "body_site": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice1"
+            },
+            {
+              "$ref": "#/definitions/OntologyClass",
+              "title": "choice2"
+            }
+          ]
+        },
+        "dosage": {
+          "type": "integer"
+        },
+        "fractions": {
+          "type": "integer"
+        }
+      }
+    },
+    "TherapeuticRegimen": {
+      "oneOf": [
+        {
+          "properties": {
+            "ontology_class": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/OntologyClass",
+                  "title": "choice1"
+                },
+                {
+                  "$ref": "#/definitions/OntologyClass",
+                  "title": "choice2"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "external_reference": {
+              "$ref": "#/definitions/ExternalRefarence"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "start_time": {
+          "$ref": "#/definitions/TimeElement"
+        },
+        "end_time": {
+          "$ref": "#/definitions/TimeElement"
+        },
+        "regimen_status": {
+          "type": "integer",
+          "oneOf": [
+            {
+              "const": 0,
+              "title": "UNKNOWN_STATUS"
+            },
+            {
+              "const": 1,
+              "title": "STARTED"
+            },
+            {
+              "const": 2,
+              "title": "COMPLETED"
+            },
+            {
+              "const": 3,
+              "title": "DISCONTINUED"
+            }
+          ]
+        }
+      }
+    },
+    "ExternalRefarence": {
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
