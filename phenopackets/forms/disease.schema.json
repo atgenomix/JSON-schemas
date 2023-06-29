@@ -4,16 +4,7 @@
   "type": "object",
   "properties": {
     "term": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "description": "An ontology class that represents the disease. REQUIRED."
     },
     "excluded": {
@@ -30,57 +21,21 @@
     "disease_stage": {
       "type": "array",
       "items": {
-        "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ]
+        "$ref": "#/definitions/OntologyClass"
       }
     },
     "clinical_tnm_finding": {
       "type": "array",
       "items": {
-        "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ]
+        "$ref": "#/definitions/OntologyClass"
       }
     },
     "primary_site": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "description": "the primary site of disease."
     },
     "laterality": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "description": "laterality (left or right) of the primary site of sites if applicable"
     }
   },
@@ -180,8 +135,12 @@
       "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
     },
     "OntologyClass": {
+      "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
