@@ -20,30 +20,12 @@
       "description": "The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data."
     },
     "sampled_tissue": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "additionalProperties": false,
       "title": "Sampled Tissue Ontology"
     },
     "sample_type": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "additionalProperties": false,
       "title": "Sample Type Ontology"
     },
@@ -60,16 +42,7 @@
       }
     },
     "taxonomy": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Taxonomy Ontology"
     },
     "time_of_collection": {
@@ -78,83 +51,29 @@
       "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself.See http://build.fhir.org/datatypes"
     },
     "histological_diagnosis": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Histological Diagnosis Ontology"
     },
     "tumor_progression": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Tumor Progression Ontology"
     },
     "tumor_grade": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Tumor Grade Ontology"
     },
     "pathological_stage": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Pathological Stage Ontology"
     },
     "pathological_tnm_finding": {
       "items": {
-        "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ]
+        "$ref": "#/definitions/OntologyClass"
       }
     },
     "diagnostic_markers": {
       "items": {
-        "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ]
+        "$ref": "#/definitions/OntologyClass"
       }
     },
     "procedure": {
@@ -167,43 +86,16 @@
       }
     },
     "material_sample": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Material Sample Ontology"
     },
     "sample_processing": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "additionalProperties": false,
       "title": "Sample Processing Ontology"
     },
     "sample_storage": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Sample Storage Ontology"
     }
   },
@@ -305,50 +197,140 @@
     },
     "Procedure": {
       "properties": {
-        "code": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+    "code": {
+      "type": "object",
+      "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "body_site": {
-          "type": "array",
-          "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
-          "items": {
-            "type": "object",
-            "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
-          }
-        },
-        "performed": {
-          "type": "array",
-          "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
-          "items": {
-            "$ref": "#/definitions/TimeElement"
-          }
+        "label": {
+          "type": "string"
         }
       }
+    },
+    "body_site": {
+      "type": "array",
+      "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
+      "items": {
+        "type": "object",
+        "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+      }
+    },
+    "performed": {
+      "type": "array",
+      "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
+      "items": {
+        "type": "object",
+        "oneOf": [
+        {
+          "properties": {
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
+            }
+          },
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
+        }
+      ]
+      }
+    }
+  }
     },
     "OntologyClass": {
       "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
@@ -368,16 +350,7 @@
         "evidence_code": {
           "type": "object",
           "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+          "$ref": "#/definitions/OntologyClass"
         },
         "reference": {
           "$ref": "#/definitions/ExternalRefarence"
@@ -386,178 +359,117 @@
     },
     "PhenotypicFeature": {
       "properties": {
-    "description": {
-      "type": "string",
-      "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
-    },
-    "type": {
-      "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ],
-      "title": "Phenotype Ontology",
-      "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
-    },
-    "excluded": {
-      "type": "boolean",
-      "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
-    },
-    "severity": {
-      "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ],
-      "title": "Severity Ontology",
-      "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
-    },
-    "modifiers": {
-      "items": {
-        "type": "object",
-        "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
-      },
-      "type": "array",
-      "title": "Clinical Modifiers",
-      "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
-    },
-    "onset": {
-      "$ref": "#/definitions/TimeElement"
-    },
-    "resolution": {
-      "$ref": "#/definitions/TimeElement",
-      "additionalProperties": false,
-      "description": "Age or time at which the feature resolved or abated."
-    },
-    "evidence": {
-      "items": {
-        "$ref": "#/definitions/Evidence"
-      },
-      "additionalProperties": false,
-      "type": "array",
-      "description": "Evidences for how the phenotype was determined."
-    }
-  }
+        "description": {
+          "type": "string",
+          "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
+        },
+        "type": {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "Phenotype Ontology",
+          "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
+        },
+        "excluded": {
+          "type": "boolean",
+          "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
+        },
+        "severity": {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "Severity Ontology",
+          "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
+        },
+        "modifiers": {
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/OntologyClass"
+          },
+          "type": "array",
+          "title": "Clinical Modifiers",
+          "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
+        },
+        "onset": {
+          "$ref": "#/definitions/TimeElement"
+        },
+        "resolution": {
+          "$ref": "#/definitions/TimeElement",
+          "additionalProperties": false,
+          "description": "Age or time at which the feature resolved or abated."
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/definitions/Evidence"
+          },
+          "additionalProperties": false,
+          "type": "array",
+          "description": "Evidences for how the phenotype was determined."
+        }
+      }
     },
     "Measurement": {
       "properties": {
-        "description": {
-          "type": "string",
-          "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc. fields should be used for this purpose."
+    "description": {
+      "type": "string",
+      "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc. fields should be used for this purpose."
+    },
+    "assay": {
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "assay": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ],
-          "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
+        "label": {
+          "type": "string"
+        }
+      },
+      "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
+    },
+    "value": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "OntologyClass",
+          "properties": {
+            "ontology_class": {
+              "description": "TODO: A component: OntologyClass should be a choice. The kind of ontology_class. REQUIRED.",
+              "properties": {
+        "id": {
+          "type": "string"
         },
-        "value": {
-          "type": "object",
-          "$ref": "#/definitions/Value"
-        },
-        "complex_value": {
-          "type": "object",
-          "$ref": "#/definitions/ComplexValue"
-        },
-        "time_observed": {
-          "$ref": "#/definitions/TimeElement",
-          "description": "The time at which the measurement was made"
-        },
-        "procedure": {
-          "$ref": "#/definitions/Procedure",
-          "description": "Clinical procedure performed on the subject in order to produce the measurement."
+        "label": {
+          "type": "string"
         }
       }
-    },
-    "ComplexValue": {
-      "properties": {
-        "typed_quantities": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TypedQuantity"
+            }
           }
-        }
-      }
-    },
-    "TypedQuantity": {
-      "properties": {
-        "type": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. OntologyClass to describe the type of the measurement. REQUIRED..",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
         },
-        "quantity": {
-          "type": "object",
-          "$ref": "#/definitions/Quantity"
-        }
-      }
-    },
-    "Quantity": {
+        {
+          "title": "Quantity",
+          "properties": {
+            "quantity": {
       "properties": {
         "unit": {
           "type": "object",
           "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+          "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
         },
         "reference_range": {
           "properties": {
             "unit": {
               "type": "object",
               "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice1"
-                },
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice2"
-                }
-              ]
+              "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
             },
             "low": {
               "description": "lower range of normal. REQUIRED.",
@@ -580,36 +492,161 @@
           "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
         }
       }
-    },
-    "Value": {
-      "oneOf": [
-        {
-          "title": "OntologyClass",
-          "properties": {
-            "ontology_class": {
-              "description": "TODO: A component: OntologyClass should be a choice. The kind of ontology_class. REQUIRED.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice1"
-                },
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice2"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Quantity",
-          "properties": {
-            "quantity": {
-              "$ref": "#/definitions/Quantity"
-            }
+    }
           }
         }
       ]
+    },
+    "complex_value": {
+      "type": "object",
+      "properties": {
+        "typed_quantities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TypedQuantity"
+          }
+        }
+      }
+    },
+    "time_observed": {
+      "$ref": "#/definitions/TimeElement",
+      "description": "The time at which the measurement was made"
+    },
+    "procedure": {
+      "$ref": "#/definitions/Procedure",
+      "description": "Clinical procedure performed on the subject in order to produce the measurement."
+    }
+  }
+    },
+    "ComplexValue": {
+      "properties": {
+        "typed_quantities": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "type": {
+                "type": "object",
+                "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              },
+              "quantity": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "reference_range": {
+                    "properties": {
+                      "unit": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "low": {
+                        "description": "lower range of normal. REQUIRED.",
+                        "type": "integer"
+                      },
+                      "high": {
+                        "description": "upper range of normal. REQUIRED.",
+                        "type": "integer"
+                      }
+                    },
+                    "description": "the normal range for the value",
+                    "required": [
+                      "unit",
+                      "low",
+                      "high"
+                    ]
+                  },
+                  "value": {
+                    "type": "integer",
+                    "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "TypedQuantity": {
+      "properties": {
+        "type": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. OntologyClass to describe the type of the measurement. REQUIRED..",
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "quantity": {
+          "type": "object",
+          "properties": {
+        "unit": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
+          "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+        },
+        "reference_range": {
+          "properties": {
+            "unit": {
+              "type": "object",
+              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
+              "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+            },
+            "low": {
+              "description": "lower range of normal. REQUIRED.",
+              "type": "integer"
+            },
+            "high": {
+              "description": "upper range of normal. REQUIRED.",
+              "type": "integer"
+            }
+          },
+          "description": "the normal range for the value",
+          "required": [
+            "unit",
+            "low",
+            "high"
+          ]
+        },
+        "value": {
+          "type": "integer",
+          "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+        }
+      }
+        }
+      }
     },
     "Files": {
       "properties": {
