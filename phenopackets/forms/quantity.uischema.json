@@ -6,8 +6,17 @@
       "scope": "#/properties/unit"
     },
     {
-      "type": "Control",
-      "scope": "#/properties/reference_range"
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/reference_range"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/reference_range/properties/unit"
+        }
+      ]
     },
     {
       "type": "Control",

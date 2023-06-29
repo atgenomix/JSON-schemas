@@ -4,30 +4,12 @@
   "type": "object",
   "properties": {
     "unit": {
-      "type": "object",
-      "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-      "oneOf": [{
-        "$ref": "#/definitions/OntologyClass",
-        "title": "choice1"
-      },
-      {
-        "$ref": "#/definitions/OntologyClass",
-        "title": "choice2"
-      }]
+      "$ref": "#/definitions/OntologyClass"
     },
     "reference_range": {
       "properties": {
         "unit": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-          "oneOf": [{
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice1"
-          },
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice2"
-          }]
+          "$ref": "#/definitions/OntologyClass"
         },
         "low": {
           "description": "lower range of normal. REQUIRED.",
@@ -47,10 +29,14 @@
     }
  },
   "required": ["unit","value"],
-   "definitions": {
+  "definitions": {
      "OntologyClass": {
-      "properties": {
+       "type": "object",
+       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
