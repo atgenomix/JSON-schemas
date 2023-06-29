@@ -1,0 +1,96 @@
+{
+  "title": "MetaData",
+  "description": "MetaData Component.",
+  "type": "object",
+  "properties": {
+    "submitted_by": {
+      "type": "string"
+    },
+    "external_references": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ExternalRefarence"
+      }
+    },
+    "resources": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace_prefix": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "iri_prefix": {
+          "type": "string"
+        }
+      }
+    },
+    "updates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Updates"
+      }
+    },
+    "phenopacket_schema_version": {
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "1.0",
+          "title": "1.0"
+        },
+        {
+          "const": "1.0.0",
+          "title": "1.0.0"
+        },
+        {
+          "const": "2.0",
+          "title": "2.0"
+        }
+      ]
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "created_by": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "ExternalRefarence": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Updates": {
+      "type": "object",
+      "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    }
+  }
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "errorMessage": {}
+}

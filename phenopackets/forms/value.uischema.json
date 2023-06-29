@@ -3,8 +3,7 @@
   "elements": [
     {
       "type": "Control",
-      "label": "TimeElement",
-      "scope": "#/properties/time_element"
-   }
+      "scope": "#"
+    }
   ]
- }
+}

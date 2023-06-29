@@ -8,114 +8,239 @@
       "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc. fields should be used for this purpose."
     },
     "assay": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "a CURIE-style identifier e.g. NCIT:C101294. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "class label, aka name. E.g. \"Whole Genome Sequencing\""
-        }
-      },
+      "$ref": "#/definitions/OntologyClass",
       "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
     },
-    "measurement_value": {
+    "value": {
+      "type": "object",
+      "$ref": "#/definitions/Value"
+    },
+    "complex_value": {
+      "type": "object",
+      "$ref": "#/definitions/ComplexValue"
+    },
+    "time_observed": {
+      "$ref": "#/definitions/TimeElement",
+      "description": "The time at which the measurement was made"
+    },
+    "procedure": {
+      "$ref": "#/definitions/Procedure",
+      "description": "Clinical procedure performed on the subject in order to produce the measurement."
+    }
+  },
+  "definitions": {
+    "ComplexValue": {
+      "properties": {
+        "typed_quantities": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "type": {
+                "type": "object",
+                "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              },
+              "quantity": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "reference_range": {
+                    "properties": {
+                      "unit": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "low": {
+                        "description": "lower range of normal. REQUIRED.",
+                        "type": "integer"
+                      },
+                      "high": {
+                        "description": "upper range of normal. REQUIRED.",
+                        "type": "integer"
+                      }
+                    },
+                    "description": "the normal range for the value",
+                    "required": [
+                      "unit",
+                      "low",
+                      "high"
+                    ]
+                  },
+                  "value": {
+                    "type": "integer",
+                    "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "Quantity": {
+      "properties": {
+        "unit": {
+          "type": "object",
+          "description": "The kind of unit. REQUIRED.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "reference_range": {
+          "properties": {
+            "unit": {
+              "type": "object",
+              "description": "The kind of unit. REQUIRED.",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              }
+            },
+            "low": {
+              "description": "lower range of normal. REQUIRED.",
+              "type": "integer"
+            },
+            "high": {
+              "description": "upper range of normal. REQUIRED.",
+              "type": "integer"
+            }
+          },
+          "description": "the normal range for the value",
+          "required": [
+            "unit",
+            "low",
+            "high"
+          ]
+        },
+        "value": {
+          "type": "integer",
+          "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+        }
+      }
+    },
+    "Value": {
+      "oneOf": [
+        {
+          "title": "OntologyClass",
+          "properties": {
+            "ontology_class": {
+              "$ref": "#/definitions/OntologyClass"
+            }
+          }
+        },
+        {
+          "title": "Quantity",
+          "properties": {
+            "quantity": {
+              "$ref": "#/definitions/Quantity"
+            }
+          }
+        }
+      ]
+    },
+    "TimeElement": {
       "oneOf": [
         {
           "properties": {
-            "quantity": {
+            "gestational_age": {
               "properties": {
-                "value": {
-                  "type": "number",
-                  "description": "Value of the quantity in the units, e.g. 10.0 nanogram."
+                "weeks": {
+                  "type": "integer"
                 },
-                "unit": {
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
+            }
+          },
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
                   "properties": {
-                    "id": {
+                    "iso8601duration": {
                       "type": "string",
-                      "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
-                    },
-                    "label": {
-                      "type": "string",
-                      "description": "class label, aka name. e.g. nanogram."
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                     }
-                  },
-                  "required": [
-                    "id"
-                  ],
-                  "title": "Unit Ontology"
+                  }
                 },
-                "reference_range": {
+                "end": {
                   "properties": {
-                    "unit": {
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
-                        },
-                        "label": {
-                          "type": "string",
-                          "description": "class label, aka name. e.g. nanogram."
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ],
-                      "title": "Unit Ontology"
-                    },
-                    "low": {
-                      "type": "number"
-                    },
-                    "high": {
-                      "type": "number"
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                     }
-                  },
-                  "title": "Reference Range",
-                  "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
+                  }
                 }
               }
             }
           },
-          "title": "Quantity"
+          "title": "Age Range"
         },
-        {
-          "properties": {
-            "ontology_class": {
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "a CURIE-style identifier. This is the primary key for the ontology class REQUIRED!"
-                },
-                "label": {
-                  "type": "string",
-                  "description": "class label, aka name. For use with things such as categories 'red', 'yellow' or 'absent'/'present'"
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "description": "for use with things such as categories 'red', 'yellow' or 'absent'/'present'"
-            }
-          },
-          "title": "Ontology Class"
-        },
-        {
-          "properties": {
-            "typed_quantities": {
-              "items": {
-                "$ref": "#/definitions/TypedQuantity"
-              },
-              "type": "array",
-              "description": "The quantities required to fully describe the complex value. For example the systolic and diastolic blood pressure quantities"
-            }
-          },
-          "title": "Typed Quantity"
-        }
-      ]
-    },
-    "time_observed": {
-      "oneOf": [
         {
           "properties": {
             "timestamp": {
@@ -123,164 +248,68 @@
               "format": "date-time"
             }
           },
-          "title": "Time of Measurement"
+          "title": "Timestamp"
         },
         {
           "properties": {
             "interval": {
-              "$ref": "#/definitions/TimeInterval"
-            }
-          },
-          "title": "Time Interval of Measurement"
-        }
-      ],
-      "description": "The time at which the measurement was made"
-    },
-    "procedure": {
-      "properties": {
-        "code": {
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-            },
-            "label": {
-              "type": "string",
-              "description": "FHIR mapping: Procedure.code"
-            }
-          },
-          "title": "Procedure Code Ontology"
-        },
-        "body_site": {
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-            },
-            "label": {
-              "type": "string",
-              "description": "FHIR mapping: Procedure.bodySite"
-            }
-          },
-          "title": "Body Site Ontology"
-        },
-        "performed": {
-          "oneOf": [
-            {
               "properties": {
-                "timestamp": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
                   "type": "string",
                   "format": "date-time"
                 }
               },
-              "title": "Time of Procedure"
-            },
-            {
-              "properties": {
-                "interval": {
-                  "$ref": "#/definitions/TimeInterval"
-                }
-              },
-              "title": "Time Interval of Procedure"
-            }
-          ],
-          "description": "When the procedure was performed."
-        }
-      },
-      "description": "Clinical procedure performed on the subject in order to produce the measurement."
-    }
-  },
-  "definitions": {
-    "TimeInterval": {
-      "properties": {
-        "start": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "end": {
-          "type": "string",
-          "format": "date-time"
-        }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "title": "Time Interval"
-    },
-    "TypedQuantity": {
-      "properties": {
-        "type": {
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "a CURIE-style identifier. This is the primary key for the ontology class REQUIRED!"
-            },
-            "label": {
-              "type": "string",
-              "description": "class label, aka name. e.g. diastolic, systolic."
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
             }
           },
-          "required": [
-            "id"
-          ],
-          "description": "e.g. diastolic, systolic"
-        },
-        "quantity": {
+          "title": "Time Interval"
+        }
+      ],
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+    },
+    "Procedure": {
+      "properties": {
+        "code": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
           "properties": {
-            "value": {
-              "type": "number",
-              "description": "Value of the quantity in the units, e.g. 10.0 nanogram."
-            },
-            "unit": {
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
-                },
-                "label": {
-                  "type": "string",
-                  "description": "class label, aka name. e.g. nanogram."
-                }
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+        },
+        "body_site": {
+          "type": "array",
+          "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
               },
-              "required": [
-                "id"
-              ],
-              "title": "Unit ontology"
-            },
-            "reference_range": {
-              "properties": {
-                "unit": {
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "description": "a CURIE-style identifier e.g. UO:0000024. https://www.ebi.ac.uk/ols/ontologies/uo."
-                    },
-                    "label": {
-                      "type": "string",
-                      "description": "class label, aka name. e.g. nanogram."
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ],
-                  "title": "Unit ontology"
-                },
-                "low": {
-                  "type": "number"
-                },
-                "high": {
-                  "type": "number"
-                }
-              },
-              "title": "Reference range",
-              "description": "Reference range for the quantity e.g. The normal range of platelets is 150,000 to 450,000 platelets/uL."
+              "label": {
+                "type": "string"
+              }
             }
           }
+        },
+        "performed": {
+          "type": "array",
+          "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
+          "items": {
+            "$ref": "#/definitions/TimeElement"
+          }
         }
-      },
-      "additionalProperties": false,
-      "type": "object",
-      "title": "Typed Quantity",
-      "description": "For complex measurements, such as blood pressure where more than one component quantity is required to describe the measurement"
+      }
     }
   }
 }

@@ -1,0 +1,41 @@
+{
+  "title": "Evidence",
+  "description": "Evidence Component.",
+  "type": "object",
+  "properties": {
+    "evidence_code": {
+      "type": "object",
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "reference": {
+      "$ref": "#/definitions/ExternalRefarence"
+    }
+  },
+  "definitions": {
+    "ExternalRefarence": {
+      "properties": {
+    "reference": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+    },
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "evidence_code"
+  ],
+  "additionalProperties": false,
+  "errorMessage": {}
+}

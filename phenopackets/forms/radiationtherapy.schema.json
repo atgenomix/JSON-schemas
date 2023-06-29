@@ -1,0 +1,33 @@
+{
+  "title": "RadiationTherapy",
+  "type": "object",
+  "description": "RadiationTherapy Component",
+  "properties": {
+    "modality": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "body_site": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "dosage": {
+      "type": "integer"
+    },
+    "fractions": {
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "OntologyClass": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

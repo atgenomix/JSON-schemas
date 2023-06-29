@@ -1,66 +1,51 @@
 {
+  "title": "TherapeuticRegimen",
   "type": "object",
-  "title": "Phenotypic Feature",
-  "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)",
+  "description": "TherapeuticRegimen Component",
+  "oneOf": [
+    {
+      "properties": {
+          "ontology_class": {
+            "$ref": "#/definitions/OntologyClass"
+          }
+      }
+    },
+    {
+      "properties": {
+        "external_reference": {
+      "$ref": "#/definitions/ExternalRefarence"
+    }
+      }
+    }
+  ],
   "properties": {
-    "description": {
-      "type": "string",
-      "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
-    },
-    "type": {
-      "$ref": "#/definitions/OntologyClass",
-      "title": "Phenotype Ontology",
-      "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
-    },
-    "excluded": {
-      "type": "boolean",
-      "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
-    },
-    "severity": {
-      "$ref": "#/definitions/OntologyClass",
-      "title": "Severity Ontology",
-      "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
-    },
-    "modifiers": {
-      "items": {
-        "type": "object",
-        "$ref": "#/definitions/OntologyClass"
-      },
-      "type": "array",
-      "title": "Clinical Modifiers",
-      "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
-    },
-    "onset": {
+    "start_time": {
       "$ref": "#/definitions/TimeElement"
     },
-    "resolution": {
-      "$ref": "#/definitions/TimeElement",
-      "additionalProperties": false,
-      "description": "Age or time at which the feature resolved or abated."
+    "end_time": {
+      "$ref": "#/definitions/TimeElement"
     },
-    "evidence": {
-      "items": {
-        "$ref": "#/definitions/Evidence"
-      },
-      "additionalProperties": false,
-      "type": "array",
-      "description": "Evidences for how the phenotype was determined."
+    "regimen_status": {
+      "type": "integer",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "UNKNOWN_STATUS"
+        },{
+          "const": 1,
+          "title": "STARTED"
+        },{
+          "const": 2,
+          "title": "COMPLETED"
+        },{
+          "const": 3,
+          "title": "DISCONTINUED"
+        }
+      ]
     }
   },
   "additionalProperties": false,
   "definitions": {
-    "Evidence": {
-      "properties": {
-        "evidence_code": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
-          "$ref": "#/definitions/OntologyClass"
-        },
-        "reference": {
-          "$ref": "#/definitions/ExternalRefarence"
-        }
-      }
-    },
     "ExternalRefarence": {
       "properties": {
         "reference": {

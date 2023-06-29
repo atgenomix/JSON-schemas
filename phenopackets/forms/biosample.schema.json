@@ -15,16 +15,153 @@
       "type": "string",
       "description": "The id of the parent biosample this biosample was derived from."
     },
+    "description": {
+      "type": "string",
+      "description": "The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data."
+    },
+    "sampled_tissue": {
+      "$ref": "#/definitions/OntologyClass",
+      "additionalProperties": false,
+      "title": "Sampled Tissue Ontology"
+    },
+    "sample_type": {
+      "$ref": "#/definitions/OntologyClass",
+      "additionalProperties": false,
+      "title": "Sample Type Ontology"
+    },
+    "phenotypic_features": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PhenotypicFeature"
+      }
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Measurement"
+      }
+    },
+    "taxonomy": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Taxonomy Ontology"
+    },
     "time_of_collection": {
+      "$ref": "#/definitions/TimeElement",
+      "additionalProperties": false,
+      "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself.See http://build.fhir.org/datatypes"
+    },
+    "histological_diagnosis": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Histological Diagnosis Ontology"
+    },
+    "tumor_progression": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Tumor Progression Ontology"
+    },
+    "tumor_grade": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Tumor Grade Ontology"
+    },
+    "pathological_stage": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Pathological Stage Ontology"
+    },
+    "pathological_tnm_finding": {
+      "items": {
+        "$ref": "#/definitions/OntologyClass"
+      }
+    },
+    "diagnostic_markers": {
+      "items": {
+        "$ref": "#/definitions/OntologyClass"
+      }
+    },
+    "procedure": {
+      "$ref": "#/definitions/Procedure",
+      "description": "Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed"
+    },
+    "files": {
+      "items": {
+        "$ref": "#/definitions/Files"
+      }
+    },
+    "material_sample": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Material Sample Ontology"
+    },
+    "sample_processing": {
+      "$ref": "#/definitions/OntologyClass",
+      "additionalProperties": false,
+      "title": "Sample Processing Ontology"
+    },
+    "sample_storage": {
+      "$ref": "#/definitions/OntologyClass",
+      "title": "Sample Storage Ontology"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "TimeElement": {
       "oneOf": [
         {
           "properties": {
-            "age": {
-              "$ref": "#/definitions/Age"
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
             }
           },
-          "title": "Age of Collection",
-          "description": "The age of the individual this biosample was derived from at the time of collection"
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
         },
         {
           "properties": {
@@ -33,227 +170,533 @@
               "format": "date-time"
             }
           },
-          "title": "Time of Collection",
-          "description": "The time of this biosample was collected"
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
         }
       ],
-      "additionalProperties": false,
-      "description": "An TimeElement describing either the age of the individual this biosample was derived from at the time of collection, or the time itself.See http://build.fhir.org/datatypes"
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
     },
-    "description": {
-      "type": "string",
-      "description": "The biosample's description. This attribute contains human readable text. The \"description\" attributes should not contain any structured data."
-    },
-    "sampled_tissue": {
+    "Procedure": {
+      "properties": {
+    "code": {
+      "type": "object",
+      "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
       "properties": {
         "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "type": "string"
         },
         "label": {
-          "type": "string",
-          "description": "UBERON class describing the tissue from which the specimen was collected. PDX-MI mapping: 'Specimen tumor tissue' FHIR mapping: Specimen.type ARGO mapping sample_registration::specimen_tissue_source"
+          "type": "string"
         }
-      },
-      "additionalProperties": false,
-      "title": "Sampled Tissue Ontology"
+      }
     },
-    "sample_type": {
-      "properties": {
+    "body_site": {
+      "type": "array",
+      "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
+      "items": {
+        "type": "object",
+        "properties": {
         "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
+          "type": "string"
         },
         "label": {
-          "type": "string",
-          "description": "Recommended use of EFO term to describe the sample. e.g. Amplified DNA, ctDNA, Total RNA, Lung tissue, Cultured cells... ARGO mapping sample_registration::sample_type"
+          "type": "string"
         }
-      },
-      "additionalProperties": false,
-      "title": "Sample Type Ontology"
+      }
+      }
     },
-    "sample_processing": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "Field to represent how the sample was processed. ARGO mapping specimen::specimen_processing"
-        }
-      },
-      "additionalProperties": false,
-      "title": "Sample Processing Ontology"
-    },
-    "sample_storage": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "Field to represent how the sample was stored ARGO mapping specimen::specimen_storage"
-        }
-      },
-      "title": "Sample Storage Ontology"
-    },
-    "material_sample": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "This element can be used to specify the status of the sample. For instance, a status may be used as a normal control, often in combination with another sample that is thought to contain a pathological finding. We recommend use of ontology terms such as: EFO:0009654 (reference sample) or EFO:0009655 (abnormal sample) ARGO mapping sample_registration::tumour_normal_designation"
-        }
-      },
-      "title": "Material Sample Ontology"
-    },
-    "taxonomy": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "NCBI taxonomic identifier (NCBITaxon) of the sample e.g. NCBITaxon:9606"
-        },
-        "label": {
-          "type": "string",
-          "description": "This element can be used to specify the taxonomy of the sample."
-        }
-      },
-      "title": "Taxonomy Ontology"
-    },
-    "histological_diagnosis": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "This is the pathologist’s diagnosis and may often represent a refinement of the clinical diagnosis given in the Patient/Clinical module. Should use the same terminology as diagnosis, but represent the pathologist’s findings. Normal samples would be tagged with the term \"NCIT:C38757\", \"Negative Finding\" ARGO mapping specimen::tumour_histological_type"
-        }
-      },
-      "title": "Histological Diagnosis Ontology"
-    },
-    "tumor_progression": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "Is the specimen tissue from the primary tumor, a metastasis or a recurrence? Most likely a child term of NCIT:C7062 (Neoplasm by Special Category) NCIT:C3677 (Benign Neoplasm) NCIT:C84509 (Primary Malignant Neoplasm) NCIT:C95606 (Second Primary Malignant Neoplasm) NCIT:C3261 (Metastatic Neoplasm) NCIT:C4813 (Recurrent Malignant Neoplasm)"
-        }
-      },
-      "title": "Tumor Progression Ontology"
-    },
-    "tumor_grade": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "Potentially a child term of NCIT:C28076 (Disease Grade Qualifier) or equivalent See https://www.cancer.gov/about-cancer/diagnosis-staging/prognosis/tumor-grade-fact-sheet"
-        }
-      },
-      "title": "Tumor Grade Ontology"
-    },
-    "pathological_stage": {
-      "properties": {
-        "id": {
-          "type": "string",
-          "pattern": "^\\w[^:]*:.+$",
-          "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-        },
-        "label": {
-          "type": "string",
-          "description": "ARGO mapping specimen::pathological_tumour_staging_system ARGO mapping specimen::pathological_stage_group"
-        }
-      },
-      "title": "Pathological Stage Ontology"
-    },
-    "procedure": {
-      "properties": {
-        "code": {
+    "performed": {
+      "type": "array",
+      "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
+      "items": {
+        "type": "object",
+        "oneOf": [
+        {
           "properties": {
-            "id": {
-              "type": "string",
-              "pattern": "^\\w[^:]*:.+$",
-              "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-            },
-            "label": {
-              "type": "string",
-              "description": "FHIR mapping: Procedure.code"
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
             }
           },
-          "title": "Procedure Code Ontology"
+          "title": "Gestational Age"
         },
-        "body_site": {
-          "properties": {
-            "id": {
-              "type": "string",
-              "pattern": "^\\w[^:]*:.+$",
-              "description": "a CURIE-style identifier e.g. HP:0100024, MP:0001284, UBERON:0001690. This is the primary key for the ontology class REQUIRED!"
-            },
-            "label": {
-              "type": "string",
-              "description": "FHIR mapping: Procedure.bodySite"
-            }
-          },
-          "title": "Body Site Ontology"
-        },
-        "performed": {
+        {
           "properties": {
             "age": {
               "properties": {
                 "iso8601duration": {
                   "type": "string",
-                  "description": "The age of the individual when the procedure was performed. e.g. P40Y10M05D"
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
                 }
               },
-              "title": "Age of the Individual",
-              "description": "The age of the individual this biosample was derived from at the time of collection"
-            },
-            "timestamp": {
-              "type": "string",
-              "format": "date-time",
-              "title": "Time of the procedure",
-              "description": "The time of this procedure was performed"
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
             }
           },
-          "description": "When the procedure was performed."
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
         }
-      },
-      "description": "Clinical procedure performed on the subject in order to extract the biosample. ARGO mapping specimen::specimen_anatomic_location - Procedure::body_site ARGO mapping specimen::specimen_acquisition_interval - Procedure::time_performed"
+      ]
+      }
     }
-  },
-  "additionalProperties": false,
-  "definitions": {
-    "Age": {
+  }
+    },
+    "OntologyClass": {
+      "type": "object",
       "properties": {
-        "iso8601duration": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "ExternalRefarence": {
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Evidence": {
+      "properties": {
+        "evidence_code": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "reference": {
+          "$ref": "#/definitions/ExternalRefarence"
+        }
+      }
+    },
+    "PhenotypicFeature": {
+      "properties": {
+        "description": {
           "type": "string",
-          "description": "The age of the individual as ISO8601 duration or time intervals. e.g. P40Y10M05D"
+          "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
+        },
+        "type": {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "Phenotype Ontology",
+          "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
+        },
+        "excluded": {
+          "type": "boolean",
+          "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
+        },
+        "severity": {
+          "$ref": "#/definitions/OntologyClass",
+          "title": "Severity Ontology",
+          "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
+        },
+        "modifiers": {
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/OntologyClass"
+          },
+          "type": "array",
+          "title": "Clinical Modifiers",
+          "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
+        },
+        "onset": {
+          "$ref": "#/definitions/TimeElement"
+        },
+        "resolution": {
+          "$ref": "#/definitions/TimeElement",
+          "additionalProperties": false,
+          "description": "Age or time at which the feature resolved or abated."
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/definitions/Evidence"
+          },
+          "additionalProperties": false,
+          "type": "array",
+          "description": "Evidences for how the phenotype was determined."
+        }
+      }
+    },
+    "Measurement": {
+      "properties": {
+    "description": {
+      "type": "string",
+      "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc. fields should be used for this purpose."
+    },
+    "assay": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
         }
       },
-      "additionalProperties": false,
+      "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
+    },
+    "value": {
       "type": "object",
-      "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+      "oneOf": [
+        {
+          "title": "OntologyClass",
+          "properties": {
+            "ontology_class": {
+              "description": "TODO: A component: OntologyClass should be a choice. The kind of ontology_class. REQUIRED.",
+              "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+            }
+          }
+        },
+        {
+          "title": "Quantity",
+          "properties": {
+            "quantity": {
+      "properties": {
+        "unit": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
+          "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+        },
+        "reference_range": {
+          "properties": {
+            "unit": {
+              "type": "object",
+              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
+              "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+            },
+            "low": {
+              "description": "lower range of normal. REQUIRED.",
+              "type": "integer"
+            },
+            "high": {
+              "description": "upper range of normal. REQUIRED.",
+              "type": "integer"
+            }
+          },
+          "description": "the normal range for the value",
+          "required": [
+            "unit",
+            "low",
+            "high"
+          ]
+        },
+        "value": {
+          "type": "integer",
+          "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+        }
+      }
+    }
+          }
+        }
+      ]
+    },
+    "complex_value": {
+      "type": "object",
+      "properties": {
+        "typed_quantities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TypedQuantity"
+          }
+        }
+      }
+    },
+    "time_observed": {
+      "$ref": "#/definitions/TimeElement",
+      "description": "The time at which the measurement was made"
+    },
+    "procedure": {
+      "$ref": "#/definitions/Procedure",
+      "description": "Clinical procedure performed on the subject in order to produce the measurement."
+    }
+  }
+    },
+    "ComplexValue": {
+      "properties": {
+        "typed_quantities": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "type": {
+                "type": "object",
+                "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              },
+              "quantity": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "reference_range": {
+                    "properties": {
+                      "unit": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "low": {
+                        "description": "lower range of normal. REQUIRED.",
+                        "type": "integer"
+                      },
+                      "high": {
+                        "description": "upper range of normal. REQUIRED.",
+                        "type": "integer"
+                      }
+                    },
+                    "description": "the normal range for the value",
+                    "required": [
+                      "unit",
+                      "low",
+                      "high"
+                    ]
+                  },
+                  "value": {
+                    "type": "integer",
+                    "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "TypedQuantity": {
+      "properties": {
+        "type": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. OntologyClass to describe the type of the measurement. REQUIRED..",
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "quantity": {
+          "type": "object",
+          "properties": {
+        "unit": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
+          "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+        },
+        "reference_range": {
+          "properties": {
+            "unit": {
+              "type": "object",
+              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
+              "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+            },
+            "low": {
+              "description": "lower range of normal. REQUIRED.",
+              "type": "integer"
+            },
+            "high": {
+              "description": "upper range of normal. REQUIRED.",
+              "type": "integer"
+            }
+          },
+          "description": "the normal range for the value",
+          "required": [
+            "unit",
+            "low",
+            "high"
+          ]
+        },
+        "value": {
+          "type": "integer",
+          "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+        }
+      }
+        }
+      }
+    },
+    "Files": {
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "URI for the file e.g. https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444 or drs://seqslab.net/id",
+          "title": "URI"
+        },
+        "individual_to_file_identifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "title": "Individual",
+                "description": "The values must correspond to the Individual::ID for the individuals in the message."
+              },
+              "value": {
+                "type": "string",
+                "title": "File identifier",
+                "description": "The values must map to the samples in the file."
+              }
+            },
+            "required": [
+              "key",
+              "value"
+            ]
+          },
+          "description": "Map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
+        },
+        "file_attribute": {
+          "type": "array",
+          "description": "A map of attributes pertaining to the file or its contents.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "genomeAssembly": {
+                "type": "string"
+              },
+              "fileFormat": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

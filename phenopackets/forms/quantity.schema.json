@@ -1,0 +1,47 @@
+{
+  "title": "Quantity",
+  "description": "Quantity Component.",
+  "type": "object",
+  "properties": {
+    "unit": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "reference_range": {
+      "properties": {
+        "unit": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "low": {
+          "description": "lower range of normal. REQUIRED.",
+          "type": "integer"
+        },
+        "high": {
+          "description": "upper range of normal. REQUIRED.",
+          "type": "integer"
+        }
+      },
+      "description": "the normal range for the value",
+      "required": ["unit","low","high"]
+    },
+    "value": {
+      "type": "integer",
+      "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+    }
+ },
+  "required": ["unit","value"],
+  "definitions": {
+     "OntologyClass": {
+       "type": "object",
+       "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+   },
+  "additionalProperties": false,
+  "errorMessage": {}
+}

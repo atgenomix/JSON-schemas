@@ -1,0 +1,16 @@
+{
+  "title": "ExternalReference",
+  "description": "ExternalReference Component.",
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "errorMessage": {}
+}

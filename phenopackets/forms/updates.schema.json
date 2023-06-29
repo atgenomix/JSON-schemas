@@ -1,0 +1,20 @@
+{
+  "title": "Updates",
+  "description": "Updates Component.",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated_by": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "errorMessage": {}
+}

@@ -1,76 +1,31 @@
 {
+  "title": "Procedure",
+  "description": "Procedure Component",
   "type": "object",
-  "title": "Phenotypic Feature",
-  "description": "An individual phenotypic feature, observed as either present or absent (negated), with possible onset, modifiers and frequency FHIR mapping: Condition (https://www.hl7.org/fhir/condition.html) or Observation (https://www.hl7.org/fhir/observation.html)",
   "properties": {
-    "description": {
-      "type": "string",
-      "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
+    "code": {
+      "type": "object",
+      "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
+      "$ref": "#/definitions/OntologyClass"
     },
-    "type": {
-      "$ref": "#/definitions/OntologyClass",
-      "title": "Phenotype Ontology",
-      "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
-    },
-    "excluded": {
-      "type": "boolean",
-      "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
-    },
-    "severity": {
-      "$ref": "#/definitions/OntologyClass",
-      "title": "Severity Ontology",
-      "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
-    },
-    "modifiers": {
+    "body_site": {
+      "type": "array",
+      "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
       "items": {
         "type": "object",
         "$ref": "#/definitions/OntologyClass"
-      },
+      }
+    },
+    "performed": {
       "type": "array",
-      "title": "Clinical Modifiers",
-      "description": "Subclasses of HP:0012823. Clinical modifier apart from Severity HP:0012824 - Severity"
-    },
-    "onset": {
-      "$ref": "#/definitions/TimeElement"
-    },
-    "resolution": {
-      "$ref": "#/definitions/TimeElement",
-      "additionalProperties": false,
-      "description": "Age or time at which the feature resolved or abated."
-    },
-    "evidence": {
+      "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
       "items": {
-        "$ref": "#/definitions/Evidence"
-      },
-      "additionalProperties": false,
-      "type": "array",
-      "description": "Evidences for how the phenotype was determined."
+        "$ref": "#/definitions/TimeElement"
+      }
     }
   },
   "additionalProperties": false,
   "definitions": {
-    "Evidence": {
-      "properties": {
-        "evidence_code": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
-          "$ref": "#/definitions/OntologyClass"
-        },
-        "reference": {
-          "$ref": "#/definitions/ExternalRefarence"
-        }
-      }
-    },
-    "ExternalRefarence": {
-      "properties": {
-        "reference": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
-    },
     "OntologyClass": {
       "type": "object",
       "properties": {
@@ -176,5 +131,8 @@
       ],
       "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
     }
-  }
+  },
+  "required": [
+    "code"
+  ]
 }

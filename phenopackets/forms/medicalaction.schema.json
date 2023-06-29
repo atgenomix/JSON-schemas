@@ -1,0 +1,553 @@
+{
+  "title": "MedicalAction",
+  "type": "object",
+  "description": "MedicalAction Component",
+  "oneOf": [
+    {
+      "properties": {
+        "procedure": {
+          "$ref": "#/definitions/Procedure",
+          "title": "Procedure"
+        }
+      }
+    },
+    {
+      "properties": {
+        "treatment": {
+          "$ref": "#/definitions/Treatment",
+          "title": "Treatment"
+        }
+      }
+    },
+    {
+      "properties": {
+        "radiation_therapy": {
+          "$ref": "#/definitions/RadiationTherapy",
+          "title": "RadiationTherapy"
+        }
+      }
+    },
+    {
+      "properties": {
+        "therapeutic_regimen": {
+          "$ref": "#/definitions/TherapeuticRegimen",
+          "title": "TherapeuticRegimen"
+        }
+      }
+    }
+  ],
+  "properties": {
+    "treatment_target": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "treatment_intent": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "response_to_treatment": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "adverse_events": {
+      "items": {
+        "$ref": "#/definitions/OntologyClass"
+      }
+    },
+    "treatment_termination_reason": {
+      "$ref": "#/definitions/OntologyClass"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "OntologyClass": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "TimeElement": {
+      "oneOf": [
+        {
+          "properties": {
+            "gestational_age": {
+              "properties": {
+                "weeks": {
+                  "type": "integer"
+                },
+                "days": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Gestational Age"
+            }
+          },
+          "title": "Gestational Age"
+        },
+        {
+          "properties": {
+            "age": {
+              "properties": {
+                "iso8601duration": {
+                  "type": "string",
+                  "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Age",
+              "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+            }
+          },
+          "title": "Age"
+        },
+        {
+          "properties": {
+            "age_range": {
+              "properties": {
+                "start": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                },
+                "end": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": "Age Range"
+        },
+        {
+          "properties": {
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "title": "Timestamp"
+        },
+        {
+          "properties": {
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "type": "object",
+              "title": "Time Interval"
+            }
+          },
+          "title": "Time Interval"
+        }
+      ],
+      "description": "A TimeElement object describing the age of the individual at the last time of collection. The Age object allows the encoding of the age either as an ISO8601 duration or time interval (preferred), or as an ontology term object. See http://build.fhir.org/datatypes."
+    },
+    "Procedure": {
+      "properties": {
+        "code": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "body_site": {
+          "type": "array",
+          "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "performed": {
+          "type": "array",
+          "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
+          "items": {
+            "$ref": "#/definitions/TimeElement"
+          }
+        }
+      }
+    },
+    "Treatment": {
+      "properties": {
+        "agent": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "route_of_administration": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "dose_intervals": {
+          "properties": {
+            "quantity": {
+              "properties": {
+                "reference_range": {
+                  "properties": {
+                    "unit": {
+                      "$ref": "#/definitions/OntologyClass"
+                    },
+                    "low": {
+                      "type": "integer"
+                    },
+                    "high": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "value": {
+                  "type": "integer"
+                },
+                "unit": {
+                  "$ref": "#/definitions/OntologyClass"
+                }
+              }
+            },
+            "schedule_frequency": {
+              "$ref": "#/definitions/OntologyClass"
+            },
+            "interval": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "end": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        },
+        "drug_type": {
+          "type": "integer",
+          "oneOf": [
+            {
+              "const": 0,
+              "title": "UNKNOWN_DRUG_TYPE"
+            },
+            {
+              "const": 1,
+              "title": "PRESCRIPTION"
+            },
+            {
+              "const": 2,
+              "title": "EHR_MEDICATION_LIST"
+            },
+            {
+              "const": 3,
+              "title": "ADMINISTRATION_RELATED_TO_PROCEDURE"
+            }
+          ]
+        },
+        "cumulative_dose": {
+          "properties": {
+            "reference_range": {
+              "properties": {
+                "unit": {
+                  "$ref": "#/definitions/OntologyClass"
+                },
+                "low": {
+                  "type": "integer"
+                },
+                "high": {
+                  "type": "integer"
+                }
+              }
+            },
+            "value": {
+              "type": "integer"
+            },
+            "unit": {
+              "$ref": "#/definitions/OntologyClass"
+            }
+          }
+        }
+      }
+    },
+    "RadiationTherapy": {
+      "properties": {
+        "modality": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "body_site": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "dosage": {
+          "type": "integer"
+        },
+        "fractions": {
+          "type": "integer"
+        }
+      }
+    },
+    "TherapeuticRegimen": {
+      "oneOf": [
+        {
+          "properties": {
+            "ontology_class": {
+              "$ref": "#/definitions/OntologyClass"
+            }
+          }
+        },
+        {
+          "properties": {
+            "external_reference": {
+              "$ref": "#/definitions/ExternalRefarence"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "start_time": {
+          "oneOf": [
+            {
+              "properties": {
+                "gestational_age": {
+                  "properties": {
+                    "weeks": {
+                      "type": "integer"
+                    },
+                    "days": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": "object",
+                  "title": "Gestational Age"
+                }
+              },
+              "title": "Gestational Age"
+            },
+            {
+              "properties": {
+                "age": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": "object",
+                  "title": "Age",
+                  "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+                }
+              },
+              "title": "Age"
+            },
+            {
+              "properties": {
+                "age_range": {
+                  "properties": {
+                    "start": {
+                      "properties": {
+                        "iso8601duration": {
+                          "type": "string",
+                          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                        }
+                      }
+                    },
+                    "end": {
+                      "properties": {
+                        "iso8601duration": {
+                          "type": "string",
+                          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Age Range"
+            },
+            {
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "title": "Timestamp"
+            },
+            {
+              "properties": {
+                "interval": {
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": "object",
+                  "title": "Time Interval"
+                }
+              },
+              "title": "Time Interval"
+            }
+          ]
+        },
+        "end_time": {
+          "oneOf": [
+            {
+              "properties": {
+                "gestational_age": {
+                  "properties": {
+                    "weeks": {
+                      "type": "integer"
+                    },
+                    "days": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": "object",
+                  "title": "Gestational Age"
+                }
+              },
+              "title": "Gestational Age"
+            },
+            {
+              "properties": {
+                "age": {
+                  "properties": {
+                    "iso8601duration": {
+                      "type": "string",
+                      "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": "object",
+                  "title": "Age",
+                  "description": "See http://build.fhir.org/datatypes and http://build.fhir.org/condition-definitions.html#Condition.onset_x_. In FHIR, this is represented as a UCUM measurement - http://unitsofmeasure.org/trac/."
+                }
+              },
+              "title": "Age"
+            },
+            {
+              "properties": {
+                "age_range": {
+                  "properties": {
+                    "start": {
+                      "properties": {
+                        "iso8601duration": {
+                          "type": "string",
+                          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                        }
+                      }
+                    },
+                    "end": {
+                      "properties": {
+                        "iso8601duration": {
+                          "type": "string",
+                          "description": "The age of this individual as ISO8601 duration or time intervals (e.g., P40Y10M05D)."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Age Range"
+            },
+            {
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "title": "Timestamp"
+            },
+            {
+              "properties": {
+                "interval": {
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": "object",
+                  "title": "Time Interval"
+                }
+              },
+              "title": "Time Interval"
+            }
+          ]
+        },
+        "regimen_status": {
+          "type": "integer",
+          "oneOf": [
+            {
+              "const": 0,
+              "title": "UNKNOWN_STATUS"
+            },
+            {
+              "const": 1,
+              "title": "STARTED"
+            },
+            {
+              "const": 2,
+              "title": "COMPLETED"
+            },
+            {
+              "const": 3,
+              "title": "DISCONTINUED"
+            }
+          ]
+        }
+      }
+    },
+    "ExternalRefarence": {
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

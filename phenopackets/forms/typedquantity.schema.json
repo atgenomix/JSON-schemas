@@ -1,0 +1,64 @@
+{
+  "title": "TypedQuantity",
+  "description": "TypeQuantity component",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "object",
+      "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "quantity": {
+      "type": "object",
+      "$ref": "#/definitions/Quantity"
+    }
+  },
+  "definitions": {
+    "Quantity": {
+      "properties": {
+        "unit": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "reference_range": {
+          "properties": {
+            "unit": {
+              "$ref": "#/definitions/OntologyClass"
+            },
+            "low": {
+              "description": "lower range of normal. REQUIRED.",
+              "type": "integer"
+            },
+            "high": {
+              "description": "upper range of normal. REQUIRED.",
+              "type": "integer"
+            }
+          },
+          "description": "the normal range for the value",
+          "required": [
+            "unit",
+            "low",
+            "high"
+          ]
+        },
+        "value": {
+          "type": "integer",
+          "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+        }
+      }
+    },
+    "OntologyClass": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label":{
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "quantity"
+  ]
+}

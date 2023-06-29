@@ -3,15 +3,15 @@
   "elements": [
     {
       "type": "Control",
-      "scope": "#/properties/uri"
+      "scope": "#/properties/code"
     },
     {
       "type": "Control",
-      "scope": "#/properties/individual_to_file_identifiers"
+      "scope": "#/properties/body_site"
     },
     {
       "type": "Control",
-      "scope": "#/properties/file_attribute"
+      "scope": "#/properties/performed"
     }
   ]
 }

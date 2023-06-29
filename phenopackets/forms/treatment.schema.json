@@ -1,0 +1,114 @@
+{
+  "title": "Treatment",
+  "type": "object",
+  "description": "Treatment Component",
+  "properties": {
+    "agent": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "route_of_administration": {
+      "$ref": "#/definitions/OntologyClass"
+    },
+    "dose_intervals": {
+      "properties": {
+        "quantity": {
+          "properties": {
+            "reference_range": {
+              "properties": {
+                "unit": {
+                  "$ref": "#/definitions/OntologyClass"
+                },
+                "low": {
+                  "type": "integer"
+                },
+                "high": {
+                  "type": "integer"
+                }
+              }
+            },
+            "value": {
+              "type": "integer"
+            },
+            "unit": {
+              "$ref": "#/definitions/OntologyClass"
+            }
+          }
+        },
+        "schedule_frequency": {
+          "$ref": "#/definitions/OntologyClass"
+        },
+        "interval": {
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      }
+    },
+    "drug_type": {
+      "type": "integer",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "UNKNOWN_DRUG_TYPE"
+        },
+        {
+          "const": 1,
+          "title": "PRESCRIPTION"
+        },
+        {
+          "const": 2,
+          "title": "EHR_MEDICATION_LIST"
+        },
+        {
+          "const": 3,
+          "title": "ADMINISTRATION_RELATED_TO_PROCEDURE"
+        }
+      ]
+    },
+    "cumulative_dose": {
+          "properties": {
+            "reference_range": {
+              "properties": {
+                "unit": {
+                  "$ref": "#/definitions/OntologyClass"
+                },
+                "low": {
+                  "type": "integer"
+                },
+                "high": {
+                  "type": "integer"
+                }
+              }
+            },
+            "value": {
+              "type": "integer"
+            },
+            "unit": {
+              "$ref": "#/definitions/OntologyClass"
+            }
+          }
+        }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "OntologyClass": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,81 @@
+{
+  "title": "ComplexValue",
+  "description": "ComplexValue Component",
+  "type": "object",
+  "properties": {
+    "typed_quantities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TypedQuantity"
+      }
+    }
+  },
+  "definitions": {
+    "TypedQuantity": {
+      "properties": {
+        "type": {
+          "type": "object",
+          "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "quantity": {
+          "type": "object",
+          "properties": {
+            "unit": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              }
+            },
+            "reference_range": {
+              "properties": {
+                "unit": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "low": {
+                  "description": "lower range of normal. REQUIRED.",
+                  "type": "integer"
+                },
+                "high": {
+                  "description": "upper range of normal. REQUIRED.",
+                  "type": "integer"
+                }
+              },
+              "description": "the normal range for the value",
+              "required": [
+                "unit",
+                "low",
+                "high"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "code"
+  ]
+}
