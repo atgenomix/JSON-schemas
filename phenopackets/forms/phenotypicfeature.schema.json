@@ -8,16 +8,7 @@
       "description": "Free-text description of the phenotype. Note that this is not an acceptable place to document/describe the phenotype. The type, onset, and other such fields should be used for this purpose."
     },
     "type": {
-      "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Phenotype Ontology",
       "description": "The primary ontology class which describes the phenotype. For example, \"HP:0001363\"  \"Craniosynostosis\" FHIR mapping: Condition.identifier"
     },
@@ -26,32 +17,14 @@
       "title": "Excluded. Indicate whether or not the phenotype was observed. Default is 'false'; namely, the phenotype was observed."
     },
     "severity": {
-      "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ],
+      "$ref": "#/definitions/OntologyClass",
       "title": "Severity Ontology",
       "description": "Severity of the condition (e.g., subclasses of HP:0012824-Severity or SNOMED:272141005-Severities) FHIR mapping: Condition.severity"
     },
     "modifiers": {
       "items": {
         "type": "object",
-        "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+        "$ref": "#/definitions/OntologyClass"
       },
       "type": "array",
       "title": "Clinical Modifiers",
@@ -81,16 +54,7 @@
         "evidence_code": {
           "type": "object",
           "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+          "$ref": "#/definitions/OntologyClass"
         },
         "reference": {
           "$ref": "#/definitions/ExternalRefarence"
@@ -108,8 +72,12 @@
       }
     },
     "OntologyClass": {
+      "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
