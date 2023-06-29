@@ -7,7 +7,7 @@
       "title": "OntologyClass",
       "properties": {
         "ontology_class": {
-          "$ref": "#/definitions/Choice"
+          "$ref": "#/definitions/OntologyClass"
         }
       }
     },
@@ -26,6 +26,9 @@
       "properties": {
         "id": {
           "type": "string"
+        },
+        "label": {
+          "type": "string"
         }
       }
     },
@@ -33,29 +36,29 @@
       "properties": {
         "unit": {
           "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-          "oneOf": [{
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice1"
-          },
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice2"
-          }]
+          "description": "The kind of unit. REQUIRED.",
+          "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
         },
         "reference_range": {
           "properties": {
             "unit": {
               "type": "object",
-              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-              "oneOf": [{
-                "$ref": "#/definitions/OntologyClass",
-                "title": "choice1"
-              },
-              {
-                "$ref": "#/definitions/OntologyClass",
-                "title": "choice2"
-              }]
+              "description": "The kind of unit. REQUIRED.",
+              "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
             },
             "low": {
               "description": "lower range of normal. REQUIRED.",
@@ -74,19 +77,7 @@
           "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
         }
       }
-    },
-    "Choice": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-          "oneOf": [{
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice1"
-          },
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice2"
-          }]
-        }
+    }
   },
   "required": [
     "code"
