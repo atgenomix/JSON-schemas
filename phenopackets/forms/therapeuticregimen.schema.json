@@ -6,16 +6,7 @@
     {
       "properties": {
           "ontology_class": {
-            "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+            "$ref": "#/definitions/OntologyClass"
           }
       }
     },
@@ -69,6 +60,9 @@
       "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
