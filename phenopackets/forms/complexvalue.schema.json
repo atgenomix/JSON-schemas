@@ -6,8 +6,8 @@
     "typed_quantities": {
       "type": "array",
       "items": {
-          "$ref": "#/definitions/TypedQuantity"
-        }
+        "$ref": "#/definitions/TypedQuantity"
+      }
     }
   },
   "definitions": {
@@ -15,82 +15,62 @@
       "properties": {
         "type": {
           "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. OntologyClass to describe the type of the measurement. REQUIRED..",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
+          "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+          "properties": {
+            "id": {
+              "type": "string"
             },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
+            "label": {
+              "type": "string"
             }
-          ]
+          }
         },
         "quantity": {
           "type": "object",
-          "$ref": "#/definitions/Quantity"
-        }
-      }
-    },
-    "Quantity": {
-      "properties": {
-        "unit": {
-        "type": "object",
-        "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-        "oneOf": [
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice1"
-          },
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice2"
-          }
-        ]
-      },
-        "reference_range": {
           "properties": {
             "unit": {
-              "type": "object",
-              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice1"
+              "properties": {
+                "id": {
+                  "type": "string"
                 },
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice2"
+                "label": {
+                  "type": "string"
                 }
+              }
+            },
+            "reference_range": {
+              "properties": {
+                "unit": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "low": {
+                  "description": "lower range of normal. REQUIRED.",
+                  "type": "integer"
+                },
+                "high": {
+                  "description": "upper range of normal. REQUIRED.",
+                  "type": "integer"
+                }
+              },
+              "description": "the normal range for the value",
+              "required": [
+                "unit",
+                "low",
+                "high"
               ]
             },
-            "low": {
-              "description": "lower range of normal. REQUIRED.",
-              "type": "integer"
-            },
-            "high": {
-              "description": "upper range of normal. REQUIRED.",
-              "type": "integer"
+            "value": {
+              "type": "integer",
+              "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
             }
-          },
-          "description": "the normal range for the value",
-          "required": [
-            "unit",
-            "low",
-            "high"
-          ]
-        },
-        "value": {
-          "type": "integer",
-          "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
-        }
-      }
-    },
-    "OntologyClass": {
-      "properties": {
-        "id": {
-          "type": "string"
+          }
         }
       }
     }
