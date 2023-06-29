@@ -4,28 +4,10 @@
   "description": "Treatment Component",
   "properties": {
     "agent": {
-      "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+      "$ref": "#/definitions/OntologyClass"
     },
     "route_of_administration": {
-      "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+      "$ref": "#/definitions/OntologyClass"
     },
     "dose_intervals": {
       "properties": {
@@ -34,16 +16,7 @@
             "reference_range": {
               "properties": {
                 "unit": {
-                  "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+                  "$ref": "#/definitions/OntologyClass"
                 },
                 "low": {
                   "type": "integer"
@@ -57,30 +30,12 @@
               "type": "integer"
             },
             "unit": {
-              "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+              "$ref": "#/definitions/OntologyClass"
             }
           }
         },
         "schedule_frequency": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+          "$ref": "#/definitions/OntologyClass"
         },
         "interval": {
           "properties": {
@@ -122,16 +77,7 @@
             "reference_range": {
               "properties": {
                 "unit": {
-                  "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+                  "$ref": "#/definitions/OntologyClass"
                 },
                 "low": {
                   "type": "integer"
@@ -145,16 +91,7 @@
               "type": "integer"
             },
             "unit": {
-              "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
-            }
-          ]
+              "$ref": "#/definitions/OntologyClass"
             }
           }
         }
@@ -165,6 +102,9 @@
       "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
