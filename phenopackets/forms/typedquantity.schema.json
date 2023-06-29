@@ -5,17 +5,8 @@
   "properties": {
     "type": {
       "type": "object",
-      "description": "TODO: A component: OntologyClass should be a choice. OntologyClass to describe the type of the measurement. REQUIRED..",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ]
+      "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+      "$ref": "#/definitions/OntologyClass"
     },
     "quantity": {
       "type": "object",
@@ -26,34 +17,12 @@
     "Quantity": {
       "properties": {
         "unit": {
-        "type": "object",
-        "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-        "oneOf": [
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice1"
-          },
-          {
-            "$ref": "#/definitions/OntologyClass",
-            "title": "choice2"
-          }
-        ]
-      },
+          "$ref": "#/definitions/OntologyClass"
+        },
         "reference_range": {
           "properties": {
             "unit": {
-              "type": "object",
-              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice1"
-                },
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice2"
-                }
-              ]
+              "$ref": "#/definitions/OntologyClass"
             },
             "low": {
               "description": "lower range of normal. REQUIRED.",
@@ -80,6 +49,9 @@
     "OntologyClass": {
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label":{
           "type": "string"
         }
       }

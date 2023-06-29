@@ -7,7 +7,24 @@
     },
     {
       "type": "Control",
-      "scope": "#/properties/quantity"
+      "scope": "#/properties/quantity/properties/unit"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/quantity/properties/value"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity/properties/reference_range"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity/properties/reference_range/properties/unit"
+        }
+      ]
     }
   ]
 }
