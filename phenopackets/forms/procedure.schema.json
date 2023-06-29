@@ -6,25 +6,14 @@
     "code": {
       "type": "object",
       "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
-      "oneOf": [{
-        "$ref": "#/definitions/OntologyClass",
-        "title": "choice1"
-      },
-      {
-        "$ref": "#/definitions/OntologyClass",
-        "title": "choice2"
-      }]
+      "$ref": "#/definitions/OntologyClass"
     },
     "body_site": {
       "type": "array",
       "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
       "items": {
         "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/definitions/OntologyClass/properties/id"
-          }
-        }
+        "$ref": "#/definitions/OntologyClass"
       }
     },
     "performed": {
@@ -38,8 +27,12 @@
   "additionalProperties": false,
   "definitions": {
     "OntologyClass": {
+      "type": "object",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }

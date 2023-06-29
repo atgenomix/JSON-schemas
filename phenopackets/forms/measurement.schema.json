@@ -8,16 +8,7 @@
       "description": "Free-text description of the feature. Note this is not a acceptable place to document/describe the phenotype - the type and onset etc. fields should be used for this purpose."
     },
     "assay": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ],
+      "$ref": "#/definitions/OntologyClass",
       "description": "An ontology class which describes the assay used to produce the measurement. For example \"body temperature\" (CMO:0000015) or \"Platelets [#/volume] in Blood\" (LOINC:26515-7) FHIR mapping: Observation.code"
     },
     "value": {
@@ -43,36 +34,77 @@
         "typed_quantities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/TypedQuantity"
-          }
-        }
-      }
-    },
-    "TypedQuantity": {
-      "properties": {
-        "type": {
-          "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. OntologyClass to describe the type of the measurement. REQUIRED..",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
-            },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
+            "properties": {
+              "type": {
+                "type": "object",
+                "description": "OntologyClass to describe the type of the measurement. REQUIRED..",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              },
+              "quantity": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "reference_range": {
+                    "properties": {
+                      "unit": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "low": {
+                        "description": "lower range of normal. REQUIRED.",
+                        "type": "integer"
+                      },
+                      "high": {
+                        "description": "upper range of normal. REQUIRED.",
+                        "type": "integer"
+                      }
+                    },
+                    "description": "the normal range for the value",
+                    "required": [
+                      "unit",
+                      "low",
+                      "high"
+                    ]
+                  },
+                  "value": {
+                    "type": "integer",
+                    "description": "the value of the quantity in the units e.g. 2.0 mg. REQUIRED"
+                  }
+                }
+              }
             }
-          ]
-        },
-        "quantity": {
-          "type": "object",
-          "$ref": "#/definitions/Quantity"
+          }
         }
       }
     },
     "OntologyClass": {
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
@@ -81,33 +113,29 @@
       "properties": {
         "unit": {
           "type": "object",
-          "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice1"
+          "description": "The kind of unit. REQUIRED.",
+          "properties": {
+            "id": {
+              "type": "string"
             },
-            {
-              "$ref": "#/definitions/OntologyClass",
-              "title": "choice2"
+            "label": {
+              "type": "string"
             }
-          ]
+          }
         },
         "reference_range": {
           "properties": {
             "unit": {
               "type": "object",
-              "description": "TODO: A component: OntologyClass should be a choice. The kind of unit. REQUIRED.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice1"
+              "description": "The kind of unit. REQUIRED.",
+              "properties": {
+                "id": {
+                  "type": "string"
                 },
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice2"
+                "label": {
+                  "type": "string"
                 }
-              ]
+              }
             },
             "low": {
               "description": "lower range of normal. REQUIRED.",
@@ -137,17 +165,7 @@
           "title": "OntologyClass",
           "properties": {
             "ontology_class": {
-              "description": "TODO: A component: OntologyClass should be a choice. The kind of ontology_class. REQUIRED.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice1"
-                },
-                {
-                  "$ref": "#/definitions/OntologyClass",
-                  "title": "choice2"
-                }
-              ]
+              "$ref": "#/definitions/OntologyClass"
             }
           }
         },
@@ -257,38 +275,41 @@
     },
     "Procedure": {
       "properties": {
-    "code": {
-      "type": "object",
-      "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
-      "oneOf": [{
-        "$ref": "#/definitions/OntologyClass",
-        "title": "choice1"
-      },
-      {
-        "$ref": "#/definitions/OntologyClass",
-        "title": "choice2"
-      }]
-    },
-    "body_site": {
-      "type": "array",
-      "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "#/definitions/OntologyClass/properties/id"
+        "code": {
+          "type": "object",
+          "description": "TODO: A component: OntologyClass should be a choice. clinical procedure performed. REQUIRED.",
+          "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+        },
+        "body_site": {
+          "type": "array",
+          "description": "TODO: A component: OntologyClass should be a choice. specific body site where the procedure was performed.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "performed": {
+          "type": "array",
+          "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
+          "items": {
+            "$ref": "#/definitions/TimeElement"
           }
         }
       }
-    },
-    "performed": {
-      "type": "array",
-      "description": "TODO: A component: TimeElement. age/time when the procedure was performed.",
-      "items": {
-        "$ref": "#/definitions/TimeElement"
-      }
-    }
-  }
     }
   }
 }
