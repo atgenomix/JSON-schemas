@@ -4,51 +4,51 @@
   "type": "object",
   "properties": {
     "acmg_pathogenicity_classification": {
-      "type": "integer",
-      "oneOf": [
-        {
-          "const": 0,
-          "title": "NOT_PROVIDED"
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "NOT_PROVIDED",
+              "title": "NOT_PROVIDED"
+            },
+            {
+              "const": "BENIGN",
+              "title": "BENIGN"
+            },
+            {
+              "const": "LIKELY_BENIGN",
+              "title": "LIKELY_BENIGN"
+            },
+            {
+              "const": "UNCERTAIN_SIGNIFICANCE",
+              "title": "UNCERTAIN_SIGNIFICANCE"
+            },
+            {
+              "const": "LIKELY_PATHOGENIC",
+              "title": "LIKELY_PATHOGENIC"
+            },
+            {
+              "const": "PATHOGENIC",
+              "title": "PATHOGENIC"
+            }
+          ]
         },
-        {
-          "const": 1,
-          "title": "BENIGN"
-        },
-        {
-          "const": 2,
-          "title": "LIKELY_BENIGN"
-        },
-        {
-          "const": 3,
-          "title": "UNCERTAIN_SIGNIFICANCE"
-        },
-        {
-          "const": 4,
-          "title": "LIKELY_PATHOGENIC"
-        },
-        {
-          "const": 5,
-          "title": "PATHOGENIC"
-        }
-      ]
-    },
     "therapeutic_actionability": {
-      "type": "integer",
-      "oneOf": [
-        {
-          "const": 0,
-          "title": "UNKNOWN_ACTIONABILITY"
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "UNKNOWN_ACTIONABILITY",
+              "title": "UNKNOWN_ACTIONABILITY"
+            },
+            {
+              "const": "NOT_ACTIONABLE",
+              "title": "NOT_ACTIONABLE"
+            },
+            {
+              "const": "ACTIONABLE",
+              "title": "ACTIONABLE"
+            }
+          ]
         },
-        {
-          "const": 1,
-          "title": "NOT_ACTIONABLE"
-        },
-        {
-          "const": 2,
-          "title": "ACTIONABLE"
-        }
-      ]
-    },
     "variation_descriptor": {
       "$ref": "#/definitions/VariationDescriptor"
     }
@@ -65,48 +65,6 @@
           "type": "string"
         }
       }
-    },
-    "GeneDescriptor": {
-      "properties": {
-    "value_id": {
-      "type": "string",
-      "title": "Gene Identifier",
-      "description": "The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071."
-    },
-    "symbol": {
-      "type": "string",
-      "title": "Gene Symbol",
-      "description": "The primary gene symbol. Takes the place of the label field in a generic descriptor."
-    },
-    "description": {
-      "type": "string",
-      "description": "A free-text description of this gene context."
-    },
-    "alternate_ids": {
-      "items": {
-        "type": "string",
-        "description": "Alternate IDs (should be CURIE) for the same gene context."
-      },
-      "type": "array",
-      "title": "Alternate Identifiers"
-    },
-    "alternate_symbols": {
-      "items": {
-        "type": "string",
-        "description": "Alternate symbols (should be CURIE) for the same gene context."
-      },
-      "type": "array",
-      "title": "Alternate Symbols"
-    },
-    "xrefs": {
-      "items": {
-        "type": "string",
-        "description": "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs."
-      },
-      "type": "array",
-      "title": "External References"
-    }
-  }
     },
     "VariationDescriptor": {
       "properties": {
@@ -2319,7 +2277,46 @@
       "type": "string"
     },
     "gene_context": {
-      "$ref": "#/definitions/GeneDescriptor"
+      "properties": {
+    "value_id": {
+      "type": "string",
+      "title": "Gene Identifier",
+      "description": "The official gene identifier as designated by the organism gene nomenclature committee e.g. HGNC:3477 or MGI:2385071."
+    },
+    "symbol": {
+      "type": "string",
+      "title": "Gene Symbol",
+      "description": "The primary gene symbol. Takes the place of the label field in a generic descriptor."
+    },
+    "description": {
+      "type": "string",
+      "description": "A free-text description of this gene context."
+    },
+    "alternate_ids": {
+      "items": {
+        "type": "string",
+        "description": "Alternate IDs (should be CURIE) for the same gene context."
+      },
+      "type": "array",
+      "title": "Alternate Identifiers"
+    },
+    "alternate_symbols": {
+      "items": {
+        "type": "string",
+        "description": "Alternate symbols (should be CURIE) for the same gene context."
+      },
+      "type": "array",
+      "title": "Alternate Symbols"
+    },
+    "xrefs": {
+      "items": {
+        "type": "string",
+        "description": "Related concept IDs (e.g. gene ortholog IDs) may be placed in xrefs."
+      },
+      "type": "array",
+      "title": "External References"
+    }
+  }
     },
     "expressions": {
       "type": "array",
