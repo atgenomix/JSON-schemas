@@ -5,17 +5,7 @@
   "properties": {
     "evidence_code": {
       "type": "object",
-      "description": "TODO: A component: OntologyClass should be a choice. REQUIRED..",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice1"
-        },
-        {
-          "$ref": "#/definitions/OntologyClass",
-          "title": "choice2"
-        }
-      ]
+      "$ref": "#/definitions/OntologyClass"
     },
     "reference": {
       "$ref": "#/definitions/ExternalRefarence"
@@ -35,6 +25,9 @@
     "OntologyClass": {
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "label": {
           "type": "string"
         }
       }
