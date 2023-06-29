@@ -4,17 +4,7 @@
     {
       "type": "Control",
       "label": "TimeElement",
-      "scope": "#/properties/timestamp"
-   },
-    {
-      "type": "Control",
-      "label": "TimeElement",
-      "scope": "#/properties/updated_by"
-   },
-    {
-      "type": "Control",
-      "label": "TimeElement",
-      "scope": "#/properties/comment"
+      "scope": "#"
    }
   ]
  }
