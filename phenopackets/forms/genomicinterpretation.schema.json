@@ -34,6 +34,9 @@
       ],
       "type": "string",
       "title": "Interpretation Status"
+    },
+    "files": {
+      "$ref": "#/definitions/Files"
     }
   },
   "description": "A statement about the contribution of a genomic element towards the observed phenotype. Note that this does not intend to encode any knowledge or results of specific computations.",
@@ -2984,6 +2987,56 @@
           "type": "string"
         }
       }
+    },
+    "Files": {
+      "properties": {
+    "uri": {
+      "type": "string",
+      "description": "URI for the file e.g. https://opensnp.org/data/60.23andme-exome-vcf.231?1341012444 or drs://seqslab.net/id",
+      "title": "URI"
+    },
+    "individual_to_file_identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Individual",
+            "description": "The values must correspond to the Individual::ID for the individuals in the message."
+          },
+          "value": {
+            "type": "string",
+            "title": "File identifier",
+            "description": "The values must map to the samples in the file."
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ]
+      },
+      "description": "Map of identifiers mapping an individual to a sample in the file. The key values must correspond to the Individual::id for the individuals in the message, the values must map to the samples in the file."
+    },
+    "file_attribute": {
+      "type": "array",
+      "description": "A map of attributes pertaining to the file or its contents.",
+      "items": {
+        "type": "object",
+        "properties": {
+        "genomeAssembly": {
+          "type": "string"
+        },
+        "fileFormat": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+      }
+    }
+  }
     }
   }
 }
