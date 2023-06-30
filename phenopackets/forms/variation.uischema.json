@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Control",
-      "scope": "#/properties/variation_set",
+      "scope": "#",
       "options": {
       }
     }
