@@ -112,6 +112,76 @@
               "scope": "#/properties/meta_data"
             }
           ]
+        },
+        {
+          "type": "Category",
+          "label": "files",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/files"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Diseases",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/diseases"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Interpretations",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/interpretations"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Medical Actions",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/medical_actions"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Phenotypic Features",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/phenotypic_features"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Measurements",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/measurements"
+            }
+          ]
+        },
+        {
+          "type": "Category",
+          "label": "Biosamples",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/biosamples"
+            }
+          ]
         }
       ]
     }
