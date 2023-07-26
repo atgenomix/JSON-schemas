@@ -3,6 +3,11 @@
   "elements": [
     {
       "type": "Control",
+      "label": "priority",
+      "scope": "#/properties/priority"
+   },
+    {
+      "type": "Control",
       "label": "Submitted_by",
       "scope": "#/properties/submitted_by"
    },

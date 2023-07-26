@@ -3,6 +3,20 @@
   "description": "MetaData Component.",
   "type": "object",
   "properties": {
+    "priority": {
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "routine",
+          "title": "一般件"
+        },
+        {
+          "const": "urgent",
+          "title": "急件"
+        }
+      ],
+      "default": "routine"
+    },
     "submitted_by": {
       "type": "string"
     },
@@ -56,7 +70,7 @@
     },
     "created": {
       "type": "string",
-      "format": "date"
+      "format": "date-time"
     },
     "created_by": {
       "type": "string"
